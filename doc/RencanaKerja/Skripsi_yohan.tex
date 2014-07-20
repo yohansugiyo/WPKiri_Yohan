@@ -1,0 +1,150 @@
+%Penting! Tanya pa pascal mengenai Estimasi Waktu
+% Yg belum masuk dokumen ini jarak travel menggunakan sarana transportasi publik
+
+\documentclass[a4paper,twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[bahasa]{babel}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{float}
+\usepackage[cm]{fullpage}
+\pagestyle{myheadings}
+\usepackage{etoolbox}
+\usepackage{setspace}
+\usepackage{lipsum} 
+\usepackage{footnote}
+\usepackage{hyperref}
+\makesavenoteenv{tabular}
+\usepackage{perpage} %the perpage package
+\MakePerPage{footnote} %the perpage package command
+\setlength{\headsep}{30pt}
+\usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2.5cm]{geometry} %margin
+% \pagestyle{empty}
+
+\makeatletter
+\renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
+\renewcommand{\thispagestyle}[1]{}
+\markright{\textbf{\textsc{AIF401 \textemdash Rencana Kerja \textemdash Sem. Ganjil 2014/2015}}}
+
+\onehalfspacing
+ 
+\begin{document}
+
+\title{\@judultopik}
+\author{\nama \textendash \@npm} 
+
+%tulis nama dan NPM anda di sini:
+\newcommand{\nama}{Yohan}
+\newcommand{\@npm}{2011730048}
+\newcommand{\@judultopik}{Pencari Rute Kendaraan Umum untuk Windows Phone} % Judul/topik anda
+\newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
+\newcommand{\tanggal}{08/06/2014}
+\maketitle
+
+\pagenumbering{arabic}
+
+\section{Deskripsi}
+% deskripsi windows phone, deskripsi kiri, apa yg bakal dibuat
+Windows Phone adalah keluarga sistem operasi mobile yang dikembangkan oleh Microsoft. Bahasa pemrograman yang digunakan untuk membuat aplikasi di Windows Phone adalah bahasa C\#. Untuk tampilan Windows Phone mengusung desain moderen yang Microsoft sebut metro. Windows Phone pertama kali diperkenalkan Oktober 2014 dengan nama Windows Phone 7. Versi kedua untuk Windows Phone adalah windows phone 8 yang diperkenalkan Oktober 2012 dan menyusul Windows Phone 8.1 pada April 2014.\footnotemark[1]
+%kutipan mengenai windows phone
+\footnotetext[1]{\url{en.wikipedia.org/wiki/Windows_Phone}}
+%versi ng usah
+
+Kiri merupakan aplikasi yang membantu pengguna dalam memilih rute angkutan umum. Kiri memiliki misi untuk memecahkan tiga masalah besar di kota besar: kemacetan lalu lintas, polusi udara, dan melambungnya harga dan subsidi BBM.\footnotemark[2] Saat ini program kiri dapat digunakan untuk mencari rute kendaraan di 2 kota besar yaitu Jakarta dan Bandung. Prinsip kiri mudah dipahami yaitu kamu cukup beritahu dari mana dan mau kemana lalu Kiri akan memberikan jawabannya.
+%kutipan mengenai kiri
+\footnotetext[2]{\url{http://kiri.travel/static/about.php?locale=id}}
+
+Aplikasi yang saya buat di Windows Phone 8 menggunakan bahasa C\#. Aplikasi yang saya buat mengharuskan pengguna untuk melakukan input posisi pengguna dan tujuan pengguna. Untuk jenis input posisi sendiri ada 2 jenis dengan mengetikan nama tempat atau jalan dan menunjuk langsung di peta. Setelah itu dari 2 input yaitu posisi awal dan tujuan pengguna akan di proses dengan memanfaatkan kiri API. Hasil dari proses dengan 2 input tersebut adalah langkah-langkah bagaimana pengguna beranjak dari posisi awal hingga menuju tempat tujuan menggunakan sarana kendaraan umum. Hasil keluaran yang dihasilkan pun ada 2 jenis yang pertama berbentuk daftar dan yang kedua berbentuk peta. Untuk jenis pertama yang daftar akan berisi jarak dan harus naik kendaraan apa. Sedangkan cara ke 2 ditampilkan di peta berupa garis dari posisi awal ke tujuan, keterangan jarak, dan kendaraan yang harus digunakan. Selanjutnya juga pengguna dapat mengetahui jarak yang sudah pengguna tempuh menggunakan kendaraan umum.
+
+\section{Rumusan Masalah}
+Berdasarkan deskripsi tersebut penulis akan memaparkan beberapa rumusan masalah terkait masalah diatas.
+\begin{itemize}
+	\item Bagaimana membuat aplikasi di Windows Phone?
+	\item Bagaimana mengintegrasikan kiri API dengan aplikasi pencari rute kendaraan umum di Windows Phone?
+	\item Bagaimana menampilkan iklan di Windows Phone?
+\end{itemize}
+
+\section{Tujuan}
+\begin{itemize}
+	\item Membuat aplikasi pencarian rute kendaraan umum di Windows Phone.
+	\item Membuat aplikasi di di Windows Phone yang memanfaatkan kiri API.
+	\item Memungkinkan pemasangan iklan.
+\end{itemize}
+\section{Deskripsi Perangkat Lunak}
+Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
+\begin{itemize}
+	\item Pengguna dapat melakukan input untuk
+	\begin{itemize}
+		\item nama jalan
+		\item nama tempat
+	\end{itemize}
+	%nama jalan atau tempat dan sistem secara otomatis akan memberikan sugesti nama jalan atau tempat sesuai masukan pengguna.
+	\item Pengguna dapat memilih tempat tujuan dengan menunjuk langsung pada peta.
+	\item Pengguna dapat menunjuk langsung lokasi dimana dia berada.
+	\item PL dapat menampilkan rute angkutan umum mana yang harus dipilih beserta estimasi waktu dalam dua bentuk, yaitu:
+	\begin{itemize}
+		\item berbentuk daftar
+		\item berbentuk peta
+	\end{itemize}
+	\item Pengguna dapat mengetahui sudah seberapa jauh dia melakukan perjalanan menggunakan kendaraan umum.
+	\item PL akan menampilkan iklan.
+\end{itemize}
+
+\section{Rencana Kerja}
+	Rencana Kerja untuk menyelesaikan skripsi ini:
+	\begin{itemize}
+		\item Pada saat mengambil kuliah AIF401 Skripsi 1
+		\begin{enumerate}
+			\item Melakukan studi literatur pemrograman aplikasi bergerak di windows phone menggunakan bahasa C\# dan kiri API.
+			\item Mempelajari mengenai User Interface yang baik pada perangkat bergerak.
+			\item Merancang aplikasi di windows phone.			
+			\item Melakukan pengimplementasian kiri API dengan aplikasi Pencarian Rute Kendaraan Umum di Windows Phone.
+			\item Menyelesaikan dokumentasi skripsi sampai bab 4.
+		\end{enumerate}
+	\end{itemize}
+	\begin{itemize}
+		\item Pada saat mengambil kuliah AIF402 Skripsi 2
+		\begin{enumerate}
+			\item Pengimplementasian aplikasi perncarian rute kendaraan umum di windows phone.
+			\item Melakukan pengujian.
+			\item Menyelesaikan dokumentasi skripsi.
+		\end{enumerate}
+	\end{itemize}
+	
+\section{Isi Progress Report Skripsi 1}
+Isi dari Progress Report Skripsi 1 yang akan diselesaikan paling lambat tanggal 30 Movember 2014:
+\begin{enumerate}
+	\item Melakukan studi literatur pemrograman aplikasi bergerak di windows phone menggunakan bahasa C\# dan kiri API.
+	\item Mempelajari mengenai User Interface yang baik pada perangkat bergerak.
+	\item Merancang aplikasi di windows phone.			
+	\item Melakukan pengimplementasian kiri API dengan aplikasi Pencarian Rute Kendaraan Umum di Windows Phone.
+	\item Menyelesaikan dokumentasi skripsi sampai bab 4.
+\end{enumerate}	
+
+\vspace{1.5cm}
+
+\centering Bandung, \tanggal\\
+\vspace{2cm} \nama \\ 
+\vspace{1cm}
+
+Menyetujui, \\
+\ifdefstring{\jumpemb}{2}{
+\vspace{1.5cm}
+\begin{centering} Menyetujui,\\ \end{centering} \vspace{0.75cm}
+\begin{minipage}[b]{0.45\linewidth}
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013 \\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Utama
+\end{minipage} \hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Pendamping
+\end{minipage}
+\vspace{0.5cm}
+}{
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Tunggal
+}
+`
+\end{document}
+% buku windows phone, web service, user ex in phone
+

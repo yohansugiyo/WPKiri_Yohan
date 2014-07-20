@@ -1,0 +1,117 @@
+\chapter{Dasar Teori}
+\label{chap:teori}
+Bab ini berisi dasar teori dari pembangunan Aplikasi Pencarian Rute Kendaraan Umum untuk Windows Phone. Beberapa teori yang dibahas dalam bab ini  adalah Kiri API, Web Service, Menampilkan Peta, Penggunaan \textit{Global Positioning System} di Windows Phone, dan antarmuka perangkat lunak yang dibuat. 
+
+% Windows Phone
+\section{Windows Phone}
+\label{sec:Windows Phone}
+\hspace{0.5cm} Sub bab ini akan membahas pemrograman di Windows Phone. Pembahasan akan dimulai dengan apa itu Windows Phone dan fitur di Windows Phone yang akan digunakan dalam pembangunan perangkat lunak Pencarian Rute Kendaraan di Windows Phone. 
+
+% SUB Mengenai Windows Phone
+\subsection{Mengenai Windows Phone}
+\label{subsec:Mengenai Windows Phone}
+\hspace{0.5cm} Windows Phone merupakan sistem operasi untuk perangkat bergerak yang dikembangkan Microsoft.\footnotemark[1] Untuk mengembangkan aplikasi Windows Phone dibutuhkan Windows Desktop 8 sebagai media pengembangan. Bahasa pemrograman yang digunakan untuk membuat perangkat lunak di Windows Phone yaitu C\#.  
+%kutipan mengenai windows phone
+\footnotetext[1]{\url{en.wikipedia.org/wiki/Windows_Phone}}
+
+% SUB Mengenai Phone Control
+\subsection{Phone Control}
+\label{subsec:Phone Control}
+
+% SUB Mengenai Navigation
+\subsection{Navigation}
+\label{subsec:Navigation}
+
+% SUB Mengenai Lifecycle
+\subsection{Lifecycle Windows Phone}
+\label{subsec:Lifecycle Windows Phone}
+
+% SUB Peta di Windows Phone
+\subsection{Peta di Windows Phone}
+\label{subsec:Peta di Windows Phone}
+
+% SUB Global Positioning System di Windows Phone
+\subsection{Global Positioning System (GPS) di Windows Phone}
+\label{subsec:Global Positioning System (GPS) di Windows Phone}
+
+%Kiri API
+\section{Kiri API}
+\label{sec:Kiri API}
+\hspace{0.5cm} Sub bab ini akan membahas Dokumentasi dari Kiri API. Pembahasan dimulai dengan pengantar dari Kiri API dan \textit{Web Service}.
+
+% SUB Pengantar Kiri API
+\subsection{Pengantar Kiri API}
+\label{subsec:Pengantar Kiri API}
+\hspace{0.5cm} Pemanfaatan Kiri API adalah menggunakan \textit{Web Service}. Hal ini memungkinkan pengaksesan dimana saja dengan menggunakan koneksi internet. Pemanfaatan Kiri API cukup dengan melakuan \textit{request} dengan parameter dan Kiri akan mengembalikan hasil dalam format JSON. Untuk setiap \textit{request} membutuhkan \textit{API key} yang didapat dengan mendaftar\footnotemark[2]. 
+%kutipan mengenai kiri
+\footnotetext[2]{\url{https://bitbucket.org/projectkiri/kiri_api/wiki/KIRI\% 20API\% 20v2\% 20Documentation}}
+
+% SUB Routing Web Service
+\subsection{Routing Web Service}
+\label{subsec:Routing Web Service}
+\hspace{0.5cm} Routing Web Service merupakan Kiri API yang digunakan untuk mendapatkan langkah perjalanan dari lokasi asal ke lokasi tujuan.
+
+Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
+
+\begin{tabular}{ |l| |l| |l| }
+	\hline
+  version & 2 & Tell service to use version 2 protocol \\ \hline
+  mode & “findroute” & Instruct service to find the route \\ \hline
+  locale & "en" or "id" & The language to be used for response \\ \hline
+	start & lat,lng (both are decimal values) & Latitude and longitude of the start point \\ \hline
+  finish & lat,lng (both are decimal values) & Latitude and longitude of the finish point \\ \hline
+  presentation & "mobile" or "desktop" & \vtop{\hbox{\strut Determines presentation type for the result.}\hbox{\strut For example, if presentation is mobile, }\hbox{\strut a "tel:" link will be added to the step result.}} \\ \hline
+	apikey & 16-digit hexadecimals & Your API key \\ \hline
+	\hline
+\end{tabular}
+
+\vspace{5mm}
+Berikut format Kiri API \textit{responds}:
+
+\begin{lstlisting}
+{ 
+    "status": "ok" or "error" 
+    "routingresults": [ 
+        \{
+            "steps": [
+                [
+                    "walk" or "none" or others,
+                    "walk" or vehicle_id or "none",
+                    ["lat_1,lon_1", "lan_2,lon_2", ... "lat_n,lon_n"],
+                    "human readable description, dependant on locale",
+                    URL for ticket booking or null (future)
+                ],
+                [
+                    "walk" or "none" or others,
+                    "walk" or vehicle_id or "none",
+                    ["lat_1,lon_1", "lan_2,lon_2", ... "lat_n,lon_n"],
+                    "human readable description, dependant on locale",
+                    URL for ticket booking or null (future)
+                ]
+            ],
+            "traveltime": any text string, null if and only if route is not found.
+        } ,
+        {
+            "steps": [ ... ],
+            "traveltime": "..."
+        } ,
+        {
+            "steps": [ ... ],
+            "traveltime": "..."
+        } ,
+        ...     
+    ]
+}
+\end{lstlisting}
+ 	 	
+% SUB Web Service Pencarian Lokasi
+\subsection{Web Service Pencarian Lokasi}
+\label{subsec:Pencarian Lokasi Service}
+
+% SUB Web Service Memilih Transportasi Terdekat
+\subsection{Web Service Memilih Transportasi Terdekat}
+\label{subsec:Service Memilih Transportasi Terdekat}
+
+% SUB Web Service Memilih Transportasi Terdekat
+\subsection{Web Service Memilih Transportasi Terdekat}
+\label{subsec:Service Memilih Transportasi Terdekat}
