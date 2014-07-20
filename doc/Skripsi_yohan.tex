@@ -1,0 +1,138 @@
+\documentclass[a4paper,twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[bahasa]{babel}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{float}
+\usepackage[cm]{fullpage}
+\pagestyle{myheadings}
+\usepackage{etoolbox}
+\usepackage{setspace}
+\usepackage{lipsum} 
+\setlength{\headsep}{30pt}
+\usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2.5cm]{geometry} %margin
+% \pagestyle{empty}
+
+\makeatletter
+\renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
+\renewcommand{\thispagestyle}[1]{}
+\markright{\textbf{\textsc{AIF401 \textemdash Rencana Kerja \textemdash Sem. Ganjil 2014/2015}}}
+
+\onehalfspacing
+ 
+\begin{document}
+
+\title{\@judultopik}
+\author{\nama \textendash \@npm} 
+
+%tulis nama dan NPM anda di sini:
+\newcommand{\nama}{Yohan}
+\newcommand{\@npm}{2011730048}
+\newcommand{\@judultopik}{Pencari Rute Kendaraan Umum untuk Windows Phone} % Judul/topik anda
+\newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
+\newcommand{\tanggal}{08/06/2014}
+\maketitle
+
+\pagenumbering{arabic}
+
+\section{Deskripsi}
+% deskripsi windows phone, deskripsi kiri, apa yg bakal dibuat
+Windows Phone adalah keluarga sistem operasi perangkat bergerak yang dikembangkan oleh Microsoft. Windows Phone diprosgram dalam bahasa C. Untuk tampilan windows phone mengusung desain moderen yang microsoft sebut metro. Windows Phone pertama kali diperkenalkan Oktober 2014 dengan nama Windows Phone 7. Versi terbaru untuk windows phone adalah windows phone 8.1 yang diperkenalkan April 2014.
+%Banyaknya angkutan umum membuat orang-orang sering lupa rute setiap angkutan umum tersebut. Padahal setiap harinya orang-orang membutuhkan angkutan umum untuk bepergian. Maka dari itu diperlukan perangkat lunak yang memudahkan dalam pencarian rute angkutan umum tersebut. Selain itu dalam mencari rute bisa dimana saja maka pencarian yang paling efektif yaitu melalui perangkat bergerak. Salah satu perangkat bergerak yang banyak digunakan di Indonesia adalah windows phone.
+
+Kiri merupakan aplikasi yang membantu pengguna dalam memilih rute angkutan umum. Kiri memiliki misi untuk memecahkan tiga masalah besar di kota besar: kemacetan lalu lintas, polusi udara, dan melambungnya harga dan subsidi BBM. Saat ini program kiri dapat digunakan untuk mencari rute kendaraan di 2 kota besar yaitu Jakarta dan Bandung.
+
+Untuk pencarian lokasi biasanya bisa nama jalan dan nama tempat. Pengguna akan mengisi tempat dia berada dan tujuan. Setelah itu sistem akan mengeluarkan rute-rute angkutan umum yang harus diikuti pengguna. Pada penelitian ini penulis akan melakukan penelitian antarmuka yang memudahkan pengguna dalam memakai perangkat lunak tersebut. Untuk pencarian angkutan umum akan memanfaatkan kiri API yang sudah tersedia. Peran dari Kiri dalam kasus ini sangat sederhana: pengguna cukup memberitahukan dari mana dan ingin kemana selanjutnya kiri akan memberi tahu caranya. 
+
+\section{Rumusan Masalah}
+Berdasarkan deskripsi tersebut penulis akan memaparkan beberapa rumusan masalah terkait masalah diatas.
+\begin{itemize}
+	\item Bagaimana membuat aplikasi di windows phone?
+	\item Bagaimana menghubungkan kiri API dengan windows phone?
+	\item Bagaimana menampilkan iklan di windows phone?
+\end{itemize}
+
+\section{Tujuan}
+\begin{itemize}
+	\item Membuat aplikasi pencarian rute kendaraan umum di windows phone.
+	\item Membuat aplikasi di di windows phone yang memanfaatkan kiri API.
+	\item Memungkinkan pemasangan iklan yang dapat menghasilkan uang.
+\end{itemize}
+
+\section{Deskripsi Perangkat Lunak}
+Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
+\begin{itemize}
+	\item Pengguna dapat melakukan input untuk
+	\begin{itemize}
+		\item nama jalan
+		\item nama tempat
+	\end{itemize}
+	%nama jalan atau tempat dan sistem secara otomatis akan memberikan sugesti nama jalan atau tempat sesuai masukan pengguna.
+	\item Pengguna dapat memilih tempat tujuan dengan menunjuk langsung pada peta.
+	\item Pengguna dapat menunjuk langsung lokasi dimana dia berada.
+	\item PL dapat menampilkan rute angkutan umum mana yang harus dipilih beserta estimasi waktu dalam dua bentuk, yaitu:
+	\begin{itemize}
+		\item berbentuk daftar
+		\item berbentuk peta
+	\end{itemize}
+	\item PL akan menampilkan iklan.
+\end{itemize}
+
+\section{Rencana Kerja}
+	Rencana Kerja untuk menyelesaikan skripsi ini:
+	\begin{itemize}
+		\item Pada saat mengambil kuliah AIF401 Skripsi 1
+		\begin{enumerate}
+			\item Melakukan studi literatur tentang pemrograman aplikasi bergerak di windows phone.
+			\item Melakukan studi literatur tentang kiri API.
+			\item Mempelajari mengenai User Interface yang baik pada perangkat bergerak.
+			\item Merancang aplikasi di windows phone.
+			\item Menyelesaikan dokumentasi skripsi sampai bab 3.
+		\end{enumerate}
+	\end{itemize}
+	\begin{itemize}
+		\item Pada saat mengambil kuliah AIF402 Skripsi 2
+		\begin{enumerate}
+			\item Merancangan dan pengimplementasian kiri di windows phone.
+			\item Pengimplementasian iklan.
+			\item Melakukan pengujian.
+			\item Menyelesaikan dokumentasi skripsi.
+		\end{enumerate}
+	\end{itemize}
+	
+\section{Isi Progress Report Skripsi 1}
+Isi dari Progress Report Skripsi 1 yang akan diselesaikan paling lambat tanggal 30 Movember 2014:
+\begin{enumerate}
+	\item Dapat membuat aplikasi bergerak di windows phone.
+	\item Mengetahui kiri API yang dapat dimanfaatkan untuk skripsi ini.
+	\item Membuat user interface yang baik untuk aplikasi kiri di windows phone.
+	\item Menyelesaikan dokumentasi skripsi sampai bab 4.
+\end{enumerate}	
+
+\vspace{1.5cm}
+
+\centering Bandung, \tanggal\\
+\vspace{2cm} \nama \\ 
+\vspace{1cm}
+
+Menyetujui, \\
+\ifdefstring{\jumpemb}{2}{
+\vspace{1.5cm}
+\begin{centering} Menyetujui,\\ \end{centering} \vspace{0.75cm}
+\begin{minipage}[b]{0.45\linewidth}
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013 \\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Utama
+\end{minipage} \hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Pendamping
+\end{minipage}
+\vspace{0.5cm}
+}{
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Tunggal
+}
+`
+\end{document}
+% buku windows phone, web service, user ex in phone
+
