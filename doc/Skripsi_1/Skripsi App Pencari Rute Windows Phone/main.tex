@@ -53,7 +53,7 @@
 
 %setup.tex
 \documentclass[11pt,a4paper,twoside,openright,notitlepage]{report} 
-
+\setcounter{secnumdepth}{5}
 \usepackage[bahasa]{babel} %bahasa indonesia
 \usepackage[T1]{fontenc}  %encoding
 % \usepackage{mathptmx}
@@ -493,8 +493,16 @@ Atas pernyataan ini, saya siap menanggung segala risiko dan sanksi yang dijatuhk
 %\ifdefstring{\vbabh}{1}{\include{Bab/bab8}}{}
 %\ifdefstring{\vbabi}{1}{\include{Bab/bab9}}{}
 
-\bibliographystyle{ieeetr}
-\bibliography{pustaka}
+%\bibliographystyle{ieeetr}
+%\bibliography{pustaka}
+
+\begin{thebibliography}{1}
+
+  \bibitem{Manning} Manning, Paul  {\em Pro Windows Phone App Development} 2013: Apress.
+
+	\bibitem{Szostak} Szostak, Tomasz  {\em Windows Phone 8 Application Development Essentials} 2013: PACKT.
+
+\end{thebibliography}
 
 \appendix
 \apptoc

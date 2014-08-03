@@ -1,0 +1,14 @@
+*.tmp 
+*.aux
+*.bbl
+*.blg
+*.log
+*.lot
+*.out
+*.ps
+*.synctex
+*.toc
+*.dvi
+*.lof
+*.jpg
+*.png
