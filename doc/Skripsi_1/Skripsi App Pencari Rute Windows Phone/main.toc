@@ -14,33 +14,30 @@
 \contentsline {section}{\numberline {1.8}Sistematika Penulisan}{3}{section.1.8}
 \contentsline {chapter}{\numberline {2}Dasar Teori}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Windows Phone}{5}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Phone Control}{5}{subsection.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.1.1}Tata Letak}{5}{subsubsection.2.1.1.1}
-\contentsline {subsubsection}{\numberline {2.1.1.2}Tombol Kontrol}{6}{subsubsection.2.1.1.2}
-\contentsline {subsubsection}{\numberline {2.1.1.3}Kontrol Masukan}{6}{subsubsection.2.1.1.3}
-\contentsline {paragraph}{\numberline {2.1.1.3.1}TextBox}{7}{paragraph.2.1.1.3.1}
-\contentsline {paragraph}{\numberline {2.1.1.3.2}ListPicker}{7}{paragraph.2.1.1.3.2}
-\contentsline {subsection}{\numberline {2.1.2}Navigation}{8}{subsection.2.1.2}
-\contentsline {subsubsection}{\numberline {2.1.2.1}Navigasi Antar Halaman}{8}{subsubsection.2.1.2.1}
-\contentsline {paragraph}{\numberline {2.1.2.1.1}Frame Aplikasi}{8}{paragraph.2.1.2.1.1}
-\contentsline {paragraph}{\numberline {2.1.2.1.2}Page Aplikasi}{8}{paragraph.2.1.2.1.2}
-\contentsline {paragraph}{\numberline {2.1.2.1.3}Layanan Navigasi}{10}{paragraph.2.1.2.1.3}
-\contentsline {subsubsection}{\numberline {2.1.2.2}Navigasi ke URIs Eksternal}{10}{subsubsection.2.1.2.2}
-\contentsline {subsection}{\numberline {2.1.3}Lifecycle Windows Phone}{10}{subsection.2.1.3}
-\contentsline {subsubsection}{\numberline {2.1.3.1}Penyimpanan dan Pengembalian Keadaan Aplikasi}{10}{subsubsection.2.1.3.1}
-\contentsline {subsection}{\numberline {2.1.4}Peta di Windows Phone}{11}{subsection.2.1.4}
-\contentsline {subsubsection}{\numberline {2.1.4.1}Penambahan Maps Ke Aplikasi}{11}{subsubsection.2.1.4.1}
-\contentsline {subsubsection}{\numberline {2.1.4.2}Posisi Pada Peta}{11}{subsubsection.2.1.4.2}
-\contentsline {subsubsection}{\numberline {2.1.4.3}Penambahan Pushpins ke Peta}{12}{subsubsection.2.1.4.3}
-\contentsline {subsubsection}{\numberline {2.1.4.4}Mendapatkan Posisi Pengguna}{13}{subsubsection.2.1.4.4}
-\contentsline {subsubsection}{\numberline {2.1.4.5}Arah}{15}{subsubsection.2.1.4.5}
-\contentsline {subsection}{\numberline {2.1.5}Memanfaatkan Sumber Data}{16}{subsection.2.1.5}
-\contentsline {subsubsection}{\numberline {2.1.5.1}Serializing Object}{16}{subsubsection.2.1.5.1}
-\contentsline {subsubsection}{\numberline {2.1.5.2}Memanfaatkan Sumber Data Web}{16}{subsubsection.2.1.5.2}
-\contentsline {section}{\numberline {2.2}Kiri API}{18}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Pengantar Kiri API}{18}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Routing Web Service}{18}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.1.1}Lingkungan Kerja}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}XAML}{6}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Kontrol terhadap Ponsel}{6}{subsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.3.1}Navigasi}{6}{subsubsection.2.1.3.1}
+\contentsline {subsubsection}{\numberline {2.1.3.2}Kontrol Tata Letak}{7}{subsubsection.2.1.3.2}
+\contentsline {subsubsection}{\numberline {2.1.3.3}Kontrol Terhadap Teks}{7}{subsubsection.2.1.3.3}
+\contentsline {subsubsection}{\numberline {2.1.3.4}Tombol dan Kontrol Pilihan}{8}{subsubsection.2.1.3.4}
+\contentsline {subsubsection}{\numberline {2.1.3.5}Kontrol Daftar}{8}{subsubsection.2.1.3.5}
+\contentsline {subsubsection}{\numberline {2.1.3.6}Gambar, Peta, dan Media}{9}{subsubsection.2.1.3.6}
+\contentsline {subsection}{\numberline {2.1.4}Lifecycle Windows Phone}{9}{subsection.2.1.4}
+\contentsline {subsubsection}{\numberline {2.1.4.1}Penyimpanan dan Pengembalian Keadaan Aplikasi}{10}{subsubsection.2.1.4.1}
+\contentsline {subsection}{\numberline {2.1.5}Peta di Windows Phone}{10}{subsection.2.1.5}
+\contentsline {subsubsection}{\numberline {2.1.5.1}Penambahan Maps Ke Aplikasi}{10}{subsubsection.2.1.5.1}
+\contentsline {subsubsection}{\numberline {2.1.5.2}Posisi Pada Peta}{11}{subsubsection.2.1.5.2}
+\contentsline {subsubsection}{\numberline {2.1.5.3}Penambahan Pushpins ke Peta}{11}{subsubsection.2.1.5.3}
+\contentsline {subsubsection}{\numberline {2.1.5.4}Mendapatkan Posisi Pengguna}{12}{subsubsection.2.1.5.4}
+\contentsline {subsubsection}{\numberline {2.1.5.5}Arah}{14}{subsubsection.2.1.5.5}
+\contentsline {subsection}{\numberline {2.1.6}Memanfaatkan Sumber Data}{15}{subsection.2.1.6}
+\contentsline {subsubsection}{\numberline {2.1.6.1}Serializing Object}{15}{subsubsection.2.1.6.1}
+\contentsline {subsubsection}{\numberline {2.1.6.2}Memanfaatkan Sumber Data Web}{15}{subsubsection.2.1.6.2}
+\contentsline {section}{\numberline {2.2}Kiri API}{17}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Pengantar Kiri API}{17}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Routing Web Service}{17}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Web Service Pencarian Lokasi}{19}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}Web Service Menemukan Transportasi Terdekat}{20}{subsection.2.2.4}
-\contentsline {chapter}{Daftar Referensi}{23}{chapter*.5}
+\contentsline {chapter}{Daftar Referensi}{21}{chapter*.5}
 \renewcommand {\cftchappresnum }{\bf \scshape }

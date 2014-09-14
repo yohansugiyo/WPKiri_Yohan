@@ -7,155 +7,42 @@ Bab ini berisi dasar teori dari pembangunan Aplikasi Pencarian Rute Kendaraan Um
 \label{sec:Windows Phone}
 \hspace{0.5cm} Sub bab ini akan membahas pemrograman di Windows Phone. Pembahasan akan dimulai dengan apa itu Windows Phone dan fitur di Windows Phone yang akan digunakan dalam pembangunan perangkat lunak Pencarian Rute Kendaraan di Windows Phone. 
 
-Windows Phone merupakan sistem operasi untuk perangkat bergerak yang dikembangkan Microsoft.\footnotemark[1] Untuk mengembangkan aplikasi Windows Phone dibutuhkan Windows Desktop 8 sebagai media pengembangan. Bahasa pemrograman yang digunakan untuk membuat perangkat lunak di Windows Phone yaitu C\#.  
+Windows Phone merupakan sistem operasi untuk perangkat bergerak yang dikembangkan Microsoft.\footnotemark[1] Untuk mengembangkan aplikasi Windows Phone dibutuhkan Windows Desktop 8 sebagai media pengembangan. Bahasa pemrograman yang digunakan untuk membuat perangkat lunak di Windows Phone yaitu C\# dan Visual Basic.  
 %kutipan mengenai windows phone
 \footnotetext[1]{\url{en.wikipedia.org/wiki/Windows_Phone}}
 
-% SUB Mengenai Phone Control
-\subsection{Phone Control}
-\label{subsec:Phone Control}
-\hspace{0.5cm} Phone Control merupakan blok bangunan dari antarmuka aplikasi. Windows Phone 8 menyediakan banyak set untuk hal ini dari tombol, kontrol masukan untuk mendapatkan informasi sampai ke menu. 
+% Lingkungan Kerja
+\subsection{Lingkungan Kerja}
+\label{subsec:Lingkungan Kerja}
+\hspace{0.5cm} Microsoft .NET framework merupakan sebuah perangkat lunak yang dibangun untuk membantu dalam pembangunan aplikasi di Windows, Windows Phone, Windows Server, and Microsoft Azure\footnotemark[2]. Ini terdiri dari runtime bahasa umum dan perpustakaan kelas NET Framework, yang meliputi kelas, interface, dan jenis nilai yang mendukung berbagai teknologi. NET Framework menyediakan lingkungan yang mudah dikelola, pengembangan disederhanakan dan penyebaran, dan integrasi dengan berbagai bahasa pemrograman, termasuk Visual Basic dan Visual C\#.
+\hspace{0.5cm} Seperti yang telah disebutkan ada dua bahasa pemrograman dalam .NET Framework yang dipakai dalam pembangunan aplikasi di Windows Phone 8 yaitu Visual Basic dan Visual C\#. Untuk masalah kehandalan keduanya menawarkan kehandalan yang baik. Kelebihan dari Visual Basic adalah bahasa pemrograman berorientasi objek yang kuat dan memiliki banyak pengenbangan fitur di inheritance, polymorphism, interfaces, and overloading\footnotemark[3].Kelebihan dari C\# yang merupakan pengembangan dari C/C++ adalah sederhana, modern, aman dan berorientasi objek\footnotemark[4]. Satu hal yang dirasakan penulis adalah kenyamanan ketika memilih bahasa .NET tersebut. Akan lebih mudah bagi developer yang menggunakan Visual Basic 6.0  untuk menggunakan Visual Basic .NET. Tetapi bagi  deveoper yang menggunakan C++ atau java sebelumnya akan lebih mudah menggunakan C\#.
+%kutipan mengenai .NET
+\footnotetext[2]{\url{http://msdn.microsoft.com/en-us/library/vstudio/w0x726c2\%28v=vs.110\%29}}
+\footnotetext[3]{\url{http://msdn.microsoft.com/en-us/library/aa903378\%28v=vs.71\%29.aspx}}
+\footnotetext[4]{\url{http://msdn.microsoft.com/en-us/library/aa287558\%28v=vs.71\%29.aspx}}
 
-% SUB SUB Mengenai Tata Letak
-\subsubsection{Tata Letak}
-\label{subsubsec:Tata Letak}
-
-\hspace{0.5cm} Ada 3 objek yang dipakai untuk menangani Tata Letak yaitu Grid, StackPane, dan Canvas. Perlu diperhatikan bahwa setiap halaman hanya memiliki satu Tata Letak.
-
+% SUB Mengenai XAML
+\subsection{XAML}
+\label{subsec:XAML}
+\hspace{0.5cm} Extensible Application Markup Language (XAML) merupakan bahasa deklaratif yang dipakai untuk membuat antarmuka aplikasi. XAML merupakan bahasa yang digunakan untuk membuat antarmuka di Windows Phone 8. Pada dasarnya penggunaan XAML sama dengan HTML pada pembuatan antarmuka web. XAML dapat menginisialisasi objek dan mengatur properti untuk menunjukan hubungan antar objek.
+\hspace{0.5cm} Untuk aturan penulisan sintak XAML didasarkan pada XML. Setiap XAML Windows Runtime menggunakan konvensi XAML language dan ditulis pada \textit{namespace} yang ditandai dengan prefix x sebagai elemen paling atas. Setelah itu di baris ke dua dimulai dengan xmlns diikuti titik dua, lalu nama dari \textit{namespace}, diikuti tanda sama dengan dan \textit{path} perepresentasian \textit{namespace}.
+Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan yaitu :
 \begin{itemize}
-	\item Grid memposisikan elemen di baris dan kolom dari sel.
-	\item StackPanel memposisikan element di jajaran horizontal atau vertical.
-	\item Canvas memposiskan elemen sebagai absolut kordinat.
-\end{itemize}
-	
-% SUB SUB Mengenai Tombol Kontrol
-\subsubsection{Tombol Kontrol}
-\label{subsubsec:Tombol Kontrol}
-\hspace{0.5cm} Windows Phone 8 telah menyiapkan berbagai tombol yang dibutuhkan yaitu radio, check boxes, hyperlink dan repeat. Berikut tombol-tombol yang tersedia dalam bentuk kelas diagram.
+	\item x:Key : sebuah nama unik untuk menunjuk referensi ke suatu resource atau berkas lain. Nilai ini dapat dipanggil kembali untuk menggunakan resource tersebut.
+	\item x:Class : menunjukkan nama kelas.
+	\item x:Name : menunjukkan nama sebuah obyek dan untuk membedakan antar obyek yang satu dengan obyek yang lain.
+	\item x:Uid : mengidentifikasi elemen objek dalam XAML. Objek elemen merupakan objek yang dapat melakukan kontrol terhadap kelas atau elemen lain yang ditampilkan di desain anarmuka.
+\end{itemize}	
 
-\begin{figure}[h]
-	\centering
-		\includegraphics[scale=0.5]{Gambar/button_class_diagram.jpg}
-	\caption{Kelas Diagram Button}
-	\label{fig:button_class_diagram}
-\end{figure}
+% SUB Mengenai Kontrol terhadap Ponsel
+\subsection{Kontrol terhadap Ponsel}
+\label{subsec:Kontrol terhadap Ponsel}
+\hspace{0.5cm} Kontrol terhadap ponsel yang dimaksudkan disini adalah pengaturan tata letak terhadap antarmuka di Windows Phone. Windows Phone 8 menyediakan banyak set kontrol yaitu tata letak, tombol, kontrol masukan untuk mendapatkan informasi sampai ke menu. 
 
-\begin{lstlisting} [caption= Pemanggilan Search dengan Click]
-	private void ClickButton_Click(object sender, RoutedEventArgs e)
-	{
-		SearchTask searchTask = new SearchTask();
-		searchTask.SearchQuery = "Windows Phone 8";
-		searchTask.Show();
-	}
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Perintah Pemanggilan Search]
-	public class SearchCommand : ICommand
-	{
-		public bool CanExecute(object parameter)
-		{
-			return true;
-		}
-		public event EventHandler CanExecuteChanged;
-		public void Execute(object parameter)
-		{
-			SearchTask searchTask = new SearchTask();
-			searchTask.SearchQuery = "Windows Phone 8";
-			searchTask.Show();
-		}
-	}
-\end{lstlisting}
-
-\begin{lstlisting} [caption= XAML Kode untuk Event Click dan Perintah]
-	<Button Content="Fire Click" Click="button1_Click" />
-	
-	<Button Content="Fire Command" Command="{StaticResource SearchCommand}" />
-\end{lstlisting}
-	
-% SUB SUB Mengenai Kontrol Masukan
-\subsubsection{Kontrol Masukan}
-\label{subsubsec:Kontrol Masukan}
-\hspace{0.5cm} Semua input merupakan turunan dari kontrol, kelas yang memperkenalkan ControlTemplate yang mendefinisikan penampilan.
-
-% SUB SUB SUB TextBox
-\paragraph{TextBox}
-\label{subsubsec:TextBox}
-merupakan tempat masukan untuk data. Data dimasukan ketika keyboard muncul. Banyak properti yang bisa diatur dari sebuah TextBox mulai panjang maksimum hingga tata letak hingga \textit{alighment}.
-
-\begin{lstlisting} [caption= Kode Untuk TextBox]
-	<TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="150"
-Text="This is text that will appear on several lines. This will also handle carriage returns." />
-\end{lstlisting}
-
-\begin{figure}[h]
-	\centering
-		\includegraphics{Gambar/textbox.jpg}
-	\caption{TextBox}
-	\label{fig:textbox}
-\end{figure}
-
-% SUB SUB SUB ListPicker
-\paragraph{ListPicker}
-\label{subsubsec:ListPicker}
-\vspace{0.5cm}
-mirip dengan ComboBox untuk menampilkan beberapa item dan dapat dipilih salah satunya. Untuk tampilan ListPicker dapat ditampilkan dalam beberapa mode yaitu item yang dipilih yang ditampilkan, semua item ditampilkan di halaman baru, dan \textit{popup}.
-
-\begin{figure}[h]
-	\centering
-		\includegraphics[scale=0.5]{Gambar/listpicker.jpg}
-	\caption{Memilih dari ListPicker}
-	\label{fig:listpicker}
-\end{figure}
-
-\begin{lstlisting} [caption= ListPicker di XAML]
-	<toolkit:ListPicker x:Name="RegionPicker">
-		<toolkit:ListPickerItem Content="North America" />
-		<toolkit:ListPickerItem Content="Asia" />
-		<toolkit:ListPickerItem Content="Europe" />
-	</toolkit:ListPicker>
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Mendefinisikan ListPicker dengan Kode]
-	RegionPicker.Items.Add(new ListPickerItem()
-	{
-		Content = "North America",
-		Tag = 123
-	});
-	RegionPicker.Items.Add(new ListPickerItem()
-	{
-		Content = "Asia",
-		Tag = 456
-	});
-	RegionPicker.Items.Add(new ListPickerItem()
-	{
-		Content = "Europe",
-		Tag = 789
-	});
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Pengambilan Data ListPicker]
-	<toolkit:ListPicker x:Name="RegionPicker"
-		ItemsSource="{StaticResource Regions}" >
-		<toolkit:ListPicker.ItemTemplate>
-			<DataTemplate>
-				<StackPanel Orientation="Horizontal">
-					<TextBlock Text="{Binding Id}" Margin="5"
-						Style="{StaticResource PhoneTextSubtleStyle}" />
-					<TextBlock Text="{Binding RegionName}" Margin="5"/>
-				</StackPanel>
-			</DataTemplate>
-		</toolkit:ListPicker.ItemTemplate>
-	</toolkit:ListPicker>
-\end{lstlisting}
-
-% SUB Mengenai Navigation
-\subsection{Navigation}
-\label{subsec:Navigation}
-\hspace{0.5cm} Ada tiga pilihan untuk bepergian di Windows Phone: dalam halaman, antara halaman, dan URIs eksternal. Navigasi antara halman yang digunakan untuk perbedaan pandang seperti Panorama dan Pivot. Navigasi antara halaman menggunakan framework navigasi. 
-
-% SUB SUB Navigasi Antar Halaman
-\subsubsection{Navigasi Antar Halaman}
-\label{subsubsec:Navigasi Antar Halaman}
+% SUB SUB Navigasi
+\subsubsection{Navigasi}
+\label{subsubsec:Navigasi}
+\hspace{0.5cm} Aplikasi yang dibuat di Windows Phone didasarkan pada model halaman. Maksud dari model halaman adalah pengguna berpindah dari satu halaman ke halaman lain dengan konten yang berbeda-beda dengan frame sebagai pengontrolnya. Setiap antarmuka aplikasi dibungkus dengan frame. Frame inilah yang melakukan kontrol terhadap aplikasi dan memungkinkan berpindah dari satu halaman ke halaman lain. Sedangkan halaman merupakan pembungkus dari elemen di dalamnya saja. Untuk lebih jelas mengenai frame, halaman dan area konten dapat dilihat pada gambar di bawah ini.
 
 \begin{figure}[h]
 	\centering
@@ -164,92 +51,78 @@ mirip dengan ComboBox untuk menampilkan beberapa item dan dapat dipilih salah sa
 	\label{fig:nav_hierarchy}
 \end{figure}
 
-% SUB SUB SUB Frame Aplikasi
-\paragraph{Frame Aplikasi}
-\label{subsubsec:Frame Aplikasi}
-merupakan penampung terluar di hirarki kontrol untuk Windows Phone 8. Frame aplikasi ini mendukun navigasi antara halaman. Navigasi ke halaman yang lain akan menetapkan halaman yang baru sebagai frame.
 
-\begin{lstlisting} [caption= Navigasi dengan Frame]
-	private void PhoneAppFrame_Click(object sender, RoutedEventArgs e)
-	{
-		App.RootFrame.Navigate(new Uri("/SecondPage.xaml", UriKind.Relative));
-	}
-\end{lstlisting}
+% SUB SUB Mengenai Tata Letak
+\subsubsection{Kontrol Tata Letak}
+\label{subsubsec:Kontrol Tata Letak}
+\hspace{0.5cm} Kontrol Tata Letak merupakan penampung pada antarmuka Windows Phone untuk objek di antarmuka dan kontrol yang lain (tombol radio, textbox, dan lai-lain). Kontrol tata letak digunakan untuk meletakan objek-objek di layar. Ketika pertama membuat aplikasi Windows Phone maka tata letak dasar sebagai penampung akan langsung dibuat berikut panel judul dan panel konten. Selanjutnya untuk penambahan kontrol tata letak yang lain dapat ditambahkan di panel konten.
 
-% SUB SUB SUB Page Aplikasi
-\paragraph{Page Aplikasi}
-\label{subsubsec:Page Aplikasi}
-dapat dibedakan menjadi 4 yaitu OnFragmentNavigation, OnNavigationForm, OnNavigatedFrom, dan OnNavigatedTo. Berikut penjelasan dan contoh kodenya:
+
+\hspace{0.5cm} Ada 3 macam panel yang dipakai untuk menangani Tata Letak yaitu Grid, StackPane, dan Canvas. Perlu diperhatikan bahwa setiap halaman hanya memiliki satu macam panel. Berikut 3 macam panel di Windows Phone:
 
 \begin{itemize}
-	\item OnFragmentNavigation: Fragment merupakan bagian URI yang diikuti tanda "\#" dan dipakai untuk memberikan detail antar halaman. Pada kode dibawah menunjukan navigasi ke halaman dua sambil memberikan fragment string "detail".
+	\item StackPanel merupakan panel yang memposisikan element menjadi 1 baris dan beberapa elemen di setiap halaman diposisikan horizontal atau vertical saja.
+	\item Grid merupakan panel yang mendukung tata letak yang rumit. Panel ini memposisikan elemen di baris dan kolom mana saja di setiap halaman.
+	\item Canvas memposiskan elemen sebagai absolut kordinat. Jadi setiap elemen di dalam Canvas dapat diposisikan spesifik sesuai kordinat x dan y.
+\end{itemize}
 	
-	\begin{lstlisting} [caption= Halaman Utama melewati fragment ke lamana kedua]
-		private void PageFragment_Click(object sender, RoutedEventArgs e)
-		{
-			App.RootFrame.Navigate(new Uri("/SecondPage.xaml#detail", UriKind.Relative));
-		}
-	\end{lstlisting}
-	
-	\begin{lstlisting} [caption= Halaman Utama melewati fragment ke lamana kedua]
-		protected override void OnFragmentNavigation(FragmentNavigationEventArgs e)
-		{
-			// displays "Fragment: Detail"
-			MessageBox.Show("Fragment: " + e.Fragment);
-			base.OnFragmentNavigation(e);
-		}
-	\end{lstlisting}
+% SUB SUB Mengenai Kontrol Masukan
+\subsubsection{Kontrol Terhadap Teks}
+\label{subsubsec:Kontrol Terhadap Teks}
+\hspace{0.5cm} Kontrol Terhadap Teks  secara menampilkan konten String. Ada berbagai macam Kontrol Terhadap Teks di Windows Phone yaitu TextBlock, TextBox dan PasswordBox. Ketiga macam kontrol tersebut dibedakan menurut tujuannya. Berikut gambar dan keterangan masing-masing:
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{Gambar/Tombol/kontrol_teks}
+	\caption{TextBlock, TextBox dan PasswordBox}
+	\label{fig:kontrol_teks}
+\end{figure}
 
-	\item OnNavigationForm: Dipakai untuk langkah pencegahan saat pengguna akan meninggalkan halaman.	
-	\begin{lstlisting} [caption= Sebelum Navigasi]
-		protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
-		{
-		e.Cancel = MessageBox.Show("You have unsaved data, do you want to exit?", "Unsaved data",
-		MessageBoxButton.OKCancel) == MessageBoxResult.Cancel;
-		base.OnNavigatingFrom(e);
-		}
-	\end{lstlisting}
-	
-	\item OnNavigatedFrom: Metode dipanggil ketika halaman sudah tidak aktif lagi. NavigationEventArgs merupakan halaman yang dituju. Hal ini untuk mendukung pengiriman data dari halaman yang ditinggalkan dan mengirimnya ke halaman yang mau ditampilkan.
-	\begin{lstlisting} [caption= Setelah Navigasi ]
-		// Navigated from "SecondPage" back to "MainPage"
-		protected override void OnNavigatedFrom(NavigationEventArgs e)
-		{
-			MainPage mainPage = e.Content as MainPage;
-			if (mainPage != null)
-				mainPage.StatusText.Text = "A message from SecondPage OnNavigatedFrom";
-			base.OnNavigatedFrom(e);
-		}
-	\end{lstlisting}
-	
-	\item OnNavigatedTo: Netode dipanggil ketika halaman sudah aktif.
-	\begin{lstlisting} [caption= Navigasi ke Halaman Berikutnya]
-		protected override void OnNavigatedTo(NavigationEventArgs e)
-		{
-			MessageBox.Show("NavigatedTo: " + e.Uri);
-			base.OnNavigatedTo(e);
-		}
-	\end{lstlisting}
+\begin{itemize}
+	\item TextBlock merupakan tempat menaruh potongan teks yang hanya bisa dilihat.
+	\item TextBox biasanya digunakan untuk teks masukan yang pendek. Tapi bisa juga dipakai untuk masukan yang banyak dan beberapa baris.
+	\item PasswordBox biasanya digunakan untuk masukan yang bersifat rahasia. Karakter yang dimasukan langsung disamarkan menjadi bentuk titik.
 \end{itemize}
 
-% SUB SUB SUB Layanan Navigasi
-\paragraph{Layanan Navigasi}
-\label{subsubsec:Layanan Navigasi}
-merupakan layanan untuk memantau riwayat navigasi, menyediakan metode navigasi, dan event. Layanan ini juga memungkinkan perpindahan navigasi sesuai riwayat menggunakan GoBack() dan GoForward(). Berikut contoh metodenya.
+% SUB SUB Mengenai Kontrol Masukan
+\subsubsection{Tombol dan Kontrol Pilihan}
+\label{subsubsec:Tombol dan Kontrol Pilihan}
+\hspace{0.5cm} Tombol memungkinkan pengguna untuk bernavigasi. Sedangkan kontrol pilihan memudahkan dalam memilih. Berikut gambar dan keterangan masing-masing:
+ 
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{Gambar/Tombol/tombol_dan_pilihan}
+	\caption{TextBlock, TextBox dan PasswordBox}
+	\label{fig:kontrol_tombol}
+\end{figure}
 
-\begin{lstlisting} [caption= Metode Layanan Navigasi ]
-		this.NavigationService.Navigate(new Uri("/SecondPage.xaml", UriKind.Relative));
-\end{lstlisting}
+\begin{itemize}
+	\item Button merupakan kontrol yang dipakai pengguna untuk mengaktifkan \textit{event} klik.
+	\item HyperlinkButton merupakan kontrol yang menampilkan hyperlink. Jika di tekan maka akan menunjuk ke halaman yang dituju.	
+	\item CheckBox merupakan kontrol yang memungkinkan pengguna memilih beberapa item.
+	\item RadioButton merupakan kontrol yang memungkinkan pengguna memilih satu pilihan dari beberapa pilihan.
+	\item Slider merupakan kontrol yang memungkinkan user memilih nilai kisaran dari jalur yang sudah disediakan.
+\end{itemize}
 
-% SUB SUB Navigasi ke URIs Eksternal
-\subsubsection{Navigasi ke URIs Eksternal}
-\label{subsubsec:Navigasi ke URIs Eksternal}
+% SUB SUB Kontrol Daftar
+\subsubsection{Kontrol Daftar}
+\label{subsubsec:Kontrol Daftar}
+\hspace{0.5cm} Kontrol yang dipakai untuk menampilkan daftar dari beberapa item. Berikut keterangan masing-masing:
 
-\begin{lstlisting} [caption= Navigasi dengan Web Browser]
-	WebBrowserTask webBrowserTask = new WebBrowserTask();
-	webBrowserTask.Uri = new Uri("http://www.falafel.com");
-	webBrowserTask.Show();
-\end{lstlisting}
+\begin{itemize}
+	\item ListBox akan menampilkan daftar item. Daftar ini dapat dipilih dengan cara di klik.
+	\item LongListSelector dipakai untuk mengelompokan, menampilkan, dan melakukan penggulungan terhadap daftar yang panjang.
+\end{itemize}
+
+% SUB SUB Gambar, Peta, dan Media
+\subsubsection{Gambar, Peta, dan Media}
+\label{subsubsec:Gambar, Peta, dan Media}
+\hspace{0.5cm} Menampilkan gambar, map, dan konten media penting sebagai bagian dari antarmuka. Berikut keterangan masing-masing:
+
+\begin{itemize}
+	\item Image dipakai untuk menampilkan gambar. Aplikasi di Windows Phone mendukung format jpeg dan png. 
+	\item Map dipakai menampilkan peta.
+	\item MediaElement dipakai untuk memainkan audio dan video.
+\end{itemize}
 
 % SUB Mengenai Lifecycle
 \subsection{Lifecycle Windows Phone}
@@ -716,7 +589,7 @@ Berikut nilai yang mungkin dari Status Posisi:
 % SUB Pengantar Kiri API
 \subsection{Pengantar Kiri API}
 \label{subsec:Pengantar Kiri API}
-\hspace{0.5cm} Pemanfaatan Kiri API adalah menggunakan \textit{Web Service}. Hal ini memungkinkan pengaksesan dimana saja dengan menggunakan koneksi internet. Pemanfaatan Kiri API cukup dengan melakuan \textit{request} dengan parameter dan Kiri akan mengembalikan hasil dalam format JSON. Untuk setiap \textit{request} membutuhkan \textit{API key} yang didapat dengan mendaftar\footnotemark[2]. 
+\hspace{0.5cm} API atau \textit{Application Programming Interface} merupakan aturan yang dikodekan secara spesifik yang dapat digunakan untuk komunikasi antar aplikasi. Jadi API disini memfasilitasi untuk pemanggilan fungsi-fungsi tertentu diluar aplikasi itu sendiri. Pemanfaatan Kiri API adalah JSON atau \textit{JavaScript Object Notation} format. Pemanfaatan Kiri API cukup dengan melakuan \textit{request} dengan parameter dan Kiri akan mengembalikan hasil dalam format JSON. Untuk setiap \textit{request} membutuhkan \textit{API key} yang didapat dengan mendaftar\footnotemark[2]. Penggunaan API memungkinkan pengaksesan dimana saja dengan menggunakan koneksi internet. Pada Sub Bab dibawah penulis akan membahas beberapa pemanggilan pesan yang terdapat pada Kiri API.
 %kutipan mengenai kiri
 \footnotetext[2]{\url{https://bitbucket.org/projectkiri/kiri_api/wiki/KIRI API v2 Documentation}}
 
