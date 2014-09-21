@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.19)  14 SEP 2014 22:36
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.19)  21 SEP 2014 22:45
 entering extended mode
 **main.tex
 
@@ -743,14 +743,22 @@ Bab 1.
 
 
 
-]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 24.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+] <Gambar/StatCounter.jpg, id=252, 857.2025pt x 501.875pt>
+File: Gambar/StatCounter.jpg Graphic file (type jpg)
+ <use Gambar/StatCounter.jpg>
+Package pdftex.def Info: Gambar/StatCounter.jpg used on input line 21.
+(pdftex.def)             Requested size: 257.16273pt x 150.56366pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 33.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 24.
- [2]) [3]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
+ [2
+
+ <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari 
+Rute Windows Phone/Gambar/StatCounter.jpg>]) [3]
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
 Rute Windows Phone\Bab/bab2.tex" [4
 
@@ -762,73 +770,99 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 12.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [5]
-<Gambar/nav_hierarchy.jpg, id=270, 237.13594pt x 443.40656pt>
+<Gambar/nav_hierarchy.jpg, id=279, 237.13594pt x 443.40656pt>
 File: Gambar/nav_hierarchy.jpg Graphic file (type jpg)
  <use Gambar/nav_hierarchy.jpg>
-Package pdftex.def Info: Gambar/nav_hierarchy.jpg used on input line 49.
+Package pdftex.def Info: Gambar/nav_hierarchy.jpg used on input line 51.
 (pdftex.def)             Requested size: 118.56767pt x 221.70273pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6] <Gambar/Tombol/kontrol_teks.jpg, id=276, 289.83281pt x 529.22719pt>
+[6] <Gambar/Tombol/kontrol_teks.jpg, id=285, 289.83281pt x 529.22719pt>
 File: Gambar/Tombol/kontrol_teks.jpg Graphic file (type jpg)
  <use Gambar/Tombol/kontrol_teks.jpg>
-Package pdftex.def Info: Gambar/Tombol/kontrol_teks.jpg used on input line 75.
+Package pdftex.def Info: Gambar/Tombol/kontrol_teks.jpg used on input line 77.
 (pdftex.def)             Requested size: 144.91605pt x 264.61295pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencar
-i Rute Windows Phone/Gambar/nav_hierarchy.jpg>] <Gambar/Tombol/tombol_dan_pilihan.jpg, id=283, 295.1025pt x 535.2497pt>
+i Rute Windows Phone/Gambar/nav_hierarchy.jpg>] <Gambar/Tombol/tombol_dan_pilihan.jpg, id=292, 295.1025pt x 535.2497pt>
 File: Gambar/Tombol/tombol_dan_pilihan.jpg Graphic file (type jpg)
 
 <use Gambar/Tombol/tombol_dan_pilihan.jpg>
-Package pdftex.def Info: Gambar/Tombol/tombol_dan_pilihan.jpg used on input line 93.
+Package pdftex.def Info: Gambar/Tombol/tombol_dan_pilihan.jpg used on input line 95.
 (pdftex.def)             Requested size: 147.55087pt x 267.62419pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencar
-i Rute Windows Phone/Gambar/Tombol/kontrol_teks.jpg>] [9 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsP
-hone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/Tombol/tombol_dan_pilihan.jpg>]
-[10] <Gambar/toolkit_pushpin.jpg, id=351, 338.76563pt x 299.61937pt>
+i Rute Windows Phone/Gambar/Tombol/kontrol_teks.jpg>] <Gambar/lifecycle.jpg, id=299, 374.90062pt x 231.11343pt>
+File: Gambar/lifecycle.jpg Graphic file (type jpg)
+
+<use Gambar/lifecycle.jpg>
+Package pdftex.def Info: Gambar/lifecycle.jpg used on input line 136.
+(pdftex.def)             Requested size: 262.42863pt x 161.77829pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencar
+i Rute Windows Phone/Gambar/Tombol/tombol_dan_pilihan.jpg>] <Gambar/map.png, id=305, 258.9675pt x 463.7325pt>
+File: Gambar/map.png Graphic file (type png)
+
+<use Gambar/map.png>
+Package pdftex.def Info: Gambar/map.png used on input line 160.
+(pdftex.def)             Requested size: 129.48341pt x 231.86568pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 1205) has occurred while \output is active []
+
+ [10 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
+ari Rute Windows Phone/Gambar/lifecycle.jpg>]
+<Gambar/kartografi.png, id=311, 486.31688pt x 195.73125pt>
+File: Gambar/kartografi.png Graphic file (type png)
+ <use Gambar/kartografi.png>
+Package pdftex.def Info: Gambar/kartografi.png used on input line 183.
+(pdftex.def)             Requested size: 194.5233pt x 78.2911pt.
+ [11 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
+ari Rute Windows Phone/Gambar/map.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPh
+one/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/kartografi.png>] <Gambar/toolkit_pushpin.jpg, id=319, 33
+8.76563pt x 299.61937pt>
 File: Gambar/toolkit_pushpin.jpg Graphic file (type jpg)
- <use Gambar/toolkit_pushpin.jpg>
-Package pdftex.def Info: Gambar/toolkit_pushpin.jpg used on input line 250.
+
+<use Gambar/toolkit_pushpin.jpg>
+Package pdftex.def Info: Gambar/toolkit_pushpin.jpg used on input line 205.
 (pdftex.def)             Requested size: 169.38239pt x 149.80931pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[11] [12 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App 
-Pencari Rute Windows Phone/Gambar/toolkit_pushpin.jpg>] [13] [14] [15] [16]
-Overfull \hbox (21.35347pt too wide) in paragraph at lines 603--614
+ [12 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
+ari Rute Windows Phone/Gambar/toolkit_pushpin.jpg>] [13]
+Overfull \hbox (21.35347pt too wide) in paragraph at lines 258--269
 [][] 
  []
 
-
-Underfull \vbox (badness 2653) has occurred while \output is active []
-
- [17] [18]
-Overfull \hbox (21.10329pt too wide) in paragraph at lines 675--684
+[14]
+Overfull \hbox (21.10329pt too wide) in paragraph at lines 330--339
 [][] 
  []
 
-[19]
-Overfull \hbox (26.48372pt too wide) in paragraph at lines 725--733
+[15]
+Overfull \hbox (26.48372pt too wide) in paragraph at lines 380--388
 [][] 
  []
 
-) [20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 521.
- [21
+[16]) [17] [18
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 521.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 526.
+ [19]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 526.
 
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
 Rute Windows Phone\main.aux"
@@ -836,31 +870,35 @@ Rute Windows Phone\main.aux"
 Rute Windows Phone\Bab/bab1.aux")
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
 Rute Windows Phone\Bab/bab2.aux"))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 521.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 521.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 526.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 526.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 01D401BD02EF729FBF1657B055FF9459;3910.
+(rerunfilecheck)             Checksum: 5764827B882993A7CBE5A03B9C707AB2;3900.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 12109 strings out of 494045
- 171707 string characters out of 3145948
- 693727 words of memory out of 3000000
- 14709 multiletter control sequences out of 15000+200000
- 19838 words of font info for 47 fonts, out of 3000000 for 9000
+ 11823 strings out of 494045
+ 167120 string characters out of 3145948
+ 510857 words of memory out of 3000000
+ 14731 multiletter control sequences out of 15000+200000
+ 20152 words of font info for 48 fonts, out of 3000000 for 9000
  719 hyphenation exceptions out of 8191
- 45i,12n,43p,937b,1718s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,12n,43p,937b,1716s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
-/cm-super/sfbx1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1440.pfb><C:/Program Files (x8
-6)/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc1000.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sf
-rm0600.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm0800.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/cm-super/sfrm1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfti1095.pfb><
-C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfti1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
-1/public/cm-super/sftt0900.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfxc1095.pfb>
-Output written on main.pdf (41 pages, 684429 bytes).
+ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
+/cm-super/sfbx1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc1000.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm0600.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sf
+rm0800.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1095.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/cm-super/sfti1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfti1440.pfb><
+C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sftt0900.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/public/cm-super/sftt1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfxc1095.pfb>
+Output written on main.pdf (39 pages, 1173896 bytes).
 PDF statistics:
- 886 PDF objects out of 1000 (max. 8388607)
- 474 named destinations out of 1000 (max. 500000)
- 242 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 516 PDF objects out of 1000 (max. 8388607)
+ 161 named destinations out of 1000 (max. 500000)
+ 262 words of extra memory for PDF output out of 10000 (max. 10000000)
 

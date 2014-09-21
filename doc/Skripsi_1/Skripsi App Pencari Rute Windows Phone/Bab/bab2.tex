@@ -1,6 +1,6 @@
 \chapter{Dasar Teori}
 \label{chap:teori}
-Bab ini berisi dasar teori dari pembangunan Aplikasi Pencarian Rute Kendaraan Umum untuk Windows Phone. Beberapa teori yang dibahas dalam bab ini  adalah Kiri API, Web Service, Menampilkan Peta, Penggunaan \textit{Global Positioning System} di Windows Phone, dan antarmuka perangkat lunak yang dibuat. 
+Bab ini berisi dasar teori dari pembangunan Aplikasi Pencarian Rute Kendaraan Umum untuk Windows Phone. Beberapa teori yang dibahas dalam bab ini  adalah antarmuka Windows Phone, Menampilkan Peta, Penggunaan \textit{Global Positioning System} di Windows Phone, Web Service, dan Kiri API. 
 
 % Windows Phone
 \section{Windows Phone}
@@ -15,6 +15,7 @@ Windows Phone merupakan sistem operasi untuk perangkat bergerak yang dikembangka
 \subsection{Lingkungan Kerja}
 \label{subsec:Lingkungan Kerja}
 \hspace{0.5cm} Microsoft .NET framework merupakan sebuah perangkat lunak yang dibangun untuk membantu dalam pembangunan aplikasi di Windows, Windows Phone, Windows Server, and Microsoft Azure\footnotemark[2]. Ini terdiri dari runtime bahasa umum dan perpustakaan kelas NET Framework, yang meliputi kelas, interface, dan jenis nilai yang mendukung berbagai teknologi. NET Framework menyediakan lingkungan yang mudah dikelola, pengembangan disederhanakan dan penyebaran, dan integrasi dengan berbagai bahasa pemrograman, termasuk Visual Basic dan Visual C\#.
+
 \hspace{0.5cm} Seperti yang telah disebutkan ada dua bahasa pemrograman dalam .NET Framework yang dipakai dalam pembangunan aplikasi di Windows Phone 8 yaitu Visual Basic dan Visual C\#. Untuk masalah kehandalan keduanya menawarkan kehandalan yang baik. Kelebihan dari Visual Basic adalah bahasa pemrograman berorientasi objek yang kuat dan memiliki banyak pengenbangan fitur di inheritance, polymorphism, interfaces, and overloading\footnotemark[3].Kelebihan dari C\# yang merupakan pengembangan dari C/C++ adalah sederhana, modern, aman dan berorientasi objek\footnotemark[4]. Satu hal yang dirasakan penulis adalah kenyamanan ketika memilih bahasa .NET tersebut. Akan lebih mudah bagi developer yang menggunakan Visual Basic 6.0  untuk menggunakan Visual Basic .NET. Tetapi bagi  deveoper yang menggunakan C++ atau java sebelumnya akan lebih mudah menggunakan C\#.
 %kutipan mengenai .NET
 \footnotetext[2]{\url{http://msdn.microsoft.com/en-us/library/vstudio/w0x726c2\%28v=vs.110\%29}}
@@ -25,6 +26,7 @@ Windows Phone merupakan sistem operasi untuk perangkat bergerak yang dikembangka
 \subsection{XAML}
 \label{subsec:XAML}
 \hspace{0.5cm} Extensible Application Markup Language (XAML) merupakan bahasa deklaratif yang dipakai untuk membuat antarmuka aplikasi. XAML merupakan bahasa yang digunakan untuk membuat antarmuka di Windows Phone 8. Pada dasarnya penggunaan XAML sama dengan HTML pada pembuatan antarmuka web. XAML dapat menginisialisasi objek dan mengatur properti untuk menunjukan hubungan antar objek.
+
 \hspace{0.5cm} Untuk aturan penulisan sintak XAML didasarkan pada XML. Setiap XAML Windows Runtime menggunakan konvensi XAML language dan ditulis pada \textit{namespace} yang ditandai dengan prefix x sebagai elemen paling atas. Setelah itu di baris ke dua dimulai dengan xmlns diikuti titik dua, lalu nama dari \textit{namespace}, diikuti tanda sama dengan dan \textit{path} perepresentasian \textit{namespace}.
 Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan yaitu :
 \begin{itemize}
@@ -124,248 +126,91 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 	\item MediaElement dipakai untuk memainkan audio dan video.
 \end{itemize}
 
-% SUB Mengenai Lifecycle
-\subsection{Lifecycle Windows Phone}
-\label{subsec:Lifecycle Windows Phone}
+% SUB Mengenai Siklus Hidup Aplikasi
+\subsection{Siklus Hidup Aplikasi}
+\label{subsec:Siklus Hidup Aplikasi}
+\hspace{0.5cm} Siklus hidup aplikasi merupakan waktu mulai dari aplikasi dijalankan sampai aplikasi dibuang dari memori. Siklus hidup aplikasi penting diketahui agar pengguna tidak kecewa menggunakan aplikasi yang penulis buat. Seringkali pengguna tidak berhati-hati dalam menggunakan aplikasi, makadari itu penulis harus paham kapan aplikasi harus diaktifkan, ditangguhkan atau bahkan di hapus karena sudah tidak digunakan. Berikut gambar beserta keterangan siklus hidup pada Windows Phone.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.7]{Gambar/lifecycle}
+	\caption{Gambar Siklus Hidup Aplikasi}
+	\label{fig:Siklus Hidup Aplikasi}
+\end{figure}
 
 \begin{itemize}
-	\item Running : Aplikasi sedang berada di bagian depan. Hanya satu aplikasi yang diijinkan berada di depan pada satu waktu.
-	\item Dormant : Aplikasi tidak berada di bagian depan, tetapi sistem operasi tidak membutuhkan sumber daya(dalam hal ini memori). Pada tahap ini objek aplikasi masih berada di memori, jadi pada tahap Dormant aplikasi dapat secara otomatis diaktifkan kembali. Tetapi jika sistem operasi  membutuhkan sumbe daya maka aplikasi akan menjadi \textit{tombstoned} dan dihancurkan. 
-	\item Tombstoned : Aplikasi akan dihancurkan dan objek aplikasi akan dihapus dari memori. Ketika aplikasi diaktivasi pengguna akan ditempatkan kembali di halaman yang ditinggalkan sebelumnya, tetapi objek harus di kembalikan dari keadaan sebelumnya.
+	\item Running : Ketika aplikasi diluncurkan, aplikasi membutuhkan \textit{event} Activated | activated maka aplikasi akan masuk keadaan "Running". Pada saat \textit{event} Activated | activated dipanggil \textit{event} ini akan memeriksa apakah aplikasi sudah siap untuk keadaan "Running".
+	\item Suspended : Aplikasi akan masuk keadaan "Suspended" ketika pengguna memilih untuk pindah aplikasi atau perangkat Windows Phone masuk ke keadaan hemat tenaga (misal: layar dimatikan sementara). Ketika pengguna berpindah aplikasi atau membuat aplikasi berjalan dibelakang layar untuk sementara waktu dan user tidak kembali ke aplikasi maka sistem operasi akan membuat aplikasi masuk ke keadaan "Suspended".
+	\item Resume : Aplikasi akan masuk keadaan "Resume" ketika pengguna kembali menjalankan aplikasi atau perangkat Windows Phone keluar dari keadaan hemat tenaga (misal: layar dimatikan sementara). Saat keadaan ini semua data masih disimpan di memori jadi tidak akan ada data yang hilang.
+	\item Close : Secara general pengguna tidak usah repot-repot keluar dari aplikasi karena semua sudah diurus sistem operasi. Meskipun pengguna juga dapat keluar dari aplikasi. Setelah aplikasi di keluarkan oleh pengguna dan masuk dalam keadaan "Suspended", selanjutnya aplikasi akan masuk dalam keadaan "NotRunning".
 \end{itemize}
-
-% SUB SUB Penyimpanan dan Pengembalian Keadaan Aplikasi
-\subsubsection{Penyimpanan dan Pengembalian Keadaan Aplikasi}
-\label{subsubsec:Penyimpanan dan Pengembalian Keadaan Aplikasi}
-
-\begin{lstlisting} [caption= App.xaml]
-	<Application.ApplicationLifetimeObjects>
-		<!--Required object that handles lifetime events for the application-->
-		<shell:PhoneApplicationService
-			Launching="Application_Launching" Closing="Application_Closing"
-			Activated="Application_Activated" Deactivated="Application_Deactivated"/>
-	</Application.ApplicationLifetimeObjects>
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Appp.xaml.cs]
-	// Code to execute when the application is launching (eg, from Start)
-	// This code will not execute when the application is reactivated
-	private void Application_Launching(object sender, LaunchingEventArgs e)
-	{
-	}
-	// Code to execute when the application is activated (brought to foreground)
-	// This code will not execute when the application is first launched
-	private void Application_Activated(object sender, ActivatedEventArgs e)
-	{
-	}
-	// Code to execute when the application is deactivated (sent to background)
-	// This code will not execute when the application is closing
-	private void Application_Deactivated(object sender, DeactivatedEventArgs e)
-	{
-	}
-	// Code to execute when the application is closing (eg, user hit Back)
-	// This code will not execute when the application is deactivated
-	private void Application_Closing(object sender, ClosingEventArgs e)
-	{
-	}
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Penanganan terhadap pengaktifan dan penonaktifan kejadian]
-	public class MyObject
-	{
-	public DateTime LastUpdate { get; set; }
-	}
-	//...
-	public MyObject MyObject { get; set; }
-	
-	private void Application_Activated(object sender, ActivatedEventArgs e)
-	{
-		DateTime lastUpdate =
-		(DateTime)PhoneApplicationService.Current.State["LastUpdate"];
-		Debug.WriteLine("Application_Activated: LastUpdate=" + lastUpdate.ToLongTimeString());
-	}
-	private void Application_Deactivated(object sender, DeactivatedEventArgs e)
-	{
-		Debug.WriteLine("Application_Deactivated: Saving LastUpdate to application state");
-		PhoneApplicationService.Current.State["LastUpdate"] = DateTime.Now;
-	}
-\end{lstlisting}
 
 % SUB Peta di Windows Phone
 \subsection{Peta di Windows Phone}
 \label{subsec:Peta di Windows Phone}
-\hspace{0.5cm} Peta untuk Windows Phone adalah Here Maps. Here Maps yang akan menampilkan lokasi dan melakukan penelusuran. Pada Sub Bab ini akan dibahas mengenai penambahan peta pada aplikasi, mendapatkan lokasi, petunjuk arah dan Pushpins.
+\hspace{0.5cm} Peta yang dipakai di Windows Phone adalah Windows Phone Maps. Windows Phone menawarkan beberapa pilihan dalam tampilan peta mulai dari kartografi, pencahayaan dan pandangan. Tidak hanya tampilan pada Sub Bab ini akan dibahas mengenai mendapatkan lokasi, petunjuk arah, MapPolyline dan Pushpins.
 
-% SUB SUB Mengenai Penambahan Maps Ke Aplikasi
-\subsubsection{Penambahan Maps Ke Aplikasi}
-\label{subsubsec:Penambahan Maps Ke Aplikasi}
-\hspace{0.5cm} Ada dua cara untuk menambahkan peta ke aplikasi yang pertama dengan menjalankan MapTask dan yang kedua dengan ppenambahan ID\_CAP\_MAP ke \textbackslash properties\textbackslash WMAppManifest.xml. Contoh dibawah adalah dengan MapTask yang memenggil metode Show() untuk memunculkan peta.
+% SUB SUB Mengenai Penambahan Peta Ke Aplikasi
+\subsubsection{Penambahan Peta Ke Aplikasi}
+\label{subsubsec:Penambahan Peta Ke Aplikasi}
+\hspace{0.5cm} Untuk penambahan Peta pada Windows Phone menggunakan kontrol peta. Kontrol peta merupakan bagian dari perpustakaan Windows Phone. Dengan begitu untuk dapat menggunakannya perlu direferensikan. Untuk dapat menggunakannya juga harus ditambah \textit{capability} ID\_CAP\_MAP. Selanjutnya barulah peta dapat ditampilkan.
 
-\begin{lstlisting} [caption= code pemanggilan maps]
-	private void MapClick(object sender, EventArgs e)
-	{
-		var task = new MapsTask();
-		var goldenGateBridge = new GeoCoordinate(37.8085880, -122.4770175);
-		task.Center = goldenGateBridge;
-		task.ZoomLevel = 9;
-		task.SearchTerm = "Golden Gate Bridge";
-		task.Show();
-	}
-\end{lstlisting}
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{Gambar/map}
+	\caption{Tampilan Peta pada Windows Phone}
+	\label{fig:peta}
+\end{figure}
 
-\begin{lstlisting} [caption= penambahan Map Element menggunakan Map Control]
-	<Grid x:Name="LayoutRoot" Background="Transparent">
-		<Controls:Map x:Name="WorldMap" />
-	</Grid>
-\end{lstlisting}
+% SUB SUB Tampilan Peta di Windows Phone
+\subsubsection{Tampilan Peta di Windows Phone}
+\label{subsubsec:Tampilan Peta di Windows Phone}
+\hspace{0.5cm} Dalam tampilannya ada beberapa hal yang perlu diperhatikan agar pengguna merasa nyaman saat melihat peta di Windows Phone. Beberapa tampilan yang bisa ditampilkan dibuat untuk hal yang berbeda-beda. Berikut akan dibahas menentukan pusat dan tingkat zoom, kartografi, warna dan tampilan peta.
 
-% SUB SUB Mengenai Posisi Pada Peta
-\subsubsection{Posisi Pada Peta}
-\label{subsubsec:Posisi Pada Peta}
-\hspace{0.5cm} Ketika memulai membuka peta maka akan menampilkan seluruh dunia dan pengguna harus melakukan \textit{pinch-and-zoom} untuk melihat titk tertentu. Agar dapat memudahkan pengguna dalam memilih titik tertentu secara otomatis maka dapat menggunakan metode SetView\(\). Pada Listing dibawah dapat dilihat bahwa SetView\(\) memiliki 2 parameter. Parameter pertama menyatakan tempat dengan GeoCordinate yang mendefinisikan pusat pandangan. Selanjutnya parameter ke 2 merupakan zoomLevel ( 1 = zoomed out, 20 = zoomed in). 
+\begin{itemize}
+	\item Menentukan pusat peta berarti menentukan titik tengah sebagai pandangan awal di peta. Untuk penentuan titik tengah dibutuhkan 2 nilai yaitu latitude dan longitude. Sedangkan tingkat zoom merupakan properti untuk mengatur seberapa dekat atau jauh pandangan yang akan ditampilkan di peta. Tingkat zoom memiliki nilai yang bisa diatur dari satu hingga 20. 
+	\item Kartografi peta di Windows Phone merupakan cara pandang dalam melihat dan menerjemahkan peta. Ada beberapa 4 jenis kartografi, yaitu:
+		
+		\begin{itemize}
+			\item Road: Tampilan normal 2 dimensi.
+			\item Aerial: Tampilan peta yang diambil dari foto di udara.
+			\item Hybrid: Tampilan Aerial yang digabung dengan jalan dan label.
+			\item Terrain: Menampilkan gambar fisik bumi termasuk ketinggian dan air.
+		\end{itemize}
+		
+		\begin{figure}[h]
+			\centering
+				\includegraphics[scale=0.4]{Gambar/kartografi}
+			\caption{Kartografi}
+			\label{fig:Kartografi}
+		\end{figure}
+		
+	\item	Mode warna yang disediakan Windows Phone ada 2 yaitu terang dan gelap. Secara bawaan mode pada peta di Windows Phone adalah terang.
+	
+	\item Tampilan pada Peta di Windows Phone dapat berubah karena hasil diputar, dimiringkan, ditarik, dan diturunkan. Berikut beberapa hal yang dapat diatur sebagai tampilan di peta.
+	
+		\begin{itemize}
+			\item \textit{Heading} merupakan representasi dari derajat secara geometri. Derajat ini didefinisikan dalam 0 sampai 360 yang dipakai untuk memutar peta. Contoh, 0 atau 360 ke arah utara, 90 ke arah barat, 180 ke arah selatan, dan 270 derajat ke arah timur.
+			\item 
+		\end{itemize} \textit{Pitch} merupakan derajat kemiringan dari peta dari sudut pengguna. Contoh, \textit{Pitch} = 0 berarti melihat dari atas ke bawah sedangkan \textit{Pitch} = 45 berarti melihat dari samping ke bawah dengan sudut 45 derajat.
+\end{itemize}
 
-\begin{lstlisting} [caption= Posisi Pada Peta]
-	GeoCoordinate GoldenGateBridge = new GeoCoordinate(37.8085880, -122.4770175);
-	SanFranciscoMap.SetView(GoldenGateBridge, 15);
-\end{lstlisting}
-
-% SUB SUB Penambahan Pushpins ke Peta
-\subsubsection{Penambahan Pushpins ke Peta}
-\label{subsubsec:Penambahan Pushpins ke Peta}
-
-\hspace{0.5cm} Peta tidak mendukung langsung cara untuk mengikat data ke MapLayer dan MapOverlay. Untungnya di Windows Phone memiliki Windows Phone 8 Toolkit yang memiliki set objek yang dapat digunakan sebagai jembatan mengikat data ke MapLayer dan MapOverlay.
-
-\begin{lstlisting} [caption= Berikut contoh Tookkit Pushpin dengan elemen-element yang di tulisa manual]
-	<Controls:Map>
-		<Toolkit:MapExtensions.Children>
-			<Toolkit:Pushpin Content="London" GeoCoordinate="51.499493,-0.124753" />
-		</Toolkit:MapExtensions.Children>
-	</Controls:Map>
-\end{lstlisting}
-
-\hspace{0.5cm} Gambar dibawah merupakan keluaran di peta. Label "London" merupkan bawaan Windows Phone 8 pushpin.
+% SUB SUB Pushpins ke Peta
+\subsubsection{Pushpins ke Peta}
+\label{subsubsec:Pushpins ke Peta}
+\hspace{0.5cm} Pushpin merupakan elemen yang dapat ditempatkan pada peta secara spesifik dan bisa dipakai untuk interaksi pada peta. Peta tidak mendukung langsung penggunaan pushpin karena pushpin merupakan elemen MapOverlay (bagian/lapisan terpisah dari peta). Untungnya di Windows Phone memiliki Windows Phone 8 Toolkit yang memiliki set objek agar dapat menggunakan pushpin pada peta di Windows Phone. Contoh keluaran pushpin dapat dilihat pada Figure~\ref{fig:toolkit_pushpin} berikut.
 
 \begin{figure}[!h]
 	\centering
-		\includegraphics[scale=0.5]{Gambar/toolkit_pushpin.jpg}
+		\includegraphics[scale=0.5]{Gambar/toolkit_pushpin}
 	\caption{Keluaran Toolkit Pushpin pada Peta}
 	\label{fig:toolkit_pushpin}
 \end{figure}
 
-\hspace{0.5cm} Selain menetapkan Pushpin secara langsung  di MapExtensions, dapat pula diletakan MapItemsControl. Pushpin akan berpindah ke ItemTemplate dan ItemSource akan ditugaskan ViewModel.
-
-\begin{lstlisting} [caption= Berikut contoh Tookkit Pushpin dengan elemen-element yang di tulisa manual]
-	<Controls:Map x:Name="WorldMap" >
-		<Toolkit:MapExtensions.Children>
-			<Toolkit:MapItemsControl ItemTemplate="{StaticResource MapItemTemplate}" ItemsSource="{Binding Source={StaticResource LocationViewModel}, Path=Locations}" />
-		</Toolkit:MapExtensions.Children>
-	</Controls:Map>
-\end{lstlisting}
-
-\begin{lstlisting} [caption= View Model]
-	public class Location
-	{
-		public string Title { get; set; }
-		[TypeConverter(typeof(GeoCoordinateConverter))]
-		public GeoCoordinate GeoCoordinate { get; set; }
-	}
-	
-	public class LocationViewModel
-	{
-		public ObservableCollection<Location> Locations { get; set; }
-		public LocationViewModel()
-		{
-			Locations = new ObservableCollection<Location>();
-		}
-	}
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Deklarasi View Model]
-	<phone:PhoneApplicationPage.Resources>
-		<vm:LocationViewModel x:Key="LocationViewModel" >
-			<vm:LocationViewModel.Locations>
-				<vm:Location Title="London" GeoCoordinate="51.499493,-0.124753" />
-				<vm:Location Title="Paris" GeoCoordinate="48.858222,2.2945" />
-				<vm:Location Title="Rome" GeoCoordinate="41.890268,12.492315" />
-			</vm:LocationViewModel.Locations>
-		</vm:LocationViewModel>
-		<DataTemplate x:Name="MapItemTemplate">
-			<Toolkit:Pushpin GeoCoordinate="{Binding GeoCoordinate}" Content="{Binding Title}" />
-		</DataTemplate>
-	</phone:PhoneApplicationPage.Resources>
-\end{lstlisting}
-
 % SUB SUB Mendapatkan Posisi Pengguna
 \subsubsection{Mendapatkan Posisi Pengguna}
 \label{subsubsec:Mendapatkan Posisi Pengguna}
-\hspace{0.5cm} Di Windows Phone 8 telah ada GeoCoordinate yang dapat digunakan untuk mengetahui posisi pengguna. Geolocator dari Windows.Devices.Geolocation akan mengembalikan posisi saat ini. Tetapi untuk menggunakan Geolocator, penulis perlu menghidupkan ID\_CAP\_LOCATION di \textbackslash properties\textbackslash WMAppManifest.xml. 
-
-\hspace{0.5cm} Contoh kode dari penggunaan menggunakan XAML didefinisikan pada listing dibawah. UserLocationMarker di MapExtensions Children.UserLocationMarker merupakan Toolkit objek Windows Phone 8. Visibilitas UserLocationMarker di set "collapsed" agar penanda tetap berada di tempat sampai ada perubahan lokasi dan siap ditampilkan.
-
-\begin{lstlisting} [caption= Map dan UserLocationMarker XAML]
-	Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-		<Controls:Map x:Name="WorldMap">
-			<Toolkit:MapExtensions.Children>
-				<Toolkit:UserLocationMarker x:Name="locationMarker" Visibility="Collapsed" />
-			</Toolkit:MapExtensions.Children>
-		</Controls:Map>
-	</Grid>
-\end{lstlisting}
-
-\hspace{0.5cm} Listing Dibawah akan mendemokan bagaimana GeoLocator mendapatkan posisi terkini. Contoh dari metode menggunakan \textit{event} click. setelah itu dipanggil GetGeopositionAsync() yang akan mengembalikan objek GeoPosition object.GetGeopositionAsync yang sip menunggu, jadi tambahkan async untuk pemanggilan metode dan kata kunci await untuk mendapatkan nilai kembalian. Geoposition mengandung kordinat yang tidak kompatibel dengan GeoCoordinate() yang dipakai untuk map. Untungnya toolkit menyediakan metode ToGeoCoordinate() untuk menerjemahkan ke GeoCoordinate secara otomatis. Kode dibawah juga menjadi referensi pemakaian UserLocationMarker, makes it visible, dan di set menjadi GeoCordinate baru. Terakhir, metode Map SetView() dipanggil untuk menjadi pusat dari posisi yang baru.
-
-\begin{lstlisting} [caption= Setting ulang Geolocator]
-	private Geolocator _locator;
-	protected override void OnNavigatedTo(NavigationEventArgs e)
-	{
-		base.OnNavigatedTo(e);
-		_locator = new Geolocator()
-		{
-			// set either ReportInterval (milliseconds) or MovementThreshold (meters)
-			ReportInterval = 5000,
-			//DesiredAccuracy = PositionAccuracy.High
-			DesiredAccuracyInMeters = 1
-		};
-		_locator.PositionChanged += _locator_PositionChanged;
-	}
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Melepas Geolocator yang dapat dipakai untuk melindungi sumber daya]
-	protected override void OnNavigatedFrom(NavigationEventArgs e)
-	{
-		_locator.PositionChanged -= _locator_PositionChanged;
-		_locator = null;
-		base.OnNavigatedFrom(e);
-	}
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Menangani Perubahan Posisi]
-	void _locator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
-	{
-		this.Dispatcher.BeginInvoke(() =>
-			{
-				var geoCoordinate = args.Position.Coordinate.ToGeoCoordinate();
-				var locationMarker = this.FindName("locationMarker") as UserLocationMarker;
-				if (locationMarker != null)
-				{
-				locationMarker.Visibility = System.Windows.Visibility.Visible;
-				locationMarker.GeoCoordinate = geoCoordinate;
-				WorldMap.SetView(geoCoordinate, 15);
-				}
-			});
-	}
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Menangani Perubahan Status]
-	void _locator_StatusChanged(Geolocator sender, StatusChangedEventArgs args)
-	{
-		this.Dispatcher.BeginInvoke(() =>
-		{
-			var textBlock = this.FindName("StatusText") as TextBlock;
-			textBlock.Text = "Status: " + args.Status.ToString();
-		});
-	}
-\end{lstlisting}
+\hspace{0.5cm} Di Windows Phone 8 telah ada GeoCoordinate yang dapat digunakan untuk mengetahui posisi pengguna. Geolocator dari Windows.Devices.Geolocation akan mengembalikan posisi saat ini. Untuk menggunakan Geolocator, perlu menghidupkan ID\_CAP\_LOCATION di \textbackslash properties\textbackslash WMAppManifest.xml. Dalam mendapatkan posisi juga perlu diperhatikan status dari GPS karena GPS membutuhkan waktu dari mengaktifkan GPS hingga mendapatkan lokasi pengguna secara akurat. Untuk lebih jelas mengenai status dalat dilihat pada nilai status dibawah ini.
 
 Berikut nilai yang mungkin dari Status Posisi:
 \begin{itemize}
@@ -377,209 +222,19 @@ Berikut nilai yang mungkin dari Status Posisi:
 	\item \textit{NotAvailable} : Jika Windows sensor dan lokasi tidak tersedia.
 \end{itemize}
 
-% SUB SUB Arah
-\subsubsection{Arah}
-\label{subsubsec:Arah}
-\hspace{0.5cm} Penambahan langkah demi langkah arah rute di aplikasi di Windows Phone 8 mudah dilakukan. Untuk memunculkan arah cukup memiliki titik awal dan titik akhir. Pada listing dibawah mendemontrasikan pengarahan di map antara 2 titik. Untuk titik awal dan akhir perlu label lokasi dengan objek LabeledMapLocation. Selanjutnya setelah menetapkan dua objek pada MapsDirectionsTask lalu panggil metode show() dan arah dari titk awal ke titik akhir akan muncul di peta.    
-
-\begin{lstlisting} [caption= Penggunaan Arah pada Map]
-	var wharf = new LabeledMapLocation()
-	{
-		Label = "Wharf",
-		Location = new GeoCoordinate(36.96252, -122.023372)
-	};
-	var park = new LabeledMapLocation()
-	{
-		Label = "Lighthouse Park",
-		Location = new GeoCoordinate(36.95172, -122.026783)
-	};
-	var task = new MapsDirectionsTask() { Start = wharf, End = park };
-	task.Show();
-\end{lstlisting}
-
-\hspace{0.5cm} Meskipun Map bisa menggambar rute secara otomatis ada satu cara lagi untuk menambahkan objek tute pada Map yaitu menggunakan RouteQuery. Pertama yang harus didefinisikan pada RouteQuery yaitu GeoCoordinate yang harus dikunjungi. Pada listing dibawah dapat dilihat 3 GeoCoordinate dijadikan Waypoints di RouteQuery yang baru. RouteOptimization di pakai untuk meminimalisir jarak dan TraveMode di setel Driving. 
-
-\begin{lstlisting} [caption= Mengatur Ulang Rute Query]
-	var wharf = new GeoCoordinate(36.96252, -122.023372);
-	var park = new GeoCoordinate(36.95172, -122.026783);
-	var lagoon = new GeoCoordinate(36.963365, -122.031932);
-	var routeQuery = new RouteQuery()
-	{
-		Waypoints = new List<GeoCoordinate>() { wharf, park, lagoon },
-		RouteOptimization = RouteOptimization.MinimizeDistance,
-		TravelMode = TravelMode.Driving
-	};
-	routeQuery.QueryCompleted += routeQuery_QueryCompleted;
-	routeQuery.QueryAsync();
-\end{lstlisting}
-
-\hspace{0.5cm} Untuk melakukan handle terhadap QueryCompleted, pertama harus di periksa apakah terdapat kesalahan. Kembaliannya adalah objek rute. Lalu jadikan MapRoute konstruktor. MapRoute menambahkan visualisasi garis pada peta. Contoh implementasinya dapat dilihat di listing dibawah.
-
-\begin{lstlisting} [caption= Melakukan Handle Terhadap QueryCompleted]
-	void routeQuery_QueryCompleted(object sender, QueryCompletedEventArgs<Route> e)
-	{
-		if (e.Error == null)
-		{
-			this.WorldMap.AddRoute(new MapRoute( e.Result));
-			this.WorldMap.SetView(e.Result.BoundingBox);
-		}
-	}
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Melakukan Perubahan Warna Rute di Map]
-	var mapRoute = new MapRoute(e.Result)
-	{
-		Color = Colors.Red,
-		RouteViewKind = RouteViewKind.UserDefined
-	};
-	this.WorldMap.AddRoute(mapRoute)
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Menampilkan Arah dalam Bentuk List]
-	var sb = new StringBuilder();
-	var i = 0;
-	sb.AppendFormat("Estimated time: {0} minutes\n",
-		e.Result.EstimatedDuration.TotalMinutes.ToString());
-	foreach (var leg in e.Result.Legs)
-	{
-		foreach (var maneuver in leg.Maneuvers)
-		{
-			sb.AppendFormat("{0}. {1}: {2}\n",++i, maneuver.InstructionKind.ToString(), maneuver.InstructionText);
-		}
-	}
-	MessageBox.Show(sb.ToString());
-\end{lstlisting}
+% SUB SUB Polyline pada Peta
+\subsubsection{Polyline pada Peta}
+\label{subsubsec:Polyline pada Peta}
+\hspace{0.5cm} Dalam menentukan arah dibutuhkan 2 titik yaitu titk awal dan titik tujuan. Tentu saja arah tersebut butuh ditandai dengan garis. Polyline merupakan tentetan garis lurus yang saling terhubung satu sama lain. Dengan polyline arah pada peta dapat ditandai dengan warna maupin tebal atau tipisnya garis. 
 
 % SUB Memanfaatkan Sumber Data
 \subsection{Memanfaatkan Sumber Data}
 \label{subsec:Memanfaatkan Sumber Data}
+\hspace{0.5cm} Hal yang penting dari sebuah aplikasi adalah informasi. Windown Phone 8 memiliki kemampuan dalam menghubungkan aplikasi dengan sumber data lainnya. Pemanfaatan data ada 2 macam yaitu yang lokal atau berada di perangkat dan web service. Web Service merupakan metode komunikasi antara 2 perangkat melalui jaringan. 
 
-% SUB SUB Serializing Object
-\subsubsection{Serializing Object}
-\label{subsubsec:Serializing Object}
-\hspace{0.5cm} \textit{Serialization} disini merupakan proses mentransformasikan objek ke format yang bisa dengan mudah dikirim melewati jaringan atau disimpan di database. Formatnya disini berupa string yang direpresentasikan sebagai objek di XML atau JSON(Javascript Object Notation). Ada beberapa objek yang dapat melakukan serialisasi, tetapi yang akan dibahas penulis disini hanya serialisasi JSON. 
+\hspace{0.5cm} Sebelum data dapat dikirim antar perangkat perlu dilakukan \textit{Serialization}. \textit{Serialization} disini merupakan proses mentransformasikan objek ke format yang bisa dengan mudah dikirim melewati jaringan atau disimpan di database. Formatnya disini berupa string yang direpresentasikan sebagai objek di XML atau JSON(Javascript Object Notation). Ada beberapa objek yang dapat melakukan serialisasi, tetapi yang akan dibahas penulis disini hanya serialisasi JSON. 
 
 \hspace{0.5cm} Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memiliki struktur yang mudah dipahami dimana kurung kurawal mengindikasikan objek, kurung siku berarti array, dan properti berupa nama dan nilai pasangan yang dipisahkan oleh titik dua. JSON format memiliki ukuran data yang kecil dan baik untuk penggunaan perangkat bergerak. Untuk contoh format JSON dapat dilihat di bagian Kiri API pada Bab 2 ini karena Kiri API menggunakan format JSON. Serialisasi menggunakan DataContractJsonSerializer membuat serialisasi mudah untuk menerjemahkan form String JSON ke objek yang dapat langsung digunakan. DataContractJsonSerializer memakai WriteObject() untuk serialisasi and ReadObject() untuk de-serialisasi.
-
-% SUB SUB Memanfaatkan Sumber Data Web
-\subsubsection{Memanfaatkan Sumber Data Web}
-\label{subsubsec:Memanfaatkan Sumber Data Web}
-
-\begin{lstlisting} [caption= Pembentuk getPublicPhotos Url pada flicker]
-	private const string BaseUrl = "http://ycpi.api.flickr.com/services/rest/";
-	private const string QueryStrings =
-	"?method={0}&api_key={1}&user_id={2}&format=json&nojsoncallback=1";
-	private const string FlickrMethod = "flickr.people.getPublicPhotos";
-	private const string YourApiKey = "<replace with api key here>";
-	private const string LibraryOfCongressKey = "8623220@N02";
-	private string FlickrPhotosUrl = BaseUrl +
-	String.Format(QueryStrings, FlickrMethod, YourApiKey, LibraryOfCongressKey);
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Contoh JSON String dari flickr API]
-	{
-		"photos":{
-			"page":1,
-			"pages":193,
-			"perpage":100,
-			"total":"19222",
-			"photo":[
-				{
-					"id":"9319237625",
-					"owner":"8623220@N02",
-					"secret":"e0d73d680b",
-					"server":"5537",
-					"farm":6,. . .
-\end{lstlisting}
-
-\hspace{0.5cm} Selanjutnya untuk menerjemahkan JSON ke C\# bisa lewat web sites json2csharp.com. Menuju ke json2csharp.com lalu paste JSON di text box yang ada dan click Generate. Selanjutnya buat class berekstensi .cs lalu paste  text C\# yang telah di generate. 
-
-\begin{lstlisting} [caption= Contoh JSON String dari flickr API]
-	using System.Collections.Generic;
-	
-	namespace ConsumingXML.Classes
-	{
-		public class Photo
-		{
-			public string id { get; set; }
-			public string owner { get; set; }
-			public string secret { get; set; }
-			public string server { get; set; }
-			public int farm { get; set; }
-			public string title { get; set; }
-			public int ispublic { get; set; }
-			public int isfriend { get; set; }
-			public int isfamily { get; set; }
-		}
-		public class Photos
-		{
-			public int page { get; set; }
-			public int pages { get; set; }
-			public int perpage { get; set; }
-			public string total { get; set; }
-			public List<Photo> photo { get; set; }
-		}
-		public class RootObject
-		{
-			public Photos photos { get; set; }
-			public string stat { get; set; }
-		}
-	}
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Mengembalikan daftar FlickrPhoto]
-	private static List<FlickrPhoto> GetFlickrPhotos(string json)
-	{
-	const string baseUrl =
-	"http://farm{0}.staticflickr.com/{1}/{2}_{3}_s.jpg";
-	List<FlickrPhoto> FlickrPhotos = null;
-	var serializer = new DataContractJsonSerializer(typeof(RootObject));
-	using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-	{
-	var root = serializer.ReadObject(stream) as RootObject;
-	FlickrPhotos = (from photo in root.photos.photo
-	select new FlickrPhoto
-	{
-	Title = photo.title,
-	Uri = new Uri(String.Format(baseUrl,
-	photo.farm, photo.server, photo.id, photo.secret))
-	}).ToList();
-	}
-	return FlickrPhotos;
-	}
-\end{lstlisting}
-
-\begin{lstlisting} [caption= Menggunakan WebClient untuk mendownload String]
-	private void UseWebClient()
-	{
-	var uri = new Uri(FlickrPhotosUrl);
-	var client = new WebClient();
-	client.DownloadStringCompleted += (sender, e) =>
-	{
-	var photos = GetFlickrPhotos(e.Result);
-	Dispatcher.BeginInvoke(() =>
-	{
-	FlickrListBox.DataContext = photos;
-	});
-	};
-	client.DownloadStringAsync(uri);
-}
-\end{lstlisting}
-
-\begin{lstlisting} [caption= XAML untuk halaman]
-	<Grid x:Name="LayoutRoot" >
-		<ListBox x:Name="FlickrListBox" ItemsSource="{Binding}">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<StackPanel Orientation="Horizontal">
-						<Image Stretch="UniformToFill" Width="100" Height="100" Source="{Binding Uri}" />
-						<TextBlock Grid.Column="1" Margin="10,0,0,0" Text="{Binding Title}" HorizontalAlignment="Stretch" />
-					</StackPanel>
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
-	</Grid>
-\end{lstlisting}
 
 %Kiri API
 \section{Kiri API}
@@ -589,7 +244,7 @@ Berikut nilai yang mungkin dari Status Posisi:
 % SUB Pengantar Kiri API
 \subsection{Pengantar Kiri API}
 \label{subsec:Pengantar Kiri API}
-\hspace{0.5cm} API atau \textit{Application Programming Interface} merupakan aturan yang dikodekan secara spesifik yang dapat digunakan untuk komunikasi antar aplikasi. Jadi API disini memfasilitasi untuk pemanggilan fungsi-fungsi tertentu diluar aplikasi itu sendiri. Pemanfaatan Kiri API adalah JSON atau \textit{JavaScript Object Notation} format. Pemanfaatan Kiri API cukup dengan melakuan \textit{request} dengan parameter dan Kiri akan mengembalikan hasil dalam format JSON. Untuk setiap \textit{request} membutuhkan \textit{API key} yang didapat dengan mendaftar\footnotemark[2]. Penggunaan API memungkinkan pengaksesan dimana saja dengan menggunakan koneksi internet. Pada Sub Bab dibawah penulis akan membahas beberapa pemanggilan pesan yang terdapat pada Kiri API.
+\hspace{0.5cm} API atau \textit{Application Programming Interface} merupakan aturan yang dikodekan secara spesifik yang dapat digunakan untuk komunikasi antar aplikasi. Jadi API disini memfasilitasi untuk pemanggilan fungsi-fungsi tertentu diluar aplikasi itu sendiri. Pemanfaatan Kiri API adalah JSON atau \textit{JavaScript Object Notation} format. Pemanfaatan Kiri API dengan melakuan \textit{request} dengan parameter POST atau GET dan Kiri akan mengembalikan hasil dalam format JSON. Untuk setiap \textit{request} membutuhkan \textit{API key} yang didapat dengan mendaftar\footnotemark[2]. Penggunaan API memungkinkan pengaksesan dimana saja dengan menggunakan koneksi internet. Pada Sub Bab dibawah penulis akan membahas beberapa pemanggilan pesan yang terdapat pada Kiri API.
 %kutipan mengenai kiri
 \footnotetext[2]{\url{https://bitbucket.org/projectkiri/kiri_api/wiki/KIRI API v2 Documentation}}
 
