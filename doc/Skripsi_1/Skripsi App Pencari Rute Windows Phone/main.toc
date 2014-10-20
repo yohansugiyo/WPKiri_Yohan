@@ -28,25 +28,31 @@
 \contentsline {subsection}{\numberline {2.6.2}Tampilan Peta di Windows Phone}{11}{subsection.2.6.2}
 \contentsline {subsection}{\numberline {2.6.3}Pushpins ke Peta}{12}{subsection.2.6.3}
 \contentsline {subsection}{\numberline {2.6.4}Polyline pada Peta}{12}{subsection.2.6.4}
-\contentsline {subsection}{\numberline {2.6.5}Metode pada Peta}{12}{subsection.2.6.5}
-\contentsline {subsection}{\numberline {2.6.6}Metode MapPolyline}{13}{subsection.2.6.6}
-\contentsline {section}{\numberline {2.7}Lokasi}{14}{section.2.7}
-\contentsline {subsection}{\numberline {2.7.1}Mendapatkan Posisi Pengguna}{14}{subsection.2.7.1}
-\contentsline {subsection}{\numberline {2.7.2}Metode Lokasi}{14}{subsection.2.7.2}
-\contentsline {section}{\numberline {2.8}Memanfaatkan Sumber Data}{15}{section.2.8}
-\contentsline {section}{\numberline {2.9}Pengantar Kiri API}{16}{section.2.9}
-\contentsline {section}{\numberline {2.10}Routing Web Service}{16}{section.2.10}
-\contentsline {section}{\numberline {2.11}Web Service Pencarian Lokasi}{17}{section.2.11}
-\contentsline {section}{\numberline {2.12}Web Service Menemukan Transportasi Terdekat}{18}{section.2.12}
-\contentsline {chapter}{\numberline {3}Analisis}{21}{chapter.3}
-\contentsline {section}{\numberline {3.1}Analisis Aplikasi Sejenis}{21}{section.3.1}
-\contentsline {section}{\numberline {3.2}Analisis Aplikasi}{24}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Kebutuhan Aplikasi}{24}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Analisis Kontrol yang Dipakai}{24}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Analisis Terhadap Siklus Hidup Aplikasi}{24}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Analisis Peta}{24}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Analisis Metode yang Dipakai}{24}{subsection.3.2.5}
-\contentsline {subsection}{\numberline {3.2.6}Diagram Use-Case dan Scenario}{24}{subsection.3.2.6}
-\contentsline {subsection}{\numberline {3.2.7}Class Diagram}{25}{subsection.3.2.7}
-\contentsline {chapter}{Daftar Referensi}{27}{chapter*.5}
+\contentsline {subsection}{\numberline {2.6.5}Namespace Kontrol Map}{12}{subsection.2.6.5}
+\contentsline {subsection}{\numberline {2.6.6}Kelas Map}{13}{subsection.2.6.6}
+\contentsline {subsection}{\numberline {2.6.7}Kelas Polyline}{14}{subsection.2.6.7}
+\contentsline {subsection}{\numberline {2.6.8}Kelas Pushpin}{14}{subsection.2.6.8}
+\contentsline {section}{\numberline {2.7}Lokasi}{15}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Mendapatkan Posisi Pengguna}{15}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}Namespace Geolocator}{15}{subsection.2.7.2}
+\contentsline {subsection}{\numberline {2.7.3}Kelas Geocoordinate}{16}{subsection.2.7.3}
+\contentsline {subsection}{\numberline {2.7.4}Kelas Geolocator}{16}{subsection.2.7.4}
+\contentsline {subsection}{\numberline {2.7.5}Kelas Geoposition}{17}{subsection.2.7.5}
+\contentsline {subsection}{\numberline {2.7.6}Metode Lokasi}{17}{subsection.2.7.6}
+\contentsline {section}{\numberline {2.8}Memanfaatkan Sumber Data}{18}{section.2.8}
+\contentsline {section}{\numberline {2.9}Pengantar Kiri API}{18}{section.2.9}
+\contentsline {section}{\numberline {2.10}Routing Web Service}{19}{section.2.10}
+\contentsline {section}{\numberline {2.11}Web Service Pencarian Lokasi}{20}{section.2.11}
+\contentsline {section}{\numberline {2.12}Web Service Menemukan Transportasi Terdekat}{21}{section.2.12}
+\contentsline {chapter}{\numberline {3}Analisis}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Analisis Aplikasi Sejenis}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}Analisis Aplikasi}{26}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Kebutuhan Aplikasi}{26}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Analisis Kontrol yang Dipakai}{26}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Analisis Terhadap Siklus Hidup Aplikasi}{27}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Analisis Peta}{27}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Analisis Metode yang Dipakai}{28}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}Diagram Use-Case dan Scenario}{28}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}Class Diagram}{29}{subsection.3.2.7}
+\contentsline {chapter}{Daftar Referensi}{31}{chapter*.5}
 \renewcommand {\cftchappresnum }{\bf \scshape }

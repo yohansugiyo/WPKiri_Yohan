@@ -182,8 +182,8 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 	
 		\begin{itemize}
 			\item \textit{Heading} merupakan representasi dari derajat secara geometri. Derajat ini didefinisikan dalam 0 sampai 360 yang dipakai untuk memutar peta. Contoh, 0 atau 360 ke arah utara, 90 ke arah barat, 180 ke arah selatan, dan 270 derajat ke arah timur.
-			\item 
-		\end{itemize} \textit{Pitch} merupakan derajat kemiringan dari peta dari sudut pengguna. Contoh, \textit{Pitch} = 0 berarti melihat dari atas ke bawah sedangkan \textit{Pitch} = 45 berarti melihat dari samping ke bawah dengan sudut 45 derajat.
+			\item \textit{Pitch} merupakan derajat kemiringan dari peta dari sudut pengguna. Contoh, \textit{Pitch} = 0 berarti melihat dari atas ke bawah sedangkan \textit{Pitch} = 45 berarti melihat dari samping ke bawah dengan sudut 45 derajat.
+		\end{itemize} 
 \end{itemize}
 
 % SUB Pushpins ke Peta
@@ -203,59 +203,103 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 \label{subsec:Polyline pada Peta}
 \hspace{0.5cm} Dalam menentukan arah dibutuhkan 2 titik yaitu titk awal dan titik tujuan. Tentu saja arah tersebut butuh ditandai dengan garis. Polyline merupakan tentetan garis lurus yang saling terhubung satu sama lain. Dengan polyline arah pada peta dapat ditandai dengan warna maupin tebal atau tipisnya garis. 
 
-% SUB Metode pada Peta
-\subsection{Metode pada Peta}
-\label{subsec:Metode pada Peta}
-\hspace{0.5cm} Metode merupakan nama untuk potongan kode pada aplikasi. Windows Phone sudah mengediakan kelas Peta beserta metode-metodenya yang dapat digunakan.
+% SUB Namespace Map
+\subsection{Namespace Kontrol Map}
+\label{subsec:Namespace Kontrol Map}
+\hspace{0.5cm} Namespace merupakan nama yang dipakai untuk mengatur kelas-kelas. Windows Phone 8 sudah menyediakan namespace bawaan untuk mengatur peta. Namespace yang disediakan adalah Maps.Controls. Namespace ini yang berisi kelas-kelas yang paling sering digunakan untuk mengatur peta pada Windwows Phone.  Agar dapat menggunakan kelas pada namespace tersebut perlu ditambahkan namespace dan capabilities. Namespace yang harus ditambahkan pada baris awal XAML adalah Microsoft.Phone.Maps.Controls. Selanjutnya ada penambahan capabilities ID\_CAP\_MAP. Penambahan capabilities ditambahkan pada WMAppManifest.xml.
+
+% SUB Kelas Map
+\subsection{Kelas Map}
+\label{subsec:Kelas Map}
+\hspace{0.5cm} Merupakan kelas yang mewakili kontrol map.
+
+Berikut properti yang dapat digunakan pada kelas ini.
+\begin{table}[h]
+	\centering
+		\begin{tabular}{ |c||c|}
+				\hline
+					Nama & Deskripsi \\ \hline
+					CartographicMode & Mengatur dan mendapatkan tipe dari peta. \\ \hline
+					Center & Mengatur dan mendapatkan lokasi tengah pada peta. \\ \hline
+					ColorMode & Mengatur dan mendapatkan mode warna peta \\ \hline
+					Heading & Mengatur dan mendapatkan arah pandang peta. \\ \hline
+					Height & Mengatur dan mendapatkan tinggi. \\ \hline
+					LandmarksEnabled & Mengindikasikan apakah bangunan 3D ditampilkan. \\ \hline
+					Name & Mengatur dan mendapatkan nama identifikasi objek. \\ \hline
+					PedestrianFeaturesEnabled & Mengindikasikan fitur pejalan kaki ditampilkan. \\ \hline
+					Pitch & Mengatur dan mendapatkan derajat kemiringan peta. \\ \hline
+					Tag & Mengatur dan mendapatkan nilai objek. \\ \hline
+					TileSources & Mendapatkan koleksi lapisan lantai. \\ \hline
+					Width & Mengatur dan mendapatkan lebar. \\ \hline
+					ZoomLevel & Mengatur dan mendapatkan tingkat zoom pada peta. \\ \hline
+				\hline
+		\end{tabular}
+	\caption{Properti Kelas Map}
+	\label{tab:PropertiKelasMap}
+\end{table}
+
+Berikut metode yang dapat digunakan pada kelas ini.
 \begin{itemize}
-	\item Metode Center : Untuk menentukan titik tengah sebagai pandangan pusat pengguna. 
-		\begin{center}
-			MyMap.Center = new GeoCoordinate(47.6097, -122.3331);
-		\end{center}
-		
-		MyMap merupakan kelas Peta.
-		
-		GeoCoordinate merupakan posisi tengah pusat peta.
-	\item Metode Add : Untuk menambahakan peta pada panel konten.
-		\begin{center}
-			ContentPanel.Children.Add(MyMap);
-		\end{center}
-		
-		ContentPanel merupakan tempat diletakannya peta.
-		
-	\item Metode CartographicMode merupakan metode untuk mengatur kartografi pada peta.
-		\begin{center}
-			MyMap.CartographicMode = MapCartographicMode.Road;
-		\end{center}
-		
-		Road merupakan kartografi mode. Ada 4 mode yang disediakan peta Windows Phone yaitu Road, Aerial, Hybrid, dan Terrain.s
-		
-	\item MapColorMode merupakan metode untuk mengatur warna pada peta. Pengaturan warna ada 2 yaitu terang dan gelap.
-		\begin{center}
-			MyMap.ColorMode = MapColorMode.Light;
-		\end{center}
-		
-		Light merupakan mode warna yang dapat dirubah juga menjadi Dark.
-		
-	\item Metode Location pada kelas pushpin digunakan untuk menempatkan pushpin pada posisi latitude dan longitude. 	
-	\begin{center}
-						Pushpin pin = new Pushpin();\\
-            pin.Location = pinLocation;
-	\end{center}					
+	\item SetView(LocationRectangle) \\
+	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis. Metode ini tidak mengambalikan nilai.
+	\item SetView(GeoCoordinate, Double) \\
+	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah dan tingkat zoom. Metode ini tidak mengambalikan nilai.
+	\item SetView(LocationRectangle, MapAnimationKind)\\
+	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis dan animasi. Metode ini tidak mengambalikan nilai.
+	\item 	SetView(LocationRectangle, Thickness) \\
+	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis dengan batas tertentu. Metode ini tidak mengambalikan nilai.
+	\item 	SetView(GeoCoordinate, Double, MapAnimationKind) \\
+	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, dan animasi. Metode ini tidak mengambalikan nilai.
+	\item 		SetView(GeoCoordinate, Double, Double) \\
+	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, dan heading. Metode ini tidak mengambalikan nilai.
+	\item 		SetView(LocationRectangle, Thickness, MapAnimationKind) \\
+	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis dengan batas tertentu, dan animasi. Metode ini tidak mengambalikan nilai.
+	\item 		SetView(GeoCoordinate, Double, Double, MapAnimationKind) \\
+	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, heading, dan animasi. Metode ini tidak mengambalikan nilai.	
+	\item SetView(GeoCoordinate, Double, Double, Double) \\
+	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, heading, pitch. Metode ini tidak mengambalikan nilai.
+	\item 	SetView(GeoCoordinate, Double, Double, Double, MapAnimationKind) \\
+	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, heading, pitch, dan animasi. Metode ini tidak mengambalikan nilai.
+	\item UpdateLayout \\
+	Metode yang memastikan semua posisi objek turunan mengikuti tata letak. 
 \end{itemize}
 
-% SUB Metode MapPolyline
-\subsection{Metode MapPolyline}
-\label{subsec:Metode MapPolyline }
-\hspace{0.5cm} Kelas MapPolyline digunakan untuk menggambarkan garis banyak pada kontrol map. Berikut metode yang disediakan kelas MapPolyline.
+% SUB Kelas Polyline
+\subsection{Kelas Polyline}
+\label{subsec:Kelas Polyline}
+\hspace{0.5cm} Merupakan kelas yang dipakai untuk menggambarkan garis lurus yang saling terhubung. Kelas ini tergabung ke dalam namespace  Microsoft.Phone.Maps.Controls. 
+
+Berikut properti yang dapat digunakan pada kelas ini.
+\begin{table}[h]
+	\centering
+		\begin{tabular}{ |c||c|}
+				\hline
+					Nama & Deskripsi \\ \hline
+					Dispacher & Mendapatkan objek yang terkait. \\ \hline
+					Path & Mengatur dan mendapatkan kumpulan GeoCoordinates yang membuat polyline. \\ \hline
+					StrokeColor & Mengatur dan mendapatkan warna garis. \\ \hline
+					StrokeDashed & Mengatur dan mendapatkan nilai untuk mengetahui jika polyline dihancurkan. \\ \hline
+					StrokeThickness & Mengatur dan mendapatkan lebar garis untuk menggambar polyline. \\ \hline
+				\hline
+		\end{tabular}
+	\caption{Properti Kelas Polyline}
+	\label{tab:PropertiKelasPolyline}
+\end{table}
+
+Berikut metode yang dapat digunakan pada kelas ini.
 \begin{itemize}
-	\item Metode Points untuk menggambar titik-titik lokasi dan dibuat garis antar titik tersebut.
-	\begin{center}
-			polyline.Points = pointCollection;
-	\end{center}	
-	Masukan dari metode Points adalah kumpulan titik-titik lokasi pertipe Point.
+	\item CheckAccess\\
+	Metode yang menentukan bisa atau tidaknya pemanggilan thread untuk mengakses objek ini.
+	\item ClearValue\\
+	Metode yang akan membersihkan nilai lokal
+	\item Finalize \\
+	Metode yang dipakai untuk melakukan pembersihan pada sumber daya yang tidak terpakai sebelum objek dihancurkan.
 \end{itemize}
 
+% SUB Kelas Pushpin
+\subsection{Kelas Pushpin}
+\label{subsec:Kelas Pushpin}
+\hspace{0.5cm} Merupakan kelas yang dipakai untuk menggambarkan ?????
 
 % Lokasi
 \section{Lokasi}
@@ -277,6 +321,83 @@ Berikut nilai yang mungkin dari Status Posisi:
 	\item \textit{Disable} : Status mengindikasikan tidak diperbolehkannya pengaksesan lokasi.
 	\item \textit{NotInitialized} : Data lokasi belum tersedia. Status ini muncul jika aplikasi belum mamanggil GetGeopositionAsync atau register.
 	\item \textit{NotAvailable} : Jika Windows sensor dan lokasi tidak tersedia.
+\end{itemize}
+
+% SUB Namespace Geolocator
+\subsection{Namespace Geolocator}
+\label{subsec:Namespace Geolocator}
+\hspace{0.5cm} Namespace merupakan nama yang dipakai untuk mengatur kelas-kelas. Windows Phone 8 sudah menyediakan namespace bawaan untuk mengakses lokasi. Namespace yang disediakan adalah namespace Geolocator. Namespace ini akan mengakses lokasi geografis dari perangkat dan mendukung pelacakan lokasi dari waktu ke waktu. Agar dapat menggunakan kelas pada namespace tersebut perlu ditambahkan namespace dan \textit{capabilities}. Namespace yang harus ditambahkan pada baris awal XAML adalah \textbf{Windows.Device.Geolocator}. Selanjutnya ada penambahan \textit{capabilities} ID\_CAP\_LOCATION. Penambahan \textit{capabilities} ditambahkan pada WMAppManifest.xml. Kelas yang diatur oleh namespace geolocator dapat di lihat pada tabel ~\ref{tab:KelasPadaNamespaceGeolocator}.
+\begin{table}[h]
+	\centering
+		\begin{tabular}{ |c||c|}
+				\hline
+				Kelas & Deskripsi \\ \hline
+				Geocoordinate & Berisi informasi untuk mengidentifikasi lokasi geografis. \\ \hline
+				Geolocator & Mendukung dalam pengaksesan lokasi perangkat. \\ \hline
+				Geoposition & Memberikan data lokasi beserta latitude dan longitude atau data alamat. \\ \hline
+				\hline
+		\end{tabular}
+	\caption{Kelas pada Namespace Geolocator}
+	\label{tab:KelasPadaNamespaceGeolocator}
+\end{table}
+
+% SUB Kelas Geocoordinate
+\subsection{Kelas Geocoordinate}
+\label{subsec:Kelas Geocoordinate}
+\hspace{0.5cm} Kelas Geocoordinate adalah kelas yang menunjukan lokasi sebagai kordinat geografis. Kelas ini hanya menyediakan properti yang hanya bisa dibaca. Kelas ini menyediakan properti yang ditunjukan pada tabel ~\ref{tab:PropertiPadaKelasGeocoordinate}.
+
+\begin{table}[h]
+	\centering
+		\begin{tabular}{ |c||c|}
+				\hline
+				Properti & Deskripsi \\ \hline
+				Altitude & Ketinggian lokasi dalam satuan meter. \\ \hline
+				Heading & Arah menghadap perangkat dalam satuan derajat yang relative terhadap mata angin utara. \\ \hline
+				Latitude & Garis lintang dalam satuan derajat. \\ \hline
+				Longitude  & Garis bujur dalam satuan derajat. \\ \hline
+				Point & Lokasi dari Geocoordinate. \\ \hline
+				Speed & Kecepatan dalam satuan meter per detik. \\ \hline
+				\hline
+		\end{tabular}
+	\caption{Properti pada Kelas Geocoordinate}
+	\label{tab:PropertiPadaKelasGeocoordinate}
+\end{table} 
+
+% SUB Kelas Geolocator
+\subsection{Kelas Geolocator}
+\label{subsec:Kelas Geolocator}
+\hspace{0.5cm} Kelas Geolocator merupakan kelas yang mendukung pengaksesan terhadap lokasi.
+
+Berikut metode yang disediakan kelas Geolocator:
+\begin{itemize}
+	\item public IAsyncOperation<Geoposition> GetGeopositionAsync() \\
+		Operator await diatas dimaksudkan untuk meminta posisi lokasi terus menerus sampai selesai dan menunda tugas yang lain. \\
+		Metode GetGeopositionAsync yang merupakan bawaan Kelas Geolocator akan meminta data lokasi dan menanganinya sampai selesai.
+		Kembalian dari metode GetGeopositionAsync adalah Geoposition.
+\end{itemize}
+
+Berikut Properti yang disediakan kelas Geolocator:
+\begin{itemize}
+	\item public PositionStatus LocationStatus { get; } \\
+		Merupakan properti dari kelas geolocator untuk mendapatkan status posisi dengan mengembalikan kelas PositionStatus. Status pada kelas PositionStatus adalah Ready, Initializing, NoData, Disable, NotInitialized, dan NotAvailable.
+	\item public PositionAccuracy DesiredAccuracy { get; set; } \\
+		Properti yang digunakan untuk mengatur dan mendapatkan tingkat akurasi. Untuk tingkat akurasi dapat dipilih tingkat \textit{High} untuk tingkat akurasi tinggi dan dipilih tingkat{Default} untuk menghemat daya. Keluaran dari properti ini adalah tipe data PositionAccuracy.
+	\item public Nullable<uint> DesiredAccuracyInMeters { get; set; }\\
+		Sama seperti properti DesiredAccuracy diatas tetapi dalam satuan meter. Keluaran dari properti ini adalah tipe data uint.
+	\item public uint ReportInterval { get; set; } \\
+		Merupakan properti untuk mendapatkan selang waktu pembaruan lokasi. Properti ini mengeluarkan tipe data unit.
+\end{itemize}
+
+% SUB Kelas Geoposition
+\subsection{Kelas Geoposition}
+\label{subsec:Kelas Geoposition}
+\hspace{0.5cm} Kelas Geoposition merupakan kelas yang memuat lokasi (latitude dan longitude).
+Berikut Properti yang disediakan kelas Geoposition:
+\begin{itemize}
+	\item public CivicAddress CivicAddress { get; } \\
+		Data alamat sipil yang terkait dengan lokasi geografis.
+	\item public Geocoordinate Coordinate { get; } \\
+		Data latitude dan longitude yang terkait lokasi geografis.
 \end{itemize}
 
 % SUB Metode Lokasi
@@ -311,7 +432,16 @@ Berikut nilai yang mungkin dari Status Posisi:
 % Pengantar Kiri API
 \section{Pengantar Kiri API}
 \label{sec:Pengantar Kiri API}
-\hspace{0.5cm} API atau \textit{Application Programming Interface} merupakan aturan yang dikodekan secara spesifik yang dapat digunakan untuk komunikasi antar aplikasi. Jadi API disini memfasilitasi untuk pemanggilan fungsi-fungsi tertentu diluar aplikasi itu sendiri. Pemanfaatan Kiri API adalah JSON atau \textit{JavaScript Object Notation} format. Pemanfaatan Kiri API dengan melakuan \textit{request} dengan parameter POST atau GET dan Kiri akan mengembalikan hasil dalam format JSON. Untuk setiap \textit{request} membutuhkan \textit{API key} yang didapat dengan mendaftar\cite{Kiri}. Penggunaan API memungkinkan pengaksesan dimana saja dengan menggunakan koneksi internet. Pada Sub Bab dibawah penulis akan membahas beberapa pemanggilan pesan yang terdapat pada Kiri API.
+\hspace{0.5cm} API atau \textit{Application Programming Interface} merupakan aturan yang dikodekan secara spesifik yang dapat digunakan untuk komunikasi antar aplikasi. Jadi API disini memfasilitasi untuk pemanggilan fungsi-fungsi tertentu diluar aplikasi itu sendiri. Pemanfaatan Kiri API adalah JSON atau \textit{JavaScript Object Notation} format. 
+
+\hspace{0.5cm} Pemanfaatan Kiri API dengan melakuan permintaan dengan parameter POST atau GET dan Kiri akan mengembalikan hasil dalam format JSON. Permintaan tersebut dikirimkan ke URL. Ada URL yang disediakan Kiri Api, yaitu:
+\begin{itemize}
+	\item \url{http://preview.kiri.travel/handle.php} \\
+	Merupakan URL untuk uji coba. Untuk kemampuannya juga menurut dokumentasi Kiri API masih tidak stabil.
+	\item \url{http://kiri.travel/handle.php} \\
+	Merupakan URL produksi. Ini merupakan URL rekomendasi terhadap permintaan.
+\end{itemize}
+Untuk setiap permintaan membutuhkan \textit{API key} yang didapat dengan mendaftar\cite{Kiri}. Penggunaan API memungkinkan pengaksesan dimana saja dengan menggunakan koneksi internet. Pada Sub Bab dibawah penulis akan membahas beberapa pemanggilan pesan yang terdapat pada Kiri API.
 %kutipan mengenai kiri
 \footnotetext[2]{\url{https://bitbucket.org/projectkiri/kiri_api/wiki/KIRI API v2 Documentation}}
 
@@ -335,7 +465,7 @@ Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
 \end{tabular}
 
 \vspace{5mm}
-Berikut format Kiri API \textit{responds}:
+Berikut format kembalian dari Kiri API:
 
 \begin{lstlisting} [caption= code \textit{respond} pencarian rute]
 { 
@@ -405,7 +535,7 @@ Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
 \end{tabular}
 
 \vspace{5mm}
-Berikut format Kiri API \textit{responds}:
+Berikut format kembalian dari Kiri API:
 
 \begin{lstlisting} [caption= code \textit{respond} pencarian lokasi]
 {
@@ -454,7 +584,7 @@ Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
 \end{tabular}
 
 \vspace{5mm}
-Berikut format Kiri API \textit{responds}:
+Berikut format kembalian dari Kiri API:
 
 \begin{lstlisting} [caption= code \textit{respond} menemukan lokasi terdekat]
 {
