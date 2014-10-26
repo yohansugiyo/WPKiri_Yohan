@@ -104,10 +104,106 @@ Berikut adalah tampilan dari aplikasi "Public Transport" (Gambar ~\ref{fig:home}
 
 \hspace{0.5cm} Pencarian rute yang penulis gunakan untuk aplikasi yaitu dengan memakai Kiri API. Kiri API akan memberikan kembalian berupa titik-titik rute. Karena hal itu penulis harus menggambar rute tersebut sesuai jalan pada peta. Untuk hal tersebut penulis akan menggunakan Kelas Polyline pada Windows Phone untuk menggambarnya. Polyline yang digambar harus terlihat dengan jelas dan diberi warna yang kontras dengan warna peta.
 
-% SUB Analisis Metode yang Dipakai
-\subsection{Analisis Metode yang Dipakai}
-\label{lab:Analisis Metode yang Dipakai}
+% SUB Kiri API
+\subsection{Kiri API}
+\label{lab:Kiri API}
+\hspace{0.5cm} Kiri API menyediakan 2 parameter untuk permintaan yaitu POST dan GET. Parameter GET berarti data dikirim melalui \textit{Uniform resource locator} atau disingkat URL. Sedangkan permintaan POST akan menyertakan data pada baris permintaan. Selanjutnya permintaan tersebut akan dikirim ke URL. Untuk hal ini penulis akan mengirim ke URL \url{ http://kiri.travel/handle.php}.
 
+\hspace{0.5cm} Untuk setiap permintaan terhadap Kiri API dibutuhkan \textit{API key}. Kegunaan \textit{API key} adalah password untuk mengakses Kiri API. \textit{API key} dapat didapatkan di \url{dev.kiri.travel}. Berikut langkah-langkah dari membuka \url{dev.kiri.travel} sampai penulis mendapatkan \textit{API key}.
+\begin{itemize}
+	\item Masuk ke situs \url{dev.kiri.travel}.
+	\item Register dengan memasukan alamat email, nama, dan nama perusahaan.
+	\item Password akan dikirimkan ke alamat email. Tentunya password akan dibuat otomatis oleh pihak Kiri.
+	\item Login setelah mengetahui password yang diterima dari alamat email. 
+	\item Setelah berhasil login, di menu utama terdapat API Keys Managements yang dapat dipilih.
+	\item Pilih tombol Add lalu masukan deskripsi penggunaan \textit{API key} yaitu untuk Skripsi.
+	\item \textit{API key} didapat dan dapat digunakan.
+\end{itemize}
+     
+\hspace{0.5cm} Untuk tugas akhir ini penulis akan menggunakan 2 layanan yang ada pada Kiri API. Layanan yang digunakan adalah pencarian lokasi dan routing. Pencarian lokasi adalah layanan untuk menemukan tempat atau nama jalan yang terkait dengan masukan pengguna. Routing adalah layanan untuk menemukan langkah yang harus ditempuh pengguna untuk sampai ke lokasi tujuan dari lokasi asal. 
+
+\hspace{0.5cm} Pemanfaatan layanan pencarian lokasi yaitu dengan parameter GET melalui protokol HTTP. Berikut parameter yang harus dikirimkan:
+\begin{itemize}
+	\item version: 2
+	\item mode: "searchplace"
+	\item region: "cgk" untuk Jakarta, "bdo" untuk Bandung, dan "sub" untuk Surabaya
+	\item querystring: merupakan kata kunci lokasi yang pengguna tuju
+	\item apikey: 16 digit hexadesimal
+\end{itemize}
+Format layanan yang dikirim melalui URL adalah \url{kiri.travel/handle.php?version=2&mode=searchplace&region=cgk/bdo/sub&querystring="string"&apikey=97A7A1157A05ED6F}.
+\newline
+\\Penulis mencoba mencari lokasi bip dari kata kunci "bip" yang berada di bandung. Layanan dikirimkan ke URL \url{kiri.travel/handle.php}. 
+Berikut format layanan yang penulis kirim:\newline
+{\url{http://kiri.travel/handle.php?version=2&mode=searchplace&region=bdo&querystring=bip&apikey=97A7A1157A05ED6F}}
+\newline
+\\Berikut hasil kembalian dari Kiri API: 
+
+\begin{lstlisting} [caption= code \textit{respond} pencarian rute]
+{ 
+	"status":"ok",
+	"searchresult":[
+		{
+			"placename":"Hypermart - BIP Plaza",
+			"location":"-6.90864,107.61108"
+		},
+		{
+			"placename":"Stroberi - BIP",
+			"location":"-6.90834,107.61115"
+		},
+		{
+			"placename":"Kebab Kings (Hypermart BIP)",
+			"location":"-6.91503,107.61017"
+		},
+		{
+			"placename":"Pegadaian UPC Bip Mall",
+			"location":"-6.90916,107.61052"
+		},
+		{
+			"placename":"Rice Bowl BIP",
+			"location":"-6.90873,107.61088"
+		},
+		{	
+			"placename":"Gee Eight - Bip",
+			"location":"-6.90817,107.61080"
+		},
+		{
+			"placename":"Jonas Photo - BIP",
+			"location":"-6.91066,107.61016"
+		},
+		{
+			"placename":"Bip Foodcourt",
+			"location":"-6.91081,107.61015"
+		},
+		{
+			"placename":"Mister Baso BIP",
+			"location":"-6.90348,107.61709"
+		},
+		{
+			"placename":"JH Moriska - Bip",
+			"location":"-6.90868,107.61070"}
+	],
+	"attributions":null
+}
+\end{lstlisting}
+
+\hspace{0.5cm} Pemanfaatan layanan routing untuk mendapatkan langkah yang haris ditempuh pengguna untuk mencapai lokasi tujuan dari lokasi asal. Pemanfaatan layanan ini yaitu dengan parameter GET melalui protokol HTTP. Berikut parameter yang harus dikirim:
+\begin{itemize}
+	\item version: 2
+	\item mode: "findroute"
+	\item locale: "en" untuk bahasa Inggris dan "id" untuk bahasa Indonesia.
+	\item start: koordinat lokasi awal dalam berupa latitude dan longitude.
+	\item finish: koordinat lokasi tujuan dalam berupa latitude dan longitude.
+	\item presentation: "mobile" untuk perangkat bergerak dan "desktop" untuk komputer.
+	\item apikey: 16 digit hexadesimal
+\end{itemize}
+
+Format layanan yang dikirim melalui URL adalah \url{kiri.travel/handle.php?version=2&mode=findroute&locale=en/id&start=lat,lng&finish=lat,lng&presentation=mobile/desktop&apikey=97A7A1157A05ED6}
+
+% untuk routing dari jalan ciumbuleuit ke jalan merdeka
+%http://kiri.travel/handle.php?version=2&mode=findroute&locale=en&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=mobile&apikey=97A7A1157A05ED6F
+
+%kembalian
+%{"status":"ok","routingresults":[{"steps":[["walk","walk",["-6.8747337,107.6048829","-6.87445,107.60465"],"Walk about 41 meter from your starting point %fromicon to Jalan Ciumbuleuit %toicon.",null],["angkot","ciumbuleuitsthalllurus",["-6.87445,107.60465","-6.87541,107.60443","-6.87637,107.60421","-6.87734,107.60400","-6.87830,107.60378","-6.87926,107.60356","-6.87926,107.60356","-6.87963,107.60352","-6.87978,107.60352","-6.88093,107.60392","-6.88209,107.60433","-6.88209,107.60433","-6.88328,107.60490","-6.88328,107.60490","-6.88347,107.60481","-6.88452,107.60459","-6.88556,107.60436","-6.88660,107.60413","-6.88764,107.60390","-6.88764,107.60391","-6.88782,107.60392","-6.88887,107.60404","-6.88991,107.60416","-6.88991,107.60416","-6.89161,107.60428","-6.89161,107.60428","-6.89166,107.60421","-6.89275,107.60424","-6.89275,107.60424","-6.89405,107.60408","-6.89405,107.60408","-6.89496,107.60400"],"Take angkot Ciumbuleuit - St. Hall (lurus) at Jalan Ciumbuleuit %fromicon, and alight at Jalan Cihampelas %toicon about 2.3 kilometer later.",null],["angkot","kalapaledeng",["-6.89501,107.60403","-6.89562,107.60398","-6.89623,107.60395","-6.89732,107.60401","-6.89732,107.60401","-6.89882,107.60414","-6.89882,107.60414","-6.89969,107.60418","-6.90071,107.60426","-6.90173,107.60433","-6.90173,107.60433","-6.90297,107.60437","-6.90420,107.60440","-6.90420,107.60440","-6.90426,107.60456","-6.90422,107.60481","-6.90399,107.60546","-6.90406,107.60617","-6.90454,107.60697","-6.90454,107.60697","-6.90512,107.60745","-6.90618,107.60778","-6.90618,107.60778","-6.90643,107.60787","-6.90651,107.60807","-6.90675,107.60914","-6.90675,107.60914","-6.90694,107.60939","-6.90723,107.60939","-6.90891,107.60943","-6.90891,107.60943","-6.90909,107.60934","-6.90914,107.60857","-6.90933,107.60846","-6.91021,107.60887","-6.91021,107.60887","-6.91030,107.60897","-6.91028,107.60927","-6.90986,107.61040","-6.90986,107.61040"],"Take angkot Kalapa - Ledeng at Jalan Cihampelas %fromicon, and alight at Jalan Aceh %toicon about 2.3 kilometer later.",null],["walk","walk",["-6.90986,107.61040","-6.9114646,107.6104887"],"Walk about 178 meter from Jalan Aceh %fromicon to your destination %toicon.",null]],"traveltime":"30 minutes"}]}
 
 %Analisis Diagram Use-Case dan Scenario
 \subsection{Diagram Use-Case dan Scenario}

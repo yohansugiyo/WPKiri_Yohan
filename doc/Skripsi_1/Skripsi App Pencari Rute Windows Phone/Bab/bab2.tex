@@ -2,18 +2,18 @@
 \label{chap:teori}
 Bab ini berisi dasar teori dari pembangunan Aplikasi Pencarian Rute Kendaraan Umum untuk Windows Phone. Beberapa teori yang dibahas dalam bab ini  adalah antarmuka Windows Phone, Menampilkan Peta, Penggunaan \textit{Global Positioning System} di Windows Phone, Web Service, dan Kiri API. 
 
-% Mengenai Windows Phone
-\section{Mengenai Windows Phone}
-\label{sec:Mengenai Windows Phone}
+% Windows Phone
+\section{Windows Phone}
+\label{sec:Windows Phone}
 \hspace{0.5cm} Windows Phone merupakan sistem operasi untuk perangkat bergerak yang dikembangkan Microsoft.\footnotemark[1] Untuk mengembangkan aplikasi Windows Phone dibutuhkan Windows Desktop 8 sebagai media pengembangan. Bahasa pemrograman yang digunakan untuk membuat perangkat lunak di Windows Phone yaitu C\# dan Visual Basic.  
 
 \hspace{0.5cm} Pada sub bab 2.2 sampai 2.8 akan membahas pemrograman di Windows Phone. Pembahasan akan dimulai dengan apa itu Windows Phone dan fitur di Windows Phone yang akan digunakan dalam pembangunan perangkat lunak Pencarian Rute Kendaraan di Windows Phone. 
 %kutipan mengenai windows phone
 \footnotetext[1]{\url{en.wikipedia.org/wiki/Windows_Phone}}
 
-% Lingkungan Kerja
-\section{Lingkungan Kerja}
-\label{sec:Lingkungan Kerja}
+% SUB Lingkungan Kerja
+\subsection{Lingkungan Kerja}
+\label{subsec:Lingkungan Kerja}
 \hspace{0.5cm} Microsoft .NET framework merupakan sebuah perangkat lunak yang dibangun untuk membantu dalam pembangunan aplikasi di Windows, Windows Phone, Windows Server, and Microsoft Azure\cite{MSDN}. Ini terdiri dari runtime bahasa umum dan perpustakaan kelas NET Framework, yang meliputi kelas, interface, dan jenis nilai yang mendukung berbagai teknologi. NET Framework menyediakan lingkungan yang mudah dikelola, pengembangan disederhanakan dan penyebaran, dan integrasi dengan berbagai bahasa pemrograman, termasuk Visual Basic dan Visual C\#.
 
 \hspace{0.5cm} Seperti yang telah disebutkan ada dua bahasa pemrograman dalam .NET Framework yang dipakai dalam pembangunan aplikasi di Windows Phone 8 yaitu Visual Basic dan Visual C\#. Untuk masalah kehandalan keduanya menawarkan kehandalan yang baik. Kelebihan dari Visual Basic adalah bahasa pemrograman berorientasi objek yang kuat dan memiliki banyak pengenbangan fitur di inheritance, polymorphism, interfaces, and overloading\cite{MSDN}.Kelebihan dari C\# yang merupakan pengembangan dari C/C++ adalah sederhana, modern, aman dan berorientasi objek\cite{MSDN}. Satu hal yang dirasakan penulis adalah kenyamanan ketika memilih bahasa .NET tersebut. Akan lebih mudah bagi developer yang menggunakan Visual Basic 6.0  untuk menggunakan Visual Basic .NET. Tetapi bagi  deveoper yang menggunakan C++ atau java sebelumnya akan lebih mudah menggunakan C\#.
@@ -22,9 +22,9 @@ Bab ini berisi dasar teori dari pembangunan Aplikasi Pencarian Rute Kendaraan Um
 \footnotetext[3]{\url{http://msdn.microsoft.com/en-us/library/aa903378\%28v=vs.71\%29.aspx}}
 \footnotetext[4]{\url{http://msdn.microsoft.com/en-us/library/aa287558\%28v=vs.71\%29.aspx}}
 
-% Mengenai XAML
-\section{XAML}
-\label{sec:XAML}
+% SUB Mengenai XAML
+\subsection{XAML}
+\label{subsec:XAML}
 \hspace{0.5cm} Extensible Application Markup Language (XAML) merupakan bahasa deklaratif yang dipakai untuk membuat antarmuka aplikasi. XAML merupakan bahasa yang digunakan untuk membuat antarmuka di Windows Phone 8. Pada dasarnya penggunaan XAML sama dengan HTML pada pembuatan antarmuka web. XAML dapat menginisialisasi objek dan mengatur properti untuk menunjukan hubungan antar objek.
 
 \hspace{0.5cm} Untuk aturan penulisan sintak XAML didasarkan pada XML. Setiap XAML Windows Runtime menggunakan konvensi XAML language dan ditulis pada \textit{namespace} yang ditandai dengan prefix x sebagai elemen paling atas. Setelah itu di baris ke dua dimulai dengan xmlns diikuti titik dua, lalu nama dari \textit{namespace}, diikuti tanda sama dengan dan \textit{path} perepresentasian \textit{namespace}.
@@ -36,14 +36,14 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 	\item x:Uid : mengidentifikasi elemen objek dalam XAML. Objek elemen merupakan objek yang dapat melakukan kontrol terhadap kelas atau elemen lain yang ditampilkan di desain anarmuka.
 \end{itemize}	
 
-% Mengenai Kontrol terhadap Ponsel
-\section{Kontrol terhadap Ponsel}
-\label{sec:Kontrol terhadap Ponsel}
+% SUB Mengenai Kontrol terhadap Ponsel
+\subsection{Kontrol terhadap Ponsel}
+\label{subsec:Kontrol terhadap Ponsel}
 \hspace{0.5cm} Kontrol terhadap ponsel yang dimaksudkan disini adalah pengaturan tata letak terhadap antarmuka di Windows Phone. Windows Phone 8 menyediakan banyak set kontrol yaitu tata letak, tombol, kontrol masukan untuk mendapatkan informasi sampai ke menu. 
 
-% SUB Navigasi
-\subsection{Navigasi}
-\label{subsec:Navigasi}
+% SUBSUB Navigasi
+\subsubsection{Navigasi}
+\label{subsubsec:Navigasi}
 \hspace{0.5cm} Aplikasi yang dibuat di Windows Phone didasarkan pada model halaman. Maksud dari model halaman adalah pengguna berpindah dari satu halaman ke halaman lain dengan konten yang berbeda-beda dengan frame sebagai pengontrolnya. Setiap antarmuka aplikasi dibungkus dengan frame. Frame inilah yang melakukan kontrol terhadap aplikasi dan memungkinkan berpindah dari satu halaman ke halaman lain. Sedangkan halaman merupakan pembungkus dari elemen di dalamnya saja. Untuk lebih jelas mengenai frame, halaman dan area konten dapat dilihat pada gambar di bawah ini.
 
 \begin{figure}[h]
@@ -54,9 +54,9 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 \end{figure}
 
 
-% SUB Mengenai Tata Letak
-\subsection{Kontrol Tata Letak}
-\label{subsec:Kontrol Tata Letak}
+% SUBSUB Mengenai Tata Letak
+\subsubsection{Kontrol Tata Letak}
+\label{subsubsec:Kontrol Tata Letak}
 \hspace{0.5cm} Kontrol Tata Letak merupakan penampung pada antarmuka Windows Phone untuk objek di antarmuka dan kontrol yang lain (tombol radio, textbox, dan lai-lain). Kontrol tata letak digunakan untuk meletakan objek-objek di layar. Ketika pertama membuat aplikasi Windows Phone maka tata letak dasar sebagai penampung akan langsung dibuat berikut panel judul dan panel konten. Selanjutnya untuk penambahan kontrol tata letak yang lain dapat ditambahkan di panel konten.
 
 
@@ -68,9 +68,9 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 	\item Canvas memposiskan elemen sebagai absolut kordinat. Jadi setiap elemen di dalam Canvas dapat diposisikan spesifik sesuai kordinat x dan y.
 \end{itemize}
 	
-% SUB Mengenai Kontrol Masukan
-\subsection{Kontrol Terhadap Teks}
-\label{subsec:Kontrol Terhadap Teks}
+% SUBSUB Mengenai Kontrol Masukan
+\subsubsection{Kontrol Terhadap Teks}
+\label{subsubsec:Kontrol Terhadap Teks}
 \hspace{0.5cm} Kontrol Terhadap Teks  secara menampilkan konten String. Ada berbagai macam Kontrol Terhadap Teks di Windows Phone yaitu TextBlock, TextBox dan PasswordBox. Ketiga macam kontrol tersebut dibedakan menurut tujuannya. Berikut gambar dan keterangan masing-masing:
 \begin{figure}[h]
 	\centering
@@ -85,9 +85,9 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 	\item PasswordBox biasanya digunakan untuk masukan yang bersifat rahasia. Karakter yang dimasukan langsung disamarkan menjadi bentuk titik.
 \end{itemize}
 
-% SUB Mengenai Kontrol Masukan
-\subsection{Tombol dan Kontrol Pilihan}
-\label{subsec:Tombol dan Kontrol Pilihan}
+% SUBSUB Mengenai Kontrol Masukan
+\subsubsection{Tombol dan Kontrol Pilihan}
+\label{subsubsec:Tombol dan Kontrol Pilihan}
 \hspace{0.5cm} Tombol memungkinkan pengguna untuk bernavigasi. Sedangkan kontrol pilihan memudahkan dalam memilih. Berikut gambar dan keterangan masing-masing:
  
 \begin{figure}[h]
@@ -105,9 +105,9 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 	\item Slider merupakan kontrol yang memungkinkan user memilih nilai kisaran dari jalur yang sudah disediakan.
 \end{itemize}
 
-% SUB Kontrol Daftar
-\subsection{Kontrol Daftar}
-\label{subsec:Kontrol Daftar}
+% SUBSUB Kontrol Daftar
+\subsubsection{Kontrol Daftar}
+\label{subsubsec:Kontrol Daftar}
 \hspace{0.5cm} Kontrol yang dipakai untuk menampilkan daftar dari beberapa item. Berikut keterangan masing-masing:
 
 \begin{itemize}
@@ -115,9 +115,9 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 	\item LongListSelector dipakai untuk mengelompokan, menampilkan, dan melakukan penggulungan terhadap daftar yang panjang.
 \end{itemize}
 
-% Mengenai Siklus Hidup Aplikasi
-\section{Siklus Hidup Aplikasi}
-\label{sec:Siklus Hidup Aplikasi}
+% SUB Mengenai Siklus Hidup Aplikasi
+\subsection{Siklus Hidup Aplikasi}
+\label{subsec:Siklus Hidup Aplikasi}
 \hspace{0.5cm} Siklus hidup aplikasi merupakan waktu mulai dari aplikasi dijalankan sampai aplikasi dibuang dari memori. Siklus hidup aplikasi penting diketahui agar pengguna tidak kecewa menggunakan aplikasi yang penulis buat. Seringkali pengguna tidak berhati-hati dalam menggunakan aplikasi, makadari itu penulis harus paham kapan aplikasi harus diaktifkan, ditangguhkan atau bahkan di hapus karena sudah tidak digunakan. Berikut gambar beserta keterangan siklus hidup pada Windows Phone.
 
 \begin{figure}[h]
@@ -134,14 +134,14 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 	\item Close : Secara general pengguna tidak usah repot-repot keluar dari aplikasi karena semua sudah diurus sistem operasi. Meskipun pengguna juga dapat keluar dari aplikasi. Setelah aplikasi di keluarkan oleh pengguna dan masuk dalam keadaan "Suspended", selanjutnya aplikasi akan masuk dalam keadaan "NotRunning".
 \end{itemize}
 
-% Peta di Windows Phone
-\section{Peta di Windows Phone}
-\label{sec:Peta di Windows Phone}
+% SUB Peta di Windows Phone
+\subsection{Peta di Windows Phone}
+\label{subsec:Peta di Windows Phone}
 \hspace{0.5cm} Peta yang dipakai di Windows Phone adalah Windows Phone Maps. Windows Phone menawarkan beberapa pilihan dalam tampilan peta mulai dari kartografi, pencahayaan dan pandangan. Tidak hanya tampilan pada Sub Bab ini akan dibahas mengenai mendapatkan lokasi, petunjuk arah, MapPolyline dan Pushpins.
 
-% SUB Mengenai Penambahan Peta Ke Aplikasi
-\subsection{Penambahan Peta Ke Aplikasi}
-\label{subsec:Penambahan Peta Ke Aplikasi}
+% SUBSUB Mengenai Penambahan Peta Ke Aplikasi
+\subsubsection{Penambahan Peta Ke Aplikasi}
+\label{subsubsec:Penambahan Peta Ke Aplikasi}
 \hspace{0.5cm} Untuk penambahan Peta pada Windows Phone menggunakan kontrol peta. Kontrol peta merupakan bagian dari perpustakaan Windows Phone. Dengan begitu untuk dapat menggunakannya perlu direferensikan. Untuk dapat menggunakannya juga harus ditambah \textit{capability} ID\_CAP\_MAP. Selanjutnya barulah peta dapat ditampilkan.
 
 \clearpage
@@ -153,9 +153,9 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 	\label{fig:peta}
 \end{figure}
 
-% SUB Tampilan Peta di Windows Phone
-\subsection{Tampilan Peta di Windows Phone}
-\label{subsec:Tampilan Peta di Windows Phone}
+% SUBSUB Tampilan Peta di Windows Phone
+\subsubsection{Tampilan Peta di Windows Phone}
+\label{subsubsec:Tampilan Peta di Windows Phone}
 \hspace{0.5cm} Dalam tampilannya ada beberapa hal yang perlu diperhatikan agar pengguna merasa nyaman saat melihat peta di Windows Phone. Beberapa tampilan yang bisa ditampilkan dibuat untuk hal yang berbeda-beda. Berikut akan dibahas menentukan pusat dan tingkat zoom, kartografi, warna dan tampilan peta.
 
 \begin{itemize}
@@ -186,31 +186,31 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 		\end{itemize} 
 \end{itemize}
 
-% SUB Pushpins ke Peta
-\subsection{Pushpins ke Peta}
-\label{subsec:Pushpins ke Peta}
+% SUBSUB Pushpins ke Peta
+\subsubsection{Pushpins ke Peta}
+\label{subsubsec:Pushpins ke Peta}
 \hspace{0.5cm} Pushpin merupakan elemen yang dapat ditempatkan pada peta secara spesifik dan bisa dipakai untuk interaksi pada peta. Peta tidak mendukung langsung penggunaan pushpin karena pushpin merupakan elemen MapOverlay (bagian/lapisan terpisah dari peta). Untungnya di Windows Phone memiliki Windows Phone 8 Toolkit yang memiliki set objek agar dapat menggunakan pushpin pada peta di Windows Phone. Contoh keluaran pushpin dapat dilihat pada Figure~\ref{fig:toolkit_pushpin} berikut.
 
 \begin{figure}[!h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/toolkit_pushpin}
-	\caption{Keluaran Toolkit Pushpin pada Peta}
+	\caption{Keluaran Toolkit Pushpin pada Peta \cite{Manning}}
 	\label{fig:toolkit_pushpin}
 \end{figure}
 
-% SUB Polyline pada Peta
-\subsection{Polyline pada Peta}
-\label{subsec:Polyline pada Peta}
+% SUBSUB Polyline pada Peta
+\subsubsection{Polyline pada Peta}
+\label{subsubsec:Polyline pada Peta}
 \hspace{0.5cm} Dalam menentukan arah dibutuhkan 2 titik yaitu titk awal dan titik tujuan. Tentu saja arah tersebut butuh ditandai dengan garis. Polyline merupakan tentetan garis lurus yang saling terhubung satu sama lain. Dengan polyline arah pada peta dapat ditandai dengan warna maupin tebal atau tipisnya garis. 
 
-% SUB Namespace Map
-\subsection{Namespace Kontrol Map}
-\label{subsec:Namespace Kontrol Map}
+% SUBSUB Namespace Map
+\subsubsection{Namespace Kontrol Map}
+\label{subsubsec:Namespace Kontrol Map}
 \hspace{0.5cm} Namespace merupakan nama yang dipakai untuk mengatur kelas-kelas. Windows Phone 8 sudah menyediakan namespace bawaan untuk mengatur peta. Namespace yang disediakan adalah Maps.Controls. Namespace ini yang berisi kelas-kelas yang paling sering digunakan untuk mengatur peta pada Windwows Phone.  Agar dapat menggunakan kelas pada namespace tersebut perlu ditambahkan namespace dan capabilities. Namespace yang harus ditambahkan pada baris awal XAML adalah Microsoft.Phone.Maps.Controls. Selanjutnya ada penambahan capabilities ID\_CAP\_MAP. Penambahan capabilities ditambahkan pada WMAppManifest.xml.
 
-% SUB Kelas Map
-\subsection{Kelas Map}
-\label{subsec:Kelas Map}
+% SUBSUB Kelas Map
+\subsubsection{Kelas Map}
+\label{subsubsec:Kelas Map}
 \hspace{0.5cm} Merupakan kelas yang mewakili kontrol map.
 
 Berikut properti yang dapat digunakan pada kelas ini.
@@ -264,9 +264,9 @@ Berikut metode yang dapat digunakan pada kelas ini.
 	Metode yang memastikan semua posisi objek turunan mengikuti tata letak. 
 \end{itemize}
 
-% SUB Kelas Polyline
-\subsection{Kelas Polyline}
-\label{subsec:Kelas Polyline}
+% SUBSUB Kelas Polyline
+\subsubsection{Kelas Polyline}
+\label{subsubsec:Kelas Polyline}
 \hspace{0.5cm} Merupakan kelas yang dipakai untuk menggambarkan garis lurus yang saling terhubung. Kelas ini tergabung ke dalam namespace  Microsoft.Phone.Maps.Controls. 
 
 Berikut properti yang dapat digunakan pada kelas ini.
@@ -296,21 +296,22 @@ Berikut metode yang dapat digunakan pada kelas ini.
 	Metode yang dipakai untuk melakukan pembersihan pada sumber daya yang tidak terpakai sebelum objek dihancurkan.
 \end{itemize}
 
-% SUB Kelas Pushpin
-\subsection{Kelas Pushpin}
-\label{subsec:Kelas Pushpin}
-\hspace{0.5cm} Merupakan kelas yang dipakai untuk menggambarkan ?????
+% SUBSUB Kelas Pushpin
+\subsubsection{Kelas Pushpin}
+\label{subsubsec:Kelas Pushpin}
+\hspace{0.5cm} Merupakan kelas yang dipakai untuk menggambarkan elemen terpisah diatas peta. Meskipun pushpin merupakan bawaan pada peta untuk menunjuk suatu lokasi tetapi pushpin dari peta tidak dapat diubah-ubah. Pushpin pada Windows Phone 8 dapat dibuat sesuai ketertarikan\footnote{\url{http://developer.nokia.com/resources/library/Lumia/change-history/archived-content/maps-and-navigation/guide-to-the-wp8-maps-api.html}}. Namun ada cara lain dengan menambahkan Windows Phone Toolkit. Windows Phone Toolkit mempunyai komponan untuk menggambar pushpin diatas peta.  
+%sumber http://developer.nokia.com/resources/library/Lumia/change-history/archived-content/maps-and-navigation/guide-to-the-wp8-maps-api.html
 
-% Lokasi
-\section{Lokasi}
-\label{sec:Lokasi}
+% SUB Lokasi
+\subsection{Lokasi}
+\label{subsec:Lokasi}
 \hspace{0.5cm} Aplikasi di Windows Phone 8 dapat memanfaatkan lokasi dimana perangkat berada. Aplikasi dapat melacak lokasi sesaat  pengguna atau pelacakan selama periode tertentu. Data lokasi perangkat berasal dari berbagai sumber termasuk \textit{Global Positioning System} atau GPS, Wi-Fi, dan seluler. Ada 2 set API berbeda yang dapat dimanfaatkan di Windows Phone yaitu \textit{Runtime Location} API dan .NET \textit{Location} API. Windows Phone \textit{Runtime Location} memiliki keunggulan fitur yang banyak sedangkan .NET \textit{Location} direkomendasikan jika aplikasi ditargetkan pada Windows Phone 7.1 dan Windows Phone 8.
 
 \hspace{0.5cm} Hal yang perlu diperhatikan dalam menentukan layanan lokasi adalah penangkap GPS, Wi-Fi, dan radio seluler. Perangkat tersebut berfungsi sebagai penyedia data lokasi dengan berbagai tingkat akurasi dan konsumsi daya. Perangkat diatas juga berkomunikasi langsung untuk memutuskan sumber mana yang digunakan untuk menentukan lokasi perangkat berdasarkan ketersediaan data lokasi dan prasyarat yang ditentukan aplikasi. Lapisan diatas penyedia data lokasi tersebut adalah pengelola antarmuka. Aplikasi akan mengunakan antarmuka tersebut untuk memulai dan menghentikan layanan lokasi, mengatur tingkat akurasi, dan menerima data lokasi.
 
-% SUB Mendapatkan Posisi Pengguna
-\subsection{Mendapatkan Posisi Pengguna}
-\label{subsec:Mendapatkan Posisi Pengguna}
+% SUBSUB Mendapatkan Posisi Pengguna
+\subsubsection{Mendapatkan Posisi Pengguna}
+\label{subsubsec:Mendapatkan Posisi Pengguna}
 \hspace{0.5cm} Di Windows Phone 8 telah ada GeoCoordinate yang dapat digunakan untuk mengetahui posisi pengguna. Geolocator dari Windows.Devices.Geolocation akan mengembalikan posisi saat ini. Untuk menggunakan Geolocator, perlu menghidupkan ID\_CAP\_LOCATION di \textbackslash properties\textbackslash WMAppManifest.xml. Dalam mendapatkan posisi juga perlu diperhatikan status dari GPS karena GPS membutuhkan waktu dari mengaktifkan GPS hingga mendapatkan lokasi pengguna secara akurat. Untuk lebih jelas mengenai status dalat dilihat pada nilai status dibawah ini.
 
 Berikut nilai yang mungkin dari Status Posisi:
@@ -323,9 +324,9 @@ Berikut nilai yang mungkin dari Status Posisi:
 	\item \textit{NotAvailable} : Jika Windows sensor dan lokasi tidak tersedia.
 \end{itemize}
 
-% SUB Namespace Geolocator
-\subsection{Namespace Geolocator}
-\label{subsec:Namespace Geolocator}
+% SUBSUB Namespace Geolocator
+\subsubsection{Namespace Geolocator}
+\label{subsubsec:Namespace Geolocator}
 \hspace{0.5cm} Namespace merupakan nama yang dipakai untuk mengatur kelas-kelas. Windows Phone 8 sudah menyediakan namespace bawaan untuk mengakses lokasi. Namespace yang disediakan adalah namespace Geolocator. Namespace ini akan mengakses lokasi geografis dari perangkat dan mendukung pelacakan lokasi dari waktu ke waktu. Agar dapat menggunakan kelas pada namespace tersebut perlu ditambahkan namespace dan \textit{capabilities}. Namespace yang harus ditambahkan pada baris awal XAML adalah \textbf{Windows.Device.Geolocator}. Selanjutnya ada penambahan \textit{capabilities} ID\_CAP\_LOCATION. Penambahan \textit{capabilities} ditambahkan pada WMAppManifest.xml. Kelas yang diatur oleh namespace geolocator dapat di lihat pada tabel ~\ref{tab:KelasPadaNamespaceGeolocator}.
 \begin{table}[h]
 	\centering
@@ -341,9 +342,9 @@ Berikut nilai yang mungkin dari Status Posisi:
 	\label{tab:KelasPadaNamespaceGeolocator}
 \end{table}
 
-% SUB Kelas Geocoordinate
-\subsection{Kelas Geocoordinate}
-\label{subsec:Kelas Geocoordinate}
+% SUBSUB Kelas Geocoordinate
+\subsubsection{Kelas Geocoordinate}
+\label{subsubsec:Kelas Geocoordinate}
 \hspace{0.5cm} Kelas Geocoordinate adalah kelas yang menunjukan lokasi sebagai kordinat geografis. Kelas ini hanya menyediakan properti yang hanya bisa dibaca. Kelas ini menyediakan properti yang ditunjukan pada tabel ~\ref{tab:PropertiPadaKelasGeocoordinate}.
 
 \begin{table}[h]
@@ -363,9 +364,9 @@ Berikut nilai yang mungkin dari Status Posisi:
 	\label{tab:PropertiPadaKelasGeocoordinate}
 \end{table} 
 
-% SUB Kelas Geolocator
-\subsection{Kelas Geolocator}
-\label{subsec:Kelas Geolocator}
+% SUBSUB Kelas Geolocator
+\subsubsection{Kelas Geolocator}
+\label{subsubsec:Kelas Geolocator}
 \hspace{0.5cm} Kelas Geolocator merupakan kelas yang mendukung pengaksesan terhadap lokasi.
 
 Berikut metode yang disediakan kelas Geolocator:
@@ -388,9 +389,9 @@ Berikut Properti yang disediakan kelas Geolocator:
 		Merupakan properti untuk mendapatkan selang waktu pembaruan lokasi. Properti ini mengeluarkan tipe data unit.
 \end{itemize}
 
-% SUB Kelas Geoposition
-\subsection{Kelas Geoposition}
-\label{subsec:Kelas Geoposition}
+% SUBSUB Kelas Geoposition
+\subsubsection{Kelas Geoposition}
+\label{subsubsec:Kelas Geoposition}
 \hspace{0.5cm} Kelas Geoposition merupakan kelas yang memuat lokasi (latitude dan longitude).
 Berikut Properti yang disediakan kelas Geoposition:
 \begin{itemize}
@@ -400,38 +401,47 @@ Berikut Properti yang disediakan kelas Geoposition:
 		Data latitude dan longitude yang terkait lokasi geografis.
 \end{itemize}
 
-% SUB Metode Lokasi
-\subsection{Metode Lokasi}
-\label{subsec:Metode Lokasi}
-\hspace{0.5cm} Untuk menentukan lokasi Windows Phone sudah menyiapkan kelas-kelas beserta metode yang bisa digunakan. Berikut metode yang dapat digunakan:
-\begin{itemize}
-	\item Geolocator myGeolocator = new Geolocator();\\
-	Merupakan kelas yang mendukung akses ke lokasi geografi.
-	\item geolocator.LocationStatus\\
-	Merupakan metode dari kelas geolocator untuk mendapatkan status posisi dengan mengembalikan kelas PositionStatus. Status pada kelas PositionStatus adalah Ready, Initializing, NoData, Disable, NotInitialized, dan NotAvailable.
-	\item Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync(); \\
-		Kelas Geoposition merupakan kelas yang memuat lokasi (latitude dan longitude). \\
-		Operator await diatas dimaksudkan untuk meminta posisi lokasi terus menerus sampai selesai dan menunda tugas yang lain. \\
-		Metode GetGeopositionAsync yang merupakan bawaan Kelas Geolocator akan meminta data lokasi dan menanganinya sampai selesai.
-		Kembalian dari metode GetGeopositionAsync adalah Geoposition.
-	\item Geocoordinate myGeocoordinate = myGeoposition.Coordinate;\\
-	Kelas Geocoordinate adalah kelas yang menunjukan lokasi sebagai kordinat geografis. \\
-	Metode Coordinate pada kelas Geoposition akan mengambil latitude dan longitude lokasi dan menampungnya di kelas Geocoordinate.	
-\end{itemize}
- 
-
-% Memanfaatkan Sumber Data
-\section{Memanfaatkan Sumber Data}
-\label{sec:Memanfaatkan Sumber Data}
+% SUB Memanfaatkan Sumber Data
+\subsection{Memanfaatkan Sumber Data}
+\label{subsec:Memanfaatkan Sumber Data}
 \hspace{0.5cm} Hal yang penting dari sebuah aplikasi adalah informasi. Windown Phone 8 memiliki kemampuan dalam menghubungkan aplikasi dengan sumber data lainnya. Pemanfaatan data ada 2 macam yaitu yang lokal atau berada di perangkat dan web service. Web Service merupakan metode komunikasi antara 2 perangkat melalui jaringan. 
 
 \hspace{0.5cm} Sebelum data dapat dikirim antar perangkat perlu dilakukan \textit{Serialization}. \textit{Serialization} disini merupakan proses mentransformasikan objek ke format yang bisa dengan mudah dikirim melewati jaringan atau disimpan di database. Formatnya disini berupa string yang direpresentasikan sebagai objek di XML atau JSON(Javascript Object Notation). Ada beberapa objek yang dapat melakukan serialisasi, tetapi yang akan dibahas penulis disini hanya serialisasi JSON. 
 
 \hspace{0.5cm} Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memiliki struktur yang mudah dipahami dimana kurung kurawal mengindikasikan objek, kurung siku berarti array, dan properti berupa nama dan nilai pasangan yang dipisahkan oleh titik dua. JSON format memiliki ukuran data yang kecil dan baik untuk penggunaan perangkat bergerak. Untuk contoh format JSON dapat dilihat di bagian Kiri API pada Bab 2 ini karena Kiri API menggunakan format JSON. Serialisasi menggunakan DataContractJsonSerializer membuat serialisasi mudah untuk menerjemahkan form String JSON ke objek yang dapat langsung digunakan. DataContractJsonSerializer memakai WriteObject() untuk serialisasi and ReadObject() untuk de-serialisasi.
 
-% Pengantar Kiri API
-\section{Pengantar Kiri API}
-\label{sec:Pengantar Kiri API}
+% SUBSUB Kelas HttpClient
+\subsubsection{Kelas HttpClient}
+\label{subsubsec:Kelas HttpClient}
+\hspace{0.5cm} Merupakan Kelas yang dipakai untuk mengirim permintaan HTTP dan menerima kembalian HTTP dari \textit{Uniform Resource Identifier}(URI) yang dapat diidentifikasi. Berikut metode yang disediakan kelas HttpClient.
+\begin{itemize}
+	\item DeleteAsync \\
+	Metode yang dipakai untuk mengirimkan permintaan DELETE ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek.
+	\item GetAsync(Uri) \\
+	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek.
+	\item GetAsync(Uri,HttpCompletionOption) \\
+	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek.
+	\item GetBufferAsync \\
+	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya adalah kembalian yang dikirimkan secara buffer(menyimpan dalam memori).
+	\item GetInputStreamAsync \\
+	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya adalah kembalian yang dikirimkan secara stream(langsung sesuai waktu).
+	\item GetStringAsync \\
+	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya adalah kembalian yang dikirimkan dalam bentuk string.
+	\item PostAsync \\
+	Metode yang dipakai untuk mengirimkan permintaan POST ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek.
+	\item SendRequestAsync(HttpRequestMessage) \\
+	Metode yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter pesan dari permintaan. Sedangkan kembaliannya berupa objek.
+	\item SendRequestAsync(HttpRequestMessage, HttpCompletionOption) \\
+	Metode yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter pesan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya adalah kembalian yang dikirimkan secara stream(langsung sesuai waktu).
+\end{itemize}
+
+\footnotetext[2]{\url{http://msdn.microsoft.com/en-us/library/ms734701\%28v=vs.110\%29.aspx}}
+% http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn440594.aspx
+% http://msdn.microsoft.com/en-us/library/windows/apps/xaml/windows.web.http.httpclient.aspx
+
+% Kiri API
+\section{Kiri API}
+\label{sec:Kiri API}
 \hspace{0.5cm} API atau \textit{Application Programming Interface} merupakan aturan yang dikodekan secara spesifik yang dapat digunakan untuk komunikasi antar aplikasi. Jadi API disini memfasilitasi untuk pemanggilan fungsi-fungsi tertentu diluar aplikasi itu sendiri. Pemanfaatan Kiri API adalah JSON atau \textit{JavaScript Object Notation} format. 
 
 \hspace{0.5cm} Pemanfaatan Kiri API dengan melakuan permintaan dengan parameter POST atau GET dan Kiri akan mengembalikan hasil dalam format JSON. Permintaan tersebut dikirimkan ke URL. Ada URL yang disediakan Kiri Api, yaitu:
@@ -442,12 +452,10 @@ Berikut Properti yang disediakan kelas Geoposition:
 	Merupakan URL produksi. Ini merupakan URL rekomendasi terhadap permintaan.
 \end{itemize}
 Untuk setiap permintaan membutuhkan \textit{API key} yang didapat dengan mendaftar\cite{Kiri}. Penggunaan API memungkinkan pengaksesan dimana saja dengan menggunakan koneksi internet. Pada Sub Bab dibawah penulis akan membahas beberapa pemanggilan pesan yang terdapat pada Kiri API.
-%kutipan mengenai kiri
-\footnotetext[2]{\url{https://bitbucket.org/projectkiri/kiri_api/wiki/KIRI API v2 Documentation}}
 
-% Routing Web Service
-\section{Routing Web Service}
-\label{sec:Routing Web Service}
+% SUB Routing Web Service
+\subsection{Routing Web Service}
+\label{subsec:Routing Web Service}
 \hspace{0.5cm} Routing Web Service merupakan Kiri API yang digunakan untuk mendapatkan langkah perjalanan dari lokasi asal ke lokasi tujuan.
 
 Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
@@ -457,7 +465,7 @@ Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
   version & 2 & \vtop{\hbox{\strut Memberitahukan bahwa layanan yang dipakai} \hbox{\strut adalah protokol veris 2}} \\ \hline
   mode & "findroute" & mengintruksikan layanan untuk mencari rute \\ \hline
   locale & "en" or "id" & bahasa yang digunakan untuk balasan \\ \hline
-	start & lat,lng (both are decimal values) & titk awal \textit{Latitude} dan \textit{longitude} \\ \hline
+	start & lat,lng (both are decimal values) & titik awal \textit{Latitude} dan \textit{longitude} \\ \hline
   finish & lat,lng (both are decimal values) & titik akhir \textit{Latitude} dan \textit{longitude}  \\ \hline
   presentation & "mobile" or "desktop" & \vtop{\hbox{\strut Menentukan tipe prensentasi untuk keluaran.}\hbox{\strut Contoh, jika tipe presentasi "mobile", }\hbox{\strut maka link "tel:" akan ditambahkan di hasil.}} \\ \hline
 	apikey & 16-digit hexadecimals & API key yang digunakan \\ \hline
@@ -467,7 +475,7 @@ Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
 \vspace{5mm}
 Berikut format kembalian dari Kiri API:
 
-\begin{lstlisting} [caption= code \textit{respond} pencarian rute]
+\begin{lstlisting} [caption= kode kembalian pencarian rute]
 { 
     "status": "ok" or "error" 
     "routingresults": [ 
@@ -517,9 +525,9 @@ Berikut maksud dari listing 2.1:
 	\item Index ke 4 atau bari 11 pada listing 2.1 berisi URL untuk pemesanan tiket jika tersedia. Jika tidak tersedia akan bernilai null.
 \end{itemize}
  	 	
-% Web Service Pencarian Lokasi
-\section{Web Service Pencarian Lokasi}
-\label{sec:Pencarian Lokasi Service}
+% SUB Web Service Pencarian Lokasi
+\subsection{Web Service Pencarian Lokasi}
+\label{subsec:Pencarian Lokasi Service}
 \hspace{0.5cm} Merupakan Kiri API yang digunakan untuk mencari lokasi beserta kordinat \textit{latitude} dan \textit{longitude}
 
 Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
@@ -537,7 +545,7 @@ Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
 \vspace{5mm}
 Berikut format kembalian dari Kiri API:
 
-\begin{lstlisting} [caption= code \textit{respond} pencarian lokasi]
+\begin{lstlisting} [caption= kode kembalian pencarian lokasi]
 {
     "status": "ok" or "error"
     "searchresult": [
@@ -567,9 +575,9 @@ Berikut maksud dari listing 2.2:
 	\item Attributions berisi array string yang berisikan atribut tambahan untuk dimunculkan.
 \end{itemize}	
 
-% Web Service Memilih Transportasi Terdekat
-\section{Web Service Menemukan Transportasi Terdekat}
-\label{sec:Service Menemukan Transportasi Terdekat}
+% SUB Web Service Memilih Transportasi Terdekat
+\subsection{Web Service Menemukan Transportasi Terdekat}
+\label{subsec:Service Menemukan Transportasi Terdekat}
 \hspace{0.5cm} Merupakan Kiri API yang digunakan untuk menemukan rute transportasi terdekat sesuai titik yang diinginkan pengguna.
 
 Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
@@ -586,7 +594,7 @@ Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
 \vspace{5mm}
 Berikut format kembalian dari Kiri API:
 
-\begin{lstlisting} [caption= code \textit{respond} menemukan lokasi terdekat]
+\begin{lstlisting} [caption= kode kembalian menemukan lokasi terdekat]
 {
     "status": "ok" or "error"
     "nearbytransports": [
