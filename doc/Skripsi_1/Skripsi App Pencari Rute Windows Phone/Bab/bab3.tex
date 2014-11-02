@@ -51,7 +51,7 @@ Berikut adalah tampilan dari aplikasi "Public Transport" (Gambar ~\ref{fig:home}
 %Analisis Analisis Program
 \section{Analisis Aplikasi}
 \label{lab:Analisis Aplikasi}
-\hspace{0.5cm} Aplikasi akan dibuat mengguakan bahasa pemograman C\#. Aplikasi yang digunakan untuk membangun Aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone adalah Visual Studio Express 2013. Pada sub bab ini akan dibahas diagram use case dan diagram kelas dari aplikasi yang akan dibangun. 
+\hspace{0.5cm} Aplikasi akan dibuat mengguakan bahasa pemograman C\#. Aplikasi yang digunakan untuk membangun Aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone adalah Visual Studio Express 2012. Pada sub bab ini akan dibahas kebutuhan aplikasi, analisa kontrol yang dipakai, analisa terhadap siklus hidup aplikasi, analisa peta, analisa Kiri API, diagram use case, dan diagram kelas dari aplikasi yang akan dibangun. 
 
 %Analisis Kebutuhan Aplikasi
 \subsection{Kebutuhan Aplikasi}
@@ -74,14 +74,67 @@ Berikut adalah tampilan dari aplikasi "Public Transport" (Gambar ~\ref{fig:home}
 \label{lab:Analisis Kontrol yang Dipakai}
 \hspace{0.5cm} Dari kebutuhan yang telah disebutkan diatas penulis menyadari pentingnya kontrol yang harus dipakai. Kontrol yang dimaksud termasuk tata letak, teks, pilihan, dan daftar. Kebutuhan akan kontrol penting bukan hanya untuk kebutuhan tapi memudahkan pengguna. 
 
-\hspace{0.5cm} Untuk kontrol tata letak penulis membayangkan pengaturan yang tertata rapih dan beberapa elemen dalam satu baris atau kolom. Tetapi juga penulis tidak mengharapkan penggunaan kontrol tata letak yang rumit. Dari hasil pengamatan penulis kontrol tata letak yang cocok adalah Grid. Kontrol tata letak ini penulis pilih karena mudah diposisiskan sesuai baris dan kolom. Selain itu tampilan Grid akan menyesuaikan jika layar diputar dari posisi pemandangan ke posisi potret dan sebaliknya.
+\hspace{0.5cm} Untuk kontrol tata letak penulis membayangkan pengaturan yang tertata rapih dan beberapa elemen dalam satu baris atau kolom. Tetapi juga penulis tidak mengharapkan penggunaan kontrol tata letak yang rumit. Dari hasil pengamatan penulis kontrol tata letak yang cocok adalah Grid. Kontrol tata letak ini penulis pilih karena mudah diposisiskan sesuai baris dan kolom. Selain itu tampilan Grid akan menyesuaikan jika layar diputar dari posisi pemandangan ke posisi potret dan sebaliknya. Berikut kode untuk membuat tata letak pada halaman Windows Phone menjadi tata letak Grid.
 
-\hspace{0.5cm} Kontrol terhadap teks juga diperlukan untuk aplikasi ini. Kebutuhan yang diperlukan adalah mengeluarkan potongan teks yang dapat dibaca dan tempat pengguna memasukan teks. Untuk mengeluarkan teks yang dapat dilihat penulis akan menggunakan TextBlock. untuk masukan pengguna terhadap aplikasi penulis akan menyediakan TextBox sebagai tempat teks.
+\begin{lstlisting} [caption= Tata letak Grid]
+	<Grid x:Name="ContentPanel">
+	</Grid>
+\end{lstlisting}
 
-\hspace{0.5cm} Suatu aplikasi tentunya tidak hanya mempunyai satu halaman. Sama hal dengan aplikasi yang penulis buat memiliki beberapa halaman yang mempunyai tugas berbeda. Karena hal tersebut dibutuhkan kontrol untuk berpindah dari satu halaman ke halaman lain. Kontrol yang dibutuhkan yaitu kontrol tombol. Kontrol tombol akan mengeksekusi \textit{event click} yang memungkinkan indah halaman dan melakukan perintah.  
+\hspace{0.5cm} Kontrol terhadap teks juga diperlukan untuk aplikasi ini. Kebutuhan yang diperlukan adalah mengeluarkan potongan teks yang dapat dibaca dan tempat pengguna memasukan teks. Untuk mengeluarkan teks yang dapat dilihat penulis akan menggunakan TextBlock. untuk masukan pengguna terhadap aplikasi penulis akan menyediakan TextBox sebagai tempat teks. Berikut kode dan hasil yang ditampilkan pada Windows Phone.
+
+\begin{lstlisting} [caption= Kode untuk menampilkan kontrol terhadap teks]
+	<TextBlock Text="TextBlock"/>
+	<TextBox Text="TextBox"/>
+\end{lstlisting}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{Gambar/kontrol/control_text.PNG}
+	\caption{antarmuka TextBlock dan TextBox}
+	\label{fig:antarmuka TextBlock dan TextBox}
+\end{figure}
+
+\hspace{0.5cm} Suatu aplikasi tentunya tidak hanya mempunyai satu halaman. Sama hal dengan aplikasi yang penulis buat memiliki beberapa halaman yang mempunyai tugas berbeda. Karena hal tersebut dibutuhkan kontrol untuk berpindah dari satu halaman ke halaman lain. Kontrol yang dibutuhkan yaitu kontrol tombol. Kontrol tombol akan mengeksekusi \textit{event click} yang memungkinkan pindah halaman dan melakukan perintah.  
+
+\begin{lstlisting} [caption= Kode untuk menampilkan kontrol tombol]
+	<Button Content="Button"/>
+\end{lstlisting}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{Gambar/kontrol/button.PNG}
+	\caption{Antarmuka kontrol tombol}
+	\label{fig:antarmuka Kontrol tombol}
+\end{figure}
 
 \hspace{0.5cm} Untuk menampilkan rute salah satu cara yang penulis lakukan adalah menampilkan dalam bentuk daftar. Bentuk daftar yang dapat dipakai di Windows Phone adalah menggunakan ListBox. ListBox akan menampilkan daftar rute satu per satu menurun ke bawah.
 
+\begin{lstlisting} [caption= Kode untuk menampilkan listBox]
+	<ListBox>
+		<ListBoxItem Content="Item 1" />
+		<ListBoxItem Content="Item 2" />
+		<ListBoxItem Content="Item 3" />
+		<ListBoxItem Content="Item 4" />
+		<ListBoxItem Content="Item 5" />
+	</ListBox>
+\end{lstlisting}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.4]{Gambar/kontrol/listBox.PNG}
+	\caption{Antarmuka ListBox}
+	\label{fig:antarmuka ListBox}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.6]{Gambar/kontrol/control.PNG}
+	\caption{Antarmuka pencari rute kendaraan umum di Windows Phone}
+	\label{fig:antarmuka}
+\end{figure}
+
+\newpage
 % SUB Analisis Terhadap Siklus Hidup Aplikasi
 \subsection{Analisis Terhadap Siklus Hidup Aplikasi}
 \label{lab:Analisis Terhadap Siklus Hidup Aplikasi}
@@ -92,21 +145,105 @@ Berikut adalah tampilan dari aplikasi "Public Transport" (Gambar ~\ref{fig:home}
 % SUB Analisis Peta
 \subsection{Analisis Peta}
 \label{lab:Analisis Peta}
-\hspace{0.5cm} Untuk tampilan peta ada beberapa aspek yang perlu diperhatikan untuk memudahkan pengguna. Aspek yang perlu diperhatikan adalah tingkat zoom level, pandangan terhadap peta atau kartografi, dan mode warna. Setelah itu karena tampilan rute pada hasil pencarian dapat dimasukan gambar angkutan umum maka diperlukan penggunaan pushpin. Sesuai keluaran Kiri API yang mengeluarkan titik lokasi maka diperlukan teknik penggambaran rute yaitu menggunakan polyline.
+\hspace{0.5cm} Untuk tampilan peta ada beberapa aspek yang perlu diperhatikan untuk memudahkan pengguna. Aspek yang perlu diperhatikan adalah tingkat zoom, pandangan terhadap peta atau kartografi, dan mode warna. Setelah itu karena tampilan rute pada hasil pencarian dapat dimasukan gambar angkutan umum maka diperlukan penggunaan pushpin. Sesuai keluaran Kiri API yang mengeluarkan titik lokasi maka diperlukan teknik penggambaran rute yaitu menggunakan polyline.
 
-\hspace{0.5cm} Tampilan awal peta di Windows Phone akan mengeluarkan peta dengan pandangan dunia. Karena aplikasi pencarian rute ini masih terbatas di Pulau Jawa, Indonesia terutama Jawa Barat maka zoom level harus diatur agar mengikuti lokasi pengguna dan di satu daerah saja. Jika pengguna berada di daerah Bandung maka zoom level pada peta disesuaikan pada daerah tersebut.
+\hspace{0.5cm} Untuk cara pandang peta terdapat 4 pandangan yang disediakan Peta Windows Phone yaitu Road, Aerial, Hybrid, dan Terrain. Aplikasi ini adalah aplikasi pencari rute dan pandangan lebih banyak diarahkan ke jalan. Kebutuhan pengguna adalah nama jalan, kondisi jalan, dan kondisi sekitar. Untuk dasar pandangan tersebut pandangan yang penulis pilih untuk aplikasi ini adalah Road. Tambahan setelah mengatur pandangan peta yaitu mengatur warna dan penulis akan menggunakan mode warna terang sesuai bawaan. Berikut kode menampilkan peta dengan pandangan Road dan mode warna terang.
 
-\hspace{0.5cm} Untuk cara pandang peta terdapat 4 pandangan yang disediakan Peta Windows Phone yaitu Road, Aerial, Hybrid, dan Terrain. Aplikasi ini adalah aplikasi pencari rute dan pandangan lebih banyak diarahkan ke jalan. Kebutuhan pengguna adalah nama jalan, kondisi jalan, dan kondisi sekitar. Untuk dasar pandangan tersebut pandangan yang penulis pilih untuk aplikasi ini adalah Road. Tambahan setelah mengatur pandangan peta yaitu mengatur warna dan penulis akan menggunakan mode warna terang sesuai bawaan.
+\begin{lstlisting} [caption= Menampilkan peta dengan nama MyMap dari XAML]
+	<Controls:Map x:Name="MyMap"/>
+\end{lstlisting}
 
-%Kasih gambar road
+\begin{lstlisting} [caption= Menampilkan peta dengan nama MyMap dari kode program]
+	public mapFrom()
+  {
+		InitializeComponent();
+		Map MyMap = new Map();
+		ContentPanel.Children.Add(MyMap);
+  }
+\end{lstlisting}
 
-\hspace{0.5cm} Untuk di setiap kota ada satu angkutan umum yang banyak dipakai yaitu angkutan kota(angkot). Namun bagi yang baru pertama mengunjungi suatu daerah dan mencari angkot mungkin akan kesulitan membaca trayek dari angkot tersebut. Namun ada satu cara yang mudah untuk membedakan angkot di setiap rute yaitu dari warna dan coraknya. Agar dapat memudahkan pengguna dan menghindari pengguna saat naik angkot maka Kiri API sudah menyediakan gambar angkot yang seusai dengan setiap rute. Gambar angkot tersebut akan ditepatkan di peta dengan suatu penampung beserta keterangan. Salah satu teknik untuk menempatkan gambar tersebut adalah dengan membuat lapisan terpisah di atas peta tempat gambar tersebut. Untuk hal tersebut penulis akan memanfaatkan Pushpin sebagai lapisan terpisah untuk menaruh gambar dan keterangan angkutan umum.
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{Gambar/road}
+	\caption{Tampilan peta dengan pandangan road dan mode warna terang}
+	\label{fig:road}
+\end{figure}
 
-\hspace{0.5cm} Pencarian rute yang penulis gunakan untuk aplikasi yaitu dengan memakai Kiri API. Kiri API akan memberikan kembalian berupa titik-titik rute. Karena hal itu penulis harus menggambar rute tersebut sesuai jalan pada peta. Untuk hal tersebut penulis akan menggunakan Kelas Polyline pada Windows Phone untuk menggambarnya. Polyline yang digambar harus terlihat dengan jelas dan diberi warna yang kontras dengan warna peta.
+\hspace{0.5cm} Tampilan awal peta di Windows Phone akan mengeluarkan peta dengan pandangan dunia. Karena aplikasi pencarian rute ini masih terbatas di Pulau Jawa, Indonesia terutama Jawa Barat maka tingkat zoom harus diatur agar mengikuti lokasi pengguna dan di satu daerah saja. Jika pengguna berada di daerah Bandung maka tingkat zoom pada peta disesuaikan pada daerah tersebut. Tingkat zoom dapat dapat diatur dari kode dan XAML. Berikut cara mengatur tingkat zoom.
 
-% SUB Kiri API
-\subsection{Kiri API}
-\label{lab:Kiri API}
+\begin{lstlisting} [caption= Mengatur tingkat zoom dari XAML]
+	<Controls:Map x:Name="MyMap" ZoomLevel="10" Margin="-25,0,-16,0"/>
+\end{lstlisting}
+
+\begin{lstlisting} [caption= Mengatur tingkat zoom dari dari kode program]
+	public mapFrom()
+  {
+		InitializeComponent();
+		Map MyMap = new Map();
+
+		//Mengatur titik tengah peta
+		MyMap.Center = new GeoCoordinate(47.6097, -122.3331);
+
+		//mengatur tingkat zoom
+		MyMap.ZoomLevel = 10;
+		ContentPanel.Children.Add(MyMap);
+  }
+\end{lstlisting}
+
+\hspace{0.5cm} Untuk di setiap kota ada satu angkutan umum yang banyak dipakai yaitu angkutan kota(angkot). Namun bagi yang baru pertama mengunjungi suatu daerah dan mencari angkot mungkin akan kesulitan membaca trayek dari angkot tersebut. Namun ada satu cara yang mudah untuk membedakan angkot di setiap rute yaitu dari warna dan coraknya. Agar dapat memudahkan pengguna dan menghindari pengguna saat naik angkot maka Kiri API sudah menyediakan gambar angkot yang seusai dengan setiap rute. Gambar angkot tersebut akan ditepatkan di peta dengan suatu penampung beserta keterangan. Salah satu teknik untuk menempatkan gambar tersebut adalah dengan membuat lapisan terpisah di atas peta tempat gambar tersebut. Untuk hal tersebut penulis akan memanfaatkan Pushpin sebagai lapisan terpisah untuk menaruh gambar dan keterangan angkutan umum. Berikut kode dan tampilan pushpin pada peta.
+
+\begin{lstlisting} [caption= Kode untuk menampilkan pushpin]
+	MapOverlay overlay = new MapOverlay
+	{
+		GeoCoordinate = map.Center,
+		Content = new Border
+		{
+		BorderBrush = new SolidColorBrush(Color.FromArgb(120, 255, 0, 0)),
+		Child = new TextBlock(){Text="Pushpin"},
+		BorderThickness = new Thickness(1),
+		Background = new SolidColorBrush(Color.FromArgb(120,255,0,0)),
+		Width = 80,
+		Height = 60
+		}
+	};
+	MapLayer layer = new MapLayer();
+	layer.Add(overlay);
+
+	map.Layers.Add(layer);
+\end{lstlisting}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{Gambar/kontrol/pushpin}
+	\caption{Tampilan pushpin pada Peta}
+	\label{fig:Tampilan pushpin pada Peta}
+\end{figure}
+
+
+\hspace{0.5cm} Pencarian rute yang penulis gunakan untuk aplikasi yaitu dengan memakai Kiri API. Kiri API akan memberikan kembalian berupa titik-titik rute. Karena hal itu penulis harus menggambar rute tersebut sesuai jalan pada peta. Untuk hal tersebut penulis akan menggunakan Kelas Polyline pada Windows Phone untuk menggambarnya. Polyline yang digambar harus terlihat dengan jelas dan diberi warna yang kontras dengan warna peta. Berikut kode dan tampilan polyline pada peta.
+
+\begin{lstlisting} [caption= Kode untuk menampilkan polyline]
+	MapPolyline line = new MapPolyline();
+	line.StrokeColor = Colors.Red;
+	line.StrokeThickness = 10;
+	line.Path.Add(new GeoCoordinate(-6.8619546, 107.614441));
+	line.Path.Add(new GeoCoordinate(-6.908693, 107.611185));
+\end{lstlisting}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{Gambar/kontrol/polyline}
+	\caption{Tampilan polyline pada Peta}
+	\label{fig:Tampilan polyline pada Peta}
+\end{figure}
+
+% SUB Analisis Pemanfaatan Sumber Data
+\subsection{Analisis Pemanfaatan Sumber Data}
+\label{lab:Analisis Pemanfaatan Sumber Data}
+
+% SUB Analisis Kiri API
+\subsection{Analisis Kiri API}
+\label{lab:Analisis Kiri API}
 \hspace{0.5cm} Kiri API menyediakan 2 parameter untuk permintaan yaitu POST dan GET. Parameter GET berarti data dikirim melalui \textit{Uniform resource locator} atau disingkat URL. Sedangkan permintaan POST akan menyertakan data pada baris permintaan. Selanjutnya permintaan tersebut akan dikirim ke URL. Untuk hal ini penulis akan mengirim ke URL \url{ http://kiri.travel/handle.php}.
 
 \hspace{0.5cm} Untuk setiap permintaan terhadap Kiri API dibutuhkan \textit{API key}. Kegunaan \textit{API key} adalah password untuk mengakses Kiri API. \textit{API key} dapat didapatkan di \url{dev.kiri.travel}. Berikut langkah-langkah dari membuka \url{dev.kiri.travel} sampai penulis mendapatkan \textit{API key}.
@@ -199,11 +336,67 @@ Berikut format layanan yang penulis kirim:\newline
 
 Format layanan yang dikirim melalui URL adalah \url{kiri.travel/handle.php?version=2&mode=findroute&locale=en/id&start=lat,lng&finish=lat,lng&presentation=mobile/desktop&apikey=97A7A1157A05ED6}
 
-% untuk routing dari jalan ciumbuleuit ke jalan merdeka
-%http://kiri.travel/handle.php?version=2&mode=findroute&locale=en&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=mobile&apikey=97A7A1157A05ED6F
-
-%kembalian
-%{"status":"ok","routingresults":[{"steps":[["walk","walk",["-6.8747337,107.6048829","-6.87445,107.60465"],"Walk about 41 meter from your starting point %fromicon to Jalan Ciumbuleuit %toicon.",null],["angkot","ciumbuleuitsthalllurus",["-6.87445,107.60465","-6.87541,107.60443","-6.87637,107.60421","-6.87734,107.60400","-6.87830,107.60378","-6.87926,107.60356","-6.87926,107.60356","-6.87963,107.60352","-6.87978,107.60352","-6.88093,107.60392","-6.88209,107.60433","-6.88209,107.60433","-6.88328,107.60490","-6.88328,107.60490","-6.88347,107.60481","-6.88452,107.60459","-6.88556,107.60436","-6.88660,107.60413","-6.88764,107.60390","-6.88764,107.60391","-6.88782,107.60392","-6.88887,107.60404","-6.88991,107.60416","-6.88991,107.60416","-6.89161,107.60428","-6.89161,107.60428","-6.89166,107.60421","-6.89275,107.60424","-6.89275,107.60424","-6.89405,107.60408","-6.89405,107.60408","-6.89496,107.60400"],"Take angkot Ciumbuleuit - St. Hall (lurus) at Jalan Ciumbuleuit %fromicon, and alight at Jalan Cihampelas %toicon about 2.3 kilometer later.",null],["angkot","kalapaledeng",["-6.89501,107.60403","-6.89562,107.60398","-6.89623,107.60395","-6.89732,107.60401","-6.89732,107.60401","-6.89882,107.60414","-6.89882,107.60414","-6.89969,107.60418","-6.90071,107.60426","-6.90173,107.60433","-6.90173,107.60433","-6.90297,107.60437","-6.90420,107.60440","-6.90420,107.60440","-6.90426,107.60456","-6.90422,107.60481","-6.90399,107.60546","-6.90406,107.60617","-6.90454,107.60697","-6.90454,107.60697","-6.90512,107.60745","-6.90618,107.60778","-6.90618,107.60778","-6.90643,107.60787","-6.90651,107.60807","-6.90675,107.60914","-6.90675,107.60914","-6.90694,107.60939","-6.90723,107.60939","-6.90891,107.60943","-6.90891,107.60943","-6.90909,107.60934","-6.90914,107.60857","-6.90933,107.60846","-6.91021,107.60887","-6.91021,107.60887","-6.91030,107.60897","-6.91028,107.60927","-6.90986,107.61040","-6.90986,107.61040"],"Take angkot Kalapa - Ledeng at Jalan Cihampelas %fromicon, and alight at Jalan Aceh %toicon about 2.3 kilometer later.",null],["walk","walk",["-6.90986,107.61040","-6.9114646,107.6104887"],"Walk about 178 meter from Jalan Aceh %fromicon to your destination %toicon.",null]],"traveltime":"30 minutes"}]}
+Penulis mencoba menuju jalan merdeka dari jalan ciumbuleuit. Layanan dikirimkan ke URL \url{kiri.travel/handle.php}. Berikut format layanan yang penulis kirim \url{http://kiri.travel/handle.php?version=2&mode=findroute&locale=en&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=mobile&apikey=97A7A1157A05ED6F}.\\
+\newline
+Berikut hasil kembalian dari Kiri API:
+\begin{lstlisting} [caption= code \textit{respond} routing]
+{
+	"status":"ok",
+	"routingresults":[
+		{
+			"steps":[
+				[
+					"walk",
+					"walk",
+					["-6.8747337,107.6048829","-6.87445,107.60465"],
+					"Walk about 41 meter from your starting point \%fromicon to Jalan Ciumbuleuit \%toicon.",
+					null
+				],
+				[
+					"angkot",
+					"ciumbuleuitsthalllurus",
+					["-6.87445,107.60465","-6.87541,107.60443","-6.87637,107.60421","-6.87734,107.60400",
+					"-6.87830,107.60378", "-6.87926,107.60356","-6.87926,107.60356","-6.87963,107.60352",
+					"-6.87978,107.60352","-6.88093,107.60392","-6.88209,107.60433","-6.88209,107.60433",
+					"-6.88328,107.60490","-6.88328,107.60490","-6.88347,107.60481","-6.88452,107.60459",
+					"-6.88556,107.60436","-6.88660,107.60413","-6.88764,107.60390","-6.88764,107.60391",
+					"-6.88782,107.60392","-6.88887,107.60404","-6.88991,107.60416","-6.88991,107.60416",
+					"-6.89161,107.60428","-6.89161,107.60428","-6.89166,107.60421","-6.89275,107.60424",
+					"-6.89275,107.60424","-6.89405,107.60408","-6.89405,107.60408","-6.89496,107.60400"],
+					"Take angkot Ciumbuleuit - St. Hall (lurus) at Jalan Ciumbuleuit \%fromicon, and alight at Jalan Cihampelas 
+					\%toicon about 2.3 kilometer later.",
+					null
+				],
+				[
+					"angkot",
+					"kalapaledeng",
+					["-6.89501,107.60403","-6.89562,107.60398","-6.89623,107.60395","-6.89732,107.60401",
+					"-6.89732,107.60401","-6.89882,107.60414","-6.89882,107.60414","-6.89969,107.60418",
+					"-6.90071,107.60426","-6.90173,107.60433","-6.90173,107.60433","-6.90297,107.60437",
+					"-6.90420,107.60440","-6.90420,107.60440","-6.90426,107.60456","-6.90422,107.60481",
+					"-6.90399,107.60546","-6.90406,107.60617","-6.90454,107.60697","-6.90454,107.60697",
+					"-6.90512,107.60745","-6.90618,107.60778","-6.90618,107.60778","-6.90643,107.60787",
+					"-6.90651,107.60807","-6.90675,107.60914","-6.90675,107.60914","-6.90694,107.60939",
+					"-6.90723,107.60939","-6.90891,107.60943","-6.90891,107.60943","-6.90909,107.60934",
+					"-6.90914,107.60857","-6.90933,107.60846","-6.91021,107.60887","-6.91021,107.60887",
+					"-6.91030,107.60897","-6.91028,107.60927","-6.90986,107.61040","-6.90986,107.61040"],
+					"Take angkot Kalapa - Ledeng at Jalan Cihampelas \%fromicon, and alight at Jalan Aceh 
+					\%toicon about 2.3 kilometer later.",
+					null
+				],
+				[
+					"walk",
+					"walk",
+					["-6.90986,107.61040","-6.9114646,107.6104887"],
+					"Walk about 178 meter from Jalan Aceh \%fromicon to your destination \%toicon.",
+					null
+				]
+				],
+					"traveltime":"30 minutes"
+				}
+			]
+}
+\end{lstlisting}
 
 %Analisis Diagram Use-Case dan Scenario
 \subsection{Diagram Use-Case dan Scenario}

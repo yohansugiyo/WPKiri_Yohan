@@ -49,10 +49,10 @@
 \contentsline {section}{\numberline {3.2}Analisis Aplikasi}{28}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Kebutuhan Aplikasi}{28}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Analisis Kontrol yang Dipakai}{28}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Analisis Terhadap Siklus Hidup Aplikasi}{29}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Analisis Peta}{29}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Kiri API}{30}{subsection.3.2.5}
-\contentsline {subsection}{\numberline {3.2.6}Diagram Use-Case dan Scenario}{32}{subsection.3.2.6}
-\contentsline {subsection}{\numberline {3.2.7}Class Diagram}{33}{subsection.3.2.7}
-\contentsline {chapter}{Daftar Referensi}{35}{chapter*.5}
+\contentsline {subsection}{\numberline {3.2.3}Analisis Terhadap Siklus Hidup Aplikasi}{30}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Analisis Peta}{30}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Kiri API}{33}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}Diagram Use-Case dan Scenario}{36}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}Class Diagram}{36}{subsection.3.2.7}
+\contentsline {chapter}{Daftar Referensi}{39}{chapter*.5}
 \renewcommand {\cftchappresnum }{\bf \scshape }
