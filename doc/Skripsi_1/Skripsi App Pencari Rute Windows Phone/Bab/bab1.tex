@@ -6,22 +6,24 @@ Pada Bab satu akan dibahas pendahuluan dari penelitian yang dilakukan. Bab satu 
 \section{Latar Belakang}
 \label{sec:latar_belakang}
 %Pragraf 1 latar belakang berisi alasan & cerita
-\hspace{0.5cm} Transportasi menjadi bagian yang penting bagi manusia di saat penelitian ini dilakukan. Ada dua jenis transportasi bagi seseorang yaitu kendaraan umum dan kendaraan pribadi. Tapi sekarang ini banyak yang lebih memilih kendaraan pribadi dibanding kendaraan umum. Maraknya penggunaan kendaraan pribadi dan penambahan jalur kendaraan yang tidak sebanding banyaknya kendaraan menimbulkan kemacetan. Maraknya penggunaan kendaraan pribadi dikarenakan kurang nyamannya kendaraan umum dan kesulitan dalam menentukan kendaraan umum yang harus dinaiki. Banyaknya rute kendaran umum membuat orang kebingungan dalam memilih kendaraan umum menuju lokasi yang diinginkan. Seseorang cenderung malas untuk bertanya dan mencari rute yang efisien. Karena hal tersebut membuat seseorang lebih memilih menggunakan kendaraan pribadi ketimbang kendaraan umum. 
+\hspace{0.5cm} Transportasi menjadi bagian yang penting bagi manusia di saat penelitian ini dilakukan. Ada dua jenis transportasi bagi seseorang yaitu kendaraan umum dan kendaraan pribadi. Kenyataannya pada saat penelitian ini dilakukan banyak yang lebih memilih kendaraan pribadi dibanding kendaraan umum. Maraknya penggunaan kendaraan pribadi dan penambahan jalur kendaraan yang tidak sebanding banyaknya kendaraan menimbulkan kemacetan. Maraknya penggunaan kendaraan pribadi dikarenakan kurang nyamannya kendaraan umum dan kesulitan dalam menentukan kendaraan umum yang harus dinaiki. Banyaknya rute kendaran umum membuat orang kebingungan dalam memilih kendaraan umum menuju lokasi yang diinginkan. Seseorang cenderung malas untuk bertanya dan mencari rute yang efisien. Karena hal tersebut, seseorang lebih memilih menggunakan kendaraan pribadi ketimbang kendaraan umum. 
 
 %Pragraf 2 latar belakang berisi keinginan pemilihan topik berdasarkan Kiri API
-\hspace{0.5cm} Ide pembuatan aplikasi yang memudahkan seseorang dalam menentukan rute kendaraan umum sudah lebih dulu ada yang dikenal dengan nama Kiri. Kiri dibuat dengan latar belakang tiga masalah besar yaitu pemanasan global, kemacetan, dan harga bahan bakar minyak yang tinggi. Meskipun Kiri pertama dibuat di web tetapi Kiri dapat dimanfaatkan untuk pencarian kendaraan selain di web. Pemanfaatan Kiri tersebut dalam mencari rute kendaraan umum dengan mengggunakan Kiri API.
- 
+\hspace{0.5cm} Ide pembuatan aplikasi yang memudahkan seseorang dalam menentukan rute kendaraan umum sudah lebih dulu ada yang dikenal dengan nama Kiri. Kiri dibuat dengan latar belakang tiga masalah besar yaitu pemanasan global, kemacetan, dan harga bahan bakar minyak yang tinggi\footnotemark[1]. Meskipun Kiri pertama dibuat di web tetapi Kiri dapat dimanfaatkan untuk pencarian kendaraan selain di web. Pemanfaatan Kiri tersebut dalam mencari rute kendaraan umum dengan mengggunakan Kiri API.
+\footnotetext[1]{\url{http://static.kiri.travel/en-about/}} 
+
 %Pragraf 3 latar belakang berisi keinginan pemilihan topik berdasarkan Windows Phone
-\hspace{0.5cm} Pesatnya perkembangan teknologi sekarang ini mendorong perkembangan perangkat bergerak (\textit{mobile}). Perangkat bergerak kian digemari orang-orang terutama di Indonesia. Salah satu yang menarik perhatian adalah Windows Phone 8 yang dibuat Microsoft. Antarmuka Windows Phone 8 yang disebut \textit{Metro} cukup menarik dan mudah digunakan. Meskipun jumlah penggunanya masih belum sebanyak pengguna Android dan IOS tapi jumlah penggunanya terus naik di tahun 2014 ini. Berikut statistik peningkatan jumlah pengguna di Windows Phone dari tahun 2012 hingga 2014.
+\hspace{0.5cm} Pesatnya perkembangan teknologi sekarang ini mendorong perkembangan perangkat bergerak (\textit{mobile}). Perangkat bergerak kian digemari orang-orang terutama di Indonesia. Salah satu yang menarik perhatian adalah Windows Phone 8 yang dibuat Microsoft. Antarmuka Windows Phone 8 yang disebut \textit{Metro} cukup menarik dan mudah digunakan. Meskipun jumlah penggunanya masih belum sebanyak pengguna Android dan IOS tapi jumlah penggunanya terus naik di tahun 2014 ini. Statistik peningkatan jumlah pengguna di Windows Phone dari tahun 2012 hingga 2014 dapat dilihat pada gambar~\ref{fig:StatCounter}.
 
 \clearpage 
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[scale=0.3]{Gambar/StatCounter}
-	\caption{Statistik Pengguna Windows Phone}
+		\includegraphics[scale=0.5]{Gambar/StatCounter} 
+	\caption{} {Statistik Pengguna Windows Phone\footnotemark[2]}
 	\label{fig:StatCounter}
 \end{figure}
+\footnotetext[1]{\url{http://gs.statcounter.com/\#mobile_os-ww-monthly-201201-201406}} 
 
 %Pragraf 4 latar belakang berisi ketertarikan penulis
 \hspace{0.5cm} Berdasarkan hal tersebut, penulis mencoba mengembangakan aplikasi Pencarian Rute Kendaraan Umum di Windows Phone dalam tugas akhir ini. Aplikasi yang penulis kembangan akan memungkinkan pengguna menemukan rute kendaraan umum untuk sampai di tujuan. Untuk memudahkan pengguna, penulis akan menampilkan dalam 2 bentuk yaitu peta dan daftar. 
@@ -51,14 +53,11 @@ Ruang lingkup pengembangan aplikasi Pencari Rute Kendaraan untuk Windows Phone i
 	\item Aplikasi ini akan menampilkan rute jalur angkot, bus umum dan travel di tiga kota besar yaitu Bandung, Jakarta, dan Surabaya.  
 \end{itemize}
 
-\section{Ruang Lingkup Masalah}
-\label{sec:ruang_lingkup_masalah}
-
 \section{Metode Penelitian}
 \label{sec:metode_penelitian}
 Metode Penelitian yang penulis gunakan dalam membuat tugas akhir ini adalah sebagai berikut:
 \begin{itemize}
-	\item Melakukan studi pustaka mengenai tombol di Windows Phone, navigation di Windows Phone, Map di Windows Phone, GPS di Windows Phone dan Kiri API.
+	\item Melakukan studi pustaka mengenai XAML, kontrol dan navigasi di Windows Phone, Peta di Windows Phone, GPS di Windows Phone dan Kiri API.
 	\item Melakukan analisis terhadap aplikasi lain yang menggunakan Kiri API.
 	\item Melakukan analisis terhadap dasar teori untuk pembangunan aplikasi Pencarian Rute Kendaraan Umum untuk Windows Phone.
 	\item Melakukan perancangan aplikasi Pencarian Rute Kendaraan Umum untuk Windows Phone.
@@ -67,8 +66,8 @@ Metode Penelitian yang penulis gunakan dalam membuat tugas akhir ini adalah seba
 	\item Membuat kesimpulan.
 \end{itemize}
 
-\section{Teknik Pengumpulan Data}
-\label{sec:teknik_pengumpulan_data}
+%\section{Teknik Pengumpulan Data}
+%\label{sec:teknik_pengumpulan_data}
 
 \section{Sistematika Penulisan}
 \label{sec:sistematika_penulisan}

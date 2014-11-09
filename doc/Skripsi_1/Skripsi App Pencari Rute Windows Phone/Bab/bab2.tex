@@ -1,50 +1,50 @@
 \chapter{Dasar Teori}
 \label{chap:teori}
-Bab ini berisi dasar teori dari pembangunan Aplikasi Pencarian Rute Kendaraan Umum untuk Windows Phone. Beberapa teori yang dibahas dalam bab ini  adalah antarmuka Windows Phone, Menampilkan Peta, Penggunaan \textit{Global Positioning System} di Windows Phone, Web Service, dan Kiri API. 
+Bab ini berisi dasar teori dari pembangunan Aplikasi Pencarian Rute Kendaraan Umum untuk Windows Phone. Beberapa teori yang dibahas dalam bab ini  adalah XAML, kontrol terhadap ponsel, siklus hidup Windows Phone, peta, \textit{Global Positioning System} di Windows Phone, pemanfaatan sumber data, dan Kiri API. 
 
 % Windows Phone
 \section{Windows Phone}
 \label{sec:Windows Phone}
-\hspace{0.5cm} Windows Phone merupakan sistem operasi untuk perangkat bergerak yang dikembangkan Microsoft.\footnotemark[1] Untuk mengembangkan aplikasi Windows Phone dibutuhkan Windows Desktop 8 sebagai media pengembangan. Bahasa pemrograman yang digunakan untuk membuat perangkat lunak di Windows Phone yaitu C\# dan Visual Basic.  
+\hspace{0.5cm} Windows Phone merupakan sistem operasi untuk perangkat bergerak yang dikembangkan Microsoft\footnotemark[1]. Pengembangan aplikasi Windows Phone membutuhkan Windows Desktop 8 sebagai media pengembangan. Bahasa pemrograman yang digunakan untuk membuat perangkat lunak di Windows Phone yaitu C\# atau Visual Basic.  
 
-\hspace{0.5cm} Pada sub bab 2.2 sampai 2.8 akan membahas pemrograman di Windows Phone. Pembahasan akan dimulai dengan apa itu Windows Phone dan fitur di Windows Phone yang akan digunakan dalam pembangunan perangkat lunak Pencarian Rute Kendaraan di Windows Phone. 
+\hspace{0.5cm} Pada sub bab~\ref{subsec:Lingkungan Kerja} sampai~\ref{subsec:Memanfaatkan Sumber Data} akan membahas pemrograman di Windows Phone. Pembahasan akan dimulai dengan apa itu Windows Phone dan fitur di Windows Phone yang akan digunakan dalam pembangunan perangkat lunak Pencarian Rute Kendaraan di Windows Phone. 
 %kutipan mengenai windows phone
 \footnotetext[1]{\url{en.wikipedia.org/wiki/Windows_Phone}}
 
 % SUB Lingkungan Kerja
 \subsection{Lingkungan Kerja}
 \label{subsec:Lingkungan Kerja}
-\hspace{0.5cm} Microsoft .NET framework merupakan sebuah perangkat lunak yang dibangun untuk membantu dalam pembangunan aplikasi di Windows, Windows Phone, Windows Server, and Microsoft Azure\cite{MSDN}. Ini terdiri dari runtime bahasa umum dan perpustakaan kelas NET Framework, yang meliputi kelas, interface, dan jenis nilai yang mendukung berbagai teknologi. NET Framework menyediakan lingkungan yang mudah dikelola, pengembangan disederhanakan dan penyebaran, dan integrasi dengan berbagai bahasa pemrograman, termasuk Visual Basic dan Visual C\#.
+\hspace{0.5cm} Microsoft .NET framework merupakan sebuah perangkat lunak yang dibangun untuk membantu dalam pembangunan aplikasi di Windows, Windows Phone, Windows Server, and Microsoft Azure\cite{MSDN}. Microsoft .NET framework terdiri dari runtime bahasa umum dan perpustakaan kelas .NET Framework, yang meliputi kelas, interface, dan jenis nilai yang mendukung berbagai teknologi. Microsoft .NET Framework menyediakan lingkungan yang mudah dikelola, pengembangan yang disederhanakan, dan integrasi dengan berbagai bahasa pemrograman, termasuk Visual Basic dan Visual C\#.
 
-\hspace{0.5cm} Seperti yang telah disebutkan ada dua bahasa pemrograman dalam .NET Framework yang dipakai dalam pembangunan aplikasi di Windows Phone 8 yaitu Visual Basic dan Visual C\#. Untuk masalah kehandalan keduanya menawarkan kehandalan yang baik. Kelebihan dari Visual Basic adalah bahasa pemrograman berorientasi objek yang kuat dan memiliki banyak pengenbangan fitur di inheritance, polymorphism, interfaces, and overloading\cite{MSDN}.Kelebihan dari C\# yang merupakan pengembangan dari C/C++ adalah sederhana, modern, aman dan berorientasi objek\cite{MSDN}. Satu hal yang dirasakan penulis adalah kenyamanan ketika memilih bahasa .NET tersebut. Akan lebih mudah bagi developer yang menggunakan Visual Basic 6.0  untuk menggunakan Visual Basic .NET. Tetapi bagi  deveoper yang menggunakan C++ atau java sebelumnya akan lebih mudah menggunakan C\#.
+\hspace{0.5cm} Seperti yang telah disebutkan ada dua bahasa pemrograman dalam .NET Framework yang dipakai dalam pembangunan aplikasi di Windows Phone 8 yaitu Visual Basic dan Visual C\#. \newline Untuk masalah kehandalan keduanya menawarkan kehandalan yang baik. Kelebihan dari Visual Basic adalah bahasa pemrograman berorientasi objek yang kuat dan memiliki banyak pengenbangan fitur di inheritance, polymorphism, interfaces, and overloading\cite{MSDN}.Kelebihan dari C\# yang merupakan pengembangan dari C/C++ adalah sederhana, modern, aman dan berorientasi objek\cite{MSDN}. Satu hal yang dirasakan penulis adalah kenyamanan ketika memilih bahasa .NET tersebut. Akan lebih mudah bagi developer yang menggunakan Visual Basic 6.0  untuk menggunakan Visual \newline Basic .NET. Tetapi bagi  developer yang menggunakan C++ atau java sebelumnya akan lebih mudah menggunakan C\#.
 %kutipan mengenai .NET
-\footnotetext[2]{\url{http://msdn.microsoft.com/en-us/library/vstudio/w0x726c2\%28v=vs.110\%29}}
-\footnotetext[3]{\url{http://msdn.microsoft.com/en-us/library/aa903378\%28v=vs.71\%29.aspx}}
-\footnotetext[4]{\url{http://msdn.microsoft.com/en-us/library/aa287558\%28v=vs.71\%29.aspx}}
+%\footnotetext[2]{\url{http://msdn.microsoft.com/en-us/library/vstudio/w0x726c2\%28v=vs.110\%29}}
+%\footnotetext[3]{\url{http://msdn.microsoft.com/en-us/library/aa903378\%28v=vs.71\%29.aspx}}
+%\footnotetext[4]{\url{http://msdn.microsoft.com/en-us/library/aa287558\%28v=vs.71\%29.aspx}}
 
 % SUB Mengenai XAML
 \subsection{XAML}
 \label{subsec:XAML}
 \hspace{0.5cm} Extensible Application Markup Language (XAML) merupakan bahasa deklaratif yang dipakai untuk membuat antarmuka aplikasi. XAML merupakan bahasa yang digunakan untuk membuat antarmuka di Windows Phone 8. Pada dasarnya penggunaan XAML sama dengan HTML pada pembuatan antarmuka web. XAML dapat menginisialisasi objek dan mengatur properti untuk menunjukan hubungan antar objek.
 
-\hspace{0.5cm} Untuk aturan penulisan sintak XAML didasarkan pada XML. Setiap XAML Windows Runtime menggunakan konvensi XAML language dan ditulis pada \textit{namespace} yang ditandai dengan prefix x sebagai elemen paling atas. Setelah itu di baris ke dua dimulai dengan xmlns diikuti titik dua, lalu nama dari \textit{namespace}, diikuti tanda sama dengan dan \textit{path} perepresentasian \textit{namespace}.
+\hspace{0.5cm} Untuk aturan penulisan sintak XAML didasarkan pada XML. Setiap XAML Windows Runtime menggunakan konvensi bahasa XAML dan ditulis pada \textit{namespace} yang ditandai dengan prefix x sebagai elemen paling atas. Setelah itu di baris ke dua dimulai dengan xmlns diikuti titik dua, lalu nama dari \textit{namespace}, diikuti tanda sama dengan dan \textit{path} yang merepresentasikan \textit{namespace}.
 Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan yaitu :
 \begin{itemize}
 	\item x:Key : sebuah nama unik untuk menunjuk referensi ke suatu resource atau berkas lain. Nilai ini dapat dipanggil kembali untuk menggunakan resource tersebut.
 	\item x:Class : menunjukkan nama kelas.
 	\item x:Name : menunjukkan nama sebuah obyek dan untuk membedakan antar obyek yang satu dengan obyek yang lain.
-	\item x:Uid : mengidentifikasi elemen objek dalam XAML. Objek elemen merupakan objek yang dapat melakukan kontrol terhadap kelas atau elemen lain yang ditampilkan di desain anarmuka.
+	\item x:Uid : mengidentifikasi elemen objek dalam XAML. Objek elemen merupakan objek yang dapat melakukan kontrol terhadap kelas atau elemen lain yang ditampilkan di desain antarmuka.
 \end{itemize}	
 
 % SUB Mengenai Kontrol terhadap Ponsel
 \subsection{Kontrol terhadap Ponsel}
 \label{subsec:Kontrol terhadap Ponsel}
-\hspace{0.5cm} Kontrol terhadap ponsel yang dimaksudkan disini adalah pengaturan tata letak terhadap antarmuka di Windows Phone. Windows Phone 8 menyediakan banyak set kontrol yaitu tata letak, tombol, kontrol masukan untuk mendapatkan informasi sampai ke menu. 
+\hspace{0.5cm} Maksud dari kontrol terhadap ponsel adalah pengaturan tata letak terhadap antarmuka di Windows Phone. Windows Phone 8 menyediakan banyak set kontrol yaitu tata letak, tombol, kontrol masukan untuk mendapatkan informasi sampai ke menu. 
 
 % SUBSUB Navigasi
 \subsubsection{Navigasi}
 \label{subsubsec:Navigasi}
-\hspace{0.5cm} Aplikasi yang dibuat di Windows Phone didasarkan pada model halaman. Maksud dari model halaman adalah pengguna berpindah dari satu halaman ke halaman lain dengan konten yang berbeda-beda dengan frame sebagai pengontrolnya. Setiap antarmuka aplikasi dibungkus dengan frame. Frame inilah yang melakukan kontrol terhadap aplikasi dan memungkinkan berpindah dari satu halaman ke halaman lain. Sedangkan halaman merupakan pembungkus dari elemen di dalamnya saja. Untuk lebih jelas mengenai frame, halaman dan area konten dapat dilihat pada gambar di bawah ini.
+\hspace{0.5cm} Aplikasi yang dibuat di Windows Phone didasarkan pada model halaman. Maksud dari model halaman adalah pengguna berpindah dari satu halaman ke halaman lain dengan konten yang berbeda-beda dengan frame sebagai pengontrolnya. Setiap antarmuka aplikasi dibungkus dengan frame. Frame inilah yang melakukan kontrol terhadap aplikasi dan memungkinkan berpindah dari satu halaman ke halaman lain. Sedangkan halaman merupakan pembungkus dari elemen di dalamnya saja. Untuk lebih jelas mengenai frame, halaman dan area konten dapat dilihat pada gambar~\ref{fig:nav_hierarchy}.
 
 \begin{figure}[h]
 	\centering
@@ -60,24 +60,24 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 \hspace{0.5cm} Kontrol Tata Letak merupakan penampung pada antarmuka Windows Phone untuk objek di antarmuka dan kontrol yang lain (tombol radio, textbox, dan lai-lain). Kontrol tata letak digunakan untuk meletakan objek-objek di layar. Ketika pertama membuat aplikasi Windows Phone maka tata letak dasar sebagai penampung akan langsung dibuat berikut panel judul dan panel konten. Selanjutnya untuk penambahan kontrol tata letak yang lain dapat ditambahkan di panel konten.
 
 
-\hspace{0.5cm} Ada 3 macam panel yang dipakai untuk menangani Tata Letak yaitu Grid, StackPane, dan Canvas. Perlu diperhatikan bahwa setiap halaman hanya memiliki satu macam panel. Berikut 3 macam panel di Windows Phone:
+\hspace{0.5cm} Ada 3 macam panel yang dipakai untuk menangani tata Letak yaitu Grid, StackPane, dan Canvas. Perlu diperhatikan bahwa setiap halaman hanya memiliki satu macam panel. Berikut 3 macam panel di Windows Phone:
 
 \begin{itemize}
 	\item StackPanel merupakan panel yang memposisikan element menjadi 1 baris dan beberapa elemen di setiap halaman diposisikan horizontal atau vertical saja.
 	\item Grid merupakan panel yang mendukung tata letak yang rumit. Panel ini memposisikan elemen di baris dan kolom mana saja di setiap halaman.
 	\item Canvas memposiskan elemen sebagai absolut kordinat. Jadi setiap elemen di dalam Canvas dapat diposisikan spesifik sesuai kordinat x dan y.
 \end{itemize}
+
+Kode untuk mengatur jenis panel pada Windows Phone dapat dilihat pada \textit{listing}~\ref{lst:grid}	.
+\begin{lstlisting} [caption= {Kode tata letak grid},label={lst:grid}]
+	<Grid x:Name="ContentPanel">
+	</Grid>
+\end{lstlisting}
 	
 % SUBSUB Mengenai Kontrol Masukan
 \subsubsection{Kontrol Terhadap Teks}
 \label{subsubsec:Kontrol Terhadap Teks}
-\hspace{0.5cm} Kontrol Terhadap Teks  secara menampilkan konten String. Ada berbagai macam Kontrol Terhadap Teks di Windows Phone yaitu TextBlock, TextBox dan PasswordBox. Ketiga macam kontrol tersebut dibedakan menurut tujuannya. Berikut gambar dan keterangan masing-masing:
-\begin{figure}[h]
-	\centering
-		\includegraphics[scale=0.5]{Gambar/Tombol/kontrol_teks}
-	\caption{TextBlock, TextBox dan PasswordBox}
-	\label{fig:kontrol_teks}
-\end{figure}
+\hspace{0.5cm} Kontrol terhadap teks  akan menampilkan menampilkan konten yang memiliki tipe String. Ada berbagai macam kontrol terhadap teks di Windows Phone yaitu TextBlock, TextBox dan PasswordBox. Ketiga macam kontrol tersebut dibedakan menurut tujuannya. Berikut keterangan, gambar~\ref{fig:kontrol_teks}, dan kode pada \textit{listing}~\ref{lst:text} kontrol teks.
 
 \begin{itemize}
 	\item TextBlock merupakan tempat menaruh potongan teks yang hanya bisa dilihat.
@@ -85,66 +85,113 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 	\item PasswordBox biasanya digunakan untuk masukan yang bersifat rahasia. Karakter yang dimasukan langsung disamarkan menjadi bentuk titik.
 \end{itemize}
 
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{Gambar/Tombol/kontrol_teks}
+	\caption{TextBlock, TextBox dan PasswordBox}
+	\label{fig:kontrol_teks}
+\end{figure}
+
+\begin{lstlisting} [caption= {Kode untuk menampilkan TextBlock dan TextBox},label={lst:text}]
+	<TextBlock x:Name="TextBlock1" Text="TextBlock"/>
+	<TextBox x:Name="TextBox1"Text="TextBox"/>
+\end{lstlisting}
+
 % SUBSUB Mengenai Kontrol Masukan
 \subsubsection{Tombol dan Kontrol Pilihan}
 \label{subsubsec:Tombol dan Kontrol Pilihan}
-\hspace{0.5cm} Tombol memungkinkan pengguna untuk bernavigasi. Sedangkan kontrol pilihan memudahkan dalam memilih. Berikut gambar dan keterangan masing-masing:
+\hspace{0.5cm} Tombol memungkinkan pengguna untuk bernavigasi. Sedangkan kontrol pilihan memudahkan dalam memilih. Berikut keterangan, gambar~\ref{fig:kontrol_tombol}, dan kode pada \textit{listing}~\ref{lst:tombol} tombol dan kontrol pilihan.
  
-\begin{figure}[h]
-	\centering
-		\includegraphics[scale=0.5]{Gambar/Tombol/tombol_dan_pilihan}
-	\caption{TextBlock, TextBox dan PasswordBox}
-	\label{fig:kontrol_tombol}
-\end{figure}
-
 \begin{itemize}
 	\item Button merupakan kontrol yang dipakai pengguna untuk mengaktifkan \textit{event} klik.
-	\item HyperlinkButton merupakan kontrol yang menampilkan hyperlink. Jika di tekan maka akan menunjuk ke halaman yang dituju.	
+	\item HyperlinkButton merupakan kontrol yang menampilkan hyperlink. Jika hyperlink di tekan maka akan berpindah ke halaman yang dituju.	
 	\item CheckBox merupakan kontrol yang memungkinkan pengguna memilih beberapa item.
 	\item RadioButton merupakan kontrol yang memungkinkan pengguna memilih satu pilihan dari beberapa pilihan.
 	\item Slider merupakan kontrol yang memungkinkan user memilih nilai kisaran dari jalur yang sudah disediakan.
 \end{itemize}
 
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{Gambar/Tombol/tombol_dan_pilihan}
+	\caption{Gambar kontrol pada Windows Phone}
+	\label{fig:kontrol_tombol}
+\end{figure}
+
+\begin{lstlisting} [caption= {Kode untuk menampilkan TextBlock, TextBox, dan PasswordBox},label={lst:tombol}]
+	<Button x:Name="find" Content="Button"/>
+\end{lstlisting}
+
 % SUBSUB Kontrol Daftar
 \subsubsection{Kontrol Daftar}
 \label{subsubsec:Kontrol Daftar}
-\hspace{0.5cm} Kontrol yang dipakai untuk menampilkan daftar dari beberapa item. Berikut keterangan masing-masing:
+\hspace{0.5cm} Kontrol yang dipakai untuk menampilkan daftar dari beberapa item. Berikut keterangan, gambar~\ref{fig:antarmukaListBox}, dan kode pada \textit{listing}~\ref{lst:listBox} kontrol daftar. 
 
 \begin{itemize}
 	\item ListBox akan menampilkan daftar item. Daftar ini dapat dipilih dengan cara di klik.
 	\item LongListSelector dipakai untuk mengelompokan, menampilkan, dan melakukan penggulungan terhadap daftar yang panjang.
 \end{itemize}
 
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.4]{Gambar/kontrol/listBox.PNG}
+	\caption{Antarmuka ListBox}
+	\label{fig:antarmukaListBox}
+\end{figure}
+
+\begin{lstlisting} [caption= {Kode untuk menampilkan listBox},label={lst:listBox}]
+	<ListBox>
+		<ListBoxItem Content="Item 1" />
+		<ListBoxItem Content="Item 2" />
+		<ListBoxItem Content="Item 3" />
+		<ListBoxItem Content="Item 4" />
+		<ListBoxItem Content="Item 5" />
+	</ListBox>
+\end{lstlisting}
+
 % SUB Mengenai Siklus Hidup Aplikasi
 \subsection{Siklus Hidup Aplikasi}
 \label{subsec:Siklus Hidup Aplikasi}
-\hspace{0.5cm} Siklus hidup aplikasi merupakan waktu mulai dari aplikasi dijalankan sampai aplikasi dibuang dari memori. Siklus hidup aplikasi penting diketahui agar pengguna tidak kecewa menggunakan aplikasi yang penulis buat. Seringkali pengguna tidak berhati-hati dalam menggunakan aplikasi, makadari itu penulis harus paham kapan aplikasi harus diaktifkan, ditangguhkan atau bahkan di hapus karena sudah tidak digunakan. Berikut gambar beserta keterangan siklus hidup pada Windows Phone.
+\hspace{0.5cm} Siklus hidup aplikasi merupakan waktu mulai dari aplikasi dijalankan sampai aplikasi dibuang dari memori. Siklus hidup aplikasi penting diketahui agar pengguna tidak kecewa menggunakan aplikasi serta memastikan sumber daya tersedia (dalam aplikasi ini yaitu sumber daya GPS). Seringkali pengguna tidak berhati-hati dalam menggunakan aplikasi, maka dari itu penulis harus paham kapan aplikasi harus diaktifkan, ditangguhkan atau bahkan di hapus karena sudah tidak digunakan. Gambar~\ref{fig:Siklus Hidup Aplikasi} akan mengilustrasikan siklus hidup pada Windows Phone.
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[scale=0.7]{Gambar/lifecycle}
-	\caption{Gambar siklus hidup aplikasi\cite{Manning}}
+		\includegraphics[scale=0.4]{Gambar/lifecycle_wp8}
+	\caption{Gambar siklus hidup aplikasi\cite{MSDN}}
 	\label{fig:Siklus Hidup Aplikasi}
 \end{figure}
+%sumber http://msdn.microsoft.com/en-us/library/windows/apps/ff817008%28v=vs.105%29.aspx
 
+Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan aplikasi, persegi panjang menunjukan peristiwa aplikasi atau tingkat peristiwa di halaman. Berikut keterangan untuk siklus hidup Windows Phone pada gambar~\ref{fig:Siklus Hidup Aplikasi}. 
 \begin{itemize}
-	\item Running : Ketika aplikasi diluncurkan, aplikasi membutuhkan \textit{event} Activated | activated maka aplikasi akan masuk keadaan "Running". Pada saat \textit{event} Activated | activated dipanggil \textit{event} ini akan memeriksa apakah aplikasi sudah siap untuk keadaan "Running".
-	\item Suspended : Aplikasi akan masuk keadaan "Suspended" ketika pengguna memilih untuk pindah aplikasi atau perangkat Windows Phone masuk ke keadaan hemat tenaga (misal: layar dimatikan sementara). Ketika pengguna berpindah aplikasi atau membuat aplikasi berjalan dibelakang layar untuk sementara waktu dan user tidak kembali ke aplikasi maka sistem operasi akan membuat aplikasi masuk ke keadaan "Suspended".
-	\item Resume : Aplikasi akan masuk keadaan "Resume" ketika pengguna kembali menjalankan aplikasi atau perangkat Windows Phone keluar dari keadaan hemat tenaga (misal: layar dimatikan sementara). Saat keadaan ini semua data masih disimpan di memori jadi tidak akan ada data yang hilang.
-	\item Close : Secara general pengguna tidak usah repot-repot keluar dari aplikasi karena semua sudah diurus sistem operasi. Meskipun pengguna juga dapat keluar dari aplikasi. Setelah aplikasi di keluarkan oleh pengguna dan masuk dalam keadaan "Suspended", selanjutnya aplikasi akan masuk dalam keadaan "NotRunning".
+	\item The Launching Event \\
+	Merupakan tampilan awal saat aplikasi dipilih yang memberitahukan pengguna bahwa aplikasi sedang dijalankan. \textit{Event} ini akan dijalankan ketika pertama kali melakukan permintaan terhadap aplikasi. \textit{Event} ini akan berjalan di belakang ketika aplikasi ditutup sementara atau sedang berada pada keadaan Dormant atau Tombstoned menjadi Running.
+	\item Running \\
+	Setelah diluncurkan aplikasi akan masuk keadaan Running. Hal ini akan terus berlangsung sampai pengguna benavigasi ke depan, atau mundur melewati halaman utama aplikasi. Aplikasi keluar dari keadaan Running jika telefon di kunci. Keadaan Running masih dapat terjadi saat telefon di kunci dengan menonaktifkan \textit{idle detection} pada aplikasi.
+	\item Metode OnNavigatedFrom \\
+	Merupakan metode yang dipanggil ketika bernavigasi ke halaman lain aplikasi. Ketika metode ini dipanggil maka aplikasi akan menyimpan keadaan dari halaman sebelum ditinggalkan. Hal tersebut dibutuhkan sehingga halaman tersebut bisa dikembalikan ke keadaan sebelum ditinggalkan saat pengguna ingin kembali ke halaman tersebut.  Pemanggilan dilakukan ketika bernavigasi antara halaman di aplikasi atau ketika berpindah aplikasi.
+	\item The Deactivated Event \\
+	\textit{Event} ini akan terjadi ketika pengguna berpindah aplikasi dan menekan tombol "start" atau menjalankan aplikasi lain. Untuk penanganan \textit{deactivated event}, aplikasi harus menyimpan data sebelumnya sehingga data sebelum bisa dikembalikan suatu saat. Windows Phone 8 juga memdukung sistem pengembalian data dengan State Object. State Object akan untuk menyimpan keadaan aplikasi sebelum aplikasi dinonaktifkan. 
+	\item Dormant \\
+	Keadaan setelah \textit{deactivated event} terjadi. Pada keadaan ini, semua thread aplikasi akan dihentikan dan tidak ada proses yang terjadi, tetapi aplikasi tetap utuh di memori. Tetapi jika operating sistem membutuhkan memori yang lebih besar maka aplikasi yang dalam keadaan Dormant akan menjadi Tombstone untuk membebaskan memori.
+	\item Tombstoned \\
+	Aplikasi yang masuk ke keadaan Tombstoned akan dihentikan, namun sistem operasi akan menyimpan informasi aplikasi pada saat aplikasi berada di keadaan Deactivated.
+	\item The Activated Event \\
+	\textit{Event} ini dipanggil ketika aplikasi meninggalkan keadaan Dormant atau Tombstoned. Operasi ini dilakukan pada latar belakang. 
+	\item The OnNavigatedTo Method \\
+	Metode ini dipanggil ketika pengguna bernavigasi ke halaman yang sebelumya ditinggalkan. Metode ini akan memeriksa keadaan aplikasi dan memulihkannya jika keadaan sebelumnya pernah disimpan. 
+	\item The Closing Event \\
+	\textit{Event} ini akan tercapai ketika pengguna bernavigasi mundur keluar dari halaman utama. Pada kasus ini, aplikasi akan dihentikan dan tidak ada keadaan yang disimpan. 
 \end{itemize}
 
 % SUB Peta di Windows Phone
 \subsection{Peta di Windows Phone}
 \label{subsec:Peta di Windows Phone}
-\hspace{0.5cm} Peta yang dipakai di Windows Phone adalah Windows Phone Maps. Windows Phone menawarkan beberapa pilihan dalam tampilan peta mulai dari kartografi, pencahayaan dan pandangan. Tidak hanya tampilan pada Sub Bab ini akan dibahas mengenai mendapatkan lokasi, petunjuk arah, MapPolyline dan Pushpins.
+\hspace{0.5cm} Peta yang dipakai di Windows Phone adalah Windows Phone Maps. Windows Phone menawarkan beberapa pilihan dalam tampilan peta mulai dari kartografi, pencahayaan dan pandangan. Selain tampilan pada Sub Bab ini akan dibahas mengenai mendapatkan lokasi, petunjuk arah, MapPolyline dan Pushpins.
 
 % SUBSUB Mengenai Penambahan Peta Ke Aplikasi
 \subsubsection{Penambahan Peta Ke Aplikasi}
 \label{subsubsec:Penambahan Peta Ke Aplikasi}
-\hspace{0.5cm} Untuk penambahan Peta pada Windows Phone menggunakan kontrol peta. Kontrol peta merupakan bagian dari perpustakaan Windows Phone. Dengan begitu untuk dapat menggunakannya perlu direferensikan. Untuk dapat menggunakannya juga harus ditambah \textit{capability} ID\_CAP\_MAP. Selanjutnya barulah peta dapat ditampilkan.
-
-\clearpage
+\hspace{0.5cm} Untuk penambahan Peta pada Windows Phone menggunakan kontrol peta. Kontrol peta merupakan bagian dari perpustakaan Windows Phone. Dengan begitu untuk dapat menggunakannya perlu direferensikan. Untuk dapat menggunakannya juga harus ditambah \textit{capability} ID\_CAP\_MAP. Selanjutnya barulah peta dapat ditampilkan. Berikut gambar~\ref{fig:peta}, kode XAML pada \textit{listing}~\ref{lst:mapXAML}, dan kode program pada \textit{listing}~\ref{lst:mapCode} peta.
 
 \begin{figure}[h]
 	\centering
@@ -153,13 +200,47 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 	\label{fig:peta}
 \end{figure}
 
+\begin{lstlisting} [caption= {Menampilkan peta dengan nama MyMap dari XAML},label={lst:mapXAML}]
+	<Controls:Map x:Name="MyMap"/>
+\end{lstlisting}
+
+\begin{lstlisting} [caption= {Menampilkan peta dengan nama MyMap dari kode program},label={lst:mapCode}]
+	public mapFrom()
+  {
+		InitializeComponent();
+		Map MyMap = new Map();
+		ContentPanel.Children.Add(MyMap);
+  }
+\end{lstlisting}
+
 % SUBSUB Tampilan Peta di Windows Phone
 \subsubsection{Tampilan Peta di Windows Phone}
 \label{subsubsec:Tampilan Peta di Windows Phone}
 \hspace{0.5cm} Dalam tampilannya ada beberapa hal yang perlu diperhatikan agar pengguna merasa nyaman saat melihat peta di Windows Phone. Beberapa tampilan yang bisa ditampilkan dibuat untuk hal yang berbeda-beda. Berikut akan dibahas menentukan pusat dan tingkat zoom, kartografi, warna dan tampilan peta.
 
 \begin{itemize}
-	\item Menentukan pusat peta berarti menentukan titik tengah sebagai pandangan awal di peta. Untuk penentuan titik tengah dibutuhkan 2 nilai yaitu latitude dan longitude. Sedangkan tingkat zoom merupakan properti untuk mengatur seberapa dekat atau jauh pandangan yang akan ditampilkan di peta. Tingkat zoom memiliki nilai yang bisa diatur dari satu hingga 20. 
+	\item Menentukan pusat peta berarti menentukan titik tengah sebagai pandangan awal di peta. Untuk penentuan titik tengah dibutuhkan 2 nilai yaitu latitude dan longitude. Sedangkan tingkat zoom merupakan properti untuk mengatur seberapa dekat atau jauh pandangan yang akan ditampilkan di peta. Tingkat zoom memiliki nilai yang bisa diatur dari satu hingga 20. Kode untuk mengatur titik tengah peta dan tingkat \textit{zoom} dapat dilihat pada \textit{listing}~\ref{lst:zoomXAML} dan \textit{listing}~\ref{lst:zoomCode}.\\
+	
+	\begin{lstlisting} [caption= {Mengatur tingkat zoom dari XAML},label={lst:zoomXAML}]
+		<Controls:Map x:Name="MyMap" ZoomLevel="10" Margin="-25,0,-16,0"/>
+	\end{lstlisting}
+
+	\begin{lstlisting} [caption= {Mengatur tingkat zoom dari dari kode program},label={lst:zoomCode}]
+		public mapFrom()
+		{
+			InitializeComponent();
+			Map MyMap = new Map();
+
+			//Mengatur titik tengah peta
+			MyMap.Center = new GeoCoordinate(47.6097, -122.3331);
+
+			//mengatur tingkat zoom
+			MyMap.ZoomLevel = 10;
+			ContentPanel.Children.Add(MyMap);
+		}
+	\end{lstlisting}
+
+	
 	\item Kartografi peta di Windows Phone merupakan cara pandang dalam melihat dan menerjemahkan peta. Ada beberapa 4 jenis kartografi, yaitu:
 		
 		\begin{itemize}
@@ -189,19 +270,54 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 % SUBSUB Pushpins ke Peta
 \subsubsection{Pushpins ke Peta}
 \label{subsubsec:Pushpins ke Peta}
-\hspace{0.5cm} Pushpin merupakan elemen yang dapat ditempatkan pada peta secara spesifik dan bisa dipakai untuk interaksi pada peta. Peta tidak mendukung langsung penggunaan pushpin karena pushpin merupakan elemen MapOverlay (bagian/lapisan terpisah dari peta). Untungnya di Windows Phone memiliki Windows Phone 8 Toolkit yang memiliki set objek agar dapat menggunakan pushpin pada peta di Windows Phone. Contoh keluaran pushpin dapat dilihat pada Figure~\ref{fig:toolkit_pushpin} berikut.
+\hspace{0.5cm} Pushpin merupakan elemen yang dapat ditempatkan pada peta secara spesifik dan bisa dipakai untuk interaksi pada peta. Peta tidak mendukung langsung penggunaan pushpin karena pushpin merupakan elemen MapOverlay (bagian/lapisan terpisah dari peta). Untungnya di Windows Phone memiliki Windows Phone 8 Toolkit yang memiliki set objek agar dapat menggunakan pushpin pada peta di Windows Phone. Contoh keluaran pushpin dapat dilihat pada Gambar~\ref{fig:toolkit_pushpin} dan kode untuk menampilkannya dapat dilihat pada \textit{listing}~\ref{lst:pushpin}.
 
-\begin{figure}[!h]
+\begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/toolkit_pushpin}
 	\caption{Keluaran Toolkit Pushpin pada peta \cite{Manning}}
 	\label{fig:toolkit_pushpin}
 \end{figure}
 
+\begin{lstlisting} [caption= {Kode untuk menampilkan pushpin},label={lst:pushpin}]
+	MapOverlay overlay = new MapOverlay
+	{
+		GeoCoordinate = map.Center,
+		Content = new Border
+		{
+		BorderBrush = new SolidColorBrush(Color.FromArgb(120, 255, 0, 0)),
+		Child = new TextBlock(){Text="Pushpin"},
+		BorderThickness = new Thickness(1),
+		Background = new SolidColorBrush(Color.FromArgb(120,255,0,0)),
+		Width = 80,
+		Height = 60
+		}
+	};
+	MapLayer layer = new MapLayer();
+	layer.Add(overlay);
+
+	map.Layers.Add(layer);
+\end{lstlisting}
+
 % SUBSUB Polyline pada Peta
 \subsubsection{Polyline pada Peta}
 \label{subsubsec:Polyline pada Peta}
-\hspace{0.5cm} Dalam menentukan arah dibutuhkan 2 titik yaitu titk awal dan titik tujuan. Tentu saja arah tersebut butuh ditandai dengan garis. Polyline merupakan tentetan garis lurus yang saling terhubung satu sama lain. Dengan polyline arah pada peta dapat ditandai dengan warna maupin tebal atau tipisnya garis. 
+\hspace{0.5cm} Dalam menentukan arah dibutuhkan 2 titik yaitu titk awal dan titik tujuan. Tentu saja arah tersebut butuh ditandai dengan garis. Polyline merupakan tentetan garis lurus yang saling terhubung satu sama lain. Dengan polyline arah pada peta dapat ditandai dengan warna maupin tebal atau tipisnya garis. Contoh keluaran polyline dapat dilihat pada Gambar~\ref{fig:TampilanpolylinepadaPeta} dan kode untuk menampilkannya dapat dilihat pada \textit{listing}~\ref{lst:polyline}.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{Gambar/kontrol/polyline}
+	\caption{Tampilan polyline pada Peta}
+	\label{fig:TampilanpolylinepadaPeta}
+\end{figure}
+
+\begin{lstlisting} [caption= {Kode untuk menampilkan polyline},label={lst:polyline}]
+	MapPolyline line = new MapPolyline();
+	line.StrokeColor = Colors.Red;
+	line.StrokeThickness = 10;
+	line.Path.Add(new GeoCoordinate(-6.8619546, 107.614441));
+	line.Path.Add(new GeoCoordinate(-6.908693, 107.611185));
+\end{lstlisting}
 
 % SUBSUB Namespace Map
 \subsubsection{Namespace Kontrol Map}
@@ -216,7 +332,7 @@ Prefix x pada XAML mengandung beberapa struktur program yang sering kita gunakan
 Berikut properti yang dapat digunakan pada kelas ini.
 \begin{table}[h]
 	\centering
-		\begin{tabular}{ |c||c|}
+		\begin{tabular}{ |c|c|}
 				\hline
 					Nama & Deskripsi \\ \hline
 					CartographicMode & Mengatur dan mendapatkan tipe dari peta. \\ \hline
@@ -272,7 +388,7 @@ Berikut metode yang dapat digunakan pada kelas ini.
 Berikut properti yang dapat digunakan pada kelas ini.
 \begin{table}[h]
 	\centering
-		\begin{tabular}{ |c||c|}
+		\begin{tabular}{ |c|c|}
 				\hline
 					Nama & Deskripsi \\ \hline
 					Dispacher & Mendapatkan objek yang terkait. \\ \hline
@@ -309,6 +425,8 @@ Berikut metode yang dapat digunakan pada kelas ini.
 
 \hspace{0.5cm} Hal yang perlu diperhatikan dalam menentukan layanan lokasi adalah penangkap GPS, Wi-Fi, dan radio seluler. Perangkat tersebut berfungsi sebagai penyedia data lokasi dengan berbagai tingkat akurasi dan konsumsi daya. Perangkat diatas juga berkomunikasi langsung untuk memutuskan sumber mana yang digunakan untuk menentukan lokasi perangkat berdasarkan ketersediaan data lokasi dan prasyarat yang ditentukan aplikasi. Lapisan diatas penyedia data lokasi tersebut adalah pengelola antarmuka. Aplikasi akan mengunakan antarmuka tersebut untuk memulai dan menghentikan layanan lokasi, mengatur tingkat akurasi, dan menerima data lokasi.
 
+\hspace{0.5cm} Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelacakan lokasi harus dilakukan terus menerus. Pelacakan lokasi secara terus menerus ini dapat dilakukan di depan maupun di belakang aplikasi Windows Phone 8. Pelacakan aplikasi di depan akan memungkinkan aplikasi melacak lokasi pengguna sekaligus melakukan perbaruan antarmuka. Jika pelacakan lokasi di belakang aplikasi maka tidak ada perubahan pada antarmuka namun pelacakan terus dilakukan. Pelacakan yang terus menerus di belakang aplikasi akan membuat keadaan aplikasi cepat dipulihkan dari keadaan Dormant.
+
 % SUBSUB Mendapatkan Posisi Pengguna
 \subsubsection{Mendapatkan Posisi Pengguna}
 \label{subsubsec:Mendapatkan Posisi Pengguna}
@@ -330,7 +448,7 @@ Berikut nilai yang mungkin dari Status Posisi:
 \hspace{0.5cm} Namespace merupakan nama yang dipakai untuk mengatur kelas-kelas. Windows Phone 8 sudah menyediakan namespace bawaan untuk mengakses lokasi. Namespace yang disediakan adalah namespace Geolocator. Namespace ini akan mengakses lokasi geografis dari perangkat dan mendukung pelacakan lokasi dari waktu ke waktu. Agar dapat menggunakan kelas pada namespace tersebut perlu ditambahkan namespace dan \textit{capabilities}. Namespace yang harus ditambahkan pada baris awal XAML adalah \textbf{Windows.Device.Geolocator}. Selanjutnya ada penambahan \textit{capabilities} ID\_CAP\_LOCATION. Penambahan \textit{capabilities} ditambahkan pada WMAppManifest.xml. Kelas yang diatur oleh namespace geolocator dapat di lihat pada tabel ~\ref{tab:KelasPadaNamespaceGeolocator}.
 \begin{table}[h]
 	\centering
-		\begin{tabular}{ |c||c|}
+		\begin{tabular}{ |c|c|}
 				\hline
 				Kelas & Deskripsi \\ \hline
 				Geocoordinate & Berisi informasi untuk mengidentifikasi lokasi geografis. \\ \hline
@@ -349,11 +467,11 @@ Berikut nilai yang mungkin dari Status Posisi:
 
 \begin{table}[h]
 	\centering
-		\begin{tabular}{ |c||c|}
+		\begin{tabular}{ |c|c|}
 				\hline
 				Properti & Deskripsi \\ \hline
 				Altitude & Ketinggian lokasi dalam satuan meter. \\ \hline
-				Heading & Arah menghadap perangkat dalam satuan derajat yang relative terhadap mata angin utara. \\ \hline
+				Heading & \vtop{\hbox{\strut Arah menghadap perangkat dalam satuan derajat yang} \hbox{\strut relative terhadap mata angin utara.}} \\ \hline
 				Latitude & Garis lintang dalam satuan derajat. \\ \hline
 				Longitude  & Garis bujur dalam satuan derajat. \\ \hline
 				Point & Lokasi dari Geocoordinate. \\ \hline
@@ -404,7 +522,7 @@ Berikut Properti yang disediakan kelas Geoposition:
 % SUB Memanfaatkan Sumber Data
 \subsection{Memanfaatkan Sumber Data}
 \label{subsec:Memanfaatkan Sumber Data}
-\hspace{0.5cm} Hal yang penting dari sebuah aplikasi adalah informasi. Windown Phone 8 memiliki kemampuan dalam menghubungkan aplikasi dengan sumber data lainnya. Pemanfaatan data ada 2 macam yaitu yang lokal atau berada di perangkat dan web service. Web Service merupakan metode komunikasi antara 2 perangkat melalui jaringan. 
+\hspace{0.5cm} Hal yang penting dari sebuah aplikasi adalah informasi. Windows Phone 8 memiliki kemampuan dalam menghubungkan aplikasi dengan sumber data lainnya. Memanfaatkan sumber data ada 2 cara yaitu yang lokal atau berada di perangkat dan web service. Web Service merupakan metode komunikasi antara 2 perangkat melalui jaringan. 
 
 \hspace{0.5cm} Sebelum data dapat dikirim antar perangkat perlu dilakukan \textit{Serialization}. \textit{Serialization} disini merupakan proses mentransformasikan objek ke format yang bisa dengan mudah dikirim melewati jaringan atau disimpan di database. Formatnya disini berupa string yang direpresentasikan sebagai objek di XML atau JSON(Javascript Object Notation). Ada beberapa objek yang dapat melakukan serialisasi, tetapi yang akan dibahas penulis disini hanya serialisasi JSON. 
 
@@ -416,23 +534,23 @@ Berikut Properti yang disediakan kelas Geoposition:
 \hspace{0.5cm} Merupakan Kelas yang dipakai untuk mengirim permintaan HTTP dan menerima kembalian HTTP dari \textit{Uniform Resource Identifier}(URI) yang dapat diidentifikasi. Berikut metode yang disediakan kelas HttpClient.
 \begin{itemize}
 	\item DeleteAsync \\
-	Metode yang dipakai untuk mengirimkan permintaan DELETE ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek.
+	Metode yang dipakai untuk mengirimkan permintaan DELETE ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item GetAsync(Uri) \\
-	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek.
+	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item GetAsync(Uri,HttpCompletionOption) \\
-	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek.
+	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item GetBufferAsync \\
-	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya adalah kembalian yang dikirimkan secara buffer(menyimpan dalam memori).
+	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian yang dikirimkan secara buffer(disimpan dalam memori) dan kemajuan dari data yang dikirim.
 	\item GetInputStreamAsync \\
-	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya adalah kembalian yang dikirimkan secara stream(langsung sesuai waktu).
+	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian yang dikirimkan secara stream(langsung sesuai waktu) dan kemajuan dari data yang dikirim.
 	\item GetStringAsync \\
-	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya adalah kembalian yang dikirimkan dalam bentuk string.
+	Metode yang dipakai untuk mengirimkan permintaan GET ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dalam bentuk string dan kemajuan dari data yang dikirim.
 	\item PostAsync \\
-	Metode yang dipakai untuk mengirimkan permintaan POST ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek.
+	Metode yang dipakai untuk mengirimkan permintaan POST ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item SendRequestAsync(HttpRequestMessage) \\
-	Metode yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter pesan dari permintaan. Sedangkan kembaliannya berupa objek.
+	Metode yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter pesan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item SendRequestAsync(HttpRequestMessage, HttpCompletionOption) \\
-	Metode yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter pesan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya adalah kembalian yang dikirimkan secara stream(langsung sesuai waktu).
+	Metode yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter pesan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 \end{itemize}
 
 \footnotetext[2]{\url{http://msdn.microsoft.com/en-us/library/ms734701\%28v=vs.110\%29.aspx}}
@@ -453,29 +571,42 @@ Berikut Properti yang disediakan kelas Geoposition:
 \end{itemize}
 Untuk setiap permintaan membutuhkan \textit{API key} yang didapat dengan mendaftar\cite{Kiri}. Penggunaan API memungkinkan pengaksesan dimana saja dengan menggunakan koneksi internet. Pada Sub Bab dibawah penulis akan membahas beberapa pemanggilan pesan yang terdapat pada Kiri API.
 
+Berikut langkah-langkah dari membuka \url{dev.kiri.travel} sampai mendapatkan \textit{API key}.
+\begin{itemize}
+	\item Masuk ke situs \url{dev.kiri.travel}.
+	\item Register dengan memasukan alamat email, nama, dan nama perusahaan.
+	\item Password akan dikirimkan ke alamat email. Tentunya password akan dibuat otomatis oleh pihak Kiri.
+	\item Login setelah mengetahui password yang diterima dari alamat email. 
+	\item Setelah berhasil login, di menu utama terdapat API Keys Managements yang dapat dipilih.
+	\item Pilih tombol Add lalu masukan deskripsi penggunaan \textit{API key} yaitu untuk Skripsi.
+	\item \textit{API key} didapat dan dapat digunakan.
+\end{itemize}
+
 % SUB Routing Web Service
-\subsection{Routing Web Service}
+\subsection{\textit{Routing Web Service}}
 \label{subsec:Routing Web Service}
-\hspace{0.5cm} Routing Web Service merupakan Kiri API yang digunakan untuk mendapatkan langkah perjalanan dari lokasi asal ke lokasi tujuan.
+\hspace{0.5cm} Routing Web Service merupakan Kiri API yang digunakan untuk mendapatkan langkah perjalanan dari lokasi asal ke lokasi tujuan. Parameter dan keterangan untuk layanan ini dapat dilihat pada tabel~\ref{tab:routingWebService}.
 
-Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
+\begin{table}[H]
+	\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+			version & 2 & \vtop{\hbox{\strut Memberitahukan bahwa layanan yang } \hbox{\strut dipakai adalah protokol veris 2}} \\ \hline
+			mode & "findroute" & mengintruksikan layanan untuk mencari rute \\ \hline
+			locale & "en" or "id" & bahasa yang digunakan untuk balasan \\ \hline
+			start & lat,lng & titik awal \textit{latitude} dan \textit{longitude} \\ \hline
+			finish & lat,lng & titik akhir \textit{latitude} dan \textit{longitude}  \\ \hline
+			presentation & "mobile" or "desktop" & \vtop{\hbox{\strut Menentukan tipe prensentasi untuk keluaran.}\hbox{\strut Contoh, jika tipe presentasi "mobile", }\hbox{\strut maka link "tel:" akan ditambahkan di hasil.}} \\ \hline
+			apikey & 16-digit hexadecimals & API key yang digunakan \\ \hline
+			\hline
+		\end{tabular}
+	\caption{Tabel parameter layanan \textit{routing web service}}
+	\label{tab:routingWebService}
+\end{table}
 
-\begin{tabular}{ |l| |l| |l| }
-	\hline
-  version & 2 & \vtop{\hbox{\strut Memberitahukan bahwa layanan yang dipakai} \hbox{\strut adalah protokol veris 2}} \\ \hline
-  mode & "findroute" & mengintruksikan layanan untuk mencari rute \\ \hline
-  locale & "en" or "id" & bahasa yang digunakan untuk balasan \\ \hline
-	start & lat,lng (both are decimal values) & titik awal \textit{Latitude} dan \textit{longitude} \\ \hline
-  finish & lat,lng (both are decimal values) & titik akhir \textit{Latitude} dan \textit{longitude}  \\ \hline
-  presentation & "mobile" or "desktop" & \vtop{\hbox{\strut Menentukan tipe prensentasi untuk keluaran.}\hbox{\strut Contoh, jika tipe presentasi "mobile", }\hbox{\strut maka link "tel:" akan ditambahkan di hasil.}} \\ \hline
-	apikey & 16-digit hexadecimals & API key yang digunakan \\ \hline
-	\hline
-\end{tabular}
+Format kembalian layanan \textit{routing web service} dapat dilihat pada \textit{listing}~\ref{lst:pencarian}:
 
-\vspace{5mm}
-Berikut format kembalian dari Kiri API:
-
-\begin{lstlisting} [caption= Kode kembalian pencarian rute]
+\begin{lstlisting} [caption= {Kode kembalian pencarian rute},label={lst:pencarian}]
 { 
     "status": "ok" or "error" 
     "routingresults": [ 
@@ -510,42 +641,52 @@ Berikut format kembalian dari Kiri API:
     ]
 }
 \end{lstlisting}
-Berikut maksud dari listing 2.1:
+Berikut maksud dari \textit{listing}~\ref{lst:pencarian}: \newline
 \hspace{0.5cm} Ketika pencarian rute sukses dilakukan maka status akan memberitahukan "ok" seperti di baris 2. Selanjutnya setiap langkah dari posisi awal ke posisi tujuan akan ditampung di array dari langkah. Berikut keterangan dari setiap array tersebut: 
 
 \begin{itemize}
-	\item Index ke 0 atau baris 7 pada listing 2.1 dapat berisi "walk" atau "none" atau "others". Artinya  jika "walk" berarti berjalan kaki, "none" jika rute tidak ditemukan dan "others" berarti menggunakan kendaran.
-	\item Index ke 1 atau baris 8 pada listing 2.1 merupakan detail dari index 0. Artinya jika index 0 "walk" berarti index 1 harus "walk", "none" berarti index 1 harus "none" dan selain itu menyatakan id kendaraan yang mana bisa dipakai untuk ditampilkan gambarnya.
-	\item Index ke 2 atau baris 9 pada listing 2.1 adalah array string yang berisi jalur dalam format "lat,lon". Maksud dari "lat,lon" disini adalah titik permulaan dan titik selesai.
-	\item Index ke 3 atau bari 10 pada listing 2.1 merupakan berisi bentuk yang akan ditampilkan kepada pengguna. Informasi yang disampaikan dapat berupa:
+	\item Index ke 0 atau baris 7 pada \textit{listing}~\ref{lst:pencarian} dapat berisi "walk" atau "none" atau "others". Baris tersebut berarti jika "walk" untuk berjalan kaki, "none" jika rute tidak ditemukan dan "others" untuk menggunakan kendaran.
+	\item Index ke 1 atau baris 8 pada \textit{listing}~\ref{lst:pencarian} merupakan detail dari index 0. Artinya jika index 0 menyatakan "walk" berarti index 1 harus "walk", "none" berarti index 1 harus "none", dan selain itu menyatakan id kendaraan yang mana bisa dipakai untuk ditampilkan gambarnya.
+	\item Index ke 2 atau baris 9 pada \textit{listing}~\ref{lst:pencarian} adalah array string yang berisi jalur dalam format "lat,lng". Maksud dari "lat,lng" disini adalah titik awal dan titik akhir dari setiap jalur yang dilewati.
+	\item Index ke 3 atau baris 10 pada \textit{listing}~\ref{lst:pencarian} berisi bentuk yang akan ditampilkan kepada pengguna. Informasi yang disampaikan dapat berupa:
 		\begin{itemize}
 			\item \%fromicon = untuk menunjukan ikon "from". Biasanya untuk mode presentasi di perangkat bergerak.
 			\item \%toicon = untuk menunjukan ikon "to". Biasanya untuk mode presentasi di perangkat bergerak. 
 		\end{itemize}
-	\item Index ke 4 atau bari 11 pada listing 2.1 berisi URL untuk pemesanan tiket jika tersedia. Jika tidak tersedia akan bernilai null.
+	\item Index ke 4 atau bari 11 pada \textit{listing}~\ref{lst:pencarian} berisi URL untuk pemesanan tiket jika tersedia. Jika tidak tersedia akan bernilai null.
 \end{itemize}
- 	 	
+
+\hspace{0.5cm} Kiri telah menyediakan gambar untuk setiap angkutan umum. Gambar tersebut dapat di akses di URL:
+\begin{itemize}
+	\item \url{http://kiri.travel/images/means/[means]/[means_details].png}
+	\item \url{http://kiri.travel/images/means/[means]/baloon/[means_details].png}
+\end{itemize}
+Dimana \[means\] dapat diambil dari index 0 nilai kembalian dan \[means_details\] dapat diambil dari index 1 nilai kembalian. 
+		
 % SUB Web Service Pencarian Lokasi
 \subsection{Web Service Pencarian Lokasi}
 \label{subsec:Pencarian Lokasi Service}
-\hspace{0.5cm} Merupakan Kiri API yang digunakan untuk mencari lokasi beserta kordinat \textit{latitude} dan \textit{longitude}
+\hspace{0.5cm} Merupakan Kiri API yang digunakan untuk mencari lokasi beserta kordinat \textit{latitude} dan \textit{longitude}. Parameter dan keterangan untuk layanan ini dapat dilihat pada tabel~\ref{tab:pencarianLokasi}.
 
-Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
-
-\begin{tabular}{ |l| |l| |l| }
-	\hline
-  version & 2 & \vtop{\hbox{\strut Memberitahukan bahwa layanan yang dipakai} \hbox{\strut adalah protokol veris 2}} \\ \hline
-  mode & "searchplace" & mengintruksikan layanan untuk mencari tempat \\ \hline
-  region & "cgk" or "bdo" or "sub" & kota yang akan dicari tempatnya \\ \hline
-	querystring & \vtop{\hbox{\strut text apa saja dengan minimum} \hbox{\strut text satu karakter}} & \vtop{\hbox{\strut query string yang akan dicari menggunakan}  \hbox{\strut layanan ini}} \\ \hline
-	apikey & 16-digit hexadecimals & API key yang digunakan \\ \hline
-	\hline
-\end{tabular}
+\begin{table}[H]
+	\centering
+		\begin{tabular}{ |l|l|l| }
+			\hline
+			version & 2 & \vtop{\hbox{\strut Memberitahukan bahwa layanan yang dipakai} \hbox{\strut adalah protokol veris 2}} \\ \hline
+			mode & "searchplace" & mengintruksikan layanan untuk mencari tempat \\ \hline
+			region & "cgk" or "bdo" or "sub" & kota yang akan dicari tempatnya \\ \hline
+			querystring & \vtop{\hbox{\strut text apa saja dengan} \hbox{\strut minimum text satu karakter}} & \vtop{\hbox{\strut query string yang akan dicari menggunakan}  \hbox{\strut layanan ini}} \\ \hline
+			apikey & 16-digit hexadecimals & API key yang digunakan \\ \hline
+			\hline
+		\end{tabular}
+	\caption{Tabel parameter layanan pencarian lokasi}
+	\label{tab:pencarianLokasi}
+\end{table}
 
 \vspace{5mm}
-Berikut format kembalian dari Kiri API:
+Format kembalian dari layanan pencarian lokasi dapat dilihat pada \textit{listing}~\ref{lst:pencarianLokasi}.
 
-\begin{lstlisting} [caption= Kode kembalian pencarian lokasi]
+\begin{lstlisting} [caption= {Kode kembalian pencarian lokasi},label={lst:pencarianLokasi}]
 {
     "status": "ok" or "error"
     "searchresult": [
@@ -564,7 +705,8 @@ Berikut format kembalian dari Kiri API:
     ]
 }
 \end{lstlisting}
-Berikut maksud dari listing 2.2:
+Berikut maksud dari \textit{listing}~\ref{lst:pencarianLokasi}: 
+\newline
 \hspace{0.5cm} Ketika pencarian lokasi sukses dilakukan maka status akan memberitahukan "ok" seperti di baris 2. Selanjutnya akan ditampilkan hasil dari lokasi yang ada beserta atributnya. Berikut keterangan dari format dari pencarian lokasi:
 \begin{itemize}
 	\item Searchresult (pada bari 4 sampai 7, 8 sampai 11, dan seterusnya) berisi array dari tempat:
@@ -578,23 +720,26 @@ Berikut maksud dari listing 2.2:
 % SUB Web Service Memilih Transportasi Terdekat
 \subsection{Web Service Menemukan Transportasi Terdekat}
 \label{subsec:Service Menemukan Transportasi Terdekat}
-\hspace{0.5cm} Merupakan Kiri API yang digunakan untuk menemukan rute transportasi terdekat sesuai titik yang diinginkan pengguna.
+\hspace{0.5cm} Merupakan Kiri API yang digunakan untuk menemukan rute transportasi terdekat sesuai titik yang diinginkan pengguna. Parameter dan keterangan untuk layanan ini dapat dilihat pada tabel~\ref{tab:transportasiTerdekat}.
 
-Berikut parameter \textit{request} yang diperlukan berikut penjelasanya:
+\begin{table}[H]
+	\centering
+		\begin{tabular}{ |l|l|l| }
+			\hline
+			version & 2 & \vtop{\hbox{\strut Memberitahukan bahwa layanan yang dipakai} \hbox{\strut adalah protokol veris 2}} \\ \hline
+			mode & "nearbytransports" & \vtop{\hbox{\strut mengintruksikan layanan untuk mencari rute} \hbox{\strut transportasi terdekat}} \\ \hline
+			start & \vtop{\hbox{\strut latitude dan longitude}} & kota yang akan dicari tempatnya \\ \hline
+			apikey & 16-digit hexadecimals & API key yang digunakan \\ \hline
+			\hline
+		\end{tabular}
+	\caption{Tabel parameter layanan menemukan transportasi terdekat}
+	\label{tab:transportasiTerdekat}
+\end{table}
 
-\begin{tabular}{ |l| |l| |l| }
-	\hline
-  version & 2 & \vtop{\hbox{\strut Memberitahukan bahwa layanan yang dipakai} \hbox{\strut adalah protokol veris 2}} \\ \hline
-  mode & "nearbytransports" & \vtop{\hbox{\strut mengintruksikan layanan untuk mencari rute} \hbox{\strut transportasi terdekat}} \\ \hline
-  start & \vtop{\hbox{\strut latitude dan longitude} \hbox{\strut (keduanya menggunakan nilai desimal)}} & kota yang akan dicari tempatnya \\ \hline
-	apikey & 16-digit hexadecimals & API key yang digunakan \\ \hline
-	\hline
-\end{tabular}
 
-\vspace{5mm}
-Berikut format kembalian dari Kiri API:
+Format kembalian layanan menemukan transportasi terdekati dapat dilihat pada \textit{listing}~\ref{lokasiTerdekat}.
 
-\begin{lstlisting} [caption= Kode kembalian menemukan lokasi terdekat]
+\begin{lstlisting} [caption= {Kode kembalian menemukan lokasi terdekat},label={lokasiTerdekat}]
 {
     "status": "ok" or "error"
     "nearbytransports": [
@@ -613,11 +758,11 @@ Berikut format kembalian dari Kiri API:
         ...     
     ]
 }\end{lstlisting}
-Berikut maksud dari listing 2.3:
+Berikut maksud dari \textit{listing}~\ref{lokasiTerdekat}: \newline
 \hspace{0.5cm} Ketika pencarian rute sukses dilakukan maka status akan memberitahukan "ok" seperti di baris 2. Selanjutnya akan diberikan array yang berisi transportasi terdekat yang diurutkan dari yang terdekat ke yang terjauh. Berikut keterangan dari setiap array tersebut: 
 \begin{itemize}
-	\item Index ke 0 atau baris 5 pada listing 2.1 dapat berisi "walk" atau "none" atau "others". Artinya  jika "walk" berarti berjalan kaki, "none" jika rute tidak ditemukan dan "others" berarti menggunakan kendaran.
-	\item Index ke 1 atau baris 6 pada listing 2.1 merupakan detail dari index 0. Artinya jika index 0 "walk" berarti index 1 harus "walk", "none" berarti index 1 harus "none" dan selain itu menyatakan id kendaraan yang mana bisa dipakai untuk ditampilkan gambarnya.
-	\item Index ke 2 atau baris 7 pada listing 2.1 berisi nama kendaraan.
-	\item Index ke 3 atau bari 8 pada listing 2.1 berisi jarak dengan satuan kilometer.
+	\item Index ke 0 atau baris 5 pada \textit{listing}~\ref{lokasiTerdekat} dapat berisi "walk" atau "none" atau "others". Artinya  jika "walk" berarti berjalan kaki, "none" jika rute tidak ditemukan dan "others" berarti menggunakan kendaran.
+	\item Index ke 1 atau baris 6 pada \textit{listing}~\ref{lokasiTerdekat} merupakan detail dari index 0. Artinya jika index 0 "walk" berarti index 1 harus "walk", "none" berarti index 1 harus "none" dan selain itu menyatakan id kendaraan yang mana bisa dipakai untuk ditampilkan gambarnya.
+	\item Index ke 2 atau baris 7 pada \textit{listing}~\ref{lokasiTerdekat} berisi nama kendaraan.
+	\item Index ke 3 atau bari 8 pada \textit{listing}~\ref{lokasiTerdekat} berisi jarak dengan satuan kilometer.
 \end{itemize}
