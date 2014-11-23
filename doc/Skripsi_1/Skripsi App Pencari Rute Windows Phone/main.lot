@@ -2,15 +2,15 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {2.1}{\ignorespaces Properti kelas Map}}{15}{table.2.1}
-\contentsline {table}{\numberline {2.2}{\ignorespaces Properti Kelas Polyline}}{17}{table.2.2}
-\contentsline {table}{\numberline {2.3}{\ignorespaces Kelas pada Namespace Geolocator}}{18}{table.2.3}
-\contentsline {table}{\numberline {2.4}{\ignorespaces Properti pada Kelas Geocoordinate}}{19}{table.2.4}
-\contentsline {table}{\numberline {2.5}{\ignorespaces Tabel parameter layanan \textit {routing web service}}}{23}{table.2.5}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Properti \textit {Polyline Class}}}{17}{table.2.2}
+\contentsline {table}{\numberline {2.3}{\ignorespaces Kelas pada \textit {Namespace Geolocator}}}{18}{table.2.3}
+\contentsline {table}{\numberline {2.4}{\ignorespaces Properti pada \textit {Geocoordinate}}}{19}{table.2.4}
+\contentsline {table}{\numberline {2.5}{\ignorespaces Tabel parameter layanan penentuan rute}}{23}{table.2.5}
 \contentsline {table}{\numberline {2.6}{\ignorespaces Tabel parameter layanan pencarian lokasi}}{25}{table.2.6}
 \contentsline {table}{\numberline {2.7}{\ignorespaces Tabel parameter layanan menemukan transportasi terdekat}}{26}{table.2.7}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Skenario mandapatkan lokasi}}{39}{table.3.1}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Skenario memasukan lokasi asal dan lokasi tujuan}}{40}{table.3.2}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Skenario mandapatkan lokasi untuk masukan lokasi asal dan lokasi tujuan}}{39}{table.3.1}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Skenario memasukan lokasi asal dan lokasi tujuan pada \textit {TextBox}}}{40}{table.3.2}
 \contentsline {table}{\numberline {3.3}{\ignorespaces Skenario menunjuk lokasi asal dan lokasi tujuan pada peta}}{40}{table.3.3}
 \contentsline {table}{\numberline {3.4}{\ignorespaces Skenario memilih alamat}}{40}{table.3.4}
 \contentsline {table}{\numberline {3.5}{\ignorespaces Skenario menampilkan rute kendaraan umum}}{40}{table.3.5}

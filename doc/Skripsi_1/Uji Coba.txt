@@ -1,0 +1,3 @@
+kiri.travel/handle.php?version=2&mode=findroute&locale=en&start=-6.874660,107.604630&finish=-8.466700,115.353897&presentation=mobile&apikey=97A7A1157A05ED6F
+
+{"status":"ok","routingresults":[{"steps":[["none","none",["-6.874660,107.604630","-8.466700,115.353897"],"Sorry, we can't find a public transport route for your trip.",null]],"traveltime":null}]}

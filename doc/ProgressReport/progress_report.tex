@@ -1,0 +1,107 @@
+\documentclass[a4paper,twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[bahasa]{babel}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{float}
+\usepackage[cm]{fullpage}
+\pagestyle{myheadings}
+\usepackage{etoolbox}
+\usepackage{setspace} 
+\setlength{\headsep}{30pt}
+\usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2cm]{geometry} %margin
+\usepackage[plainpages=false,pdfpagelabels,unicode]{hyperref} %\autoref, \phantomsection & link 
+% \pagestyle{empty}
+
+\makeatletter
+\renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
+\renewcommand{\thispagestyle}[1]{}
+\markright{\textbf{\textsc{AIF401 \textemdash \textit{Progress Report} Skripsi \textemdash Sem. Ganjil 2014/2015}}}
+
+\onehalfspacing
+ 
+\begin{document}
+
+\title{\@judultopik}
+\author{\nama \textendash \@npm} 
+
+%tulis nama dan NPM anda di sini:
+\newcommand{\nama}{Yohan}
+\newcommand{\@npm}{2011730048}
+\newcommand{\@judultopik}{Pengembangan Aplikasi Pencari Rute Kendaraan Umum Untuk Kendaraan Umum} % Judul/topik anda
+\newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
+\newcommand{\tanggal}{16/11/2014}
+\maketitle
+
+\pagenumbering{arabic}
+
+\section{Deskripsi Skripsi}
+% deskripsi windows phone, deskripsi kiri, apa yg bakal dibuat
+\hspace{0.5cm} Windows Phone adalah keluarga sistem operasi mobile yang dikembangkan oleh Microsoft. Bahasa pemrograman yang digunakan untuk membuat aplikasi di Windows Phone adalah bahasa C\# atau Visual Basic \footnotemark[1]. Untuk tampilan Windows Phone mengusung desain moderen yang Microsoft sebut metro. Windows Phone pertama kali diperkenalkan Oktober 2014 dengan nama Windows Phone 7. Versi kedua untuk Windows Phone adalah windows phone 8 yang diperkenalkan Oktober 2012 dan menyusul Windows Phone 8.1 pada April 2014.
+\footnotetext[1]{Falafel,\textit{ Pro Windows Phone App Development}, Apress, New York, 2013, hlm. 1}
+
+Kiri merupakan aplikasi yang membantu pengguna dalam memilih rute angkutan umum. Kiri memiliki misi untuk memecahkan tiga masalah besar di kota besar: kemacetan lalu lintas, polusi udara, dan melambungnya harga dan subsidi BBM.\footnotemark[2] Saat ini program Kiri dapat digunakan untuk mencari rute kendaraan di 2 kota besar yaitu Jakarta dan Bandung. Prinsip Kiri mudah dipahami yaitu kamu cukup beritahu dari mana dan mau kemana lalu Kiri akan memberikan jawabannya.
+%kutipan mengenai kiri
+\footnotetext[2]{\url{http://kiri.travel/static/about.php?locale=id}}
+
+Aplikasi yang penulis buat di Windows Phone 8 menggunakan bahasa C\#. Aplikasi yang penulis buat mengharuskan pengguna untuk melakukan input posisi pengguna dan tujuan pengguna. Untuk jenis input posisi sendiri ada 2 jenis dengan mengetikan nama tempat atau jalan dan menunjuk langsung di peta. Setelah itu dari 2 input yaitu posisi awal dan tujuan pengguna akan di proses dengan memanfaatkan Kiri API. Hasil dari proses dengan 2 input tersebut adalah langkah-langkah bagaimana pengguna beranjak dari posisi awal hingga menuju tempat tujuan menggunakan sarana kendaraan umum. Hasil keluaran yang dihasilkan pun ada 2 jenis yang pertama berbentuk daftar dan yang kedua berbentuk peta. Untuk jenis pertama yang daftar akan berisi jarak dan harus naik kendaraan apa. Sedangkan cara ke 2 ditampilkan di peta berupa garis dari posisi awal ke tujuan, keterangan jarak, dan kendaraan yang harus digunakan. Selanjutnya juga pengguna dapat mengetahui jarak yang sudah pengguna tempuh menggunakan kendaraan umum.
+
+\section{Deskripsi Perangkat Lunak}
+Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
+\begin{itemize}
+	\item Pengguna dapat memasukan nama jalan dan nama tempat untuk tempat asal dan tempat tujuan.
+	\item Pengguna dapat memilih lokasi asal dan lokasi tujuan dengan cara menunjuk pada peta.
+	\item Aplikasi dapat menentukan lokasi perangkat.
+	\item Aplikasi dapat menentukan rute sesuai masukan pengguna lalu menampilkannya dalam bentuk daftar dan rute pada peta.
+\end{itemize}
+
+\section{Hal-Hal Yang Akan Dikerjakan}
+Hal-hal yang harus dikerjakan untuk menyelesaikan skripsi ini:
+\begin{itemize}
+	\item Mempelajari pengembangan aplikasi di Windows Phone dengan bahasa C\#
+	\item Mempelajari Kiri API
+	\item Merancang aplikasi di Windows Phone
+	\item Mengimplementasian Kiri API pada Windows Phone
+\end{itemize}
+
+\section{Isi {\it Progress Report 1}}
+Isi dari Progress Report 1 yang akan diselesaikan paling lambat pada tanggal 3 Desember 2014 adalah :
+\begin{enumerate}
+	\item Mempelajari teori-teori yang dibutuhkan dalam perancangan aplikasi
+	\item Membuat dokumen tugas akhir sampai bab 1 sampai bab 2
+\end{enumerate}
+Estimasi penyelesaian sampai Progress Report 1 adalah : 25\%
+
+\section{Isi {\it Progress Report 2}}
+Isi dari Progress Report 2 yang akan diselesaikan paling lambat pada tanggal 4 Desember 2014 adalah :
+\begin{enumerate}
+	\item Mempelajari teori-teori Kiri API
+	\item Mempelajari teori-teori untuk mengintegrasikan Windows Phone dengan Kiri API
+	\item Membuat dokumen tugas akhir sampai bab 3
+\end{enumerate}
+Estimasi persentase penyelesaian sampai Progress Report 2 adalah : 50\%
+\vspace{1.5cm}
+
+\centering Bandung, \tanggal\\
+\vspace{2cm} \nama \\ 
+\vspace{1cm}
+
+Menyetujui, \\
+\ifdefstring{\jumpemb}{2}{
+\vspace{1.5cm}
+\begin{centering} Menyetujui,\\ \end{centering} \vspace{0.75cm}
+\begin{minipage}[b]{0.45\linewidth}
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013 \\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Utama
+\end{minipage} \hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Pendamping
+\end{minipage}
+\vspace{0.5cm}
+}{
+% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Tunggal
+}
+`
+\end{document}

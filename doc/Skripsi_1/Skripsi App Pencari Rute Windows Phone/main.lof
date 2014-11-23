@@ -1,11 +1,11 @@
 \select@language {bahasa}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces }}{2}{figure.1.1}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Statistik Pengguna Windows Phone}}{2}{figure.1.1}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Hirarki navigasi}}{7}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces TextBlock, TextBox dan PasswordBox}}{8}{figure.2.2}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces \textit {TextBlock}, \textit {TextBox} dan \textit {PasswordBox}}}{8}{figure.2.2}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Gambar kontrol pada Windows Phone}}{9}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Antarmuka ListBox}}{10}{figure.2.4}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Antarmuka \textit {ListBox}}}{10}{figure.2.4}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Gambar siklus hidup aplikasi\cite {MSDN}}}{10}{figure.2.5}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Tampilan peta pada Windows Phone}}{12}{figure.2.6}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Kartografi}}{13}{figure.2.7}
@@ -18,7 +18,7 @@
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Tampilan rute kendaraan umum dalam bentuk daftar}}{29}{figure.3.4}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Tampilan rute kendaraan umum di peta}}{29}{figure.3.5}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Antarmuka pencari rute kendaraan umum di Windows Phone}}{31}{figure.3.6}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Tampilan pushpin untuk angkot}}{34}{figure.3.7}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Tampilan pushpin untuk jalan kaki}}{34}{figure.3.8}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Tampilan \textit {pushpin} untuk angkot}}{34}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Tampilan \textit {pushpin} untuk jalan kaki}}{34}{figure.3.8}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Diagram Use Case}}{39}{figure.3.9}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Diagram Kelas}}{41}{figure.3.10}
