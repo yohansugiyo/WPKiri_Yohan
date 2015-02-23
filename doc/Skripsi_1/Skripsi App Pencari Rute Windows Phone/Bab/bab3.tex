@@ -15,9 +15,11 @@ Berikut adalah tampilan dari aplikasi Public Transport (Gambar ~\ref{fig:home} s
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/KIRI_Android/home}
-	\caption{Tampilan awal aplikasi Public Transport}
+	\caption{Tampilan utama aplikasi Public Transport}
 	\label{fig:home}
 \end{figure}
+
+Gambar ~\ref{fig:home} menunjukan halaman utama aplikasi Public Transport. Di halaman ini pengguna dapat memasukan lokasi asal dan lokasi tujuan. Cara memasukan lokasi ada 2 macam yaitu dengan mengetik dan menunjuk pada peta dengan mengetuk tombol peta. Bila pengguna ingin menunjuk lokasi pengguna berada dapat dilakukan dengan mengetuk tombol kordinat. Tersedia juga pelihan kota yang dapat dipilih oleh pengguna.
 
 \begin{figure}[h]
 	\centering
@@ -26,12 +28,16 @@ Berikut adalah tampilan dari aplikasi Public Transport (Gambar ~\ref{fig:home} s
 	\label{fig:menunjuk}
 \end{figure}
 
+Gambar ~\ref{fig:menunjuk} jika pengguna sudah mengetahui lokasi namun tidak tahu nama lokasi. Pada halaman ini pengguna diarahkan untuk menemukan lokasi pada peta dan mengetuk lokasi tersebut untuk memilihnya.
+
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/KIRI_Android/terkait}
 	\caption{Memberikan daftar nama tempat dan nama jalan terkait}
 	\label{fig:terkait}
 \end{figure}
+
+Pada gambar ~\ref{fig:terkait} pengguna dapat memilih nama tempat terkait. Pemilihan didasarkan sesuai masukan pengguna untuk memastikan tempat asal maupun tempat tujuan. Jika nama tempat sudah jelas maka tidak akan ada halaman ini.
 
 \begin{figure}[h]
 	\centering
@@ -40,12 +46,17 @@ Berikut adalah tampilan dari aplikasi Public Transport (Gambar ~\ref{fig:home} s
 	\label{fig:daftar}
 \end{figure}
 
+Pada gambar ~\ref{fig:daftar} menampilkan daftar rute kendaraan umum yang harus dinaiki beserta gambar untuk mempermudah pengguna. Selain itu disertakan juga jarak dan perkiraan waktu sampai di lokasi tujuan.
+
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/KIRI_Android/tampilan_peta}
 	\caption{Tampilan rute kendaraan umum di peta}
 	\label{fig:peta}
 \end{figure}
+
+Pada gambar ~\ref{fig:peta} menampilkan rute kendaraan umum dan jalur yang harus dilalui pada peta. Dengan cara ini pengguna dapat mengetahui posisi dan jalur yang harus dilalui.
+
 % tampilannya, cara kerja, hal yang dapat dilakukan
 
 \clearpage
@@ -53,16 +64,16 @@ Berikut adalah tampilan dari aplikasi Public Transport (Gambar ~\ref{fig:home} s
 %Analisis Analisis Program
 \section{Analisis Aplikasi}
 \label{lab:Analisis Aplikasi}
-\hspace{0.5cm} Aplikasi akan dibuat mengguakan bahasa pemograman C\#. Aplikasi yang digunakan untuk membangun Aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone adalah Visual Studio Express 2012. Pada sub bab ini akan dibahas kebutuhan aplikasi, anaslisis kontrol yang dipakai, analisis terhadap siklus hidup aplikasi, analisis peta, analisis pemanfaatan sumber data, analisa Kiri API, diagram \textit{use case}, dan diagram kelas dari aplikasi yang akan dibangun. 
+\hspace{0.5cm} Aplikasi akan dibuat menggunakan bahasa pemograman C\#. Aplikasi yang digunakan untuk membangun Aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone adalah Visual Studio Express 2012. Pada sub bab ini akan dibahas kebutuhan aplikasi, anaslisis kontrol yang dipakai, analisis terhadap siklus hidup aplikasi, analisis peta, analisis pemanfaatan sumber data, analisa Kiri API, diagram \textit{use case}, dan diagram kelas dari aplikasi yang akan dibangun. 
 
 %Analisis Kebutuhan Aplikasi
 \subsection{Kebutuhan Aplikasi}
 \label{lab:Kebutuhan Aplikasi}
 \hspace{0.5cm} Dari hasil observasi penulis dalam menentukan lokasi asal dan lokasi tujuan ada dua cara. Kedua cara tersebut yaitu dengan menulis alamat atau tempat dan dengan menunjuk pada peta. Cara menuliskan alamat atau tempat yaitu dengan menuliskan alamat atau tempat pada tempat yang disediakan untuk asal dan tujuan. Cara menunjuk pada peta yaitu dengan mengetuk layar di posisi yang diinginkan. Kedua hal tersebut pada dasarnya sama saja tetapi ada faktor kemudahan pengguna dalam pemakaiannya. Jadi penulis menyediakan dua cara tersebut pada aplikasi yang penulis buat agar pengguna dapat memilih salah satunya.
 
-\hspace{0.5cm} Pada saat menuliskan lokasi atau tempat atau menunjuk langsung pada peta mungkin saja terjadi kesalahan. Kesalahan tersebut bisa saja disebabkan salah pengetikan atau nama tempat yang tidak ada. Maka dari itu dibutuhkan pemeriksaan terhadap masukan pengguna. Pemeriksaan tersebut dilakukan setelah pengguna memulai pencarian dengan menekan tombol "FIND".
+Pada saat menuliskan lokasi atau tempat atau menunjuk langsung pada peta mungkin saja terjadi kesalahan. Kesalahan tersebut bisa saja disebabkan salah pengetikan atau nama tempat yang tidak ada. Maka dari itu dibutuhkan pemeriksaan terhadap masukan pengguna. Pemeriksaan tersebut dilakukan setelah pengguna memulai pencarian dengan menekan tombol "FIND".
 
-\hspace{0.5cm} Untuk hasil keluaran ada dua tipe seperti aplikasi peta lainnya. Kedua tipe tersebut adalah bentuk daftar dan bentuk peta. Bentuk daftar memudahkan dalam melihat tiap langkah rute. bentuk daftar memudahkan pengguna dalam melihat arah dan posisi lingkungan pada rute yang dipilih.
+Untuk hasil keluaran ada dua tipe seperti aplikasi peta lainnya. Kedua tipe tersebut adalah bentuk daftar dan bentuk peta. Bentuk daftar memudahkan dalam melihat tiap langkah rute. bentuk daftar memudahkan pengguna dalam melihat arah dan posisi lingkungan pada rute yang dipilih.
 
 \hspace{0.5cm} Aplikasi yang penulis bangun didasarkan pada kebutuhan sebagai berikut.
 \begin{enumerate}
@@ -74,22 +85,13 @@ Berikut adalah tampilan dari aplikasi Public Transport (Gambar ~\ref{fig:home} s
 % SUB Analisis Kontrol yang Dipakai
 \subsection{Analisis Kontrol yang Dipakai}
 \label{lab:Analisis Kontrol yang Dipakai}
-\hspace{0.5cm} Dari kebutuhan yang telah disebutkan diatas penulis menyadari pentingnya kontrol yang harus dipakai. Kontrol yang dimaksud termasuk tata letak, teks, pilihan, dan daftar. Kebutuhan akan kontrol penting bukan hanya untuk kebutuhan tapi memudahkan pengguna. Antarmuka halaman utama yang penulis bangun dapat dilihat pada Gambar~\ref{fig:antarmuka}. 
+\hspace{0.5cm} Dari kebutuhan yang telah disebutkan diatas penulis menyadari pentingnya kontrol yang harus dipakai. Kontrol yang dimaksud termasuk tata letak, teks, pilihan, dan daftar. Kebutuhan akan kontrol penting bukan hanya untuk kebutuhan tapi memudahkan pengguna.
 
-\begin{figure}[h]
-	\centering
-		\includegraphics[scale=0.6]{Gambar/kontrol/control.PNG}
-	\caption{Antarmuka pencari rute kendaraan umum di Windows Phone}
-	\label{fig:antarmuka}
-\end{figure}
+Untuk kontrol tata letak penulis membayangkan pengaturan yang tertata rapih dan beberapa elemen dalam satu baris atau kolom. Tetapi juga penulis tidak mengharapkan penggunaan kontrol tata letak yang rumit. Dari hasil pengamatan penulis kontrol tata letak yang cocok adalah Grid. Kontrol tata letak ini penulis pilih karena mudah diposisiskan sesuai baris dan kolom. Selain itu tampilan Grid akan menyesuaikan jika layar diputar dari posisi pemandangan ke posisi potret dan sebaliknya.
 
-\newpage
+Kontrol terhadap teks juga diperlukan untuk aplikasi. Kebutuhan yang diperlukan adalah mengeluarkan potongan teks yang dapat dibaca dan tempat pengguna memasukan teks. Untuk mengeluarkan teks yang dapat dilihat penulis akan menggunakan \textit{TextBlock}. TextBlock digunakan untuk menampilkan tulisan "from" dan "to" pada halaman utama aplikasi. Untuk masukan pengguna terhadap aplikasi penulis akan menyediakan \textit{TextBox} sebagai tempat teks. \textit{TextBox} digunakan sebagai masukan untuk lokasi asal dan lokasi tujuan.
 
-\hspace{0.5cm} Untuk kontrol tata letak penulis membayangkan pengaturan yang tertata rapih dan beberapa elemen dalam satu baris atau kolom. Tetapi juga penulis tidak mengharapkan penggunaan kontrol tata letak yang rumit. Dari hasil pengamatan penulis kontrol tata letak yang cocok adalah Grid. Kontrol tata letak ini penulis pilih karena mudah diposisiskan sesuai baris dan kolom. Selain itu tampilan Grid akan menyesuaikan jika layar diputar dari posisi pemandangan ke posisi potret dan sebaliknya.
-
-\hspace{0.5cm} Kontrol terhadap teks juga diperlukan untuk aplikasi. Kebutuhan yang diperlukan adalah mengeluarkan potongan teks yang dapat dibaca dan tempat pengguna memasukan teks. Untuk mengeluarkan teks yang dapat dilihat penulis akan menggunakan \textit{TextBlock}. TextBlock digunakan untuk menampilkan tulisan "from" dan "to" pada halaman utama aplikasi. Untuk masukan pengguna terhadap aplikasi penulis akan menyediakan \textit{TextBox} sebagai tempat teks. \textit{TextBox} digunakan sebagai masukan untuk lokasi asal dan lokasi tujuan.
-
-\hspace{0.5cm} Suatu aplikasi tentunya tidak hanya mempunyai satu halaman. Sama hal dengan aplikasi yang penulis buat memiliki beberapa halaman yang mempunyai tugas berbeda. Karena hal tersebut dibutuhkan kontrol untuk berpindah dari satu halaman ke halaman lain. Kontrol yang dibutuhkan yaitu kontrol tombol. Kontrol tombol akan mengeksekusi \textit{event click} yang memungkinkan pindah halaman dan melakukan perintah. Kontrol tombol akan penulis gunakan untuk berpindah ke halaman peta, menemukan lokasi pengguna, dan pencarian rute. Pada Gambar~\ref{fig:antarmuka} terdapat 5 tombol yaitu tombol map pada bagian from, tombol here pada bagian from, tombol map pada bagian to, tombol here pada bagian to, dan tombol find. Berikut kegunaan dari tombol-tombol tersebut.
+Suatu aplikasi tentunya tidak hanya mempunyai satu halaman. Sama hal dengan aplikasi yang penulis buat memiliki beberapa halaman yang mempunyai tugas berbeda. Karena hal tersebut dibutuhkan kontrol untuk berpindah dari satu halaman ke halaman lain. Kontrol yang dibutuhkan yaitu kontrol tombol. Kontrol tombol akan mengeksekusi \textit{event click} yang memungkinkan pindah halaman dan melakukan perintah. Kontrol tombol akan penulis gunakan untuk berpindah ke halaman peta, menemukan lokasi pengguna, dan pencarian rute. Pada Gambar~\ref{fig:antarmuka} terdapat 5 tombol yaitu tombol map pada bagian from, tombol here pada bagian from, tombol map pada bagian to, tombol here pada bagian to, dan tombol find. Berikut kegunaan dari tombol-tombol tersebut.
 \begin{itemize}
 	\item Tombol map pada bagian from\\
 	Tombol untuk berpindah dari halaman utama menuju halaman peta. Pada halaman peta pengguna dapat menunjuk lokasi asal dan kembali lagi ke halaman utama. Saat kembali ke halaman utama lokasi yang dipilih akan disimpan dan pada \textit{TextBox} bagian from akan tertulis "lokasi dari peta".
@@ -103,19 +105,18 @@ Berikut adalah tampilan dari aplikasi Public Transport (Gambar ~\ref{fig:home} s
 	Tombol ini akam mencari rute angkutan umum dan menampilkannya pada halaman peta.
 \end{itemize}
 
-\hspace{0.5cm} Pada aplikasi ini penulis akan menampilkan daftar tempat dan daftar rute angkutan umum yang dipakai. Bentuk daftar digunakan penulis karena hasil tempat dan rute angkutan umum akan banyak. Bentuk daftar yang dapat dipakai di Windows Phone adalah menggunakan \textit{ListBox}. ListBox akan menampilkan daftar tempat dan daftar rute satu per satu menurun ke bawah.
+Pada aplikasi ini penulis akan menampilkan daftar tempat dan daftar rute angkutan umum yang dipakai. Bentuk daftar digunakan penulis karena hasil tempat dan rute angkutan umum akan banyak. Bentuk daftar yang dapat dipakai di Windows Phone adalah menggunakan \textit{ListBox}. \textit{ListBox} akan menampilkan daftar tempat dan daftar rute satu per satu menurun ke bawah.
 
-\newpage
 % SUB Analisis Terhadap Siklus Hidup Aplikasi
 \subsection{Analisis Terhadap Siklus Hidup Aplikasi}
 \label{lab:Analisis Terhadap Siklus Hidup Aplikasi}
 \hspace{0.5cm} Aplikasi pada Windows Phone memiliki siklus hidup yang dijelaskan pada bab ~\ref{subsec:Siklus Hidup Aplikasi}. Pengaturan aplikasi ini diatur sesuai konfigurasi awal sistem operasi Windows Phone. Tetapi pengaturan ini dapat diatur sesuai kebutuhan aplikasi. Karena di aplikasi ini terdapat keadaan yang berbeda dengan konfigurasi awal sistem operasi Windows Phone maka perlu dilakukan pengaturan ulang siklus hidup.
 
-\hspace{0.5cm} Saat aplikasi dijalankan, pengguna memasukan lokasi asal dan lokasi tujuan. Setelah memasukan lokasi pengguna akan mencari rute. Ketika rute berhasil ditemukan aplikasi akan berada di keadaan Running. Tetapi ada kemungkinan pengguna berpindah aplikasi atau mematikan layar untuk menghemat daya. Dalam kasus tersebut sistem operasi Windows Phone akan menganggap aplikasi tidak aktif dan aplikasi akan masuk pada keadaan \textit{dormant}. Untuk menangani kasus tersebut maka penulis harus menyimpan keadaan dan informasi saat sebelum aplikasi menjadi tidak aktif. Penanganan yang penulis akan lakukan adalah menggunakan metode \textit{OnNavigatedFrom()}. Dengan metode tersebut keadaan aplikasi akan disimpan di memori.
+Saat aplikasi dijalankan, pengguna memasukan lokasi asal dan lokasi tujuan. Setelah memasukan lokasi pengguna akan mencari rute. Ketika rute berhasil ditemukan aplikasi akan berada di keadaan Running. Tetapi ada kemungkinan pengguna berpindah aplikasi atau mematikan layar untuk menghemat daya. Dalam kasus tersebut sistem operasi Windows Phone akan menganggap aplikasi tidak aktif dan aplikasi akan masuk pada keadaan \textit{dormant}. Untuk menangani kasus tersebut maka penulis harus menyimpan keadaan dan informasi saat sebelum aplikasi menjadi tidak aktif. Penanganan yang penulis akan lakukan adalah menggunakan metode \textit{OnNavigatedFrom()}. Dengan metode tersebut keadaan aplikasi akan disimpan di memori.
 
-\hspace{0.5cm} Pada saat aplikasi masuk keadaan Dormant semua \textit{thread} dan proses akan dihentikan. Pada saat tersebut juga GPS Windows Phone akan terhenti dan tidak akan mengetahui posisi pengguna. GPS akan kembali aktif mengetahui posisi pengguna jika pengguna masuk ke aplikasi dan tentunya membutuhkan waktu untuk pelacakan lokasi. Tetapi Windows Phone mendukung proses di belakang untuk pelacakan GPS selama keluar dari aplikasi atau layar perangkat dimatikan. Maka dari itu aplikasi yang penulis buat akan mendukung pengaksesan lokasi meskipun layar perangkat dimatikan atau berpindah aplikasi. 
+Pada saat aplikasi masuk keadaan Dormant semua \textit{thread} dan proses akan dihentikan. Pada saat tersebut juga GPS Windows Phone akan terhenti dan tidak akan mengetahui posisi pengguna. GPS akan kembali aktif mengetahui posisi pengguna jika pengguna masuk ke aplikasi dan tentunya membutuhkan waktu untuk pelacakan lokasi. Tetapi Windows Phone mendukung proses di belakang untuk pelacakan GPS selama keluar dari aplikasi atau layar perangkat dimatikan. Maka dari itu aplikasi yang penulis buat akan mendukung pengaksesan lokasi meskipun layar perangkat dimatikan atau berpindah aplikasi. 
 
-\hspace{0.5cm} Ketika aplikasi sudah berada pada keadaan \textit{Dormant} atau \textit{Tombstoned}, pengguna masih dapat memulihkan keadaan aplikasi saat aplikasi berada di keadaan \textit{Running} sebelumnya. Penanganan yang penulis akan lakukan untuk hal tersebut adalah menggunakan metode \textit{OnNavigatedTo()}. Menggunakan metode tersebut akan memulihkan informasi halaman pada keadaan \textit{Running} sebelumnya.
+Ketika aplikasi sudah berada pada keadaan \textit{Dormant} atau \textit{Tombstoned}, pengguna masih dapat memulihkan keadaan aplikasi saat aplikasi berada di keadaan \textit{Running} sebelumnya. Penanganan yang penulis akan lakukan untuk hal tersebut adalah menggunakan metode \textit{OnNavigatedTo()}. Menggunakan metode tersebut akan memulihkan informasi halaman pada keadaan \textit{Running} sebelumnya.
 %mendukung backgorund execution, running bacground event
 
 % SUB Analisis Peta
@@ -123,18 +124,18 @@ Berikut adalah tampilan dari aplikasi Public Transport (Gambar ~\ref{fig:home} s
 \label{lab:Analisis Peta}
 \hspace{0.5cm} Untuk tampilan peta ada beberapa aspek yang perlu diperhatikan untuk memudahkan pengguna. Aspek yang perlu diperhatikan adalah sebagai berikut.
 \begin{itemize}
-	\item Pandangan terhadap peta atau kartografi dan mode warna
+	\item Pemetaan terhadap peta atau \textit{cartographic} dan mode warna
 	\item Tingkat \textit{zoom}
 	\item Menampilkan gambar dan keterangan angkutan umum menggunakan \textit{pushpin}
 	\item Menggambar rute pada peta menggunakan \textit{polyline}
 \end{itemize}
 
-\hspace{0.5cm} Untuk cara pandang peta terdapat 4 pandangan yang disediakan peta di Windows Phone yaitu \textit{Road}, \textit{Aerial}, \textit{Hybrid}, dan \textit{Terrain}. Aplikasi ini adalah aplikasi pencari rute dan pandangan lebih banyak diarahkan ke jalanan perkotaan. Kebutuhan pengguna adalah nama jalan, kondisi jalan, dan kondisi sekitar. Dari dasar pandangan tersebut pandangan yang penulis pilih untuk aplikasi ini adalah \textit{Road}. Tambahan setelah mengatur pandangan peta yaitu mengatur warna dan penulis akan menggunakan mode warna terang sesuai bawaan peta di Windows Phone.
+Untuk cara pandang peta terdapat 4 pandangan yang disediakan peta di Windows Phone yaitu \textit{Road}, \textit{Aerial}, \textit{Hybrid}, dan \textit{Terrain}. Aplikasi ini adalah aplikasi pencari rute dan pandangan lebih banyak diarahkan ke jalanan perkotaan. Kebutuhan pengguna adalah nama jalan, kondisi jalan, dan kondisi sekitar. Dari dasar pandangan tersebut pandangan yang penulis pilih untuk aplikasi ini adalah \textit{Road}. Tambahan setelah mengatur pandangan peta yaitu mengatur warna dan penulis akan menggunakan mode warna terang sesuai bawaan peta di Windows Phone.
 
-\hspace{0.5cm} Tampilan awal peta di Windows Phone akan mengeluarkan peta dengan pandangan dunia. Karena aplikasi pencarian rute ini masih terbatas di Pulau Jawa, Indonesia terutama Jawa Barat maka tingkat zoom harus diatur agar mengikuti lokasi pengguna dan di satu daerah saja. Jika pengguna berada di daerah Bandung maka tingkat zoom pada peta disesuaikan pada daerah tersebut. Tingkat zoom dapat dapat diatur dari kode dan XAML. Tingkat zoom yang penulis akan gunakan adalah 14. Tingkat zoom 14 akan menampilkan satu kota dengan jelas.
+Tampilan awal peta di Windows Phone akan mengeluarkan peta dengan pandangan dunia. Karena aplikasi pencarian rute ini masih terbatas di Pulau Jawa, Indonesia terutama Jawa Barat maka tingkat zoom harus diatur agar mengikuti lokasi pengguna dan di satu daerah saja. Jika pengguna berada di daerah Bandung maka tingkat zoom pada peta disesuaikan pada daerah tersebut. Tingkat zoom dapat dapat diatur dari kode dan XAML. Tingkat zoom yang penulis akan gunakan adalah 14. Tingkat zoom 14 akan menampilkan satu kota dengan jelas.
 %kasih gambar zoom 14
 
-\hspace{0.5cm} Di setiap kota ada satu angkutan umum yang banyak dipakai yaitu angkutan kota(angkot). Namun bagi yang baru pertama mengunjungi suatu daerah dan mencari angkot mungkin akan kesulitan membaca trayek dari angkot tersebut. Namun ada satu cara yang mudah untuk membedakan angkot di setiap rute yaitu dari warna dan coraknya. Agar dapat memudahkan pengguna dan menghindari pengguna dari kesalahan naik angkot maka Kiri API sudah menyediakan gambar angkot yang seusai dengan setiap rute. Gambar angkot tersebut akan ditempatkan di peta dengan suatu penampung beserta keterangannya. Salah satu teknik untuk menempatkan gambar tersebut adalah dengan membuat lapisan terpisah di atas peta tempat gambar tersebut. Untuk hal tersebut penulis akan memanfaatkan Pushpin sebagai lapisan terpisah untuk menaruh gambar dan keterangan angkutan umum. Berikut tampilan \textit{pushpin} untuk angkot~\ref{pushpin_angkot} dan \textit{pushpin} untuk jalan kaki~\ref{fig:pushpin_jalan}.
+Di setiap kota ada satu angkutan umum yang banyak dipakai yaitu angkutan kota(angkot). Namun bagi yang baru pertama mengunjungi suatu daerah dan mencari angkot mungkin akan kesulitan membaca trayek dari angkot tersebut. Namun ada satu cara yang mudah untuk membedakan angkot di setiap rute yaitu dari warna dan coraknya. Agar dapat memudahkan pengguna dan menghindari pengguna dari kesalahan naik angkot maka Kiri API sudah menyediakan gambar angkot yang seusai dengan setiap rute. Gambar angkot tersebut akan ditempatkan di peta dengan suatu penampung beserta keterangannya. Salah satu teknik untuk menempatkan gambar tersebut adalah dengan membuat lapisan terpisah di atas peta tempat gambar tersebut. Untuk hal tersebut penulis akan memanfaatkan Pushpin sebagai lapisan terpisah untuk menaruh gambar dan keterangan angkutan umum. Berikut tampilan \textit{pushpin} untuk angkot~\ref{fig:pushpin_angkot} dan \textit{pushpin} untuk jalan kaki~\ref{fig:pushpin_jalan}.
 
 \begin{figure}[h]
 	\centering
@@ -150,14 +151,14 @@ Berikut adalah tampilan dari aplikasi Public Transport (Gambar ~\ref{fig:home} s
 	\label{fig:pushpin_jalan}
 \end{figure}
 
-\hspace{0.5cm} Pencarian rute yang penulis gunakan untuk aplikasi yaitu dengan memakai Kiri API. Kiri API akan memberikan kembalian berupa titik-titik rute perjalanan dari lokasi asal ke lokasi tujuan. Karena hal itu penulis harus menggambar rute tersebut sesuai jalan pada peta. Untuk hal tersebut penulis akan menggunakan \textit{Polyline} pada Windows Phone untuk menggambarnya. \textit{Polyline} yang digambar harus terlihat dengan jelas dan diberi warna yang kontras dengan tampilan peta. Warna polyline yang penulis akan pilih adalah merah dengan ketebalan 2.
+Pencarian rute yang penulis gunakan untuk aplikasi yaitu dengan memakai Kiri API. Kiri API akan memberikan kembalian berupa titik-titik rute perjalanan dari lokasi asal ke lokasi tujuan. Karena hal itu penulis harus menggambar rute tersebut sesuai jalan pada peta. Untuk hal tersebut penulis akan menggunakan \textit{Polyline} pada Windows Phone untuk menggambarnya. \textit{Polyline} yang digambar harus terlihat dengan jelas dan diberi warna yang kontras dengan tampilan peta. Warna polyline yang penulis akan pilih adalah merah dengan ketebalan 2.
 
 % SUB Analisis Pemanfaatan Sumber Data
 \subsection{Analisis Pemanfaatan Sumber Data}
 \label{lab:Analisis Pemanfaatan Sumber Data}
 \hspace{0.5cm} Aplikasi yang penulis buat memanfaatkan sumber data dari luar. Sumber data yang penulis dapatkan dalam format JSON (\textit{Javascript object Notation}). Pengambilan sumber data tersebut dilakukan dengan melakukan permintaan HTTP dari \textit{Uniform Resource Identifier} / URI. Pemanfaatan sumber data yang penulis gunakan adalah kelas \textit{HttpClient}.
 
-\hspace{0.5cm} Metode yang penulis gunakan adalah \textit{GetStringAsync()}. Metode ini akan mengirimkan permintaan melalui URI dan mengembalikan hasilnya dalam tipe data \textit{String} dan kemajuan data. Karena metode ini mengembalikan hasil dalam tipe data \textit{String} maka mudah disesuaikan dengan kebutuhan tugas akhir ini. Selanjutnya penulis harus membuat pengurai untuk keluaran  untuk diolah menjadi informasi yang dibutuhkan.   
+Metode yang penulis gunakan adalah \textit{GetStringAsync()}. Metode ini akan mengirimkan permintaan melalui URI dan mengembalikan hasilnya dalam tipe data \textit{String} dan kemajuan data. Karena metode ini mengembalikan hasil dalam tipe data \textit{String} maka mudah disesuaikan dengan kebutuhan tugas akhir ini. Selanjutnya penulis harus membuat pengurai untuk keluaran  untuk diolah menjadi informasi yang dibutuhkan.   
 %penggunaan getString
 
 % SUB Analisis Kiri API
@@ -166,11 +167,11 @@ Berikut adalah tampilan dari aplikasi Public Transport (Gambar ~\ref{fig:home} s
 %parameter get karena hanya untuk mendapatkan data dan tidak ada data sensiti yg dikirimkan.
 \hspace{0.5cm} Kiri API menyediakan 2 parameter untuk permintaan yaitu \textit{POST} dan \textit{GET}. Dalam tugas akhir ini penulis akan menggunakan parameter \textit{GET}. Parameter \textbf{GET} penulis pilih karena dalam tugas akhir ini penulis akan banyak mendapatkan data dan tidak ada data sensitif yang dikirimkan. Untuk hal ini penulis akan mengirim ke URL \url{http://kiri.travel/handle.php}.
 
-\hspace{0.5cm} Untuk setiap permintaan terhadap Kiri API dibutuhkan \textit{API key}. Kegunaan \textit{API key} adalah password untuk mengakses Kiri API. \textit{API key} dapat didapatkan di \url{dev.kiri.travel}. \textit{API key} yang penulis gunakan pada tugas akhir ini adalah 97A7A1157A05ED6F.
+Untuk setiap permintaan terhadap Kiri API dibutuhkan \textit{API key}. Kegunaan \textit{API key} adalah password untuk mengakses Kiri API. \textit{API key} dapat didapatkan di \url{dev.kiri.travel}. \textit{API key} yang penulis gunakan pada tugas akhir ini adalah 97A7A1157A05ED6F.
      
-\hspace{0.5cm} Untuk tugas akhir ini penulis akan menggunakan 2 layanan yang ada pada Kiri API. Layanan yang digunakan adalah pencarian lokasi dan penentuan rute. Pencarian lokasi adalah layanan untuk menemukan tempat atau nama jalan yang terkait dengan masukan pengguna. Penentuan rute adalah layanan untuk menemukan langkah yang harus ditempuh pengguna untuk sampai ke lokasi tujuan dari lokasi asal. 
+Untuk tugas akhir ini penulis akan menggunakan 2 layanan yang ada pada Kiri API. Layanan yang digunakan adalah pencarian lokasi dan penentuan rute. Pencarian lokasi adalah layanan untuk menemukan tempat atau nama jalan yang terkait dengan masukan pengguna. Penentuan rute adalah layanan untuk menemukan langkah yang harus ditempuh pengguna untuk sampai ke lokasi tujuan dari lokasi asal. 
 
-\hspace{0.5cm} Pemanfaatan layanan pencarian lokasi yaitu dengan parameter \textit{GET} melalui protokol HTTP. Berikut parameter yang harus dikirimkan beserta keterangannya.
+Pemanfaatan layanan pencarian lokasi yaitu dengan parameter \textit{GET} melalui protokol HTTP. Berikut parameter yang harus dikirimkan beserta keterangannya.
 \begin{itemize}
 	\item \textit{version}: 2 \\
 	Karena acuan penulis adalah Kiri API versi maka di parameter version penulis akan menggunakan 2.
@@ -238,9 +239,9 @@ Berikut format layanan yang penulis kirim:\newline
 }
 \end{lstlisting}
 
-\hspace{0.5cm} Hasil dari kembalian berupa kumpulan \textit{placename} dan \textit{location}. Hasil tersebut akan aplikasi tampung namun yang akan ditampilkan ke pengguna hanya \textit{placename}. Menampilkan \textit{location} tidak efektif menurut penulis karena akan membingungkan pengguna. Dari percobaan yang penulis lakukan, nilai dari \textit{attributions} selalu bernilai "null". Karena hal tersebut maka nilai\textit{attributions} akan penulis abaikan.
+Hasil dari kembalian berupa kumpulan \textit{placename} dan \textit{location}. Hasil tersebut akan aplikasi tampung namun yang akan ditampilkan ke pengguna hanya \textit{placename}. Menampilkan \textit{location} tidak efektif menurut penulis karena akan membingungkan pengguna. Dari percobaan yang penulis lakukan, nilai dari \textit{attributions} selalu bernilai "null". Karena hal tersebut maka nilai\textit{attributions} akan penulis abaikan.
 
-\hspace{0.5cm} Pemanfaatan layanan penentuan rute untuk mendapatkan langkah yang harus ditempuh pengguna untuk mencapai lokasi tujuan dari lokasi asal. Pemanfaatan layanan ini yaitu dengan parameter \textit{GET} melalui protokol HTTP. Berikut parameter yang harus dikirim:
+Pemanfaatan layanan penentuan rute untuk mendapatkan langkah yang harus ditempuh pengguna untuk mencapai lokasi tujuan dari lokasi asal. Pemanfaatan layanan ini yaitu dengan parameter \textit{GET} melalui protokol HTTP. Berikut parameter yang harus dikirim:
 \begin{itemize}
 	\item \textit{version}: 2 \\
 	Karena acuan penulis adalah Kiri API versi maka di parameter version penulis akan menggunakan 2.
@@ -321,12 +322,12 @@ Berikut hasil kembalian dari Kiri API:
 }
 \end{lstlisting}
 
-\hspace{0.5cm} Setiap langkah akan aplikasi tampung dalam elemen \textit{array}. Untuk keterangan dan jenis angkutan umum akan aplikasi tampilkan dalam bentuk \textit{pushpin} pada peta atau daftar. Sedangkan untuk titik-titik kordinat akan digambarkan pada peta. Dari analisa penulis setiap langkah menunjukan perpindahan angkutan umum yang dipakai, berpindah dari angkutan umum atau jalan, dan dari jalan untuk menaiki angkutan umum. Keterangan yang penulis akan tambahkan harus berada antara setiap \textit{steps} tersebut. Dari analisa penulis juga terdapat kata "\%fromicon" dan "\%toicon" yang tidak menunjukan sesuatu. Karena itu kedua kata tersebut akan penulis hilangkan agar tidak mengganggu pengguna. Penulis juga akan mengambil gambar angkutan kota dan gambar jalan yang sudah disediakan dari Kiri dengan memanfaatkan URL yang disediakan. 
+Setiap langkah akan aplikasi tampung dalam elemen \textit{array}. Untuk keterangan dan jenis angkutan umum akan aplikasi tampilkan dalam bentuk \textit{pushpin} pada peta atau daftar. Sedangkan untuk titik-titik kordinat akan digambarkan pada peta. Dari analisa penulis setiap langkah menunjukan perpindahan angkutan umum yang dipakai, berpindah dari angkutan umum atau jalan, dan dari jalan untuk menaiki angkutan umum. Keterangan yang penulis akan tambahkan harus berada antara setiap \textit{steps} tersebut. Dari analisa penulis juga terdapat kata "\%fromicon" dan "\%toicon" yang tidak menunjukan sesuatu. Karena itu kedua kata tersebut akan penulis hilangkan agar tidak mengganggu pengguna. Penulis juga akan mengambil gambar angkutan kota dan gambar jalan yang sudah disediakan dari Kiri dengan memanfaatkan URL yang disediakan. 
 
 %Analisis Diagram Use-Case dan Scenario
-\subsection{Diagram Use-Case dan Scenario}
+\subsection{Diagram \textit{Use Case} dan Scenario}
 \label{lab:Diagram Use-Case dan Scenario}
-\hspace{0.5cm} Diagram use-case adalah diagram yang menjelaskan interaksi sistem dengan lingkungan (contoh: pengguna). Berdasarkan analisa di atas maka pengguna dapat:
+\hspace{0.5cm} Diagram \textit{use case} adalah diagram yang menjelaskan interaksi sistem dengan lingkungan (contoh: pengguna). Berdasarkan analisa di atas maka pengguna dapat:
 \begin{itemize}
 	\item Mendapatkan lokasi pengguna berada.
 	\item Memasukan lokasi asal dan lokasi tujuan.
@@ -335,12 +336,13 @@ Berikut hasil kembalian dari Kiri API:
 	\item Menampilkan rute kendaraan umum dalam bentuk titik dan \textit{pushpin} pada peta atau bentuk daftar dari tempat asal ke tempat tujuan.
 \end{itemize}
 
-Diaram use case saat pengguna mencari rute kendaraan umum dapat dilihat pada gambar (Gambar:~\ref{fig:UseCase}):
+\newpage
+Diagram \textit{use case} saat pengguna mencari rute kendaraan umum dapat dilihat pada gambar (Gambar:~\ref{fig:UseCase}):
 % Use case
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/useCase_dan_Class/UseCase}
-	\caption{Diagram Use Case}
+	\caption{Diagram \textit{use case}}
 	\label{fig:UseCase}
 \end{figure}
 
@@ -431,9 +433,9 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 	\label{tab:menampilkan}
 \end{table}
 
-%Analisis Class Diagram
-\subsection{Class Diagram}
-\label{lab:Class Diagram}
+%Analisis Kelas Diagram
+\subsection{Kelas Diagram}
+\label{lab:Kelas Diagram}
 \hspace{0.5cm} Pembuatan kelas diagram didasarkan pada skenario pada sub bab~\ref{lab:Diagram Use-Case dan Scenario}. Kelas diagram dapat dilihat pada gambar~\ref{fig:kelas}.
 
 % Kelas
@@ -446,16 +448,16 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 
 Berikut deskripsi kelas pada gambar~\ref{fig:kelas}.
 \begin{itemize}
-	\item Kelas Protocol \\
+	\item Kelas \textit{Protocol} \\
 	Merupakan kelas yang menampung semua alamat URL yang berhubungan dengan Kiri API. Semua pemanggilan akan ditangani oleh kelas ini.
-	\item Kelas ResponsHandler \\
+	\item Kelas \textit{ResponsHandler} \\
 	Merupakan kelas yang menangani masukan dari pemanggilan layanan.
-	\item Kelas RootObject \\
-	Merupakan kelas untuk menampung status dan daftar dari layanan \textit{routing} Kiri API. Hasil kembalian akan dipisahkan di kelas ini untuk selanjutnya ditampung di kelas RoutingResult. 
-	\item Kelas RoutingResult \\
+	\item Kelas \textit{RootObject} \\
+	Merupakan kelas untuk menampung status dan daftar dari layanan \textit{routing} Kiri API. Hasil kembalian akan dipisahkan di kelas ini untuk selanjutnya ditampung di kelas \textit{RoutingResult}. 
+	\item Kelas \textit{RoutingResult} \\
 	Merupakan kelas untuk menampung setiap langkah dari rute sesuai masukan pengguna. Pada kelas ini juga rute akan digambarkan pada peta.
-	\item Kelas PointFromMap \\
-	Merupakan kelas yang dapat mengetahui lokasi yang ditunjuk pengguna pada peta. Kelas ini akan menyimpan lokasi yang ditunjuk pengguna dalam bentuk latitude dan longitude.
-	\item Kelas LocationFinder \\
-	Merupakan kelas yang digunakan untuk mencari lokasi. kelas ini akan memanfaatkan kelas Geocoordinate untuk mendapatkan lokasi. Setelah lokasi didapatkan dalam bentuk kelas Geoposition maka akan diubah ke latitude dan longitude. 
+	\item Kelas \textit{PointFromMap} \\
+	Merupakan kelas yang dapat mengetahui lokasi yang ditunjuk pengguna pada peta. Kelas ini akan menyimpan lokasi yang ditunjuk pengguna dalam bentuk \textit{latitude} dan \textit{longitude}.
+	\item Kelas \textit{LocationFinder} \\
+	Merupakan kelas yang digunakan untuk mencari lokasi. kelas ini akan memanfaatkan kelas \textit{Geocoordinate} untuk mendapatkan lokasi. Setelah lokasi didapatkan dalam bentuk kelas \textit{Geoposition} maka akan diubah ke \textit{latitude} dan \textit{longitude}. 
 \end{itemize}

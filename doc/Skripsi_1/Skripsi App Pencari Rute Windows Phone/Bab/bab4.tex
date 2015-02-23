@@ -1,0 +1,142 @@
+\chapter{Perancangan}
+\label{chap:Perancangan}
+
+Pada bab 4 akan dibahas mengenai perancangan seperti kelas secara rinci dan perancangan antarmuka.
+
+%Perancangan Kelas
+\section{Perancangan Kelas}
+\label{lab:Perancangan Kelas}
+\hspace{0.5cm} Pada sub bab ini akan dibahas mengenai deskripsi kelas secara rinci pada aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone. Untuk lebih jelas mengenai kelas yang ada pada aplikasi ini, penulis menyajikan gambar diagram kelas yang dapat dilihat pada  gambar ~\ref{fig:kelas}. 
+
+% Kelas
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.4]{Gambar/useCase_dan_Class/class}
+	\caption{Diagram Kelas}
+	\label{fig:kelas}
+\end{figure}
+
+%Kelas PhoneApplicationPage
+\subsection{Kelas \textit{PhoneApplicationPage}}
+\label{lab:Kelas PhoneApplicationPage}
+\hspace{0.5cm} \textit{PhoneApplicationPage} merupakan kelas bawaan Windows Phone yang menangani interksi pengguna dengan aplikasi dan siklus hidup aplikasi.
+
+%Kelas MainPage
+\subsection{Kelas \textit{MainPage}}
+\label{lab:Kelas MainPage}
+\hspace{0.5cm} \textit{MainPage} merupakan kelas kelas turunan dari kelas \textit{PhoneApplicationPage} yang menangani interaksi langsung antara halaman aplikasi dengan pengguna. Pada kelas ini akan ditaruh kontrol yang diperlukan. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item att1
+	\item att2
+\end{enumerate}
+
+%Kelas Geocoordinate
+\subsection{Kelas \textit{Geocoordinate}}
+\label{lab:Kelas Geocoordinate}
+\hspace{0.5cm} \textit{Geocoordinate} merupakan kelas bawaan dari Windows Phone yang akan dimanfaatkan untuk membaca \textit{latitude} dan \textit{altitude}.
+
+%Kelas Geolocator
+\subsection{Kelas \textit{Geolocator}}
+\label{lab:Kelas Geolocator}
+\hspace{0.5cm} \textit{Geolocator} merupakan kelas bawaan Windows Phone untuk mengkases lokasi. Dengan bantuan kelas ini maka dapat mengetahui status lokasi dari perangkat dan menemukan lokasi secara akurat.
+
+%Kelas Geoposition
+\subsection{Kelas \textit{Geoposition}}
+\label{lab:Kelas Geoposition}
+\hspace{0.5cm} \textit{Geoposition} merupakan kelas yang menampung lokasi sesuak kembalian \textit{Geolocator}.
+
+%Kelas LocationFinder
+\subsection{Kelas \textit{LocationFinder}}
+\label{lab:Kelas LocationFinder}
+\hspace{0.5cm} \textit{LocationFinder} merupakan kelas yang akan menampung lokasi perangkat. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item status bertipe \textit{boolean} sebagai penanda apakah GPS perangkat sudah siap.
+	\item latitude
+	\item longitude
+\end{enumerate}
+
+Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
+\begin{enumerate}
+	\item Metode onInit berfungsi untuk inisialisasi GPS perangkat dan memastikan bahwa GPS perangkat siap untuk menemukan lokasi.
+	\item Metode getCoordinate berfungsi untuk mendapatkan kordinat latitude dan longitude dengan memanfaatkan kelas \textit{Geocoordinate}, \textit{Geolocator}, dan \textit{Geoposition}.   
+\end{enumerate}
+
+%Kelas PointFromMap
+\subsection{Kelas \textit{PointFromMap}}
+\label{lab:Kelas PointFromMap}
+\hspace{0.5cm} \textit{PointFromMap} merupakan kelas yang akan mendapatkan titik yang ditunjuk pengguna pada peta lalu menerjemahkannya dalam bentuk titik kordinat. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item latitude
+	\item longitude
+\end{enumerate}
+
+Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
+\begin{enumerate}
+	\item Metode getPoint berfungsi mengambil titik yang ditunjuk lalu menerjemahkan dalam bentuk latitude dan longitude. 
+\end{enumerate}
+
+%Kelas HttpClient
+\subsection{Kelas \textit{HttpClient}}
+\label{lab:Kelas HttpClient}
+\hspace{0.5cm} \textit{HttpClient} merupakan kelas bawaan Windows Phone untuk mengatur pengiriman dan kembalian menggunakan protokol HTTP. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item a
+	\item b
+\end{enumerate}
+
+Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
+\begin{enumerate}
+	\item Metode  aaa
+\end{enumerate}
+
+%Kelas Protocol
+\subsection{Kelas \textit{Protocol}}
+\label{lab:Kelas Protocol}
+\hspace{0.5cm} \textit{Protocol} merupakan kelas untuk menampung semua alamat dalam pengiriman menggunakan protokol HTTP. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item hostname
+	\item apiKey
+	\item iconPath
+	\item iconStart
+	\item iconFinish
+	
+	\item version
+	
+	\item modeFind
+	\item modeRoute
+	\item modeNearby
+	
+	\item localeEn
+	\item localeId
+	
+	\item start
+	\item finish
+	
+	\item presentation
+	
+	\item region 
+	\item query
+\end{enumerate}
+
+Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
+\begin{enumerate}
+	\item get
+\end{enumerate}
+
+
+%Kelas ResponsHandler
+\subsection{Kelas \textit{ResponsHandler}}
+\label{lab:Kelas ResponsHandler}
+\hspace{0.5cm} \textit{ResponsHandler} merupakan kelas untuk menangani kembalian dari server Kiri. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item a
+\end{enumerate}
+
+%Kelas RootObject
+\subsection{Kelas \textit{RootObject}}
+\label{lab:Kelas RootObject}
+
+%Kelas RoutingResult
+\subsection{Kelas \textit{RoutingResult}}
+\label{lab:Kelas RoutingResult}
+
