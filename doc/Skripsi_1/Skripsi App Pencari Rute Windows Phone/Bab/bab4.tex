@@ -26,8 +26,10 @@ Pada bab 4 akan dibahas mengenai perancangan seperti kelas secara rinci dan pera
 \label{lab:Kelas MainPage}
 \hspace{0.5cm} \textit{MainPage} merupakan kelas kelas turunan dari kelas \textit{PhoneApplicationPage} yang menangani interaksi langsung antara halaman aplikasi dengan pengguna. Pada kelas ini akan ditaruh kontrol yang diperlukan. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item att1
-	\item att2
+	\item listPlaceFrom bertipe ListBox untuk menampung dan menampilkan hasil pencarian lokasi terkait dari lokasi awal.
+	\item listPlaceTo bertipe ListBox untuk menampung dan menampilkan hasil pencarian lokasi terkait dari lokasi tujuan
+	\item locFrom bertipe string untuk menampung kordinat awal.
+	\item locTo bertipe string untuk menampung kordinat tujuan.
 \end{enumerate}
 
 %Kelas Geocoordinate
@@ -51,8 +53,8 @@ Pada bab 4 akan dibahas mengenai perancangan seperti kelas secara rinci dan pera
 \hspace{0.5cm} \textit{LocationFinder} merupakan kelas yang akan menampung lokasi perangkat. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
 	\item status bertipe \textit{boolean} sebagai penanda apakah GPS perangkat sudah siap.
-	\item latitude
-	\item longitude
+	\item latitude bertipe long untuk menampung kordinat latitude.
+	\item longitude bertipe long untuk menampung kordinat longitude.
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
@@ -86,7 +88,7 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
-	\item Metode  aaa
+	\item Metode GetStringAsync membutuhkan parameter alamat bertipe string dan mengembalikan kembalian dari Kiri dalam bentuk Task<string>.
 \end{enumerate}
 
 %Kelas Protocol
@@ -94,17 +96,17 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \label{lab:Kelas Protocol}
 \hspace{0.5cm} \textit{Protocol} merupakan kelas untuk menampung semua alamat dalam pengiriman menggunakan protokol HTTP. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item hostname
-	\item apiKey
-	\item iconPath
-	\item iconStart
-	\item iconFinish
+	\item hostname bertipe string digunakan untuk 'http://kiri.travel/'.
+	\item apiKey bertipe string digunakan untuk menyimpan kunci untuk mengirim permintaan ke Kiri.
+	\item iconPath bertipe string digunakan untuk menyimpan lokasi gambar yang dibutuhkan.
+	\item iconStart bertipe string digunakan untuk menyimpan lokasi gambar awal perjalanan dari lokasi awal.
+	\item iconFinish bertipe string digunakan untuk menyimpan lokasi gambar akhir perjalanan ke lokasi tujuan.
 	
-	\item version
+	\item version bertipe string digunakan untuk menyimpan veris dari API yang digunakan.
 	
-	\item modeFind
-	\item modeRoute
-	\item modeNearby
+	\item modeFind bertipe string yang digunakan untuk menyimpan mode mencari lokasi terkait pada Kiri API.
+	\item modeRoute bertipe string yang digunakan untuk menyimpan mode mencari rute pada Kiri API.
+	\item modeNearby bertipe string yang digunakan untuk menyimpan mode mencari lokasi terdekat pada Kiri API.
 	
 	\item localeEn
 	\item localeId
@@ -132,11 +134,42 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 	\item a
 \end{enumerate}
 
-%Kelas RootObject
-\subsection{Kelas \textit{RootObject}}
-\label{lab:Kelas RootObject}
+%Kelas RootObjectSearchPlace
+\subsection{Kelas \textit{RootObjectSearchPlace}}
+\label{lab:Kelas RootObjectSearchPlace}
+\hspace{0.5cm} \textit{RootObjectSearchPlace} merupakan kelas untuk menampung objek hasil pencarian lokasi. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item status bertipe \textit{string} digunakan untuk menampung hasil kembalian status dari Kiri.
+	\item searchresult bertipe \textit{list} dan menampung banyak objek SearchResult. 
+	\item attributions bertipe objek untuk menampung attributions.
+\end{enumerate}
+
+
+%Kelas SearchResult
+\subsection{Kelas \textit{SearchResult}}
+\label{lab:Kelas SearchResult}
+\hspace{0.5cm} \textit{SearchResult} merupakan kelas untuk menampung nama tempat dan kordinat dari nama tempat tersebut. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item placename bertipe \textit{string} digunakan untuk menampung nama tempat. 
+	\item location bertipe \textit{string} digunakan untuk menampung nama tempat.
+\end{enumerate}
+
+%Kelas RootObjectFindRoute
+\subsection{Kelas \textit{RootObjectFindRoute}}
+\label{lab:Kelas RootObjectFindRoute}
+\hspace{0.5cm} \textit{RootObjectFindRoute} merupakan kelas untuk menampung hasil pencarian rute. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item status
+	\item routingresults
+\end{enumerate}
 
 %Kelas RoutingResult
 \subsection{Kelas \textit{RoutingResult}}
 \label{lab:Kelas RoutingResult}
+\hspace{0.5cm} \textit{RoutingResult} merupakan kelas untuk menampung langkah menuju tempat tujuan dan waktu yang dibutuhkan. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item steps
+	\item traveltime
+\end{enumerate}
+
 
