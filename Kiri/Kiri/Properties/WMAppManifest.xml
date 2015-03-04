@@ -2,7 +2,7 @@
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
   <App xmlns="" ProductID="{9c24fe19-de4c-4f0c-af23-5f3b15fd29d0}" Title="Kiri" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Kiri author" Description="Sample description" Publisher="Kiri" PublisherID="{69151417-b189-4d75-b876-4d71c6d39fa8}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+    <IconPath IsRelative="true" IsResource="false">kiri_logo.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
@@ -18,9 +18,9 @@
     <Tokens>
       <PrimaryToken TokenID="KiriToken" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
+          <SmallImageURI IsRelative="true" IsResource="false">kiri_logo.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
+          <BackgroundImageURI IsRelative="true" IsResource="false">kiri_logo.png</BackgroundImageURI>
           <Title>Kiri</Title>
           <BackContent>
           </BackContent>

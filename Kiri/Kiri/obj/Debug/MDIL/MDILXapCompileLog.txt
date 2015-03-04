@@ -10,6 +10,8 @@ MDIL image C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri
 File C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\Kiri.dll output C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\obj\Debug\MDIL\Kiri.dll
 Processing file: C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\Microsoft.Phone.Controls.Toolkit.dll
 File C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\Microsoft.Phone.Controls.Toolkit.dll is not in the compile filter. Skipping.
+Processing file: C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\Newtonsoft.Json.dll
+File C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\Newtonsoft.Json.dll is not in the compile filter. Skipping.
 Processing file: C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\System.Net.Http.dll
 File C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\System.Net.Http.dll is not in the compile filter. Skipping.
 Processing file: C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\System.Net.Http.Extensions.dll

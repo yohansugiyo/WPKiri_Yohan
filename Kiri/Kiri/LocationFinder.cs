@@ -11,8 +11,8 @@ namespace Kiri
 {
     class LocationFinder
     {
-        public String coorLat;
-        public String coorLong;
+        public long coorLat;
+        public long coorLong;
 
         public LocationFinder() { 
         }
@@ -36,8 +36,8 @@ namespace Kiri
                     timeout: TimeSpan.FromSeconds(10)
                     );
 
-                coorLat = geoposition.Coordinate.Latitude.ToString("0.00");
-                coorLong = geoposition.Coordinate.Longitude.ToString("0.00");
+                coorLat = long.Parse(geoposition.Coordinate.Latitude.ToString("0.00"));
+                coorLong = long.Parse(geoposition.Coordinate.Longitude.ToString("0.00"));
             }
             catch (Exception ex)
             {

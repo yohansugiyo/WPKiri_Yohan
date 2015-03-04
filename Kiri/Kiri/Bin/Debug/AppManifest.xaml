@@ -2,6 +2,7 @@
   <Deployment.Parts>
     <AssemblyPart x:Name="Kiri" Source="Kiri.dll" />
     <AssemblyPart x:Name="Microsoft.Phone.Controls.Toolkit" Source="Microsoft.Phone.Controls.Toolkit.dll" />
+    <AssemblyPart x:Name="Newtonsoft.Json" Source="Newtonsoft.Json.dll" />
     <AssemblyPart x:Name="System.Net.Http" Source="System.Net.Http.dll" />
     <AssemblyPart x:Name="System.Net.Http.Extensions" Source="System.Net.Http.Extensions.dll" />
     <AssemblyPart x:Name="System.Net.Http.Primitives" Source="System.Net.Http.Primitives.dll" />

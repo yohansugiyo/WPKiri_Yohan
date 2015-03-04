@@ -79,3 +79,5 @@ C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\
 C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\obj\Debug\ShowRoute.g.cs
+C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\Newtonsoft.Json.dll
+C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\Newtonsoft.Json.xml

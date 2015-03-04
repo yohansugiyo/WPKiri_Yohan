@@ -17,12 +17,14 @@ using System.Windows.Media;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Kiri
 {
     public partial class MainPage : PhoneApplicationPage
     {
         // Constructor
+        private Protocol p;
         private LocationFinder lFinder;
         HttpClient httpClient = new HttpClient();
 
@@ -34,11 +36,10 @@ namespace Kiri
         {
             InitializeComponent();
 
+            p = new Protocol();
             lFinder = new LocationFinder();
             listPlaceFrom = new ListBox();
             listPlaceTo = new ListBox();
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
         }
 
         private void startRoute(object sender, RoutedEventArgs e)
@@ -53,77 +54,89 @@ namespace Kiri
             //Contoh findroute      zhttp://kiri.travel/handle.php?version=2&mode=findroute&locale=id&&start=-6.90864,107.61108&finish=-6.88929,107.59574&presentation=mobile&apikey=97A7A1157A05ED6F
             //Contoh findroute      zhttp://kiri.travel/handle.php?version=2&mode=findroute&locale=id&&start=-6.87474,107.60491&finish=-6.88909,107.59614&presentation=mobile&apikey=97A7A1157A05ED6F    
 
-            String phpHandle = "http://kiri.travel/handle.php?";
-            String version = "2";
-            String mode = "searchplace";
-            String region = "bdo";
+            //RootObjectSearchPlace from = toObjectSearchPlace(p.getSearchPlace(queryFrom)); //Create object searchplace Kiri for From
+            //RootObjectSearchPlace to = toObjectSearchPlace(p.getSearchPlace(queryTo)); //Create object searchplace Kiri for To
+            //MessageBox.Show("test1");
 
-            String queryString = queryFrom;
+            /*
+            if (from.status.ToString().Equals("ok") && to.status.ToString().Equals("ok")) //check status
+            {
+                MessageBox.Show("masuk 1");
+                if(from.searchresult.Count()==0){ //check From search
+                    MessageBox.Show("Pencarian untuk kata " + queryFrom + " tidak ditemuakan");
+                }
+                else if (from.searchresult.Count() == 1)
+                {
+                    locFrom = from.searchresult[0].location.ToString();
+                }
+                else 
+                {
+                    LayoutRoot.Children.Add(getListItem(from));
+                    MessageBox.Show("masuk from");
+                }
 
-            String apikey = "97A7A1157A05ED6F";
-           
-            String uri = phpHandle + "version=" + version + "&mode=" + mode + "&region=" + region + "&querystring=" + queryString + "&apikey=" + apikey;
-            
-            Task<string> requestFrom = httpClient.GetStringAsync(new Uri(uri));
+                if (to.searchresult.Count() == 0)
+                { //check From search
+                    MessageBox.Show("Pencarian untuk kata " + queryTo + " tidak ditemuakan");
+                }
+                else if (to.searchresult.Count() == 1)
+                {
+                    locFrom = to.searchresult[0].location.ToString();
+                }
+                else
+                {
+                    LayoutRoot.Children.Add(getListItem(to));
+                    MessageBox.Show("masuk to");
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Error!");
+            }
+            */
 
-            queryString = queryTo;
-            uri = phpHandle + "version=" + version + "&mode=" + mode + "&region=" + region + "&querystring=" + queryString + "&apikey=" + apikey;
-            Task<string> requestTo = httpClient.GetStringAsync(new Uri(uri));
+            Task<string> requestFrom = httpClient.GetStringAsync(new Uri(p.getSearchPlace(queryFrom)));
+            Task<string> requestTo = httpClient.GetStringAsync(new Uri(p.getSearchPlace(queryTo)));
             // String txt = request.Result;
             //bool txt = request.IsCompleted;
 
-            String fromText = "BIP";
-            String toText = "";
+            //String fromText = "BIP";
+            //String toText = "";
+            /*
             requestFrom.ContinueWith(delegate
             {
                 Dispatcher.BeginInvoke(new Action(delegate{
                     //keluaranFrom.Text = requestFrom.Result;
-                    RootObjectSearchPlace r = new RootObjectSearchPlace(); //Untuk Asal
-                    r = Deserialize<RootObjectSearchPlace>(requestFrom.Result); //Mengubah String menjadi objek
-                    //keluaranFrom.Text = ""+r.searchresult.Count;
-
-                    // Create a new list box, add items, and add a SelectionChanged handler.
-                    if (listPlaceFrom != null)
-                    {
-                    for (int c = 0; c < r.searchresult.Count; c++) {
-                        listPlaceFrom.Items.Add(r.searchresult[c].placename);
-                    }
-                    listPlaceFrom.Width = 720;
-                    listPlaceFrom.Height = 1280;
-                    listPlaceFrom.Background = new SolidColorBrush(Colors.Black);
-                    listPlaceFrom.FontSize = 30;
-                    listPlaceFrom.SelectionChanged += ListBox_SelectedPlaceFrom;
-
-                    // Add the list box to a parent container in the visual tree.
+                    RootObjectSearchPlace r1 = new RootObjectSearchPlace(); //Untuk Asal
+                    r1 = Deserialize<RootObjectSearchPlace>(requestFrom.Result); //Mengubah String menjadi objek
+                    listPlaceFrom = getListItem(r1);
                     LayoutRoot.Children.Add(listPlaceFrom);
-                    }
+                    //keluaranFrom.Text = ""+r.searchresult.Count;
+                    //MessageBox.Show("Error1");
+                    // Create a new list box, add items, and add a SelectionChanged handler.
+                    
                 }));
             });
+             * */
             requestTo.ContinueWith(delegate
             {
                 Dispatcher.BeginInvoke(new Action(delegate
                 {
                     //keluaranTo.Text = requestTo.Result;
-                    RootObjectSearchPlace r = new RootObjectSearchPlace(); //Untuk Tujuan
-                    r = Deserialize<RootObjectSearchPlace>(requestTo.Result);
-
-                    if (listPlaceTo != null)
-                    {
-                        for (int c = 0; c < r.searchresult.Count; c++)
-                        {
-                            listPlaceTo.Items.Add(r.searchresult[c].placename);
-                        }
-                        listPlaceTo.Width = 720;
-                        listPlaceTo.Height = 1280;
-                        listPlaceTo.Background = new SolidColorBrush(Colors.Black);
-                        listPlaceTo.FontSize = 30;
-                        listPlaceTo.SelectionChanged += ListBox_SelectedPlaceTo;
-
-                        // Add the list box to a parent container in the visual tree.
-                        LayoutRoot.Children.Add(listPlaceTo);
-                    }
+                    RootObjectSearchPlace r1 = new RootObjectSearchPlace(); //Untuk Asal
+                    r1 = Deserialize<RootObjectSearchPlace>(requestFrom.Result); //Mengubah String menjadi objek
+                    //getListItem(r1);
+                    //LayoutRoot.Children.Add(listPlaceFrom);
+                    
+                    RootObjectSearchPlace r2 = new RootObjectSearchPlace(); //Untuk Tujuan
+                    r2 = Deserialize<RootObjectSearchPlace>(requestTo.Result);
+                    getListItem(r1,r2);
+                    //LayoutRoot.Children.Add(listPlaceTo);
+                    
+                    //MessageBox.Show("Error2");
                 }));
             });
+            
             /*
             ListBox listBox1 = new ListBox();
             listBox1.Items.Add(fromText);
@@ -136,9 +149,18 @@ namespace Kiri
              */ 
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // Add code to perform some action here.
+        public RootObjectSearchPlace toObjectSearchPlace(string uri) {
+            RootObjectSearchPlace sp = null;
+            Task<string> request = httpClient.GetStringAsync(new Uri(uri));
+            request.ContinueWith(delegate
+            {
+                Dispatcher.BeginInvoke(new Action(delegate
+                {
+                    sp = new RootObjectSearchPlace();
+                    sp = JsonConvert.DeserializeObject<RootObjectSearchPlace>(request.Result);
+                }));
+            });
+            return sp;
         }
 
         private void changeMapFrom(object sender, RoutedEventArgs e)
@@ -185,6 +207,7 @@ namespace Kiri
         }
          */
 
+        /*reference: zhttps://msdn.microsoft.com/en-us/library/bb412179%28v=vs.110%29.aspx*/
         public static T Deserialize<T>(string json)
         {
             var obj = Activator.CreateInstance<T>();
@@ -204,6 +227,67 @@ namespace Kiri
                 serializer.WriteObject(ms, obj);
                 return Encoding.UTF8.GetString(ms.ToArray(),0,(int)ms.Length);
             }
+        }
+
+        //zhttps://social.msdn.microsoft.com/forums/windowsapps/en-us/7db73c64-86f7-4c43-9fd4-faa03421ea21/popup-blocking-listbox-selection-changed
+        private void getListItem(RootObjectSearchPlace requestFrom, RootObjectSearchPlace requestTo)
+        {
+            //ListBox listFrom = new ListBox();
+            //ListBox listTo = new ListBox();
+            Dispatcher.BeginInvoke(new Action(delegate
+            {
+                if (requestFrom.status.ToString().Equals("ok") && requestTo.status.ToString().Equals("ok")) //check status
+                {
+                    if (requestFrom.searchresult.Count() == 0)
+                    { //check From search
+                        MessageBox.Show("Pencarian untuk kata " + fromBox.Text + " tidak ditemuakan");
+                    }
+                    else if (requestFrom.searchresult.Count() == 1)
+                    {
+                        locFrom = requestFrom.searchresult[0].location.ToString();
+                    }
+                    else
+                    {
+                        //LayoutRoot.Children.Add(getListItem(requestFrom));
+                        for (int c = 0; c < requestFrom.searchresult.Count; c++)
+                        {
+                            listPlaceFrom.Items.Add(requestFrom.searchresult[c].placename);
+                        }
+                        listPlaceFrom.Width = 720;
+                        listPlaceFrom.Height = 1280;
+                        listPlaceFrom.Background = new SolidColorBrush(Colors.Black);
+                        listPlaceFrom.FontSize = 30;
+                        listPlaceFrom.SelectionChanged += ListBox_SelectedPlaceFrom;
+                        LayoutRoot.Children.Add(listPlaceFrom);
+                        MessageBox.Show("masuk from");
+                    }
+
+                    if (requestTo.searchresult.Count() == 0)
+                    { //check From search
+                        MessageBox.Show("Pencarian untuk kata " + toBox.Text + " tidak ditemuakan");
+                    }
+                    else if (requestTo.searchresult.Count() == 1)
+                    {
+                        locFrom = requestTo.searchresult[0].location.ToString();
+                    }
+                    else
+                    {
+                        //LayoutRoot.Children.Add(getListItem(requestTo));
+                        for (int c = 0; c < requestTo.searchresult.Count; c++)
+                        {
+                            listPlaceTo.Items.Add(requestTo.searchresult[c].placename);
+                        }
+                        listPlaceTo.Width = 720;
+                        listPlaceTo.Height = 1280;
+                        listPlaceTo.Background = new SolidColorBrush(Colors.Black);
+                        listPlaceTo.FontSize = 30;
+                        listPlaceTo.SelectionChanged += ListBox_SelectedPlaceTo;
+                        LayoutRoot.Children.Add(listPlaceTo);
+                        MessageBox.Show("masuk to");
+                    }
+                }
+            }));
+            
         }
 
         private void ListBox_SelectedPlaceFrom(object sender, SelectionChangedEventArgs e)
@@ -238,7 +322,12 @@ namespace Kiri
                  */
             }
             LayoutRoot.Children.Remove(listPlaceTo);
-            NavigationService.Navigate(new Uri("/ShowRoute.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/ShowRoute.xaml?start=-6.87474,107.60491&finish=-6.88909,107.59614", UriKind.Relative));
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        { 
+        
         }
 
         // Sample code for building a localized ApplicationBar
