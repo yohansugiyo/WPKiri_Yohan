@@ -29,17 +29,18 @@ namespace Kiri
         HttpClient httpClient = new HttpClient();
 
         ListBox listPlaceFrom, listPlaceTo;
-        String locFrom;
-        String locTo;
+        String locationFrom, locationTo;
         
         public MainPage()
         {
             InitializeComponent();
 
             p = new Protocol();
-            lFinder = new LocationFinder();
-            listPlaceFrom = new ListBox();
-            listPlaceTo = new ListBox();
+            this.lFinder = new LocationFinder();
+            this.listPlaceFrom = new ListBox();
+            this.listPlaceTo = new ListBox();
+            this.locationFrom = null;
+            this.locationTo = null;
         }
 
         private void startRoute(object sender, RoutedEventArgs e)
@@ -244,7 +245,7 @@ namespace Kiri
                     }
                     else if (requestFrom.searchresult.Count() == 1)
                     {
-                        locFrom = requestFrom.searchresult[0].location.ToString();
+                        locationFrom = requestFrom.searchresult[0].location.ToString();
                     }
                     else
                     {
@@ -257,9 +258,9 @@ namespace Kiri
                         listPlaceFrom.Height = 1280;
                         listPlaceFrom.Background = new SolidColorBrush(Colors.Black);
                         listPlaceFrom.FontSize = 30;
+                        listPlaceFrom.DataContext = requestFrom.searchresult;
                         listPlaceFrom.SelectionChanged += ListBox_SelectedPlaceFrom;
                         LayoutRoot.Children.Add(listPlaceFrom);
-                        MessageBox.Show("masuk from");
                     }
 
                     if (requestTo.searchresult.Count() == 0)
@@ -268,7 +269,7 @@ namespace Kiri
                     }
                     else if (requestTo.searchresult.Count() == 1)
                     {
-                        locFrom = requestTo.searchresult[0].location.ToString();
+                        locationFrom = requestTo.searchresult[0].location.ToString();
                     }
                     else
                     {
@@ -281,10 +282,14 @@ namespace Kiri
                         listPlaceTo.Height = 1280;
                         listPlaceTo.Background = new SolidColorBrush(Colors.Black);
                         listPlaceTo.FontSize = 30;
+                        listPlaceTo.DataContext = requestTo.searchresult;
                         listPlaceTo.SelectionChanged += ListBox_SelectedPlaceTo;
                         LayoutRoot.Children.Add(listPlaceTo);
-                        MessageBox.Show("masuk to");
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Error!");
                 }
             }));
             
@@ -294,35 +299,42 @@ namespace Kiri
         {
             if (null != listPlaceFrom.SelectedItem)
             {
-                //locFrom = (listPlace.SelectedItem as ListBoxItem).Content.ToString();
-                //keluaranFrom.Text = locFrom;
-                //NavigationService.Navigate(new Uri("/ShowRoute.xaml", UriKind.Relative));
-                /*
-                foreach (Object obj in listPlace.SelectedItems)
+                if ((sender as ListBox).SelectedIndex >= 0)
                 {
-                    MessageBox.Show(obj.ToString());
+                    this.locationFrom = searchCoordinatePlace((List<Searchresult>)listPlaceFrom.DataContext, listPlaceFrom.SelectedItem.ToString());  //((sender as ListBox).SelectedItem as Searchresult).placename;
                 }
-                 */
             }
             LayoutRoot.Children.Remove(listPlaceFrom);
+            if (this.locationFrom != null && this.locationTo != null)
+            {
+                NavigationService.Navigate(new Uri("/ShowRoute.xaml?start=" + locationFrom + "&finish=" + locationTo + "", UriKind.Relative));
+            }
         }
 
         private void ListBox_SelectedPlaceTo(object sender, SelectionChangedEventArgs e)
         {
             if (null != listPlaceTo.SelectedItem)
             {
-                //locFrom = (listPlace.SelectedItem as ListBoxItem).Content.ToString();
-                //keluaranFrom.Text = locFrom;
-                //NavigationService.Navigate(new Uri("/ShowRoute.xaml", UriKind.Relative));
-                /*
-                foreach (Object obj in listPlace.SelectedItems)
-                {
-                    MessageBox.Show(obj.ToString());
-                }
-                 */
+                this.locationTo = searchCoordinatePlace((List<Searchresult>)listPlaceTo.DataContext, listPlaceTo.SelectedItem.ToString()); //((sender as ListBox).SelectedItem as Searchresult).placename;
             }
             LayoutRoot.Children.Remove(listPlaceTo);
-            NavigationService.Navigate(new Uri("/ShowRoute.xaml?start=-6.87474,107.60491&finish=-6.88909,107.59614", UriKind.Relative));
+            if (this.locationFrom != null && this.locationTo != null)
+            {
+                NavigationService.Navigate(new Uri("/ShowRoute.xaml?start=" + locationFrom + "&finish=" + locationTo + "", UriKind.Relative));
+            }
+        }
+
+        public string searchCoordinatePlace(List<Searchresult> listResult, string place) { //Pasti ketemu
+            String coordinate = "0.0";
+            for (int c = 0; c < listResult.Count; c++)
+            {
+                if (place.Equals(listResult[c].placename))
+                {
+                    coordinate = listResult[c].location;
+                    c = listResult.Count;
+                }
+            }
+            return coordinate;
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
