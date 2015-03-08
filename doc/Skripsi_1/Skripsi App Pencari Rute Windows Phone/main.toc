@@ -55,17 +55,18 @@
 \contentsline {subsection}{\numberline {3.2.8}Kelas Diagram}{43}{subsection.3.2.8}
 \contentsline {chapter}{\numberline {4}Perancangan}{45}{chapter.4}
 \contentsline {section}{\numberline {4.1}Perancangan Kelas}{45}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Kelas \textit {PhoneApplicationPage}}{46}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Kelas \textit {MainPage}}{46}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.1}Kelas \textit {PhoneApplicationPage}}{45}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Kelas \textit {MainPage}}{45}{subsection.4.1.2}
 \contentsline {subsection}{\numberline {4.1.3}Kelas \textit {Geocoordinate}}{46}{subsection.4.1.3}
 \contentsline {subsection}{\numberline {4.1.4}Kelas \textit {Geolocator}}{46}{subsection.4.1.4}
-\contentsline {subsection}{\numberline {4.1.5}Kelas \textit {Geoposition}}{46}{subsection.4.1.5}
-\contentsline {subsection}{\numberline {4.1.6}Kelas \textit {LocationFinder}}{46}{subsection.4.1.6}
+\contentsline {subsection}{\numberline {4.1.5}Kelas \textit {Geoposition}}{47}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.6}Kelas \textit {LocationFinder}}{47}{subsection.4.1.6}
 \contentsline {subsection}{\numberline {4.1.7}Kelas \textit {PointFromMap}}{47}{subsection.4.1.7}
 \contentsline {subsection}{\numberline {4.1.8}Kelas \textit {HttpClient}}{47}{subsection.4.1.8}
-\contentsline {subsection}{\numberline {4.1.9}Kelas \textit {Protocol}}{47}{subsection.4.1.9}
-\contentsline {subsection}{\numberline {4.1.10}Kelas \textit {ResponsHandler}}{48}{subsection.4.1.10}
-\contentsline {subsection}{\numberline {4.1.11}Kelas \textit {RootObject}}{48}{subsection.4.1.11}
-\contentsline {subsection}{\numberline {4.1.12}Kelas \textit {RoutingResult}}{48}{subsection.4.1.12}
-\contentsline {chapter}{Daftar Referensi}{49}{chapter*.5}
+\contentsline {subsection}{\numberline {4.1.9}Kelas \textit {Protocol}}{48}{subsection.4.1.9}
+\contentsline {subsection}{\numberline {4.1.10}Kelas \textit {RootObjectSearchPlace}}{49}{subsection.4.1.10}
+\contentsline {subsection}{\numberline {4.1.11}Kelas \textit {SearchResult}}{49}{subsection.4.1.11}
+\contentsline {subsection}{\numberline {4.1.12}Kelas \textit {RootObjectFindRoute}}{49}{subsection.4.1.12}
+\contentsline {subsection}{\numberline {4.1.13}Kelas \textit {RoutingResult}}{49}{subsection.4.1.13}
+\contentsline {chapter}{Daftar Referensi}{51}{chapter*.5}
 \renewcommand {\cftchappresnum }{\bf \scshape }

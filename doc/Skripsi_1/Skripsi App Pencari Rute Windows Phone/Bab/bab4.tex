@@ -11,7 +11,7 @@ Pada bab 4 akan dibahas mengenai perancangan seperti kelas secara rinci dan pera
 % Kelas
 \begin{figure}[h]
 	\centering
-		\includegraphics[scale=0.4]{Gambar/useCase_dan_Class/class}
+		\includegraphics[scale=0.2]{Gambar/useCase_dan_Class/class4}
 	\caption{Diagram Kelas}
 	\label{fig:kelas}
 \end{figure}
@@ -26,10 +26,27 @@ Pada bab 4 akan dibahas mengenai perancangan seperti kelas secara rinci dan pera
 \label{lab:Kelas MainPage}
 \hspace{0.5cm} \textit{MainPage} merupakan kelas kelas turunan dari kelas \textit{PhoneApplicationPage} yang menangani interaksi langsung antara halaman aplikasi dengan pengguna. Pada kelas ini akan ditaruh kontrol yang diperlukan. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
+	\item protocol bertipe Protocol untuk mendapatkan URL yang digunakan dalam permintaan ke Kiri API.
+	\item lFinder bertipe LocationFinder yang akan menampung objek untuk pencarian lokasi.
+	\item httpClient bertipe HttpClient merupakan objek yang akan mengurus permintaan dan kembalian dari Kiri API.
 	\item listPlaceFrom bertipe ListBox untuk menampung dan menampilkan hasil pencarian lokasi terkait dari lokasi awal.
 	\item listPlaceTo bertipe ListBox untuk menampung dan menampilkan hasil pencarian lokasi terkait dari lokasi tujuan
 	\item locFrom bertipe string untuk menampung kordinat awal.
 	\item locTo bertipe string untuk menampung kordinat tujuan.
+\end{enumerate}
+
+Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
+\begin{enumerate}
+	\item Metode MainPage digunakan sebagai konstruktor pada kelas MainPage. 
+	\item startRoute digunakan untuk mendapatkan masukan pengguna lalu mengkalkulasi masukan tersebut menjadi kordinat asal dan tujuan lalu mengirimkannya ke kelas ShowRoute.
+	\item toObjectSearchPlace digunakan untuk membuat objek RootObjectSearchPlace dengan masukan uri yang bertipe string.
+	\item changeMapFrom digunakan untuk berpindah ke halaman mapFrom.
+	\item changeMapTo digunakan untuk berpindah ke halaman mapTo.
+	\item getHere digunakan untuk mendapatkan kordinat dimana perangkat berada.
+	\item getListItem digunakan untuk membuat listBox lalu menampilkan ke pengguna. 
+	\item ListBoxSelectedPlaceFrom digunakan untuk mendapatkan tempat asal yang dipilih pengguna.
+	\item ListBoxSelectedPlaceTo digunakan untuk mendapatkan tempat tujuan yang dipilih pengguna.
+	\item searchCoordinatePlace digunakan untuk mencari kordinat dari tempat pilihan pengguna.
 \end{enumerate}
 
 %Kelas Geocoordinate
@@ -80,13 +97,7 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 %Kelas HttpClient
 \subsection{Kelas \textit{HttpClient}}
 \label{lab:Kelas HttpClient}
-\hspace{0.5cm} \textit{HttpClient} merupakan kelas bawaan Windows Phone untuk mengatur pengiriman dan kembalian menggunakan protokol HTTP. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
-\begin{enumerate}
-	\item a
-	\item b
-\end{enumerate}
-
-Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
+\hspace{0.5cm} \textit{HttpClient} merupakan kelas bawaan Windows Phone untuk mengatur pengiriman dan kembalian menggunakan protokol HTTP. Berikut adalah penjelasan metode-metode kelas \textit{HttpClient} yang dipakai untuk perancangan aplikasi ini:
 \begin{enumerate}
 	\item Metode GetStringAsync membutuhkan parameter alamat bertipe string dan mengembalikan kembalian dari Kiri dalam bentuk Task<string>.
 \end{enumerate}
@@ -96,8 +107,9 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \label{lab:Kelas Protocol}
 \hspace{0.5cm} \textit{Protocol} merupakan kelas untuk menampung semua alamat dalam pengiriman menggunakan protokol HTTP. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item hostname bertipe string digunakan untuk 'http://kiri.travel/'.
 	\item apiKey bertipe string digunakan untuk menyimpan kunci untuk mengirim permintaan ke Kiri.
+	\item hostname bertipe string digunakan untuk digunakan untuk menyimpan alamat host dari Kiri.
+	\item handle bertipe string digunakan untuk menyimpan alamat host ditambah "handle.php".
 	\item iconPath bertipe string digunakan untuk menyimpan lokasi gambar yang dibutuhkan.
 	\item iconStart bertipe string digunakan untuk menyimpan lokasi gambar awal perjalanan dari lokasi awal.
 	\item iconFinish bertipe string digunakan untuk menyimpan lokasi gambar akhir perjalanan ke lokasi tujuan.
@@ -108,30 +120,20 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 	\item modeRoute bertipe string yang digunakan untuk menyimpan mode mencari rute pada Kiri API.
 	\item modeNearby bertipe string yang digunakan untuk menyimpan mode mencari lokasi terdekat pada Kiri API.
 	
-	\item localeEn
-	\item localeId
+	\item locale bertipe string yang digunakan untuk menyimpan kata "locale".
 	
-	\item start
-	\item finish
+	\item start bertipe string yang digunakan untuk menyimpan kata "start".
+	\item finish bertipe string yang digunakan untuk menyimpan kata "finish".
 	
-	\item presentation
+	\item presentation bertipe string yang digunakan untuk menyimpan kata "presentation".
 	
-	\item region 
-	\item query
+	\item region bertipe string yang digunakan untuk menyimpan kata "region".
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
-	\item get
-\end{enumerate}
-
-
-%Kelas ResponsHandler
-\subsection{Kelas \textit{ResponsHandler}}
-\label{lab:Kelas ResponsHandler}
-\hspace{0.5cm} \textit{ResponsHandler} merupakan kelas untuk menangani kembalian dari server Kiri. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
-\begin{enumerate}
-	\item a
+	\item getSearchPlace merupakan metode yang akan mengembalikan URI pencarian lokasi sesuai paramater. Parameter yang dimaksud adalah \textit{query} masukan pengguna.
+	\item getFindRoute merupakan metode yang akan mengembalikan URI pencarian rute sesuai parameter. Parameter yang dimaksud adalah kordinat lokasi asal dan kordinat lokasi tujuan yang bertipe string.
 \end{enumerate}
 
 %Kelas RootObjectSearchPlace
