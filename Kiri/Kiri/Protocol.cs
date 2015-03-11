@@ -41,14 +41,14 @@ namespace Kiri
                 return hostname + "images/means";
             }
         }
-        private static String iconStart
+        public String iconStart
         {
             get
             {
                 return hostname + "images/stepicon-walkstart.png";
             }
         }
-        private static String iconFinish
+        public String iconFinish
         {
             get
             {
@@ -114,8 +114,13 @@ namespace Kiri
                 return "region";
             }
         }
-        private static String query { get; set; }
 
+        public string getTypeTransport(string means, string meansDetail)
+        {
+
+            String uri = hostname + "images/means/" + means + "/" + meansDetail + ".png";
+            return uri;
+        }
 
         public string getSearchPlace(string query)
         {

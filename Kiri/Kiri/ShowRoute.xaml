@@ -30,11 +30,8 @@
             <TextBlock Text="Angkot Route" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Controls:Map x:Name="MyMapFrom" ZoomLevel="14" Margin="-25,0,-16,0">
-            </Controls:Map>
-        </Grid>
+        <Controls:Map x:Name="MyMapFrom" ZoomLevel="14" Margin="-9,138,-8,48" Grid.RowSpan="2"/>
+        <Button Content="Lihat List" HorizontalAlignment="Left" Margin="-17,549,-14,-16" VerticalAlignment="Top" Height="74" Width="511" Click="ShowList" Grid.Row="1"/>
     </Grid>
 
 </phone:PhoneApplicationPage>

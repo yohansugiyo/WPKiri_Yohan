@@ -24,23 +24,34 @@ namespace Kiri
     public partial class MainPage : PhoneApplicationPage
     {
         // Constructor
-        private Protocol p;
+        private Protocol protocol;
         private LocationFinder lFinder;
         HttpClient httpClient = new HttpClient();
 
         ListBox listPlaceFrom, listPlaceTo;
         String locationFrom, locationTo;
+        Point centerOfBandung, centerOfJakarta, centerOfMalang, centerOfSurabaya;
+
+        //String[,] city = { { "Auto", "Bandung", "Jakarta", "Malang", "Surabaya" }, { "Auto", "bdo", "cgk", "mlg", "sub" } };
+        String[] city;
+        String myCity; 
         
         public MainPage()
         {
             InitializeComponent();
-
-            p = new Protocol();
+            this.city = new String[] { "Auto", "Bandung", "Jakarta", "Malang", "Surabaya" };
+            this.cmbCurrFrom.ItemsSource = city;
+            this.myCity = "bdo";
+            this.protocol = new Protocol();
             this.lFinder = new LocationFinder();
             this.listPlaceFrom = new ListBox();
             this.listPlaceTo = new ListBox();
             this.locationFrom = null;
             this.locationTo = null;
+            this.centerOfBandung = new Point(0.0 , 0.0);
+            this.centerOfJakarta = new Point(0.0, 0.0);
+            this.centerOfMalang = new Point(0.0, 0.0);
+            this.centerOfSurabaya = new Point(0.0, 0.0);
         }
 
         private void startRoute(object sender, RoutedEventArgs e)
@@ -55,70 +66,9 @@ namespace Kiri
             //Contoh findroute      zhttp://kiri.travel/handle.php?version=2&mode=findroute&locale=id&&start=-6.90864,107.61108&finish=-6.88929,107.59574&presentation=mobile&apikey=97A7A1157A05ED6F
             //Contoh findroute      zhttp://kiri.travel/handle.php?version=2&mode=findroute&locale=id&&start=-6.87474,107.60491&finish=-6.88909,107.59614&presentation=mobile&apikey=97A7A1157A05ED6F    
 
-            //RootObjectSearchPlace from = toObjectSearchPlace(p.getSearchPlace(queryFrom)); //Create object searchplace Kiri for From
-            //RootObjectSearchPlace to = toObjectSearchPlace(p.getSearchPlace(queryTo)); //Create object searchplace Kiri for To
-            //MessageBox.Show("test1");
+            Task<string> requestFrom = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom)));
+            Task<string> requestTo = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo)));
 
-            /*
-            if (from.status.ToString().Equals("ok") && to.status.ToString().Equals("ok")) //check status
-            {
-                MessageBox.Show("masuk 1");
-                if(from.searchresult.Count()==0){ //check From search
-                    MessageBox.Show("Pencarian untuk kata " + queryFrom + " tidak ditemuakan");
-                }
-                else if (from.searchresult.Count() == 1)
-                {
-                    locFrom = from.searchresult[0].location.ToString();
-                }
-                else 
-                {
-                    LayoutRoot.Children.Add(getListItem(from));
-                    MessageBox.Show("masuk from");
-                }
-
-                if (to.searchresult.Count() == 0)
-                { //check From search
-                    MessageBox.Show("Pencarian untuk kata " + queryTo + " tidak ditemuakan");
-                }
-                else if (to.searchresult.Count() == 1)
-                {
-                    locFrom = to.searchresult[0].location.ToString();
-                }
-                else
-                {
-                    LayoutRoot.Children.Add(getListItem(to));
-                    MessageBox.Show("masuk to");
-                }
-            }
-            else 
-            {
-                MessageBox.Show("Error!");
-            }
-            */
-
-            Task<string> requestFrom = httpClient.GetStringAsync(new Uri(p.getSearchPlace(queryFrom)));
-            Task<string> requestTo = httpClient.GetStringAsync(new Uri(p.getSearchPlace(queryTo)));
-            // String txt = request.Result;
-            //bool txt = request.IsCompleted;
-
-            //String fromText = "BIP";
-            //String toText = "";
-            /*
-            requestFrom.ContinueWith(delegate
-            {
-                Dispatcher.BeginInvoke(new Action(delegate{
-                    //keluaranFrom.Text = requestFrom.Result;
-                    RootObjectSearchPlace r1 = new RootObjectSearchPlace(); //Untuk Asal
-                    r1 = Deserialize<RootObjectSearchPlace>(requestFrom.Result); //Mengubah String menjadi objek
-                    listPlaceFrom = getListItem(r1);
-                    LayoutRoot.Children.Add(listPlaceFrom);
-                    //keluaranFrom.Text = ""+r.searchresult.Count;
-                    //MessageBox.Show("Error1");
-                    // Create a new list box, add items, and add a SelectionChanged handler.
-                    
-                }));
-            });
-             * */
             requestTo.ContinueWith(delegate
             {
                 Dispatcher.BeginInvoke(new Action(delegate
@@ -173,10 +123,18 @@ namespace Kiri
             NavigationService.Navigate(new Uri("/mapTo.xaml", UriKind.Relative));    
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void getHereFrom(object sender, RoutedEventArgs e)
         {
             lFinder.OneShotLocation_Click();
+            //MessageBox.Show(lFinder.coorLat + " " + lFinder.coorLong);
             fromBox.Text = lFinder.coorLat + " " + lFinder.coorLong;
+        }
+
+        private void getHereTo(object sender, RoutedEventArgs e)
+        {
+            lFinder.OneShotLocation_Click();
+            //MessageBox.Show(lFinder.coorLat + " " + lFinder.coorLong);
+            toBox.Text = lFinder.coorLat + " " + lFinder.coorLong;
         }
 
         /*
@@ -245,7 +203,7 @@ namespace Kiri
                     }
                     else if (requestFrom.searchresult.Count() == 1)
                     {
-                        locationFrom = requestFrom.searchresult[0].location.ToString();
+                        this.locationFrom = requestFrom.searchresult[0].location.ToString();
                     }
                     else
                     {
@@ -254,12 +212,12 @@ namespace Kiri
                         {
                             listPlaceFrom.Items.Add(requestFrom.searchresult[c].placename);
                         }
-                        listPlaceFrom.Width = 720;
-                        listPlaceFrom.Height = 1280;
+                        listPlaceFrom.Width = System.Windows.Application.Current.Host.Content.ActualWidth;
+                        listPlaceFrom.Height = System.Windows.Application.Current.Host.Content.ActualHeight;
                         listPlaceFrom.Background = new SolidColorBrush(Colors.Black);
                         listPlaceFrom.FontSize = 30;
                         listPlaceFrom.DataContext = requestFrom.searchresult;
-                        listPlaceFrom.SelectionChanged += ListBox_SelectedPlaceFrom;
+                        listPlaceFrom.SelectionChanged += ListBoxSelectedPlaceFrom;
                         LayoutRoot.Children.Add(listPlaceFrom);
                     }
 
@@ -269,7 +227,7 @@ namespace Kiri
                     }
                     else if (requestTo.searchresult.Count() == 1)
                     {
-                        locationFrom = requestTo.searchresult[0].location.ToString();
+                        this.locationTo = requestTo.searchresult[0].location.ToString();
                     }
                     else
                     {
@@ -278,12 +236,12 @@ namespace Kiri
                         {
                             listPlaceTo.Items.Add(requestTo.searchresult[c].placename);
                         }
-                        listPlaceTo.Width = 720;
-                        listPlaceTo.Height = 1280;
+                        listPlaceTo.Width = System.Windows.Application.Current.Host.Content.ActualWidth;
+                        listPlaceTo.Height = System.Windows.Application.Current.Host.Content.ActualHeight;
                         listPlaceTo.Background = new SolidColorBrush(Colors.Black);
                         listPlaceTo.FontSize = 30;
                         listPlaceTo.DataContext = requestTo.searchresult;
-                        listPlaceTo.SelectionChanged += ListBox_SelectedPlaceTo;
+                        listPlaceTo.SelectionChanged += ListBoxSelectedPlaceTo;
                         LayoutRoot.Children.Add(listPlaceTo);
                     }
                 }
@@ -295,7 +253,7 @@ namespace Kiri
             
         }
 
-        private void ListBox_SelectedPlaceFrom(object sender, SelectionChangedEventArgs e)
+        private void ListBoxSelectedPlaceFrom(object sender, SelectionChangedEventArgs e)
         {
             if (null != listPlaceFrom.SelectedItem)
             {
@@ -311,7 +269,7 @@ namespace Kiri
             }
         }
 
-        private void ListBox_SelectedPlaceTo(object sender, SelectionChangedEventArgs e)
+        private void ListBoxSelectedPlaceTo(object sender, SelectionChangedEventArgs e)
         {
             if (null != listPlaceTo.SelectedItem)
             {
@@ -337,9 +295,29 @@ namespace Kiri
             return coordinate;
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        { 
-        
+        private void changeCity(object sender, SelectionChangedEventArgs e)
+        {
+            if (!cmbCurrFrom.SelectedItem.Equals(null))
+            {
+                switch (cmbCurrFrom.SelectedItem.ToString())
+                {
+                    case "Bandung":
+                        this.myCity="bdo";
+                        break;
+                    case "Jakarta":
+                        this.myCity="cgk";
+                        break;
+                    case "Malang":
+                        this.myCity="mlg";
+                        break;
+                    case "Surabaya":
+                        this.myCity="sub";
+                        break;     
+                    default:
+                        this.myCity="bdo"; //Finder Auto
+                        break;
+                }
+            }
         }
 
         // Sample code for building a localized ApplicationBar

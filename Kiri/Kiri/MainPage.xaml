@@ -56,21 +56,11 @@
             <HyperlinkButton Content="Map" HorizontalAlignment="Left" Margin="283,117,0,0" VerticalAlignment="Top" Click="changeMapFrom" BorderThickness="2" BorderBrush="White" Padding="0" RenderTransformOrigin="0.45,0.516"/>
             <HyperlinkButton Content="Map" HorizontalAlignment="Left" Margin="283,330,0,0" VerticalAlignment="Top" Click="changeMapTo" BorderThickness="2" BorderBrush="White" Padding="0"/>
             <TextBlock HorizontalAlignment="Left" Margin="26,411,0,0" TextWrapping="Wrap" Text="Kota" VerticalAlignment="Top"/>
-            <toolkit:ListPicker  Height="50" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding ElementName=ConverterPage, Path=Locations}" Margin="97,394,152,163" Name="cmbCurrFrom">
-                <toolkit:ListPicker.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock FontSize="30" Foreground="Black" Text="{Binding Path=Location}">Auto</TextBlock>
-                    </DataTemplate>
-                </toolkit:ListPicker.ItemTemplate>
-                <toolkit:ListPicker.FullModeItemTemplate>
-                    <DataTemplate>
-                        <TextBlock FontSize="30" Foreground="Black" Text="{Binding Path=Location}">Bandung</TextBlock>
-                    </DataTemplate>
-                </toolkit:ListPicker.FullModeItemTemplate>
-            </toolkit:ListPicker>
+            <toolkit:ListPicker ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding ElementName=ConverterPage, Path=Locations}" Margin="97,394,152,0" Name="cmbCurrFrom" SelectionChanged="changeCity"/>
+            <ProgressBar HorizontalAlignment="Left" Height="16" Margin="-18,-157,0,0" VerticalAlignment="Top" Width="474"/>
         </Grid>
-        <Button Content="Here" HorizontalAlignment="Left" Margin="368,308,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Button Content="Here" HorizontalAlignment="Left" Margin="368,98,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="Here" HorizontalAlignment="Left" Margin="368,308,0,0" Grid.Row="1" VerticalAlignment="Top" Click="getHereTo"/>
+        <Button Content="Here" HorizontalAlignment="Left" Margin="368,98,0,0" Grid.Row="1" VerticalAlignment="Top" Click="getHereFrom"/>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to

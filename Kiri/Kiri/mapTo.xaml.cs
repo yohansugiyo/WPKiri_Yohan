@@ -8,18 +8,53 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Device.Location;
+using Windows.Devices.Geolocation;
+using System.Windows.Shapes;
+using Microsoft.Phone.Maps.Controls;
+using System.Windows.Media;
 
 namespace Kiri
 {
     public partial class mapTo : PhoneApplicationPage
     {
+        private LocationFinder lFinder;
+
         public mapTo()
         {
+            this.lFinder = new LocationFinder();
             InitializeComponent();
+            ShowMyLocationOnTheMap();
         }
-        private void Map_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+
+        private async void ShowMyLocationOnTheMap()
         {
-            GeoCoordinate locFrom = this.MyMapTo.ConvertViewportPointToGeoCoordinate(e.GetPosition(this.MyMapTo));
+            // Get my current location.
+            Geolocator myGeolocator = new Geolocator();
+            Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
+            Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
+            GeoCoordinate myGeoCoordinate = lFinder.myGeoCoordinate;
+
+            this.MyMapTo.Center = myGeoCoordinate;
+            this.MyMapTo.ZoomLevel = 13;
+
+            Ellipse myCircle = new Ellipse();
+            myCircle.Fill = new SolidColorBrush(Colors.Blue);
+            myCircle.Height = 20;
+            myCircle.Width = 20;
+            myCircle.Opacity = 50;
+
+            // Create a MapOverlay to contain the circle.
+            MapOverlay myLocationOverlay = new MapOverlay();
+            myLocationOverlay.Content = myCircle;
+            myLocationOverlay.PositionOrigin = new Point(0.5, 0.5);
+            myLocationOverlay.GeoCoordinate = myGeoCoordinate;
+
+            // Create a MapLayer to contain the MapOverlay.
+            MapLayer myLocationLayer = new MapLayer();
+            myLocationLayer.Add(myLocationOverlay);
+
+            // Add the MapLayer to the Map.
+            MyMapTo.Layers.Add(myLocationLayer);
         }
     }
 }
