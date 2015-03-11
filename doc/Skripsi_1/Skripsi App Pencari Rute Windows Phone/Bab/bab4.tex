@@ -30,23 +30,30 @@ Pada bab 4 akan dibahas mengenai perancangan seperti kelas secara rinci dan pera
 	\item lFinder bertipe LocationFinder yang akan menampung objek untuk pencarian lokasi.
 	\item httpClient bertipe HttpClient merupakan objek yang akan mengurus permintaan dan kembalian dari Kiri API.
 	\item listPlaceFrom bertipe ListBox untuk menampung dan menampilkan hasil pencarian lokasi terkait dari lokasi awal.
-	\item listPlaceTo bertipe ListBox untuk menampung dan menampilkan hasil pencarian lokasi terkait dari lokasi tujuan
+	\item listPlaceTo bertipe ListBox untuk menampung dan menampilkan hasil pencarian lokasi terkait dari lokasi tujuan.
 	\item locFrom bertipe string untuk menampung kordinat awal.
 	\item locTo bertipe string untuk menampung kordinat tujuan.
+	\item centerOfBandung bertipe Point untuk menampung pusat kordinat kota Bandung.
+	\item centerOfJakarta bertipe Point untuk menampung pusat kordinat kota Jakarta.
+	\item centerOfMalang bertipe Point untuk menampung pusat kordinat kota Malang.
+	\item centerOfSurabaya bertipe Point untuk menampung pusat kordinat kota Surabaya.
+	\item city bertipe kumpulan String untuk menampung kota yang didukung oleh layanan Kiri.
+	\item myCity bertipe String untuk menampung kode kota sesuai Kode Penerbangan IATA.
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
 	\item Metode MainPage digunakan sebagai konstruktor pada kelas MainPage. 
-	\item startRoute digunakan untuk mendapatkan masukan pengguna lalu mengkalkulasi masukan tersebut menjadi kordinat asal dan tujuan lalu mengirimkannya ke kelas ShowRoute.
-	\item toObjectSearchPlace digunakan untuk membuat objek RootObjectSearchPlace dengan masukan uri yang bertipe string.
-	\item changeMapFrom digunakan untuk berpindah ke halaman mapFrom.
-	\item changeMapTo digunakan untuk berpindah ke halaman mapTo.
-	\item getHere digunakan untuk mendapatkan kordinat dimana perangkat berada.
-	\item getListItem digunakan untuk membuat listBox lalu menampilkan ke pengguna. 
-	\item ListBoxSelectedPlaceFrom digunakan untuk mendapatkan tempat asal yang dipilih pengguna.
-	\item ListBoxSelectedPlaceTo digunakan untuk mendapatkan tempat tujuan yang dipilih pengguna.
-	\item searchCoordinatePlace digunakan untuk mencari kordinat dari tempat pilihan pengguna.
+	\item Metode startRoute digunakan untuk mendapatkan masukan pengguna lalu mengkalkulasi masukan tersebut menjadi kordinat asal dan tujuan lalu mengirimkannya ke kelas ShowRoute.
+	\item Metode toObjectSearchPlace digunakan untuk membuat objek RootObjectSearchPlace dengan masukan uri yang bertipe string.
+	\item Metode changeMapFrom digunakan untuk berpindah ke halaman mapFrom.
+	\item Metode changeMapTo digunakan untuk berpindah ke halaman mapTo.
+	\item Metode getHere digunakan untuk mendapatkan kordinat dimana perangkat berada.
+	\item Metode getListItem digunakan untuk membuat listBox lalu menampilkan ke pengguna. 
+	\item Metode ListBoxSelectedPlaceFrom digunakan untuk mendapatkan tempat asal yang dipilih pengguna.
+	\item Metode ListBoxSelectedPlaceTo digunakan untuk mendapatkan tempat tujuan yang dipilih pengguna.
+	\item Metode searchCoordinatePlace digunakan untuk mencari kordinat dari tempat pilihan pengguna.
+	\item Metode changeCity digunakan untuk mengubah kota tujuan dari pencarian.
 \end{enumerate}
 
 %Kelas Geocoordinate
@@ -69,15 +76,14 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \label{lab:Kelas LocationFinder}
 \hspace{0.5cm} \textit{LocationFinder} merupakan kelas yang akan menampung lokasi perangkat. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item status bertipe \textit{boolean} sebagai penanda apakah GPS perangkat sudah siap.
-	\item latitude bertipe long untuk menampung kordinat latitude.
-	\item longitude bertipe long untuk menampung kordinat longitude.
+	\item coorLat bertipe Double untuk menampung kordinat latitude.
+	\item coorLong bertipe Double untuk menampung kordinat longitude.
+	\item myGeoCoordinate bertipe GeoCoordinate untuk menampung lokasi perangkat
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
-	\item Metode onInit berfungsi untuk inisialisasi GPS perangkat dan memastikan bahwa GPS perangkat siap untuk menemukan lokasi.
-	\item Metode getCoordinate berfungsi untuk mendapatkan kordinat latitude dan longitude dengan memanfaatkan kelas \textit{Geocoordinate}, \textit{Geolocator}, dan \textit{Geoposition}.   
+	\item Metode OneShotLocation\_Click berfungsi inisialisasi GPS lalu mendapat kordinat dan menampungnya di atribut.
 \end{enumerate}
 
 %Kelas PointFromMap
@@ -132,6 +138,7 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
+	\item getTypeTransport merupakan metode yang akan mengembalikan alamat dari gambar transportasi. Metode ini memiliki 2 parmeter yaitu means sebagai tipe transportasi dan meansDetail sebagai nama kendaraan.
 	\item getSearchPlace merupakan metode yang akan mengembalikan URI pencarian lokasi sesuai paramater. Parameter yang dimaksud adalah \textit{query} masukan pengguna.
 	\item getFindRoute merupakan metode yang akan mengembalikan URI pencarian rute sesuai parameter. Parameter yang dimaksud adalah kordinat lokasi asal dan kordinat lokasi tujuan yang bertipe string.
 \end{enumerate}
@@ -175,3 +182,63 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \end{enumerate}
 
 
+%Perancangan Antar Muka
+\section{Perancangan Antar Muka}
+\label{lab:Perancangan Kelas}
+\hspace{0.5cm} Pada sub bab ini akan dibahas mengenai antarmuka pada aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone. Antarmuka berfungsi sebagai jembatan yang menghubungkan antara aplikasi dengan pengguna. Berikut ini akan dijelaskan mengenai rancangan antarmuka aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone. 
+
+%Kelas MainPage
+\subsection{Antarmuka Kelas \textit{MainPage}}
+\label{lab:Antarmuka Kelas MainPage}
+
+% Antarmuka Main
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.2]{Gambar/antarmuka/home}
+	\caption{Antarmukan \textit{MainPage}}
+	\label{fig:Antarmuka MainPage}
+\end{figure}
+
+\hspace{0.5cm} \textit{Antarmuka Kelas MainPage} 
+
+%Kelas MapFrom
+\subsection{Antarmuka Kelas \textit{MapFrom}}
+\label{lab:Antarmuka Kelas MapFrom}
+
+% Antarmuka Main
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.2]{Gambar/antarmuka/map}
+	\caption{Antarmukan \textit{MainPage}}
+	\label{fig:Antarmuka MainPage}
+\end{figure}
+
+\hspace{0.5cm} \textit{Antarmuka Kelas MapFrom} 
+
+%Kelas MapTo
+\subsection{Antarmuka Kelas \textit{MapTo}}
+\label{lab:Antarmuka Kelas MapFrom}
+
+% Antarmuka MapTo
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.2]{Gambar/antarmuka/map}
+	\caption{Antarmukan \textit{MapTo}}
+	\label{fig:Antarmuka MapTo}
+\end{figure}
+
+\hspace{0.5cm} \textit{Antarmuka Kelas MapTo} 
+
+%Kelas FindRoute
+\subsection{Antarmuka Kelas \textit{FindRoute}}
+\label{lab:Antarmuka Kelas FindRoute}
+
+% Antarmuka MapTo
+%\begin{figure}[h]
+%	\centering
+%		\includegraphics[scale=0.2]{Gambar/antarmuka/map}
+%	\caption{Antarmukan \textit{FindRoute}}
+%	\label{fig:Antarmuka FindRoute}
+%\end{figure}
+
+\hspace{0.5cm} \textit{Antarmuka Kelas FindRoute} 
