@@ -207,6 +207,9 @@ namespace Kiri
                     }
                     else
                     {
+                        TextBlock textAsal = new TextBlock();
+                        textAsal.FontSize = 40;
+                        textAsal.Text = "Pilih Tempat Asal";
                         //LayoutRoot.Children.Add(getListItem(requestFrom));
                         for (int c = 0; c < requestFrom.searchresult.Count; c++)
                         {
@@ -218,7 +221,10 @@ namespace Kiri
                         listPlaceFrom.FontSize = 30;
                         listPlaceFrom.DataContext = requestFrom.searchresult;
                         listPlaceFrom.SelectionChanged += ListBoxSelectedPlaceFrom;
-                        LayoutRoot.Children.Add(listPlaceFrom);
+                        //LayoutRoot.Children.Add(listPlaceFrom);
+                        panelFrom.Children.Add(textAsal);
+                        panelFrom.Children.Add(listPlaceFrom);
+                        panelFrom.Visibility = Visibility.Visible;
                     }
 
                     if (requestTo.searchresult.Count() == 0)
@@ -231,6 +237,9 @@ namespace Kiri
                     }
                     else
                     {
+                        TextBlock textTujuan = new TextBlock();
+                        textTujuan.FontSize = 40;
+                        textTujuan.Text = "Pilih Tempat Tujuan";
                         //LayoutRoot.Children.Add(getListItem(requestTo));
                         for (int c = 0; c < requestTo.searchresult.Count; c++)
                         {
@@ -242,7 +251,9 @@ namespace Kiri
                         listPlaceTo.FontSize = 30;
                         listPlaceTo.DataContext = requestTo.searchresult;
                         listPlaceTo.SelectionChanged += ListBoxSelectedPlaceTo;
-                        LayoutRoot.Children.Add(listPlaceTo);
+                        panelTo.Children.Add(textTujuan);
+                        panelTo.Children.Add(listPlaceTo);
+                        //LayoutRoot.Children.Add(listPlaceTo);
                     }
                 }
                 else
@@ -262,7 +273,8 @@ namespace Kiri
                     this.locationFrom = searchCoordinatePlace((List<Searchresult>)listPlaceFrom.DataContext, listPlaceFrom.SelectedItem.ToString());  //((sender as ListBox).SelectedItem as Searchresult).placename;
                 }
             }
-            LayoutRoot.Children.Remove(listPlaceFrom);
+            panelFrom.Children.Clear();
+            panelTo.Visibility = Visibility.Visible;
             if (this.locationFrom != null && this.locationTo != null)
             {
                 NavigationService.Navigate(new Uri("/ShowRoute.xaml?start=" + locationFrom + "&finish=" + locationTo + "", UriKind.Relative));
@@ -275,7 +287,7 @@ namespace Kiri
             {
                 this.locationTo = searchCoordinatePlace((List<Searchresult>)listPlaceTo.DataContext, listPlaceTo.SelectedItem.ToString()); //((sender as ListBox).SelectedItem as Searchresult).placename;
             }
-            LayoutRoot.Children.Remove(listPlaceTo);
+            panelTo.Children.Clear();
             if (this.locationFrom != null && this.locationTo != null)
             {
                 NavigationService.Navigate(new Uri("/ShowRoute.xaml?start=" + locationFrom + "&finish=" + locationTo + "", UriKind.Relative));

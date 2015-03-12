@@ -8,6 +8,8 @@ MDIL image C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri
 
 
 File C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\Kiri.dll output C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\obj\Debug\MDIL\Kiri.dll
+Processing file: C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\microsoft.phone.controls.maps.dll
+File C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\microsoft.phone.controls.maps.dll is not in the compile filter. Skipping.
 Processing file: C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\Microsoft.Phone.Controls.Toolkit.dll
 File C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\Microsoft.Phone.Controls.Toolkit.dll is not in the compile filter. Skipping.
 Processing file: C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\MDIL\Newtonsoft.Json.dll

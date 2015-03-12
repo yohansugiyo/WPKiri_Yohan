@@ -84,6 +84,15 @@ namespace Kiri
                             {
                                 for (int j = 0; j < r.routingresults[i].steps.Count; j++)
                                 {
+                                    if (r.routingresults[i].steps[j][0].ToString().Equals("walk"))
+                                    {
+                                        MessageBox.Show(r.routingresults[i].steps[j][0].ToString()+"  "+"walk");
+                                        routeRoad.StrokeColor = Color.FromArgb(255, 255, 0, 0);
+                                    }
+                                    else {
+                                        MessageBox.Show(r.routingresults[i].steps[j][0].ToString() + "  " + "angkot");
+                                        routeRoad.StrokeColor = Color.FromArgb(255, 0, 255, 255);
+                                    }
                                     GeoCoordinate geoCoo = new GeoCoordinate();
                                     String temp = r.routingresults[i].steps[j][2].ToString();
                                     temp = temp.Replace("[", "");
@@ -97,28 +106,22 @@ namespace Kiri
                                         geoCoo.Latitude = double.Parse(coordinate[c]);
                                         geoCoo.Longitude = double.Parse(coordinate[c + 1]);
                                         routeRoad.Path.Add(geoCoo);
-                                        
+
+                                        MapOverlay overlay1 = new MapOverlay();
                                         if(j==0  && c==0){
-                                            MapOverlay overlay1 = new MapOverlay();
-                                            overlay1.Content = createNew(p.iconStart, geoCoo);
-                                            overlay1.GeoCoordinate = geoCoo;
-                                            layer.Add(overlay1);
+                                            overlay1.Content = createNew(p.iconStart, geoCoo,false);
                                             this.MyMapFrom.Center = geoCoo;
                                             this.MyMapFrom.ZoomLevel = 13;
                                         }
                                         else if (j == r.routingresults[i].steps.Count - 1 && c == coordinate.Length-2)
                                         {
-                                            MapOverlay overlay1 = new MapOverlay();
-                                            overlay1.Content = createNew(p.iconFinish, geoCoo); 
-                                            overlay1.GeoCoordinate = geoCoo;
-                                            layer.Add(overlay1);
+                                            overlay1.Content = createNew(p.iconFinish, geoCoo,false); 
                                         }else if(c==0){
-                                            MapOverlay overlay1 = new MapOverlay();
                                             String iconLoc = p.getTypeTransport(r.routingresults[i].steps[j][0].ToString(), r.routingresults[i].steps[j][1].ToString());
-                                            overlay1.Content = createNew(iconLoc, geoCoo);
-                                            overlay1.GeoCoordinate = geoCoo;
-                                            layer.Add(overlay1);
+                                            overlay1.Content = createNew(iconLoc, geoCoo,true);
                                         }
+                                        overlay1.GeoCoordinate = geoCoo;
+                                        layer.Add(overlay1);
                                         
                                     }
 
@@ -166,17 +169,23 @@ namespace Kiri
             }
         }
 
-        public Pushpin createNew(string uri,GeoCoordinate geoCoordinate) {
+        public Pushpin createNew(string uri,GeoCoordinate geoCoordinate,Boolean backgroundStatus) {
             Pushpin p = new Pushpin();
             Uri imgUri = new Uri(uri, UriKind.RelativeOrAbsolute);
             BitmapImage imgSourceR = new BitmapImage(imgUri);
             ImageBrush imgBrush = new ImageBrush() { ImageSource = imgSourceR };
-            p.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+            if (backgroundStatus == true)
+            {
+                p.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+            }
+            else {
+                p.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+            }
             p.Content = new Rectangle()
             {
                 Fill = imgBrush,
-                Height = 64,
-                Width = 100
+                Height = 30,
+                Width = 50
             };
             p.GeoCoordinate = geoCoordinate;
             return p;

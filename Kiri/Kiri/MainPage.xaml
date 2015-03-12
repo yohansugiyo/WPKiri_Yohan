@@ -17,7 +17,8 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="158"/>
+            <RowDefinition Height="3"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -41,26 +42,36 @@
          -->
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="6,33,6,9">
             <TextBlock Text="Public Transport" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
             <TextBlock Text="Kiri WP 8" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock Text="From" Style="{StaticResource PhoneTextNormalStyle}" Margin="26,24,278,515" FontSize="50"/>
-            <TextBlock Text="To" Style="{StaticResource PhoneTextNormalStyle}" Margin="26,235,361,297" FontSize="50"/>
-            <TextBox x:Name="fromBox" HorizontalAlignment="Left" Margin="12,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="266"/>
-            <TextBox x:Name="toBox" HorizontalAlignment="Left" Margin="12,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="266"/>
-            <Button Content="FIND" HorizontalAlignment="Left" Margin="248,195,0,0" VerticalAlignment="Top" Click="startRoute" Height="81" Width="180"/>
-            <HyperlinkButton Content="Map" HorizontalAlignment="Left" Margin="283,117,0,0" VerticalAlignment="Top" Click="changeMapFrom" BorderThickness="2" BorderBrush="White" Padding="0" RenderTransformOrigin="0.45,0.516"/>
-            <HyperlinkButton Content="Map" HorizontalAlignment="Left" Margin="283,330,0,0" VerticalAlignment="Top" Click="changeMapTo" BorderThickness="2" BorderBrush="White" Padding="0"/>
+        <Grid x:Name="ContentPanel" Grid.Row="2" Margin="14,10,10,-10">
+            <TextBlock Text="From" Style="{StaticResource PhoneTextNormalStyle}" Margin="26,24,278,515" FontSize="50" Grid.ColumnSpan="2"/>
+            <TextBlock Text="To" Style="{StaticResource PhoneTextNormalStyle}" Margin="26,235,361,297" FontSize="50" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="fromBox" HorizontalAlignment="Left" Margin="12,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="292" Height="76" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="toBox" HorizontalAlignment="Left" Margin="12,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="292" Height="76" Grid.ColumnSpan="2"/>
+            <Button Content="FIND" HorizontalAlignment="Left" Margin="266,197,0,0" VerticalAlignment="Top" Click="startRoute" Height="81" Width="180"/>
+            <Button HorizontalAlignment="Left" Margin="302,307,0,0" VerticalAlignment="Top" Click="changeMapTo" Height="79" Width="86">
+                <Image Source="icons/map.png"></Image>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="307,97,0,0" VerticalAlignment="Top" Click="changeMapFrom" Height="77" Width="83">
+                <Image Source="icons/map.png"></Image>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="371,306,-1,0" VerticalAlignment="Top" Click="getHereTo" Height="79" Width="86">
+                <Image Source="icons/marker.png"></Image>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="373,96,0,0" VerticalAlignment="Top" Click="getHereFrom" Height="77" Width="83">
+                <Image Source="icons/marker.png"></Image>
+            </Button>
             <TextBlock HorizontalAlignment="Left" Margin="26,411,0,0" TextWrapping="Wrap" Text="Kota" VerticalAlignment="Top"/>
-            <toolkit:ListPicker ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding ElementName=ConverterPage, Path=Locations}" Margin="97,394,152,0" Name="cmbCurrFrom" SelectionChanged="changeCity"/>
-            <ProgressBar HorizontalAlignment="Left" Height="16" Margin="-18,-157,0,0" VerticalAlignment="Top" Width="474"/>
+            <toolkit:ListPicker ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding ElementName=ConverterPage, Path=Locations}" Margin="71,394,174,0" Name="cmbCurrFrom" SelectionChanged="changeCity"/>
+            <StackPanel x:Name="panelFrom" HorizontalAlignment="Stretch" Margin="0,-170,0,5" VerticalAlignment="Stretch" Visibility="Collapsed" Background="Black" Grid.ColumnSpan="2"/>
+            <StackPanel x:Name="panelTo" HorizontalAlignment="Stretch" Margin="0,-170,0,5" VerticalAlignment="Stretch"  Visibility="Collapsed" Background="Black" Grid.ColumnSpan="2"/>
         </Grid>
-        <Button Content="Here" HorizontalAlignment="Left" Margin="368,308,0,0" Grid.Row="1" VerticalAlignment="Top" Click="getHereTo"/>
-        <Button Content="Here" HorizontalAlignment="Left" Margin="368,98,0,0" Grid.Row="1" VerticalAlignment="Top" Click="getHereFrom"/>
+
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to

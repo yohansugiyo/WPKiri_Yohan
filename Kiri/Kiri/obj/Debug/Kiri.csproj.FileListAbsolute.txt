@@ -81,3 +81,4 @@ C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\
 C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\obj\Debug\ShowRoute.g.cs
 C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\Newtonsoft.Json.dll
 C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\Newtonsoft.Json.xml
+C:\Users\Yohan Sugiyo\Documents\Visual Studio 2012\Projects\Kiri\Kiri\Bin\Debug\microsoft.phone.controls.maps.dll
