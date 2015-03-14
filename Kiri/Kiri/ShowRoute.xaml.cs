@@ -23,15 +23,21 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using Newtonsoft.Json;
 using System.Windows.Media.Imaging;
+using System.ComponentModel;
+using System.Windows.Controls.Primitives;
+using System.Threading;
 
 namespace Kiri
 {
     public partial class ShowRoute : PhoneApplicationPage
     {
+        
         private string startCoordinate;
         private string finishCoordinate;
         private ListBox listRoute;
         private Boolean listBoxStatus; //true == show, false == hide
+
+        private BackgroundWorker backgroundWorker;
 
         public ShowRoute()
         {
@@ -43,6 +49,7 @@ namespace Kiri
             this.listBoxStatus = false;
 
             InitializeComponent();
+            
         }
 
         //source zhttps://msdn.microsoft.com/en-us/library/windows/apps/ff626521%28v=vs.105%29.asp
@@ -56,15 +63,17 @@ namespace Kiri
             if (NavigationContext.QueryString.TryGetValue("finish", out finish));
             this.finishCoordinate = finish;
 
-            Find(); // After get start coordinate and finish coordinate then call Find Method
+            ShowSplash();
+            //Find(); // After get start coordinate and finish coordinate then call Find Method
         }
-        
-        public void Find(){
+
+        public async void Find()
+        {
             Boolean status = true; 
             HttpClient httpClient = new HttpClient();
             Protocol p = new Protocol();
             String uri = p.getFindRoute(startCoordinate, finishCoordinate);
-            
+            //MessageBox.Show(uri);
             Task<string> requestRoute = httpClient.GetStringAsync(new Uri(uri));
             requestRoute.ContinueWith(delegate
             {
@@ -76,7 +85,7 @@ namespace Kiri
                         //source zhttps://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn792121.aspx 
                         MapLayer layer = new MapLayer();
                         MapPolyline routeRoad = new MapPolyline();
-                        routeRoad.StrokeThickness = 2;
+                        routeRoad.StrokeThickness = 3;
 
                         if (!r.routingresults[0].steps[0][3].Equals("Maaf, kami tidak dapat menemukan rute transportasi publik untuk perjalanan Anda.")) //Check ditemukan atau tidak
                         {
@@ -86,11 +95,11 @@ namespace Kiri
                                 {
                                     if (r.routingresults[i].steps[j][0].ToString().Equals("walk"))
                                     {
-                                        MessageBox.Show(r.routingresults[i].steps[j][0].ToString()+"  "+"walk");
+                                        //MessageBox.Show(r.routingresults[i].steps[j][0].ToString()+"  "+"walk");
                                         routeRoad.StrokeColor = Color.FromArgb(255, 255, 0, 0);
                                     }
                                     else {
-                                        MessageBox.Show(r.routingresults[i].steps[j][0].ToString() + "  " + "angkot");
+                                        //MessageBox.Show(r.routingresults[i].steps[j][0].ToString() + "  " + "angkot");
                                         routeRoad.StrokeColor = Color.FromArgb(255, 0, 255, 255);
                                     }
                                     GeoCoordinate geoCoo = new GeoCoordinate();
@@ -202,6 +211,34 @@ namespace Kiri
                 JsonConvert.DeserializeObject<T>(json);
                 return obj;
             }
+        }
+
+        private void ShowSplash()
+        {
+            this.popLoadingRoute.IsOpen = true;
+            StartLoadingData();
+        }
+
+        private void StartLoadingData()
+        {
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += new DoWorkEventHandler(backgroundWorker_DoWork);
+            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker_RunWorkerCompleted);
+            backgroundWorker.RunWorkerAsync();
+        }
+
+        void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //Thread.Sleep(3000);
+            Find();
+        }
+
+        void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.Dispatcher.BeginInvoke(() =>
+            {
+                this.popLoadingRoute.IsOpen = false;
+            });
         }
     }
 }

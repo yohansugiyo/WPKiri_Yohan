@@ -19,6 +19,10 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using Newtonsoft.Json;
 
+using System.Windows.Controls.Primitives;
+using System.ComponentModel;
+using System.Threading;
+
 namespace Kiri
 {
     public partial class MainPage : PhoneApplicationPage
@@ -34,11 +38,14 @@ namespace Kiri
 
         //String[,] city = { { "Auto", "Bandung", "Jakarta", "Malang", "Surabaya" }, { "Auto", "bdo", "cgk", "mlg", "sub" } };
         String[] city;
-        String myCity; 
+        String myCity;
+
+        private BackgroundWorker backgroundWorker;
         
         public MainPage()
         {
             InitializeComponent();
+            ShowSplash();
             this.city = new String[] { "Auto", "Bandung", "Jakarta", "Malang", "Surabaya" };
             this.cmbCurrFrom.ItemsSource = city;
             this.myCity = "bdo";
@@ -54,7 +61,7 @@ namespace Kiri
             this.centerOfSurabaya = new Point(0.0, 0.0);
         }
 
-        private void startRoute(object sender, RoutedEventArgs e)
+        private async void startRoute(object sender, RoutedEventArgs e)
         {
             String queryFrom = fromBox.Text;
             String queryTo = toBox.Text;
@@ -66,27 +73,37 @@ namespace Kiri
             //Contoh findroute      zhttp://kiri.travel/handle.php?version=2&mode=findroute&locale=id&&start=-6.90864,107.61108&finish=-6.88929,107.59574&presentation=mobile&apikey=97A7A1157A05ED6F
             //Contoh findroute      zhttp://kiri.travel/handle.php?version=2&mode=findroute&locale=id&&start=-6.87474,107.60491&finish=-6.88909,107.59614&presentation=mobile&apikey=97A7A1157A05ED6F    
 
-            Task<string> requestFrom = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom)));
-            Task<string> requestTo = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo)));
+            //Task.Run(() => ComputeNextMove(queryFrom, queryTo));
 
-            requestTo.ContinueWith(delegate
-            {
-                Dispatcher.BeginInvoke(new Action(delegate
-                {
+            //Reference zhttps://msdn.microsoft.com/en-us/library/hh191443.aspx
+            Task<string> requestFromTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom)));
+            Task<string> requestToTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo)));
+
+            string requestFrom = await requestFromTask;
+            string requestTo = await requestToTask;
+
+            //Task<String>[] arrGetString = new Task<string>[]{ requestFrom, requestTo };
+
+            //Task.WhenAll(arrGetString);
+
+            //requestTo.ContinueWith(delegate
+            //{
+                //Dispatcher.BeginInvoke(new Action(delegate
+                //{
                     //keluaranTo.Text = requestTo.Result;
                     RootObjectSearchPlace r1 = new RootObjectSearchPlace(); //Untuk Asal
-                    r1 = Deserialize<RootObjectSearchPlace>(requestFrom.Result); //Mengubah String menjadi objek
+                    r1 = Deserialize<RootObjectSearchPlace>(requestFrom); //Mengubah String menjadi objek
                     //getListItem(r1);
                     //LayoutRoot.Children.Add(listPlaceFrom);
                     
                     RootObjectSearchPlace r2 = new RootObjectSearchPlace(); //Untuk Tujuan
-                    r2 = Deserialize<RootObjectSearchPlace>(requestTo.Result);
+                    r2 = Deserialize<RootObjectSearchPlace>(requestTo);
                     getListItem(r1,r2);
                     //LayoutRoot.Children.Add(listPlaceTo);
                     
                     //MessageBox.Show("Error2");
-                }));
-            });
+                //}));
+            //});
             
             /*
             ListBox listBox1 = new ListBox();
@@ -259,6 +276,7 @@ namespace Kiri
                 else
                 {
                     MessageBox.Show("Error!");
+                    MessageBox.Show("Error!");
                 }
             }));
             
@@ -330,6 +348,33 @@ namespace Kiri
                         break;
                 }
             }
+        }
+
+        private void ShowSplash()
+        {
+            this.popup.IsOpen = true;
+            StartLoadingData();
+        }
+
+        private void StartLoadingData()
+        {
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += new DoWorkEventHandler(backgroundWorker_DoWork);
+            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker_RunWorkerCompleted);
+            backgroundWorker.RunWorkerAsync();
+        }
+
+        void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Thread.Sleep(3000);
+        }
+
+        void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.Dispatcher.BeginInvoke(() =>
+            {
+                this.popup.IsOpen = false;
+            });
         }
 
         // Sample code for building a localized ApplicationBar

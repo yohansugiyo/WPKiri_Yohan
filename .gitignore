@@ -10,3 +10,10 @@
 *.toc
 *.dvi
 *.lof
+*.dll
+*.pdb
+*.xap
+*.g.recources
+*.g.cs
+*.g.i.cs
+*.xaml
