@@ -79,8 +79,10 @@ namespace Kiri
             Task<string> requestFromTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom)));
             Task<string> requestToTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo)));
 
+            progressFindPlace.IsIndeterminate = true;
             string requestFrom = await requestFromTask;
             string requestTo = await requestToTask;
+            progressFindPlace.IsIndeterminate = false;
 
             //Task<String>[] arrGetString = new Task<string>[]{ requestFrom, requestTo };
 
@@ -91,14 +93,14 @@ namespace Kiri
                 //Dispatcher.BeginInvoke(new Action(delegate
                 //{
                     //keluaranTo.Text = requestTo.Result;
-                    RootObjectSearchPlace r1 = new RootObjectSearchPlace(); //Untuk Asal
-                    r1 = Deserialize<RootObjectSearchPlace>(requestFrom); //Mengubah String menjadi objek
-                    //getListItem(r1);
-                    //LayoutRoot.Children.Add(listPlaceFrom);
+            RootObjectSearchPlace r1 = new RootObjectSearchPlace(); //Untuk Asal
+            r1 = Deserialize<RootObjectSearchPlace>(requestFrom); //Mengubah String menjadi objek
+            //getListItem(r1);
+            //LayoutRoot.Children.Add(listPlaceFrom);
                     
-                    RootObjectSearchPlace r2 = new RootObjectSearchPlace(); //Untuk Tujuan
-                    r2 = Deserialize<RootObjectSearchPlace>(requestTo);
-                    getListItem(r1,r2);
+            RootObjectSearchPlace r2 = new RootObjectSearchPlace(); //Untuk Tujuan
+            r2 = Deserialize<RootObjectSearchPlace>(requestTo);
+            getListItem(r1,r2);
                     //LayoutRoot.Children.Add(listPlaceTo);
                     
                     //MessageBox.Show("Error2");

@@ -36,8 +36,7 @@ namespace Kiri
         private string finishCoordinate;
         private ListBox listRoute;
         private Boolean listBoxStatus; //true == show, false == hide
-
-        private BackgroundWorker backgroundWorker;
+        private LocationFinder lFinder;
 
         public ShowRoute()
         {
@@ -48,6 +47,8 @@ namespace Kiri
             this.listRoute.FontSize = 30;
             this.listBoxStatus = false;
 
+            this.lFinder = new LocationFinder();
+            lFinder.OneShotLocation_Click();
             InitializeComponent();
             
         }
@@ -62,9 +63,7 @@ namespace Kiri
             this.startCoordinate = start;
             if (NavigationContext.QueryString.TryGetValue("finish", out finish));
             this.finishCoordinate = finish;
-
-            ShowSplash();
-            //Find(); // After get start coordinate and finish coordinate then call Find Method
+            Find(); // After get start coordinate and finish coordinate then call Find Method
         }
 
         public async void Find()
@@ -73,94 +72,101 @@ namespace Kiri
             HttpClient httpClient = new HttpClient();
             Protocol p = new Protocol();
             String uri = p.getFindRoute(startCoordinate, finishCoordinate);
+
+            this.route.Center = new GeoCoordinate(lFinder.coorLat, lFinder.coorLong);
+            this.route.ZoomLevel = 13;
+
             //MessageBox.Show(uri);
-            Task<string> requestRoute = httpClient.GetStringAsync(new Uri(uri));
-            requestRoute.ContinueWith(delegate
+            Task<string> requestRouteTask = httpClient.GetStringAsync(new Uri(uri));
+            loadingRoute.IsIndeterminate = true;
+            string requestRoute = await requestRouteTask;
+            loadingRoute.IsIndeterminate = false;
+            //requestRoute.ContinueWith(delegate
+            //{
+            //    Dispatcher.BeginInvoke(new Action(delegate
+            //    {
+            RootObjectFindRoute r = JsonConvert.DeserializeObject<RootObjectFindRoute>(requestRoute); //Mengubah String menjadi objek
+            if (r.status.Equals("ok"))
             {
-                Dispatcher.BeginInvoke(new Action(delegate
+                //source zhttps://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn792121.aspx 
+                MapLayer layer = new MapLayer();
+                MapPolyline routeRoad = new MapPolyline();
+                routeRoad.StrokeThickness = 3;
+
+                if (!r.routingresults[0].steps[0][3].Equals("Maaf, kami tidak dapat menemukan rute transportasi publik untuk perjalanan Anda.")) //Check ditemukan atau tidak
                 {
-                    RootObjectFindRoute r = JsonConvert.DeserializeObject<RootObjectFindRoute>(requestRoute.Result); //Mengubah String menjadi objek
-                    if (r.status.Equals("ok"))
+                    for (int i = 0; i < r.routingresults.Count; i++)
                     {
-                        //source zhttps://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn792121.aspx 
-                        MapLayer layer = new MapLayer();
-                        MapPolyline routeRoad = new MapPolyline();
-                        routeRoad.StrokeThickness = 3;
-
-                        if (!r.routingresults[0].steps[0][3].Equals("Maaf, kami tidak dapat menemukan rute transportasi publik untuk perjalanan Anda.")) //Check ditemukan atau tidak
+                        for (int j = 0; j < r.routingresults[i].steps.Count; j++)
                         {
-                            for (int i = 0; i < r.routingresults.Count; i++)
+                            if (r.routingresults[i].steps[j][0].ToString().Equals("walk"))
                             {
-                                for (int j = 0; j < r.routingresults[i].steps.Count; j++)
-                                {
-                                    if (r.routingresults[i].steps[j][0].ToString().Equals("walk"))
-                                    {
-                                        //MessageBox.Show(r.routingresults[i].steps[j][0].ToString()+"  "+"walk");
-                                        routeRoad.StrokeColor = Color.FromArgb(255, 255, 0, 0);
-                                    }
-                                    else {
-                                        //MessageBox.Show(r.routingresults[i].steps[j][0].ToString() + "  " + "angkot");
-                                        routeRoad.StrokeColor = Color.FromArgb(255, 0, 255, 255);
-                                    }
-                                    GeoCoordinate geoCoo = new GeoCoordinate();
-                                    String temp = r.routingresults[i].steps[j][2].ToString();
-                                    temp = temp.Replace("[", "");
-                                    temp = temp.Replace("]", "");
-                                    temp = temp.Replace("\"", "");
-                                    temp = temp.Replace(" ", "");
-                                    string[] coordinate = temp.Split(',');
-                                    for (int c = 0; c < coordinate.Length; c = c + 2)
-                                    {
-                                        geoCoo = new GeoCoordinate();
-                                        geoCoo.Latitude = double.Parse(coordinate[c]);
-                                        geoCoo.Longitude = double.Parse(coordinate[c + 1]);
-                                        routeRoad.Path.Add(geoCoo);
+                                //MessageBox.Show(r.routingresults[i].steps[j][0].ToString()+"  "+"walk");
+                                routeRoad.StrokeColor = Color.FromArgb(255, 255, 0, 0);
+                            }
+                            else {
+                                //MessageBox.Show(r.routingresults[i].steps[j][0].ToString() + "  " + "angkot");
+                                routeRoad.StrokeColor = Color.FromArgb(255, 0, 255, 255);
+                            }
+                            GeoCoordinate geoCoo = new GeoCoordinate();
+                            String temp = r.routingresults[i].steps[j][2].ToString();
+                            temp = temp.Replace("[", "");
+                            temp = temp.Replace("]", "");
+                            temp = temp.Replace("\"", "");
+                            temp = temp.Replace(" ", "");
+                            string[] coordinate = temp.Split(',');
+                            for (int c = 0; c < coordinate.Length; c = c + 2)
+                            {
+                                geoCoo = new GeoCoordinate();
+                                geoCoo.Latitude = double.Parse(coordinate[c]);
+                                geoCoo.Longitude = double.Parse(coordinate[c + 1]);
+                                routeRoad.Path.Add(geoCoo);
 
-                                        MapOverlay overlay1 = new MapOverlay();
-                                        if(j==0  && c==0){
-                                            overlay1.Content = createNew(p.iconStart, geoCoo,false);
-                                            this.MyMapFrom.Center = geoCoo;
-                                            this.MyMapFrom.ZoomLevel = 13;
-                                        }
-                                        else if (j == r.routingresults[i].steps.Count - 1 && c == coordinate.Length-2)
-                                        {
-                                            overlay1.Content = createNew(p.iconFinish, geoCoo,false); 
-                                        }else if(c==0){
-                                            String iconLoc = p.getTypeTransport(r.routingresults[i].steps[j][0].ToString(), r.routingresults[i].steps[j][1].ToString());
-                                            overlay1.Content = createNew(iconLoc, geoCoo,true);
-                                        }
-                                        overlay1.GeoCoordinate = geoCoo;
-                                        layer.Add(overlay1);
-                                        
-                                    }
-
-                                    listRoute.Items.Add(r.routingresults[i].steps[j][3].ToString());
-                                    routeRoad.Path.Add(geoCoo);
+                                MapOverlay overlay1 = new MapOverlay();
+                                if(j==0  && c==0){
+                                    overlay1.Content = createNew(p.iconStart, geoCoo,false);
+                                    this.route.Center = geoCoo;
+                                    this.route.ZoomLevel = 13;
                                 }
-                                //point.Add();
-                                //..Items.Add(r.routingresults[c].placename);
+                                else if (j == r.routingresults[i].steps.Count - 1 && c == coordinate.Length-2)
+                                {
+                                    overlay1.Content = createNew(p.iconFinish, geoCoo,false); 
+                                }else if(c==0){
+                                    String iconLoc = p.getTypeTransport(r.routingresults[i].steps[j][0].ToString(), r.routingresults[i].steps[j][1].ToString());
+                                    overlay1.Content = createNew(iconLoc, geoCoo,true);
+                                }
+                                overlay1.GeoCoordinate = geoCoo;
+                                layer.Add(overlay1);
+                                        
                             }
 
-                            // Add the list box to a parent container in the visual tree.
-                            MyMapFrom.MapElements.Add(routeRoad);
-                            MyMapFrom.Layers.Add(layer);
+                            listRoute.Items.Add(r.routingresults[i].steps[j][3].ToString());
+                            routeRoad.Path.Add(geoCoo);
                         }
-                        else {
-                            MessageBox.Show("Maaf, kami tidak dapat menemukan rute transportasi publik untuk perjalanan Anda.");
-                            status = false; 
-                        }
-                    }
-                    else {
-                        MessageBox.Show("Error");
-                        status = false; 
+                        //point.Add();
+                        //..Items.Add(r.routingresults[c].placename);
                     }
 
-                    if (status == false)
-                    {
-                        NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
-                    }
-                }));
-            });
+                    // Add the list box to a parent container in the visual tree.
+                    route.MapElements.Add(routeRoad);
+                    route.Layers.Add(layer);
+                }
+                else {
+                    MessageBox.Show("Maaf, kami tidak dapat menemukan rute transportasi publik untuk perjalanan Anda.");
+                    status = false; 
+                }
+            }
+            else {
+                MessageBox.Show("Error");
+                status = false; 
+            }
+
+            if (status == false)
+            {
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            }
+            //    }));
+            //});
         }
 
 
@@ -211,34 +217,6 @@ namespace Kiri
                 JsonConvert.DeserializeObject<T>(json);
                 return obj;
             }
-        }
-
-        private void ShowSplash()
-        {
-            this.popLoadingRoute.IsOpen = true;
-            StartLoadingData();
-        }
-
-        private void StartLoadingData()
-        {
-            backgroundWorker = new BackgroundWorker();
-            backgroundWorker.DoWork += new DoWorkEventHandler(backgroundWorker_DoWork);
-            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker_RunWorkerCompleted);
-            backgroundWorker.RunWorkerAsync();
-        }
-
-        void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            //Thread.Sleep(3000);
-            Find();
-        }
-
-        void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            this.Dispatcher.BeginInvoke(() =>
-            {
-                this.popLoadingRoute.IsOpen = false;
-            });
         }
     }
 }

@@ -15,7 +15,7 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="158"/>
             <RowDefinition Height="3"/>
@@ -42,9 +42,12 @@
          -->
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="6,33,6,9">
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="6,10,6,0" RenderTransformOrigin="0.5,0.5" Height="108" VerticalAlignment="Top">
+            <StackPanel.RenderTransform>
+                <CompositeTransform SkewX="0.781" TranslateX="0.736"/>
+            </StackPanel.RenderTransform>
             <TextBlock Text="Public Transport" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="Kiri WP 8" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Kiri WP 8" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Height="111"/>
         </StackPanel>
         <Popup x:Name="popup" Margin="6,0,-6,10" Grid.RowSpan="3">
             <Grid Background="Black" Height="756" Width="484">
@@ -53,8 +56,8 @@
             </Grid>
         </Popup>
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="2" Margin="14,10,10,114">
-            <TextBlock Text="From" Style="{StaticResource PhoneTextNormalStyle}" Margin="26,0,278,413" FontSize="50"/>
+        <Grid x:Name="ContentPanel" Margin="0,0,0,0" Grid.Row="1" Grid.RowSpan="2">
+            <TextBlock Text="From" Style="{StaticResource PhoneTextNormalStyle}" Margin="26,0,278,484" FontSize="50"/>
             <TextBlock Text="To" Style="{StaticResource PhoneTextNormalStyle}" Margin="26,137,361,274" FontSize="50"/>
             <TextBox x:Name="fromBox" HorizontalAlignment="Left" Margin="12,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="292" Height="76"/>
             <TextBox x:Name="toBox" HorizontalAlignment="Left" Margin="12,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="292" Height="76"/>
@@ -73,8 +76,10 @@
             </Button>
             <TextBlock HorizontalAlignment="Left" Margin="20,315,0,0" TextWrapping="Wrap" Text="Kota" VerticalAlignment="Top"/>
             <toolkit:ListPicker ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding ElementName=ConverterPage, Path=Locations}" Margin="71,296,220,-43" Name="cmbCurrFrom" SelectionChanged="changeCity"/>
-            <StackPanel x:Name="panelFrom" HorizontalAlignment="Stretch" Margin="0,-170,0,5" VerticalAlignment="Stretch" Visibility="Collapsed" Background="Black" Grid.ColumnSpan="2"/>
-            <StackPanel x:Name="panelTo" HorizontalAlignment="Stretch" Margin="0,-170,0,5" VerticalAlignment="Stretch"  Visibility="Collapsed" Background="Black" Grid.ColumnSpan="2"/>
+            <ProgressBar x:Name="progressFindPlace" Background="Black" HorizontalAlignment="Left" Height="19" Margin="0,-24,0,0" VerticalAlignment="Top" Width="456" RenderTransformOrigin="0.493,1.056"/>
+
+            <StackPanel x:Name="panelFrom" HorizontalAlignment="Stretch" Margin="0,-150,0,5" VerticalAlignment="Stretch" Visibility="Collapsed" Background="Black"/>
+            <StackPanel x:Name="panelTo" HorizontalAlignment="Stretch" Margin="0,-150,0,5" VerticalAlignment="Stretch"  Visibility="Collapsed" Background="Black" Grid.ColumnSpan="2"/>
         </Grid>
 
 
