@@ -23,14 +23,18 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="KIRI" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Pilih Lokasi Tujuan" FontSize="40" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Controls:Map x:Name="MyMapTo" ZoomLevel="14" Margin="-12,0,-13,0"/>
+        <Grid x:Name="ContentPanel" Margin="12,138,12,0" Grid.RowSpan="2">
+            <Controls:Map x:Name="MyMapTo" ZoomLevel="14" Margin="-12,27,-13,0"/>
+            <Button x:Name="ButtonPilih" Content="Pilih Lokasi" HorizontalAlignment="Left" Margin="-12,569,-13,-11" VerticalAlignment="Top" Width="481" Click="pilihLokasiTujuan" Visibility="Collapsed" Background="Black"/>
+
         </Grid>
+        <ProgressBar x:Name="loadingTo" Background="Black" HorizontalAlignment="Left" Height="19" Margin="12,142,0,0" VerticalAlignment="Top" Width="460"/>
+
     </Grid>
 
 </phone:PhoneApplicationPage>

@@ -35,10 +35,27 @@
         </StackPanel>
 
         <Controls:Map x:Name="route" ZoomLevel="14" Margin="-9,0,-8,48" Grid.Row="1"/>
-        <Button Content="Prev" Background="Gray" HorizontalAlignment="Left" Margin="137,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="77" Width="95">
+        <Button Name="prev" Content="Prev" Background="Gray" HorizontalAlignment="Left" Margin="137,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="77" Width="95" Click="setFocus"/>
+        <Button Name="next" Content="Next" Background="Gray" HorizontalAlignment="Left" Margin="251,0,0,0" VerticalAlignment="Top" Height="77" Width="95" Grid.Row="1" Click="setFocus"/>
+        <Button  HorizontalAlignment="Left" Background="Gray" Margin="389,0,0,0" VerticalAlignment="Top" Height="77" Width="81" Click="toMyLocation" Grid.Row="1">
+            <Image Source="icons/marker.png"></Image>
         </Button>
-        <Button Content="Next" Background="Gray" HorizontalAlignment="Left" Margin="251,0,0,0" VerticalAlignment="Top" Height="77" Width="95" Grid.Row="1"/>
-        <Button Content="Lihat List" HorizontalAlignment="Left" Margin="-17,549,-14,-16" VerticalAlignment="Top" Height="74" Width="511" Click="ShowList" Grid.Row="1"/>
+        <Button Content="Lihat List" HorizontalAlignment="Left" Margin="-21,549,-23,-16" VerticalAlignment="Top" Height="74" Width="524" Click="ShowList" Grid.Row="1"/>
+        <StackPanel x:Name="detailPanel" HorizontalAlignment="Left" Background="Black" Height="86" Margin="0,475,0,0" Grid.Row="1" VerticalAlignment="Top" Width="480" Visibility="Collapsed">
+            <TextBlock x:Name="detailShows" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="100" Width="478"/>
+        </StackPanel>
+        <StackPanel x:Name="routePanel" Margin="0,254,0,48" Grid.Row="1" Visibility="Collapsed">
+            <TextBlock Text="Rute Perjalanan"/>
+            <ListBox x:Name="listRoute"  Background="Black" FontSize="20" Height="282" Padding="5">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock TextWrapping="Wrap" Text="{Binding}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+
 
     </Grid>
 

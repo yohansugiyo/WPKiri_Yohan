@@ -93,9 +93,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ListBoxGenerator.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="CoordinateConventer.cs" />
     <Compile Include="ObjectFromJSON\Routingresult.cs" />
-    <Compile Include="CoordinateConverter.cs" />
     <Compile Include="LocationFinder.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">

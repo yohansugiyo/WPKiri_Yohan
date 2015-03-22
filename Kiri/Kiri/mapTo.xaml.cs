@@ -18,24 +18,35 @@ namespace Kiri
     public partial class mapTo : PhoneApplicationPage
     {
         private LocationFinder lFinder;
+        public string locationMapsTo;
 
         public mapTo()
         {
             this.lFinder = new LocationFinder();
+            this.locationMapsTo = "";
             InitializeComponent();
             ShowMyLocationOnTheMap();
+            MyMapTo.Tap += new EventHandler<System.Windows.Input.GestureEventArgs>(map_Tap);
         }
 
         private async void ShowMyLocationOnTheMap()
         {
-            // Get my current location.
+            loadingTo.IsIndeterminate = true;
             Geolocator myGeolocator = new Geolocator();
             Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
             Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
-            GeoCoordinate myGeoCoordinate = lFinder.myGeoCoordinate;
-
+            GeoCoordinate myGeoCoordinate = CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
             this.MyMapTo.Center = myGeoCoordinate;
             this.MyMapTo.ZoomLevel = 13;
+            loadingTo.IsIndeterminate = false;
+        }
+
+        private void map_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            ButtonPilih.Visibility = Visibility.Visible;
+            Point p = e.GetPosition(MyMapTo);
+            GeoCoordinate s = MyMapTo.ConvertViewportPointToGeoCoordinate(p);
+            MyMapTo.Layers.Clear();
 
             Ellipse myCircle = new Ellipse();
             myCircle.Fill = new SolidColorBrush(Colors.Blue);
@@ -43,18 +54,22 @@ namespace Kiri
             myCircle.Width = 20;
             myCircle.Opacity = 50;
 
-            // Create a MapOverlay to contain the circle.
             MapOverlay myLocationOverlay = new MapOverlay();
             myLocationOverlay.Content = myCircle;
-            myLocationOverlay.PositionOrigin = new Point(0.5, 0.5);
-            myLocationOverlay.GeoCoordinate = myGeoCoordinate;
+            myLocationOverlay.PositionOrigin = new Point(0, 0);
+            myLocationOverlay.GeoCoordinate = s;
 
-            // Create a MapLayer to contain the MapOverlay.
+            locationMapsTo = s.Latitude + ", " + s.Longitude;
+
             MapLayer myLocationLayer = new MapLayer();
             myLocationLayer.Add(myLocationOverlay);
 
-            // Add the MapLayer to the Map.
             MyMapTo.Layers.Add(myLocationLayer);
+        }
+
+        private void pilihLokasiTujuan(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MainPage.xaml?locMapsTo=" + locationMapsTo, UriKind.Relative));
         }
     }
 }
