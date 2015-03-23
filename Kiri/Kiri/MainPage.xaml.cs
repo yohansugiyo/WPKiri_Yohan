@@ -35,11 +35,7 @@ namespace Kiri
         private HttpClient httpClient = new HttpClient();
 
         private String locationFrom, locationTo;
-
-        private GeoCoordinate[] centerCity;
-        //String[,] city = { { "Auto", "Bandung", "Jakarta", "Malang", "Surabaya" }, { "Auto", "bdo", "cgk", "mlg", "sub" } };
-        private String[] city;
-        private String[] cityCode;
+        private City c;
         private String myCity;
 
         private BackgroundWorker backgroundWorker;
@@ -47,13 +43,14 @@ namespace Kiri
         public MainPage()
         {
             InitializeComponent();
-            this.city = new String[] { "Auto", "Bandung", "Jakarta", "Malang", "Surabaya" };
-            this.cityCode = new String[]{ "Auto", "bdo", "cgk", "mlg", "sub" };
-            this.centerCity = new GeoCoordinate[] { new GeoCoordinate(6.91474, 107.60981), new GeoCoordinate(-6.21154, 106.84517), new GeoCoordinate(0.0, 0.0), new GeoCoordinate(7.27421, 112.71908) };
-            this.cmbCurrFrom.ItemsSource = city;
-            this.myCity = "bdo";
-            this.protocol = new Protocol();
             this.lFinder = new LocationFinder();
+            this.c = new City();
+            this.cmbCurrFrom.ItemsSource = c.city;
+            int indexCity = c.getNearby(lFinder.coorLat, lFinder.coorLong);
+            this.cmbCurrFrom.SelectedIndex = indexCity;
+            this.myCity = c.cityCode[indexCity];
+            this.protocol = new Protocol();
+            
             this.locationFrom = "";
             this.locationTo = "";
             ShowSplash();
@@ -102,7 +99,7 @@ namespace Kiri
                 if ((!queryFrom.Equals("Here") || !queryFrom.Equals("Maps")) && locationFrom.Equals("")) //Check get location from GPS
                 {
                     //Reference zhttps://msdn.microsoft.com/en-us/library/hh191443.aspx
-                    Task<string> requestFromTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom)));
+                    Task<string> requestFromTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom, myCity)));
                     requestFrom = await requestFromTask;
                     from = new RootObjectSearchPlace();
                     from = Deserialize<RootObjectSearchPlace>(requestFrom); //Mengubah String menjadi objek
@@ -110,7 +107,7 @@ namespace Kiri
                 }
                 if ((!queryTo.Equals("Here") || !queryTo.Equals("Maps")) && locationTo.Equals("")) //Check get location from GPS
                 {
-                    Task<string> requestToTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo)));
+                    Task<string> requestToTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo, myCity)));
                     requestTo = await requestToTask;
                     to = new RootObjectSearchPlace();
                     to = Deserialize<RootObjectSearchPlace>(requestTo);//Mengubah String menjadi objek
@@ -142,11 +139,11 @@ namespace Kiri
 
         private void changeMapFrom(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/mapFrom.xaml", UriKind.Relative));    
+            NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=from", UriKind.Relative));    
         }
         private void changeMapTo(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/mapTo.xaml", UriKind.Relative));    
+            NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=to", UriKind.Relative));    
         }
 
         private void getHereFrom(object sender, RoutedEventArgs e)
@@ -350,7 +347,7 @@ namespace Kiri
 
             if (!this.locationFrom.Equals("") && !this.locationTo.Equals(""))
             {
-                NavigationService.Navigate(new Uri("/ShowRoute.xaml?start=" + locationFrom + "&finish=" + locationTo + "", UriKind.Relative));
+                NavigationService.Navigate(new Uri("/Route.xaml?start=" + locationFrom + "&finish=" + locationTo + "", UriKind.Relative));
             }
         }
 
@@ -417,19 +414,6 @@ namespace Kiri
             {
                 this.popup.IsOpen = false;
             });
-        }
-
-        private void getNearby() {
-            GeoCoordinate deviceLocation = new GeoCoordinate(lFinder.coorLat, lFinder.coorLong);
-            double distance = Double.MaxValue;
-            int noCity = -1;
-            for (int c = 0; c < centerCity.Length; c++)
-            {
-                if (deviceLocation.GetDistanceTo(centerCity[c])<distance) {
-                    distance = deviceLocation.GetDistanceTo(centerCity[c]);
-                }
-            }
-            //MessageBox.Show(noCity+"");
         }
 
         // Sample code for building a localized ApplicationBar

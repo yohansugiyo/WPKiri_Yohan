@@ -101,11 +101,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="mapFrom.xaml.cs">
-      <DependentUpon>mapFrom.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="mapTo.xaml.cs">
-      <DependentUpon>mapTo.xaml</DependentUpon>
+    <Compile Include="Map.xaml.cs">
+      <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Protocol.cs" />
@@ -117,8 +114,8 @@
     <Compile Include="ObjectFromJSON\RootObjectFindRoute.cs" />
     <Compile Include="ObjectFromJSON\RootObjectSearchPlace.cs" />
     <Compile Include="ObjectFromJSON\Searchresult.cs" />
-    <Compile Include="ShowRoute.xaml.cs">
-      <DependentUpon>ShowRoute.xaml</DependentUpon>
+    <Compile Include="Route.xaml.cs">
+      <DependentUpon>Route.xaml</DependentUpon>
     </Compile>
     <Compile Include="test.xaml.cs">
       <DependentUpon>test.xaml</DependentUpon>
@@ -133,15 +130,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="mapFrom.xaml">
+    <Page Include="Map.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="mapTo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ShowRoute.xaml">
+    <Page Include="Route.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

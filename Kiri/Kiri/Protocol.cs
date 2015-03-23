@@ -122,10 +122,10 @@ namespace Kiri
             return uri;
         }
 
-        public string getSearchPlace(string query)
+        public string getSearchPlace(string query,string region)
         {
             
-            String uri = handle + "version=" + version + "&mode=" + modeFind + "&region=" + "bdo" + "&querystring=" + query + "&apikey=" + apiKey;
+            String uri = handle + "version=" + version + "&mode=" + modeFind + "&region=" + region + "&querystring=" + query + "&apikey=" + apiKey;
             return uri;
         }
 
