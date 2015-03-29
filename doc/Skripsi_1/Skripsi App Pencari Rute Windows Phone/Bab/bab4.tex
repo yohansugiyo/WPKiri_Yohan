@@ -194,51 +194,75 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 % Antarmuka Main
 \begin{figure}[h]
 	\centering
-		\includegraphics[scale=0.2]{Gambar/antarmuka/home}
-	\caption{Antarmukan \textit{MainPage}}
+		\includegraphics[scale=0.6]{Gambar/perancangan_antarmuka/Home}
+	\caption{Antarmuka \textit{MainPage}}
 	\label{fig:Antarmuka MainPage}
 \end{figure}
 
-\hspace{0.5cm} \textit{Antarmuka Kelas MainPage} 
+\hspace{0.5cm} Antarmuka Kelas Map pada gambar ~\ref{fig:Antarmuka MainPage} merupakan tampilan awal saat aplikasi dijalankan. Antarmuka Kelas Map memiliki dua buah masukan, lima buah tombol, dan satu menu daftar. Berikut adalah detailnya.
 
-%Kelas MapFrom
-\subsection{Antarmuka Kelas \textit{MapFrom}}
-\label{lab:Antarmuka Kelas MapFrom}
+Dua buah masukan yaitu.
+\begin{itemize}
+	\item Masukan lokasi asal\\
+	Merupakan masukan lokasi asal mula pengguna ingin melakukan perjalanan.
+	\item Masukan lokasi tujuan\\
+	Merupakan masukan lokasi tujuan berhentinya perjalanan.
+\end{itemize}
 
-% Antarmuka Main
+Lima buah tombol yaitu. 
+\begin{itemize}
+	\item Tombol map untuk lokasi asal\\
+	Jika tombol ditekan maka akan berpindah ke kelas map untuk memilih lokasi asal di peta. Jika di kelas Map pengguna memilih lokasi maka pada masukan lokasi asal terdapat tulisan "Maps".
+	\item Tombol here untuk lokasi asal\\
+	Jika tombol ditekan maka lokasi asal adalah lokasi perangkat saat tombol ditekan dan masukan lokasi asal menjadi "here".
+	\item Tombol map untuk lokasi tujuan\\
+	Jika tombol ditekan maka akan berpindah ke kelas map untuk memilih lokasi tujuan di peta. Jika di kelas Map pengguna memilih lokasi maka pada masukan lokasi tujuan terdapat tulisan "Maps".
+	\item Tombol here untuk lokasi tujuan\\
+	Jika tombol ditekan maka lokasi tujuan adalah lokasi perangkat saat tombol ditekan dan masukan lokasi tujuan menjadi "here".
+	\item Tombol find\\
+	Jika tombol ditekan maka akan menampilkan daftar tempat asal dan tempat tujuan lalu mengarahkan ke Kelas Route.
+\end{itemize}
+
+Satu buah daftar yaitu.
+\begin{itemize}
+	\item Daftar kota yang tersedia\\
+	Merupkan daftar kota yang tersedia (kota yang rute angkutan umumnya dapat ditemukan dengan aplikasi ini). Disaat aplikasi dijalankan maka daftar akan menunjuk ke kota terdekat tempat perangkat berada.
+\end{itemize}
+
+%Kelas Map
+\subsection{Antarmuka Kelas \textit{Map}}
+\label{lab:Antarmuka Kelas Map}
+
+% Antarmuka Map
 \begin{figure}[h]
 	\centering
-		\includegraphics[scale=0.2]{Gambar/antarmuka/map}
-	\caption{Antarmukan \textit{MainPage}}
-	\label{fig:Antarmuka MainPage}
+		\includegraphics[scale=0.6]{Gambar/perancangan_antarmuka/Map}
+	\caption{Antarmuka \textit{Map}}
+	\label{fig:Antarmuka Map}
 \end{figure}
 
-\hspace{0.5cm} \textit{Antarmuka Kelas MapFrom} 
+\hspace{0.5cm} Antarmuka Kelas Map pada gambar ~\ref{fig:Antarmuka Map} merupakan antarmuka untuk menunjuk lokasi pada peta. Terdapat satu buah tombol yang akan dimunculkan jika pengguna sudah memilih lokasi. Jika tombol ditekan maka kordinat lokasi akan di simpan dan dikirim pada kelas MainPage dan halaman akan diarahkan ke kelas MainPage.
 
-%Kelas MapTo
-\subsection{Antarmuka Kelas \textit{MapTo}}
-\label{lab:Antarmuka Kelas MapFrom}
+%Kelas Route
+\subsection{Antarmuka Kelas \textit{Route}}
+\label{lab:Antarmuka Kelas Route}
 
 % Antarmuka MapTo
 \begin{figure}[h]
 	\centering
-		\includegraphics[scale=0.2]{Gambar/antarmuka/map}
-	\caption{Antarmukan \textit{MapTo}}
-	\label{fig:Antarmuka MapTo}
+		\includegraphics[scale=0.6]{Gambar/perancangan_antarmuka/Route}
+	\caption{Antarmuka \textit{Route}}
+	\label{fig:Antarmuka Route}
 \end{figure}
 
-\hspace{0.5cm} \textit{Antarmuka Kelas MapTo} 
-
-%Kelas FindRoute
-\subsection{Antarmuka Kelas \textit{FindRoute}}
-\label{lab:Antarmuka Kelas FindRoute}
-
-% Antarmuka MapTo
-%\begin{figure}[h]
-%	\centering
-%		\includegraphics[scale=0.2]{Gambar/antarmuka/map}
-%	\caption{Antarmukan \textit{FindRoute}}
-%	\label{fig:Antarmuka FindRoute}
-%\end{figure}
-
-\hspace{0.5cm} \textit{Antarmuka Kelas FindRoute} 
+\hspace{0.5cm} Antarmuka Kelas Route pada gambar ~\ref{fig:Antarmuka Route} merupakan antarmuka untuk melihat rute dari lokasi asal ke lokasi tujuan dalam bentuk daftar maupun peta. Terdapat empat buah tombol pada antarmuka Kelas Route. Berikut tombol yang terdapat pada Kelas Route. 
+\begin{itemize}
+	\item Tombol prev\\
+	Jika tombol ditekan maka akan menunjuk titik sebelumnya pada rute peta.
+	\item Tombol next\\
+	Jika tombol ditekan maka akan menunjuk titik setelahnya pada rute peta.
+	\item Tombol here\\
+	Jika tombol ditekan maka akan menunjuk lokasi perangkat berada pada peta.
+	\item Tombol Show List\\
+	Jika tombol ditekan maka akan menunjuk atau menyembunyikan daftar rute.
+\end{itemize}
