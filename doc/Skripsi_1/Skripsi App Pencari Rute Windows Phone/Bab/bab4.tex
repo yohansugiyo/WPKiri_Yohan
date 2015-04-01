@@ -1,7 +1,36 @@
 \chapter{Perancangan}
 \label{chap:Perancangan}
 
-Pada bab 4 akan dibahas mengenai perancangan seperti kelas secara rinci dan perancangan antarmuka.
+Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence} kelas secara rinci dan perancangan antarmuka.
+
+%Perancangan Diagram Sequence
+\section{Diagram \textit{Sequence}}
+\label{lab:Diagram Sequence}
+\hspace{0.5cm} Diagram \textit{sequence} merupakan diagram yang menggambarkan interkasi antar objek dalam suatu skenario. Gambar diagram \textit{sequence} dapat dilihat pada gambar ~ref{fig:sequence lokasi perangkat} sampai ~ref{fig:sequence rute}. 
+
+% Sequence mendapat lokasi perangkat
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.4]{Gambar/sequence/MendapatkanKordinatPerangkat}
+	\caption{Diagram \textit{sequence} Mendapatkan Kordinat perangkat}
+	\label{fig:sequence lokasi perangkat}
+\end{figure}
+
+% Sequence mendapat lokasi dari peta
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.4]{Gambar/sequence/MendapatkanKordinatDiMap}
+	\caption{Diagram \textit{sequence} Mendapatkan Kordinat pada Peta}
+	\label{fig:sequence lokasi pada peta}
+\end{figure}
+
+% Sequence mendapat rute
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.4]{Gambar/sequence/MendapatkanRute}
+	\caption{Diagram \textit{sequence} Mendapatkan Rute}
+	\label{fig:sequence rute}
+\end{figure}
 
 %Perancangan Kelas
 \section{Perancangan Kelas}
@@ -11,10 +40,12 @@ Pada bab 4 akan dibahas mengenai perancangan seperti kelas secara rinci dan pera
 % Kelas
 \begin{figure}[h]
 	\centering
-		\includegraphics[scale=0.2]{Gambar/useCase_dan_Class/class4}
+		\includegraphics[scale=0.3]{Gambar/useCase_dan_Class/class4}
 	\caption{Diagram Kelas}
 	\label{fig:kelas}
 \end{figure}
+
+
 
 %Kelas PhoneApplicationPage
 \subsection{Kelas \textit{PhoneApplicationPage}}
@@ -29,31 +60,32 @@ Pada bab 4 akan dibahas mengenai perancangan seperti kelas secara rinci dan pera
 	\item protocol bertipe Protocol untuk mendapatkan URL yang digunakan dalam permintaan ke Kiri API.
 	\item lFinder bertipe LocationFinder yang akan menampung objek untuk pencarian lokasi.
 	\item httpClient bertipe HttpClient merupakan objek yang akan mengurus permintaan dan kembalian dari Kiri API.
-	\item listPlaceFrom bertipe ListBox untuk menampung dan menampilkan hasil pencarian lokasi terkait dari lokasi awal.
-	\item listPlaceTo bertipe ListBox untuk menampung dan menampilkan hasil pencarian lokasi terkait dari lokasi tujuan.
-	\item locFrom bertipe string untuk menampung kordinat awal.
-	\item locTo bertipe string untuk menampung kordinat tujuan.
-	\item centerOfBandung bertipe Point untuk menampung pusat kordinat kota Bandung.
-	\item centerOfJakarta bertipe Point untuk menampung pusat kordinat kota Jakarta.
-	\item centerOfMalang bertipe Point untuk menampung pusat kordinat kota Malang.
-	\item centerOfSurabaya bertipe Point untuk menampung pusat kordinat kota Surabaya.
+	\item locationFrom bertipe string untuk menampung kordinat awal.
+	\item locationTo bertipe string untuk menampung kordinat tujuan.
 	\item city bertipe kumpulan String untuk menampung kota yang didukung oleh layanan Kiri.
 	\item myCity bertipe String untuk menampung kode kota sesuai Kode Penerbangan IATA.
+	\item backgroundWorker bertipe BackgroundWorker untuk mengurus pencarian lokasi di belakang layar.
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
-	\item Metode MainPage digunakan sebagai konstruktor pada kelas MainPage. 
-	\item Metode startRoute digunakan untuk mendapatkan masukan pengguna lalu mengkalkulasi masukan tersebut menjadi kordinat asal dan tujuan lalu mengirimkannya ke kelas ShowRoute.
+	\item Konstruktor MainPage digunakan sebagai konstruktor pada kelas MainPage.
+	\item Metode OnNavigatedTo digunakan untuk mendapatkan lokasi dari peta dengan masukan NavigationEventArgs.
+	\item Metode startRoute digunakan untuk mendapatkan masukan pengguna lalu mengkalkulasi masukan tersebut menjadi kordinat asal dan tujuan lalu mengirimkannya ke kelas Route.
 	\item Metode toObjectSearchPlace digunakan untuk membuat objek RootObjectSearchPlace dengan masukan uri yang bertipe string.
 	\item Metode changeMapFrom digunakan untuk berpindah ke halaman mapFrom.
 	\item Metode changeMapTo digunakan untuk berpindah ke halaman mapTo.
-	\item Metode getHere digunakan untuk mendapatkan kordinat dimana perangkat berada.
+	\item Metode getHereFrom digunakan untuk mendapatkan kordinat dimana perangkat berada dan menyimpan nilainya di atribut locationFrom.
+	\item Metode getHereTo digunakan untuk mendapatkan kordinat dimana perangkat berada dan menyimpan nilainya di atribut locationTo.
 	\item Metode getListItem digunakan untuk membuat listBox lalu menampilkan ke pengguna. 
-	\item Metode ListBoxSelectedPlaceFrom digunakan untuk mendapatkan tempat asal yang dipilih pengguna.
-	\item Metode ListBoxSelectedPlaceTo digunakan untuk mendapatkan tempat tujuan yang dipilih pengguna.
-	\item Metode searchCoordinatePlace digunakan untuk mencari kordinat dari tempat pilihan pengguna.
-	\item Metode changeCity digunakan untuk mengubah kota tujuan dari pencarian.
+	\item Metode ListBoxSelectedPlace digunakan untuk mendapatkan tempat asal yang dipilih pengguna. Metode ini memiliki parameter objek dan \textit{event SelectionChangedEventArgs}. 
+	\item Metode searchCoordinatePlace digunakan untuk mencari kordinat dari tempat pilihan pengguna. Metode ini memiliki parameter ListBox dan tempat yang dipilih dalam bentuk string.
+	\item Metode changeCity digunakan untuk mengubah kota tujuan dari pencarian. Metode ini memiliki parameter objek dan \textit{event SelectionChangedEventArgs}.
+	\item Metode showCity digunakan untuk mencari kota yang paling dekat dengan lokasi perangkat.
+	\item Metode ShowSplash digunakan untuk menampilkan tampilan awal untuk proses inisialisasi aplikasi.
+	\item Metode StartLoadingData digunakan untuk memanggil BackgroundWorker. BackgroundWorker digunakan untuk melakukan aksi di belakang layar.
+	\item Metode backgroundWorker\_DoWork digunakan untuk melakukan pemanggilan aksi di belakang layar.
+	\item Metode backgroundWorker\_RunWorkerCompleted digunakan untuk melakukan pemanggilan saat BackgroundWorker selesai melakukan tugasnya.
 \end{enumerate}
 
 %Kelas Geocoordinate
