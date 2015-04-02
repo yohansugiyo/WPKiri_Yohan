@@ -16,6 +16,8 @@ Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence} k
 	\label{fig:sequence lokasi perangkat}
 \end{figure}
 
+\hspace{0.5cm} Diagram ~\ref{fig:sequence lokasi perangkat} merupakan diagram \textit{sequence} untuk memilih lokasi dengan lokasi perangkat berada. Diagram menunjukan bahwa setelah aplikasi dibuka maka aplikasi akan mencari dahulu lokasi perangkat. Lalu setelah aplikasi terbuka jika pengguna ingin memilih lokasi tersebut sebagai lokasi asal maka pengguna harus menekan tombol "here". Setelah tombol "here" ditekan maka kelas MainPage akan mengambil nilai \textit{Latitude} dan nilai \textit{Longitude} dari kelas LocatonFinder. Setelah lokasi didapatkan maka akan muncul tulisan "here" pada masukan di kelas MainPage.
+
 % Sequence mendapat lokasi dari peta
 \begin{figure}[h]
 	\centering
@@ -24,13 +26,22 @@ Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence} k
 	\label{fig:sequence lokasi pada peta}
 \end{figure}
 
+\hspace{0.5cm} Diagram ~\ref{fig:sequence lokasi pada peta} merupakan diagram \textit{sequence} untuk memilih lokasi. Diagram menunjukan bahwa setelah aplikasi dibuka maka pengguna dapat menekan tombol "map". Setelah tombol "map" ditekan maka halaman akan dialihkan ke kelas Map. Di kelas "Map" pengguna dapat memilih lokasi dengan memilih lokasi pada peta dan memanggil \textit{method map\_tap}, lalu setelah pengguna memilih tempat pengguna akan menekan tombol Pilih Lokasi yang akan memanggil \textit{method pilihLokasi}. Lokasi yang dipilih pengguna akan disimpan di kelas MainPage dan pada masukan akan tertulis "map". 
+
+\hspace{0.5cm} Diagram ~\ref{fig:sequence rute} merupakan diagram \textit{sequence} untuk mencari rute. Diagram menunjukan bahwa setelah aplikasi dibuka maka aplikasi akan melakukan inisialisasi. Selanjutnya pengguna juga dapat memasukan kata kunci untuk masukan asal dan tujuan (masukan dapat juga dari peta atau lokasi perangkat sesuai diagram ~\ref{fig:sequence lokasi perangkat} dan ~\ref{fig:sequence lokasi pada peta}) lalu memanggil \textit{method startRoute}. Jika masukan yang didapat berupa kata kunci maka akan dilakukan pemeriksaan apakah kordinat untuk kata kunci tersebut tersedia. Pemeriksaan dilakukan dengan melakukan pemanggilan Kiri API. Tahap pemanggilan meliputi pemangilan \textit{method GetStringAsync} lalu mengjadikan objek kembaliannya dengan \textit{method Deselialize}. Jika sudah didapat dan hasilnya lebih dari satu maka akan dipanggil \textit{method getListItem} yang akan menampilkan daftar pilihan ke pengguna untuk dipilih. Pengguna dapat memilih tempat sesuai tempat asal maupun tujuan yang diinginkan. Setelah lokasi asal dan lokasi tujuan didapat maka kelas MainPage akan mengarahkan ke kelas Route untuk menampilkan hasilnya. Kelas Route akan memanggil \textit{method OnNavigatedTo} yang bertujuan untuk mendapatkan lokasi asal dan lokasi tujuan. Setelah itu akan memanggil \textit{method Find} lalu mengembalikan rute yang ditemukan kepada pengguna.
+
+\newpage
+
 % Sequence mendapat rute
 \begin{figure}[h]
 	\centering
-		\includegraphics[scale=0.4]{Gambar/sequence/MendapatkanRute}
+		\includegraphics[scale=0.5]{Gambar/sequence/MendapatkanRute}
 	\caption{Diagram \textit{sequence} Mendapatkan Rute}
 	\label{fig:sequence rute}
 \end{figure}
+
+
+\newpage
 
 %Perancangan Kelas
 \section{Perancangan Kelas}
@@ -40,11 +51,10 @@ Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence} k
 % Kelas
 \begin{figure}[h]
 	\centering
-		\includegraphics[scale=0.3]{Gambar/useCase_dan_Class/class4}
+		\includegraphics[scale=0.2]{Gambar/useCase_dan_Class/class4}
 	\caption{Diagram Kelas}
 	\label{fig:kelas}
 \end{figure}
-
 
 
 %Kelas PhoneApplicationPage
@@ -171,7 +181,7 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
 	\item getTypeTransport merupakan metode yang akan mengembalikan alamat dari gambar transportasi. Metode ini memiliki 2 parmeter yaitu means sebagai tipe transportasi dan meansDetail sebagai nama kendaraan.
-	\item getSearchPlace merupakan metode yang akan mengembalikan URI pencarian lokasi sesuai paramater. Parameter yang dimaksud adalah \textit{query} masukan pengguna.
+	\item getSearchPlace merupakan metode yang akan mengembalikan URI pencarian lokasi sesuai paramater. Parameter yang dimaksud adalah kata kunci masukan pengguna.
 	\item getFindRoute merupakan metode yang akan mengembalikan URI pencarian rute sesuai parameter. Parameter yang dimaksud adalah kordinat lokasi asal dan kordinat lokasi tujuan yang bertipe string.
 \end{enumerate}
 
@@ -261,6 +271,16 @@ Satu buah daftar yaitu.
 	Merupkan daftar kota yang tersedia (kota yang rute angkutan umumnya dapat ditemukan dengan aplikasi ini). Disaat aplikasi dijalankan maka daftar akan menunjuk ke kota terdekat tempat perangkat berada.
 \end{itemize}
 
+%Antarmuka list Tempat
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.6]{Gambar/perancangan_antarmuka/ListTempat}
+	\caption{Antarmuka Daftar Tempat}
+	\label{fig:Antarmuka Daftar Tempat}
+\end{figure}
+
+\hspace{0.5cm} Antarmuka Daftar Tempat pada gambar ~\ref{fig:Antarmuka Daftar Tempat} merupakan daftar yang akan dimunculkan jika pengguna memasukan kata kunci pada pencarian tempat asal dan tempat tujuan. Daftar akan muncul jika didapat kembalian hasil pencarian lebih dari satu.
+
 %Kelas Map
 \subsection{Antarmuka Kelas \textit{Map}}
 \label{lab:Antarmuka Kelas Map}
@@ -279,7 +299,7 @@ Satu buah daftar yaitu.
 \subsection{Antarmuka Kelas \textit{Route}}
 \label{lab:Antarmuka Kelas Route}
 
-% Antarmuka MapTo
+% Antarmuka route
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.6]{Gambar/perancangan_antarmuka/Route}
@@ -298,3 +318,13 @@ Satu buah daftar yaitu.
 	\item Tombol Show List\\
 	Jika tombol ditekan maka akan menunjuk atau menyembunyikan daftar rute.
 \end{itemize}
+
+% Antarmuka list route
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.6]{Gambar/perancangan_antarmuka/ListRoute}
+	\caption{Antarmuka Rute dalam bentuk Daftar}
+	\label{fig:Antarmuka listRoute}
+\end{figure}
+
+\hspace{0.5cm} Antarmuka rute dalam bentuk daftar pada gambar ~\ref{fig:Antarmuka listRoute} merupakan antarmuka untuk melihat rute secara lebih jelas dengan keterangan tahap demi tahap disertai jarak dan waktu perjalanan. Antarmuka daftar dapat dilihat atau disembunyikan sesuai keinginan pengguna namun saat kelas Rute dibuka antarmuka daftar rute akan disembunyikan.
