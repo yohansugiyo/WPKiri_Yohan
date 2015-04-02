@@ -46,11 +46,7 @@ namespace Kiri
             this.lFinder = new LocationFinder();
             this.c = new City();
             this.cmbCurrFrom.ItemsSource = c.city;
-            int indexCity = c.getNearby(lFinder.coorLat, lFinder.coorLong);
-            this.cmbCurrFrom.SelectedIndex = indexCity;
-            this.myCity = c.cityCode[indexCity];
             this.protocol = new Protocol();
-            
             this.locationFrom = "";
             this.locationTo = "";
             ShowSplash();
@@ -73,6 +69,10 @@ namespace Kiri
             {
                 toBox.Text = "Maps";
             }
+            /*
+             panelFrom.Visibility = Visibility.Collapsed;
+             panelTo.Visibility = Visibility.Collapsed;
+             */
         }
 
         private async void startRoute(object sender, RoutedEventArgs e)
@@ -95,23 +95,45 @@ namespace Kiri
             if (!queryFrom.Equals("") && !queryTo.Equals(""))
             {
                 //Validate From
+                Boolean routeStatus = true;
                 progressFindPlace.IsIndeterminate = true;
+                //Get place from query
                 if ((!queryFrom.Equals("Here") || !queryFrom.Equals("Maps")) && locationFrom.Equals("")) //Check get location from GPS
                 {
                     //Reference zhttps://msdn.microsoft.com/en-us/library/hh191443.aspx
                     Task<string> requestFromTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom, myCity)));
                     requestFrom = await requestFromTask;
                     from = new RootObjectSearchPlace();
-                    from = Deserialize<RootObjectSearchPlace>(requestFrom); //Mengubah String menjadi objek
-                    getListItem(from,"from"); //Show Listbox for location From
+                    from = JsonConvert.DeserializeObject<RootObjectSearchPlace>(requestFrom); //Mengubah String menjadi objek
+                    if (from.searchresult.Count() == 0)
+                    {
+                        MessageBox.Show("Pencarian untuk kata " + fromBox.Text + " tidak ditemukan");
+                        routeStatus = false;
+                    }
                 }
                 if ((!queryTo.Equals("Here") || !queryTo.Equals("Maps")) && locationTo.Equals("")) //Check get location from GPS
                 {
                     Task<string> requestToTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo, myCity)));
                     requestTo = await requestToTask;
                     to = new RootObjectSearchPlace();
-                    to = Deserialize<RootObjectSearchPlace>(requestTo);//Mengubah String menjadi objek
-                    getListItem(to, "to");  //Show Listbox for location To
+                    to = JsonConvert.DeserializeObject<RootObjectSearchPlace>(requestTo);//Mengubah String menjadi objek
+                    if (to.searchresult.Count() == 0)
+                    {
+                        MessageBox.Show("Pencarian untuk kata " + toBox.Text + " tidak ditemukan");
+                        routeStatus = false;
+                    }
+                }
+                //Check Query
+                if (routeStatus == true)
+                {
+                    this.findRoute();
+                    if(locationFrom.Equals("")){
+                        getListItem(from, "from"); //Show Listbox for location From
+                    }
+                    if (locationTo.Equals(""))
+                    {
+                        getListItem(to, "to");  //Show Listbox for location To
+                    }
                 }
                 progressFindPlace.IsIndeterminate = false;
             }
@@ -122,7 +144,7 @@ namespace Kiri
             //getListItem(from);
             //getListItem(to);
         }
-
+        /*
         public RootObjectSearchPlace toObjectSearchPlace(string uri) {
             RootObjectSearchPlace sp = null;
             Task<string> request = httpClient.GetStringAsync(new Uri(uri));
@@ -136,7 +158,7 @@ namespace Kiri
             });
             return sp;
         }
-
+        */
         private void changeMapFrom(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=from", UriKind.Relative));    
@@ -148,18 +170,13 @@ namespace Kiri
 
         private void getHereFrom(object sender, RoutedEventArgs e)
         {
-            lFinder.OneShotLocation_Click();
-            //MessageBox.Show(lFinder.coorLat + " " + lFinder.coorLong);
-            locationFrom = lFinder.coorLat + ", " + lFinder.coorLong;
-            MessageBox.Show(locationFrom);
+            locationFrom = lFinder.coorLat + "," + lFinder.coorLong;
             fromBox.Text = "Here";
         }
 
         private void getHereTo(object sender, RoutedEventArgs e)
         {
-            lFinder.OneShotLocation_Click();
-            //MessageBox.Show(lFinder.coorLat + " " + lFinder.coorLong);
-            locationTo = lFinder.coorLat + ", " + lFinder.coorLong;
+            locationTo = lFinder.coorLat + "," + lFinder.coorLong;
             toBox.Text = "Here";
         }
 
@@ -186,67 +203,7 @@ namespace Kiri
         }
 
         //zhttps://social.msdn.microsoft.com/forums/windowsapps/en-us/7db73c64-86f7-4c43-9fd4-faa03421ea21/popup-blocking-listbox-selection-changed
-        /*
-        private void getListItem(RootObjectSearchPlace requestFrom, RootObjectSearchPlace requestTo)
-        {
-            //ListBox listFrom = new ListBox();
-            //ListBox listTo = new ListBox();
-            Dispatcher.BeginInvoke(new Action(delegate
-            {
-                if (requestFrom.status.ToString().Equals("ok") || requestTo.status.ToString().Equals("ok")) //check status
-                {
-                    if (locationFrom.Equals("")) // Check exist coordinate if not exist check result 
-                    {
-                        if (requestFrom.searchresult.Count() == 0)
-                        { //check From search
-                            MessageBox.Show("Pencarian untuk kata " + fromBox.Text + " tidak ditemuakan");
-                        }
-                        else if (requestFrom.searchresult.Count() == 1)
-                        {
-                            this.locationFrom = requestFrom.searchresult[0].location.ToString();
-                        }
-                        else
-                        {
-                            //LayoutRoot.Children.Add(getListItem(requestFrom));
-                            for (int c = 0; c < requestFrom.searchresult.Count; c++)
-                            {
-                                listPlaceFrom.Items.Add(requestFrom.searchresult[c].placename);
-                            }
-                            listPlaceFrom.DataContext = requestFrom.searchresult;
-                            listPlaceFrom.SelectionChanged += ListBoxSelectedPlace;
-                            //LayoutRoot.Children.Add(listPlaceFrom);
-                            panelFrom.Visibility = Visibility.Visible;
-                        }
-                    }
-
-                    if (requestTo.searchresult.Count() == 0)
-                    { //check From search
-                        MessageBox.Show("Pencarian untuk kata " + toBox.Text + " tidak ditemuakan");
-                    }
-                    else if (requestTo.searchresult.Count() == 1)
-                    {
-                        this.locationTo = requestTo.searchresult[0].location.ToString();
-                    }
-                    else
-                    {
-                        //LayoutRoot.Children.Add(getListItem(requestTo));
-                        for (int c = 0; c < requestTo.searchresult.Count; c++)
-                        {
-                            listPlaceTo.Items.Add(requestTo.searchresult[c].placename);
-                        }
-                        listPlaceTo.DataContext = requestTo.searchresult;
-                        listPlaceTo.SelectionChanged += ListBoxSelectedPlace;
-                        //LayoutRoot.Children.Add(listPlaceTo);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Error!");
-                }
-            }));
-            
-        }
-         */
+        
         private void getListItem(RootObjectSearchPlace request,String forRequest)
         {
             //ListBox listFrom = new ListBox();
@@ -255,18 +212,7 @@ namespace Kiri
             {
                 if (request.status.ToString().Equals("ok")) //check status
                 {
-                    if (request.searchresult.Count() == 0)
-                    { //check From search
-                        if (forRequest.Equals("from"))
-                        {
-                            MessageBox.Show("Pencarian untuk kata " + fromBox.Text + " tidak ditemuakan");
-                        }
-                        else 
-                        {
-                            MessageBox.Show("Pencarian untuk kata " + toBox.Text + " tidak ditemuakan");
-                        }
-                    }
-                    else if (request.searchresult.Count() == 1)
+                    if (request.searchresult.Count() == 1)
                     {
                         if (forRequest.Equals("from"))
                         {
@@ -345,10 +291,7 @@ namespace Kiri
                 panelTo.Visibility = Visibility.Collapsed;
             }
 
-            if (!this.locationFrom.Equals("") && !this.locationTo.Equals(""))
-            {
-                NavigationService.Navigate(new Uri("/Route.xaml?start=" + locationFrom + "&finish=" + locationTo + "", UriKind.Relative));
-            }
+            this.findRoute();
         }
 
         public string searchCoordinatePlace(List<Searchresult> listResult, string place) { //Pasti ketemu
@@ -362,6 +305,14 @@ namespace Kiri
                 }
             }
             return coordinate;
+        }
+
+        public void findRoute()
+        {
+            if (!this.locationFrom.Equals("") && !this.locationTo.Equals(""))
+            {
+                NavigationService.Navigate(new Uri("/Route.xaml?start=" + locationFrom + "&nameFrom=" + fromBox.Text + "&finish=" + locationTo + "&nameTo=" + toBox.Text, UriKind.Relative));
+            }
         }
 
         private void changeCity(object sender, SelectionChangedEventArgs e)
@@ -389,6 +340,15 @@ namespace Kiri
             }
         }
 
+        public void showCity() {
+            int indexCity = -1;
+            while (indexCity == -1)
+            {
+                indexCity = c.getNearby(lFinder.coorLat, lFinder.coorLong);
+            }
+            this.myCity = c.cityCode[indexCity];
+        }
+
         private void ShowSplash()
         {
             this.popup.IsOpen = true;
@@ -405,13 +365,14 @@ namespace Kiri
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            Thread.Sleep(3000);
+            showCity();
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.Dispatcher.BeginInvoke(() =>
             {
+                this.cmbCurrFrom.SelectedIndex = c.getIndexFromCityCode(myCity);
                 this.popup.IsOpen = false;
             });
         }

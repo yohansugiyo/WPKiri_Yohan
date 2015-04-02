@@ -9,7 +9,6 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Device.Location;
 
-using System.Device.Location; // Provides the GeoCoordinate class.
 using Windows.Devices.Geolocation; //Provides the Geocoordinate class.
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -18,20 +17,19 @@ using Microsoft.Phone.Maps.Toolkit;
 
 namespace Kiri
 {
-    public partial class mapFrom : PhoneApplicationPage
+    public partial class Map : PhoneApplicationPage
     {
         private LocationFinder lFinder;
-        public string locationMapsFrom;
-        public string locationMapsTo;
+        public string location;
         public string fromMapFor;
 
-        public mapFrom()
+        public Map()
         {
             this.lFinder = new LocationFinder();
-            this.locationMapsFrom = "";
+            this.location = "";
             InitializeComponent();
             ShowMyLocationOnTheMap();
-            MyMapFrom.Tap += new EventHandler<System.Windows.Input.GestureEventArgs>(map_Tap);
+            MyMap.Tap += new EventHandler<System.Windows.Input.GestureEventArgs>(map_Tap);
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -50,17 +48,17 @@ namespace Kiri
             Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
             Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
             GeoCoordinate myGeoCoordinate = CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
-            this.MyMapFrom.Center = myGeoCoordinate;
-            this.MyMapFrom.ZoomLevel = 13;
+            this.MyMap.Center = myGeoCoordinate;
+            this.MyMap.ZoomLevel = 13;
             loadingFrom.IsIndeterminate = false;
         }
 
         private void map_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             ButtonPilih.Visibility = Visibility.Visible;
-            Point p = e.GetPosition(MyMapFrom);
-            GeoCoordinate s = MyMapFrom.ConvertViewportPointToGeoCoordinate(p);
-            MyMapFrom.Layers.Clear();
+            Point p = e.GetPosition(MyMap);
+            GeoCoordinate s = MyMap.ConvertViewportPointToGeoCoordinate(p);
+            MyMap.Layers.Clear();
 
             Ellipse myCircle = new Ellipse();
             myCircle.Fill = new SolidColorBrush(Colors.Blue);
@@ -73,23 +71,23 @@ namespace Kiri
             myLocationOverlay.PositionOrigin = new Point(0, 0);
             myLocationOverlay.GeoCoordinate = s;
 
-            locationMapsFrom = (float)s.Latitude + "," +(float)s.Longitude;
+            location = (float)s.Latitude + "," + (float)s.Longitude;
 
             MapLayer myLocationLayer = new MapLayer();
             myLocationLayer.Add(myLocationOverlay);
 
-            MyMapFrom.Layers.Add(myLocationLayer);
+            MyMap.Layers.Add(myLocationLayer);
         }
 
-        private void pilihLokasiAsal(object sender, RoutedEventArgs e)
+        private void pilihLokasi(object sender, RoutedEventArgs e)
         {
             if (fromMapFor.Equals("from"))
             {
-                NavigationService.Navigate(new Uri("/MainPage.xaml?locMapsFrom=" + locationMapsFrom, UriKind.Relative));
+                NavigationService.Navigate(new Uri("/MainPage.xaml?locMapsFrom=" + location, UriKind.Relative));
             }
             else 
             {
-                NavigationService.Navigate(new Uri("/MainPage.xaml?locMapsTo=" + locationMapsFrom, UriKind.Relative));
+                NavigationService.Navigate(new Uri("/MainPage.xaml?locMapsTo=" + location, UriKind.Relative));
             }
         }
     }

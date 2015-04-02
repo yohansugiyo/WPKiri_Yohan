@@ -59,25 +59,26 @@
         <Grid x:Name="ContentPanel" Margin="0,0,0,0" Grid.Row="1" Grid.RowSpan="2">
             <TextBlock Text="From" Style="{StaticResource PhoneTextNormalStyle}" Margin="26,0,278,484" FontSize="50"/>
             <TextBlock Text="To" Style="{StaticResource PhoneTextNormalStyle}" Margin="26,137,361,274" FontSize="50"/>
-            <TextBox x:Name="fromBox" HorizontalAlignment="Left" Margin="12,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="292" Height="76"/>
-            <TextBox x:Name="toBox" HorizontalAlignment="Left" Margin="12,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="292" Height="76"/>
-            <Button Content="FIND" HorizontalAlignment="Left" Margin="266,376,0,0" VerticalAlignment="Top" Click="startRoute" Height="81" Width="180"/>
-            <Button HorizontalAlignment="Left" Margin="302,209,0,0" VerticalAlignment="Top" Click="changeMapTo" Height="79" Width="86">
+            <TextBox x:Name="fromBox" HorizontalAlignment="Left" Margin="12,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="325" Height="76"/>
+            <TextBox x:Name="toBox" HorizontalAlignment="Left" Margin="12,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="325" Height="76"/>
+            <Button Content="FIND" HorizontalAlignment="Left" Margin="10,376,0,0" VerticalAlignment="Top" Click="startRoute" Height="81" Width="460"/>
+            <Button HorizontalAlignment="Left" Margin="330,209,0,0" VerticalAlignment="Top" Click="changeMapTo" Height="77" Width="83">
                 <Image Source="icons/map.png"></Image>
             </Button>
-            <Button  HorizontalAlignment="Left" Margin="307,73,0,0" VerticalAlignment="Top" Click="changeMapFrom" Height="77" Width="83">
+            <Button  HorizontalAlignment="Left" Margin="329,69,0,0" VerticalAlignment="Top" Click="changeMapFrom" Height="77" Width="83">
                 <Image Source="icons/map.png"></Image>
             </Button>
-            <Button HorizontalAlignment="Left" Margin="371,208,-1,0" VerticalAlignment="Top" Click="getHereTo" Height="79" Width="86">
+            <Button HorizontalAlignment="Left" Margin="393,210,0,0" VerticalAlignment="Top" Click="getHereTo" Height="77" Width="83">
                 <Image Source="icons/marker.png"></Image>
             </Button>
-            <Button  HorizontalAlignment="Left" Margin="373,72,0,0" VerticalAlignment="Top" Click="getHereFrom" Height="77" Width="83">
+            <Button  HorizontalAlignment="Left" Margin="393,70,0,0" VerticalAlignment="Top" Click="getHereFrom" Height="77" Width="83">
                 <Image Source="icons/marker.png"></Image>
             </Button>
-            <TextBlock HorizontalAlignment="Left" Margin="20,315,0,0" TextWrapping="Wrap" Text="Kota" VerticalAlignment="Top"/>
-            <toolkit:ListPicker ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding ElementName=ConverterPage, Path=Locations}" Margin="71,296,220,-43" Name="cmbCurrFrom" SelectionChanged="changeCity"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,315,0,0" TextWrapping="Wrap" Text="Anda berada di kota" VerticalAlignment="Top"/>
+            <toolkit:ListPicker BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="217,298,74,-45" Name="cmbCurrFrom" SelectionChanged="changeCity" Visibility="Visible">
+            </toolkit:ListPicker>
             <ProgressBar x:Name="progressFindPlace" Background="Black" HorizontalAlignment="Left" Height="19" Margin="0,-24,0,0" VerticalAlignment="Top" Width="456" RenderTransformOrigin="0.493,1.056"/>
-
+            
             <StackPanel x:Name="panelFrom" HorizontalAlignment="Stretch" Margin="0,-150,0,5" VerticalAlignment="Stretch" Visibility="Collapsed" Background="Black">
                 <TextBlock x:Name="textFrom" TextWrapping="Wrap" Text="Pilih lokasi Asal" FontSize="40"/>
                 <ListBox x:Name="listPlaceFrom" Height="700" FontSize="30"></ListBox>

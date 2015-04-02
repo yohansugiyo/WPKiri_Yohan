@@ -12,7 +12,6 @@ namespace Kiri
 {
     class Protocol
     {
-        HttpClient httpClient = new HttpClient();
         private static String apiKey 
         {
             get 
@@ -132,13 +131,9 @@ namespace Kiri
         public string getFindRoute(string start, string finish)
         {
             RootObjectFindRoute fr = new RootObjectFindRoute();
-            String uri = handle + "version=" + version + "&mode=" + modeRoute + "&locale=" + "id" + "&start=" + start + "&finish=" + finish + "&presentation=" + "mobile" + "&apikey=" + apiKey;
+            String uri = handle + "version=" + version + "&mode=" + modeRoute + "&locale=" + "id" + "&start=" + start + "&finish=" + finish + "&presentation=" + "desktop" + "&apikey=" + apiKey;
             return uri;
 
-        }
-
-        public void getNearby(string loc) { 
-        
         }
     }
 }

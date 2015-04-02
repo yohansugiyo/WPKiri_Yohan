@@ -14,23 +14,52 @@ namespace Kiri
     {
         public Double coorLat;
         public Double coorLong;
-        public GeoCoordinate myGeoCoordinate; 
+        public GeoCoordinate myGeoCoordinate;
+        public Geolocator geolocator;
 
         public LocationFinder() {
+            this.geolocator = new Geolocator();
+            this.geolocator.DesiredAccuracy = PositionAccuracy.High;
+            this.geolocator.MovementThreshold = 100; // The units are meters.
+
             this.myGeoCoordinate = new GeoCoordinate();
-            OneShotLocation_Click();
+            OneShotLocation();
         }
 
-        public async void OneShotLocation_Click()
+        public async void OneShotLocation()
         {
             // Get my current location.
-            Geolocator myGeolocator = new Geolocator();
-            Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
-            Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
-            myGeoCoordinate = CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
+            try
+            {
+                Geolocator myGeolocator = new Geolocator();
+                Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync(
+                    TimeSpan.FromMinutes(1),
+                    TimeSpan.FromSeconds(10)    
+                );
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
+                    myGeoCoordinate = CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
 
-            this.coorLat = (Double)myGeoCoordinate.Latitude;
-            this.coorLong = (Double)myGeoCoordinate.Longitude;
+                    this.coorLat = (Double)myGeoCoordinate.Latitude;
+                    this.coorLong = (Double)myGeoCoordinate.Longitude;
+                });
+            }
+            catch (Exception ex)
+            {
+                // Couldn't get current location - location might be disabled in settings
+                MessageBox.Show("Tidak dapat menemukan lokasi");
+            }
+        }
+
+
+        public void setPositionChanged(Geolocator sender, PositionChangedEventArgs args)
+        {
+            Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                coorLat = args.Position.Coordinate.Latitude;
+                coorLong = args.Position.Coordinate.Longitude;
+            });
         }
     }
 }

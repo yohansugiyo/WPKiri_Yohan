@@ -15,9 +15,9 @@ namespace Kiri
         public String[] cityCode;
 
         public City(){
-            this.city = new String[] { "Auto", "Bandung", "Jakarta", "Malang", "Surabaya" };
-            this.cityCode = new String[]{ "Auto", "bdo", "cgk", "mlg", "sub" };
-            this.centerCity = new GeoCoordinate[] { new GeoCoordinate(6.91474, 107.60981), new GeoCoordinate(-6.21154, 106.84517), new GeoCoordinate(0.0, 0.0), new GeoCoordinate(7.27421, 112.71908) };
+            this.city = new String[] {"Bandung", "Jakarta", "Malang", "Surabaya" };
+            this.cityCode = new String[]{"bdo", "cgk", "mlg", "sub" };
+            this.centerCity = new GeoCoordinate[] { new GeoCoordinate(-6.91474, 107.60981), new GeoCoordinate(-6.21154, 106.84517), new GeoCoordinate(-7.9812985, 112.6319264), new GeoCoordinate(-7.27421, 112.71908) };
         }
 
         public int getNearby(Double coorLat, Double coorLong)
@@ -25,15 +25,31 @@ namespace Kiri
             int s = -1;
             GeoCoordinate deviceLocation = new GeoCoordinate(coorLat, coorLong);
             double distance = Double.MaxValue;
-            for (int c = 0; c < centerCity.Length; c++)
+            if (!coorLat.Equals(0.0) && !coorLong.Equals(0.0))
             {
-                if (deviceLocation.GetDistanceTo(centerCity[c]) < distance)
+                for (int c = 0; c < centerCity.Length; c++)
                 {
-                    distance = deviceLocation.GetDistanceTo(centerCity[c]);
-                    s = c;
+                    if (deviceLocation.GetDistanceTo(centerCity[c]) < distance)
+                    {
+                        distance = deviceLocation.GetDistanceTo(centerCity[c]);
+                        s = c;
+                    }
                 }
             }
             return s;
+        }
+
+        public int getIndexFromCityCode(String code)
+        {
+            int i = -1;
+            for (int c = 0; c < cityCode.Length; c++)
+            {
+                if (cityCode[c].Equals(code))
+                {
+                    i = c;
+                }
+            }
+            return i;
         }
     }
 
