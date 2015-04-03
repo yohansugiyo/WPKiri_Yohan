@@ -82,7 +82,6 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 	\item Konstruktor MainPage digunakan sebagai konstruktor pada kelas MainPage.
 	\item Metode OnNavigatedTo digunakan untuk mendapatkan lokasi dari peta dengan masukan NavigationEventArgs.
 	\item Metode startRoute digunakan untuk mendapatkan masukan pengguna lalu mengkalkulasi masukan tersebut menjadi kordinat asal dan tujuan lalu mengirimkannya ke kelas Route.
-	\item Metode toObjectSearchPlace digunakan untuk membuat objek RootObjectSearchPlace dengan masukan uri yang bertipe string.
 	\item Metode changeMapFrom digunakan untuk berpindah ke halaman mapFrom.
 	\item Metode changeMapTo digunakan untuk berpindah ke halaman mapTo.
 	\item Metode getHereFrom digunakan untuk mendapatkan kordinat dimana perangkat berada dan menyimpan nilainya di atribut locationFrom.
@@ -90,6 +89,7 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 	\item Metode getListItem digunakan untuk membuat listBox lalu menampilkan ke pengguna. 
 	\item Metode ListBoxSelectedPlace digunakan untuk mendapatkan tempat asal yang dipilih pengguna. Metode ini memiliki parameter objek dan \textit{event SelectionChangedEventArgs}. 
 	\item Metode searchCoordinatePlace digunakan untuk mencari kordinat dari tempat pilihan pengguna. Metode ini memiliki parameter ListBox dan tempat yang dipilih dalam bentuk string.
+	\item Metode findRoute digunakan untuk berpindah ke kelas Route jika lokasi asal dan lokasi tujuan sudah ditentukan.
 	\item Metode changeCity digunakan untuk mengubah kota tujuan dari pencarian. Metode ini memiliki parameter objek dan \textit{event SelectionChangedEventArgs}.
 	\item Metode showCity digunakan untuk mencari kota yang paling dekat dengan lokasi perangkat.
 	\item Metode ShowSplash digunakan untuk menampilkan tampilan awal untuk proses inisialisasi aplikasi.
@@ -98,10 +98,23 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 	\item Metode backgroundWorker\_RunWorkerCompleted digunakan untuk melakukan pemanggilan saat BackgroundWorker selesai melakukan tugasnya.
 \end{enumerate}
 
+%Kelas BackgroundWorker
+\subsection{Kelas \textit{BackgroundWorker}}
+\label{lab:Kelas BackgroundWorker}
+\hspace{0.5cm} \textit{BackgroundWorker} merupakan kelas yang dipakai untuk mengeksekusi operasi pada \textit{thread} terpisah. Berikut adalah penjelasan \textit{event} yang dimiliki kelas ini dan dipakai untuk perancangan aplikasi:
+\begin{enumerate}
+	\item \textit{Event} DoWork
+	\item \textit{Event} RunWorkerCompleted
+\end{enumerate}
+Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
+\begin{enumerate}
+	\item Metode RunWorkerAsync
+\end{enumerate}
+
 %Kelas Geocoordinate
 \subsection{Kelas \textit{Geocoordinate}}
 \label{lab:Kelas Geocoordinate}
-\hspace{0.5cm} \textit{Geocoordinate} merupakan kelas bawaan dari Windows Phone yang akan dimanfaatkan untuk membaca \textit{latitude} dan \textit{altitude}.
+\hspace{0.5cm} \textit{Geocoordinate} merupakan kelas bawaan dari Windows Phone yang akan dimanfaatkan untuk membaca \textit{latitude} dan \textit{longitude}.
 
 %Kelas Geolocator
 \subsection{Kelas \textit{Geolocator}}
@@ -121,25 +134,33 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 	\item coorLat bertipe Double untuk menampung kordinat latitude.
 	\item coorLong bertipe Double untuk menampung kordinat longitude.
 	\item myGeoCoordinate bertipe GeoCoordinate untuk menampung lokasi perangkat
+	\item geolocator bertipe Geolocator untuk menampung pengaturan mendapatkan lokasi.
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
-	\item Metode OneShotLocation\_Click berfungsi inisialisasi GPS lalu mendapat kordinat dan menampungnya di atribut.
+	\item Metode OneShotLocation berfungsi inisialisasi GPS lalu mendapat kordinat dan menampungnya di atribut.
+	\item Metode setPositionChanged berfungsi mengubah atribut coorLat dan atribut coorLong jika terdapat perubahan lokasi.
+	\item Metode getAddress berfungsi untuk mendapatkan alamat dengan masukan \textit{latitude} dan \textit{longitude}.
 \end{enumerate}
 
-%Kelas PointFromMap
-\subsection{Kelas \textit{PointFromMap}}
-\label{lab:Kelas PointFromMap}
-\hspace{0.5cm} \textit{PointFromMap} merupakan kelas yang akan mendapatkan titik yang ditunjuk pengguna pada peta lalu menerjemahkannya dalam bentuk titik kordinat. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+%Kelas Map
+\subsection{Kelas \textit{Map}}
+\label{lab:Kelas Map}
+\hspace{0.5cm} \textit{Map} merupakan kelas yang akan mendapatkan titik yang ditunjuk pengguna pada peta lalu menerjemahkannya dalam bentuk titik kordinat. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item latitude
-	\item longitude
+	\item lFinder bertipe LocationFinder 
+	\item location bertipe string untuk menampung lokasi.
+	\item fromMapFor bertipe string digunakan sebagai indikator lokasi asal atau lokasi tujuan yang didapatkan dari map.
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
+	\item Konstruktor Map
 	\item Metode getPoint berfungsi mengambil titik yang ditunjuk lalu menerjemahkan dalam bentuk latitude dan longitude. 
+	\item Metode OnNavigatedTo berfungsi untuk mendapatkan masukan lokasi asal atau lokasi tujuan yang akan ditentukan dari map untuk kemudian ditampung di atribut fromMapFor.
+	\item Metode ShowMyLocationOnTheMap digunakan untuk memberitahu dan menandai lokasi perangkat.
+	\item Metode map\_Tap
 \end{enumerate}
 
 %Kelas HttpClient
@@ -150,32 +171,45 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 	\item Metode GetStringAsync membutuhkan parameter alamat bertipe string dan mengembalikan kembalian dari Kiri dalam bentuk Task<string>.
 \end{enumerate}
 
+%Kelas JsonConvert
+\subsection{Kelas \textit{JsonConvert}}
+\label{lab:Kelas JsonConvert}
+\hspace{0.5cm} \textit{JsonConvert} merupakan kelas yang menyediakan metode untuk mengkonversi berbagai jenis komponen \textit{common language runtime} dan \textit{JSON}. Kelas ini merupakan bagian \textit{namespace Newtonsoft}.  Berikut adalah penjelasan metode yang dimiliki kelas ini dan dipakai untuk perancangan aplikasi:
+\begin{enumerate}
+	\item Metode DeserializeObject berfungsi untuk konversi dari bentuk string menjadi objek. Metode ini memiliki satu parameter bertipe string lalu mengembalika string tersebut dalam bentuk objek.
+\end{enumerate}
+
 %Kelas Protocol
 \subsection{Kelas \textit{Protocol}}
 \label{lab:Kelas Protocol}
 \hspace{0.5cm} \textit{Protocol} merupakan kelas untuk menampung semua alamat dalam pengiriman menggunakan protokol HTTP. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item apiKey bertipe string digunakan untuk menyimpan kunci untuk mengirim permintaan ke Kiri.
+	\item uri\_version bertipe string digunakan untuk menyimpan nama dari parameter uri.
+	\item uri\_mode bertipe string digunakan untuk menyimpan nama dari parameter mode.
+	\item uri\_locale bertipe string digunakan untuk menyimpan nama dari parameter locale.
+	\item uri\_start bertipe string digunakan untuk menyimpan nama dari parameter start.
+	\item uri\_finish bertipe string digunakan untuk menyimpan nama dari parameter finish.
+	\item uri\_presentation bertipe string digunakan untuk menyimpan nama dari parameter presentation.
+	\item uri\_apikey bertipe string digunakan untuk menyimpan nama dari parameter apikey.
+	\item uri\_region bertipe string digunakan untuk menyimpan nama dari parameter region.
+	\item uri\_query bertipe string digunakan untuk menyimpan nama dari parameter query.
+
+	\item apiKey bertipe string digunakan untuk menyimpan nilai kunci API untuk mengirim permintaan ke Kiri.
 	\item hostname bertipe string digunakan untuk digunakan untuk menyimpan alamat host dari Kiri.
 	\item handle bertipe string digunakan untuk menyimpan alamat host ditambah "handle.php".
 	\item iconPath bertipe string digunakan untuk menyimpan lokasi gambar yang dibutuhkan.
 	\item iconStart bertipe string digunakan untuk menyimpan lokasi gambar awal perjalanan dari lokasi awal.
 	\item iconFinish bertipe string digunakan untuk menyimpan lokasi gambar akhir perjalanan ke lokasi tujuan.
 	
-	\item version bertipe string digunakan untuk menyimpan veris dari API yang digunakan.
+	\item version\_2 bertipe string digunakan untuk menyimpan nilai versi dari API yang digunakan (saat pembuatan penelitian ini versi Kiri API yang digunakan adalah versi 2).
+	\item modeFind bertipe string yang digunakan untuk menyimpan nilai "searchplace" yang merupakan mode mencari lokasi terkait pada Kiri API.
+	\item modeRoute bertipe string yang digunakan untuk menyimpan nilai "findroute" yang merupakan mode mencari rute pada Kiri API.
+	\item modeNearby bertipe string yang digunakan untuk menyimpan nilai "nearbytransport	" yang merupakan mode mencari lokasi terdekat pada Kiri API.
 	
-	\item modeFind bertipe string yang digunakan untuk menyimpan mode mencari lokasi terkait pada Kiri API.
-	\item modeRoute bertipe string yang digunakan untuk menyimpan mode mencari rute pada Kiri API.
-	\item modeNearby bertipe string yang digunakan untuk menyimpan mode mencari lokasi terdekat pada Kiri API.
-	
-	\item locale bertipe string yang digunakan untuk menyimpan kata "locale".
-	
-	\item start bertipe string yang digunakan untuk menyimpan kata "start".
-	\item finish bertipe string yang digunakan untuk menyimpan kata "finish".
-	
-	\item presentation bertipe string yang digunakan untuk menyimpan kata "presentation".
-	
-	\item region bertipe string yang digunakan untuk menyimpan kata "region".
+	\item localeId bertipe string yang digunakan untuk menyimpan nilai bahasa jika kembalian yang diinginkan ingin berbahasa Indonesia.
+	\item localeEn bertipe string yang digunakan untuk menyimpan nilai bahasa jika kembalian yang diinginkan ingin berbahasa Inggris.
+	\item presentationMobile bertipe string yang digunakan untuk menyimpan nilai penyajian untuk perangkat \textit{mobile}.
+	\item presentationDesktop bertipe string yang digunakan untuk menyimpan nilai penyajian untuk perangkat \textit{desktop}.
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
@@ -223,6 +257,45 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 	\item traveltime
 \end{enumerate}
 
+%Kelas Route
+\subsection{Kelas \textit{Route}}
+\label{lab:Kelas Route}
+\hspace{0.5cm} \textit{Route} merupakan kelas untuk pencarian rute dan menampilkannya kepada pengguna. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item startCoordinate
+	\item finishCoordinate
+	\item queryFrom
+	\item queryTo
+	\item listBoxStatus
+	\item lFinder
+	\item arrayFocus
+	\item detailRoute
+	\item focusPointNumber
+	\item routeLayer
+	\item myLocationLayer
+	\item geolocator
+	\item backgroundWorker
+\end{enumerate}
+
+Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
+\begin{enumerate}
+	\item Konstruktor Route
+	\item Metode OnNavigatedTo
+	\item Metode TrackLocation_Click
+	\item Metode geolocator_StatusChanged
+	\item Metode geolocator_PositionChanged
+	\item Metode Find
+	\item Metode setFocus
+	\item Metode toMyLocation
+	\item Metode ShowList
+	\item Metode createNew
+	\item Metode ShowMyLocationOnTheMap
+	\item Metode drawMyLocationOnTheMap
+	\item Metode ShowLoading
+	\item Metode StartLoadingData
+	\item Metode backgroundWorker_DoWork
+	\item Metode backgroundWorker_RunWorkerCompleted
+\end{enumerate}
 
 %Perancangan Antar Muka
 \section{Perancangan Antar Muka}
