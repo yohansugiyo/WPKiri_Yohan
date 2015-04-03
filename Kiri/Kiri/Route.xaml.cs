@@ -297,7 +297,14 @@ namespace Kiri
                                     overlay1.Content = createNew(p.iconFinish, geoCoo, "finish"); 
                                 }else if(c==0){
                                     String iconLoc = p.getTypeTransport(r.routingresults[i].steps[j][0].ToString(), r.routingresults[i].steps[j][1].ToString());
-                                    overlay1.Content = createNew(iconLoc, geoCoo, "transport");
+                                    if (r.routingresults[i].steps[j][0].ToString().Equals("walk"))
+                                    {
+                                        overlay1.Content = createNew(iconLoc, geoCoo, "walk");
+                                    }
+                                    else 
+                                    {
+                                        overlay1.Content = createNew(iconLoc, geoCoo, "umum");
+                                    }
                                 }
                                 overlay1.GeoCoordinate = geoCoo;
                                 routeLayer.Add(overlay1);   
@@ -347,6 +354,7 @@ namespace Kiri
             {
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
+
             //    }));
             //});
         }
@@ -407,35 +415,23 @@ namespace Kiri
             Uri imgUri = new Uri(uri, UriKind.RelativeOrAbsolute);
             BitmapImage imgSourceR = new BitmapImage(imgUri);
             ImageBrush imgBrush = new ImageBrush() { ImageSource = imgSourceR };
+            p.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+            p.Content = new Rectangle()
+            {
+                Fill = imgBrush,
+                Height = 30,
+                Width = 50,
+            };
             if (transport.Equals("start"))
             {
-                p.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
-                p.Content = new Rectangle()
-                {
-                    Fill = imgBrush,
-                    Height = 30,
-                    Width = 50,
-                };
-                p.Margin = new Thickness(-50, -37, 0, 0);
+                p.Margin = new Thickness(-51, -35, 0, 0);
             }
             else if(transport.Equals("finish")) {
-                p.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
-                p.Content = new Rectangle()
-                {
-                    Fill = imgBrush,
-                    Height = 30,
-                    Width = 50,
-                };
-                p.Margin = new Thickness(-10, -37, 0, 0);
+                p.Margin = new Thickness(-6, -34, 0, 0);
+            }else if(transport.Equals("walk")){
+                p.Margin = new Thickness(-55, -35, 0, 0);
             }else{
-                p.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
-                p.Content = new Rectangle()
-                {
-                    Fill = imgBrush,
-                    Height = 20,
-                    Width = 30,
-                };
-                p.Margin = new Thickness(-8, -60, 0, 0);
+                p.Margin = new Thickness(-5, -35, 0, 0);
             }
             p.GeoCoordinate = geoCoordinate;
             return p;
@@ -538,7 +534,6 @@ namespace Kiri
             {
                 Find();
             });
-            
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

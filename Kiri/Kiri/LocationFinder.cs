@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Phone.Maps.Services;
+using System;
 using System.Collections.Generic;
 using System.Device.Location;
 using System.IO.IsolatedStorage;
@@ -60,6 +61,28 @@ namespace Kiri
                 coorLat = args.Position.Coordinate.Latitude;
                 coorLong = args.Position.Coordinate.Longitude;
             });
+        }
+
+        //Get address zhttps://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn631249.aspx
+        //zhttp://stackoverflow.com/questions/16685088/windows-phone-reversegeocoding-to-get-address-from-lat-and-long
+        private string getAddress(Double latitude, Double longitude)
+        {
+            string address = "";
+            List<MapLocation> locations;
+            ReverseGeocodeQuery query = new ReverseGeocodeQuery();
+            query.GeoCoordinate = new GeoCoordinate(latitude, longitude);
+            query.QueryCompleted += (s, e) =>
+            {
+                if (e.Error == null && e.Result.Count > 0)
+                {
+                    locations = e.Result as List<MapLocation>;
+                    address = locations[0].Information.Address.ToString();
+                    // Do whatever you want with returned locations. 
+                    // e.g. MapAddress address = locations[0].Information.Address;
+                }
+            };
+            query.QueryAsync();
+            return address;
         }
     }
 }

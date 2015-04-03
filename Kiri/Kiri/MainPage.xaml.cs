@@ -181,6 +181,7 @@ namespace Kiri
         }
 
         /*reference: zhttps://msdn.microsoft.com/en-us/library/bb412179%28v=vs.110%29.aspx*/
+        /*
         public static T Deserialize<T>(string json)
         {
             var obj = Activator.CreateInstance<T>();
@@ -201,6 +202,7 @@ namespace Kiri
                 return Encoding.UTF8.GetString(ms.ToArray(),0,(int)ms.Length);
             }
         }
+         */
 
         //zhttps://social.msdn.microsoft.com/forums/windowsapps/en-us/7db73c64-86f7-4c43-9fd4-faa03421ea21/popup-blocking-listbox-selection-changed
         
@@ -376,6 +378,7 @@ namespace Kiri
                 this.popup.IsOpen = false;
             });
         }
+
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()

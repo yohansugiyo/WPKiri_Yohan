@@ -12,6 +12,70 @@ namespace Kiri
 {
     class Protocol
     {
+        public String uri_version
+        {
+            get
+            {
+                return "version=";
+            }
+        }
+        public String uri_mode
+        {
+            get
+            {
+                return "&mode=";
+            }
+        }
+        public String uri_locale
+        {
+            get
+            {
+                return "&locale=";
+            }
+        }
+        public String uri_start
+        {
+            get
+            {
+                return "&start=";
+            }
+        }
+        public String uri_finish
+        {
+            get
+            {
+                return "&finish=";
+            }
+        }
+        public String uri_presentation
+        {
+            get
+            {
+                return "&presentation=";
+            }
+        }
+        public String uri_apikey
+        {
+            get
+            {
+                return "&apikey=";
+            }
+        }
+        public String uri_region
+        {
+            get
+            {
+                return "&region=";
+            }
+        }
+        public String uri_query
+        {
+            get
+            {
+                return "&querystring=";
+            }
+        }
+
         private static String apiKey 
         {
             get 
@@ -37,7 +101,7 @@ namespace Kiri
         {
             get
             {
-                return hostname + "images/means";
+                return hostname + "images/means/";
             }
         }
         public String iconStart
@@ -55,7 +119,8 @@ namespace Kiri
             }
         }
 
-        private static String version
+
+        private static String version_2
         {
             get
             {
@@ -85,55 +150,52 @@ namespace Kiri
                 return "nearbytransport";
             }
         }
-        private static String locale
+        private static String localeId
         {
             get
             {
-                return "locale";
+                return "id";
             }
         }
-        private static String start
+        private static String localeEn
         {
             get
             {
-                return "start";
+                return "en";
             }
         }
-        private static String presentation
+        private static String presentationMobile
         {
             get
             {
-                return "presentation";
+                return "mobile";
             }
         }
-        private static String region
+        private static String presentationDesktop
         {
             get
             {
-                return "region";
+                return "desktop";
             }
         }
 
         public string getTypeTransport(string means, string meansDetail)
         {
 
-            String uri = hostname + "images/means/" + means + "/" + meansDetail + ".png";
+            String uri = iconPath + means + "/baloon/" + meansDetail + ".png";
             return uri;
         }
 
         public string getSearchPlace(string query,string region)
         {
-            
-            String uri = handle + "version=" + version + "&mode=" + modeFind + "&region=" + region + "&querystring=" + query + "&apikey=" + apiKey;
+            String uri = handle + uri_version + version_2 + uri_mode + modeFind + uri_region + region + uri_query + query + uri_apikey + apiKey;
             return uri;
         }
 
         public string getFindRoute(string start, string finish)
         {
-            RootObjectFindRoute fr = new RootObjectFindRoute();
-            String uri = handle + "version=" + version + "&mode=" + modeRoute + "&locale=" + "id" + "&start=" + start + "&finish=" + finish + "&presentation=" + "desktop" + "&apikey=" + apiKey;
+            String uri = handle + uri_version + version_2 + uri_mode + modeRoute + uri_locale + localeId + uri_start + start + uri_finish + finish + uri_presentation + presentationDesktop + uri_apikey + apiKey;
             return uri;
-
         }
     }
 }
