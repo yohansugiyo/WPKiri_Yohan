@@ -186,6 +186,13 @@ namespace Kiri
             return uri;
         }
 
+        public string getTypeTransportWOBaloon(string means, string meansDetail)
+        {
+
+            String uri = iconPath + means + "/" + meansDetail + ".png";
+            return uri;
+        }
+
         public string getSearchPlace(string query,string region)
         {
             String uri = handle + uri_version + version_2 + uri_mode + modeFind + uri_region + region + uri_query + query + uri_apikey + apiKey;

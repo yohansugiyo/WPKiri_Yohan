@@ -20,15 +20,13 @@ namespace Kiri
     public partial class Map : PhoneApplicationPage
     {
         private LocationFinder lFinder;
-        public string location;
         public string fromMapFor;
+        public string address;
 
         public Map()
         {
-            this.lFinder = new LocationFinder();
-            this.location = "";
+            this.lFinder = null ;
             InitializeComponent();
-            ShowMyLocationOnTheMap();
             MyMap.Tap += new EventHandler<System.Windows.Input.GestureEventArgs>(map_Tap);
         }
 
@@ -37,17 +35,19 @@ namespace Kiri
             base.OnNavigatedTo(e);
             if (NavigationContext.QueryString.TryGetValue("fromMapFor", out fromMapFor)) ;
             this.fromMapFor = fromMapFor + "";
+            if (PhoneApplicationService.Current.State.ContainsKey("location"))
+            {
+                this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
+            }
+            ShowMyLocationOnTheMap();
         }
 
-        private async void ShowMyLocationOnTheMap()
+        private void ShowMyLocationOnTheMap()
         {
 
             // Get my current location.
             loadingFrom.IsIndeterminate = true;
-            Geolocator myGeolocator = new Geolocator();
-            Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
-            Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
-            GeoCoordinate myGeoCoordinate = CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
+            GeoCoordinate myGeoCoordinate = new GeoCoordinate(lFinder.coorLat, lFinder.coorLong);
             this.MyMap.Center = myGeoCoordinate;
             this.MyMap.ZoomLevel = 13;
             loadingFrom.IsIndeterminate = false;
@@ -61,7 +61,9 @@ namespace Kiri
             MyMap.Layers.Clear();
 
             Ellipse myCircle = new Ellipse();
-            myCircle.Fill = new SolidColorBrush(Colors.Blue);
+            myCircle.Stroke = new SolidColorBrush(Colors.Black);
+            myCircle.StrokeThickness = 4;
+            myCircle.Fill = new SolidColorBrush(Colors.Green);
             myCircle.Height = 20;
             myCircle.Width = 20;
             myCircle.Opacity = 50;
@@ -71,8 +73,13 @@ namespace Kiri
             myLocationOverlay.PositionOrigin = new Point(0, 0);
             myLocationOverlay.GeoCoordinate = s;
 
-            location = (float)s.Latitude + "," + (float)s.Longitude;
-
+            if (fromMapFor.Equals("from"))
+            {
+                this.lFinder.GetCurrentCoordinate(s.Latitude, s.Longitude,"from");
+            }
+            else {
+                this.lFinder.GetCurrentCoordinate(s.Latitude, s.Longitude, "to");
+            }
             MapLayer myLocationLayer = new MapLayer();
             myLocationLayer.Add(myLocationOverlay);
 
@@ -81,13 +88,14 @@ namespace Kiri
 
         private void pilihLokasi(object sender, RoutedEventArgs e)
         {
+            PhoneApplicationService.Current.State["location"] = lFinder;
             if (fromMapFor.Equals("from"))
             {
-                NavigationService.Navigate(new Uri("/MainPage.xaml?locMapsFrom=" + location, UriKind.Relative));
+                NavigationService.Navigate(new Uri("/MainPage.xaml?for=from", UriKind.Relative));
             }
             else 
             {
-                NavigationService.Navigate(new Uri("/MainPage.xaml?locMapsTo=" + location, UriKind.Relative));
+                NavigationService.Navigate(new Uri("/MainPage.xaml?for=to", UriKind.Relative));
             }
         }
     }

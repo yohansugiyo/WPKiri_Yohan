@@ -33,8 +33,6 @@ namespace Kiri
         private Protocol protocol;
         private LocationFinder lFinder;
         private HttpClient httpClient = new HttpClient();
-
-        private String locationFrom, locationTo;
         private City c;
         private String myCity;
 
@@ -47,32 +45,29 @@ namespace Kiri
             this.c = new City();
             this.cmbCurrFrom.ItemsSource = c.city;
             this.protocol = new Protocol();
-            this.locationFrom = "";
-            this.locationTo = "";
             ShowSplash();
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            string locMapsFrom = "";
-            string locMapsTo = "";
-            if (NavigationContext.QueryString.TryGetValue("locMapsFrom", out locMapsFrom)) ;
-            this.locationFrom = locMapsFrom+"";
-            if (locationFrom!=null && !locationFrom.Equals(""))
+            if (PhoneApplicationService.Current.State.ContainsKey("location"))
             {
-                fromBox.Text = "Maps";
+                this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
             }
-            if (NavigationContext.QueryString.TryGetValue("locMapsTo", out locMapsTo)) ;
-            this.locationTo = locMapsTo+"";
-            if (locationTo!=null && !locationTo.Equals(""))
+            string forMaps = "";
+            if (NavigationContext.QueryString.TryGetValue("for", out forMaps)) ;
+            if (forMaps!=null)
             {
-                toBox.Text = "Maps";
+                if (forMaps.Equals("from"))
+                {
+                    fromBox.Text = "Maps";
+                }
+                else
+                {
+                    toBox.Text = "Maps";
+                }
             }
-            /*
-             panelFrom.Visibility = Visibility.Collapsed;
-             panelTo.Visibility = Visibility.Collapsed;
-             */
         }
 
         private async void startRoute(object sender, RoutedEventArgs e)
@@ -98,7 +93,7 @@ namespace Kiri
                 Boolean routeStatus = true;
                 progressFindPlace.IsIndeterminate = true;
                 //Get place from query
-                if ((!queryFrom.Equals("Here") || !queryFrom.Equals("Maps")) && locationFrom.Equals("")) //Check get location from GPS
+                if ((!queryFrom.Equals("Here") || !queryFrom.Equals("Maps")) && (lFinder.coorLatFrom == 0.0 && lFinder.coorLongFrom == 0.0)) //Check get location from GPS
                 {
                     //Reference zhttps://msdn.microsoft.com/en-us/library/hh191443.aspx
                     Task<string> requestFromTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom, myCity)));
@@ -111,7 +106,7 @@ namespace Kiri
                         routeStatus = false;
                     }
                 }
-                if ((!queryTo.Equals("Here") || !queryTo.Equals("Maps")) && locationTo.Equals("")) //Check get location from GPS
+                if ((!queryTo.Equals("Here") || !queryTo.Equals("Maps")) && (lFinder.coorLatTo == 0.0 && lFinder.coorLongTo == 0.0)) //Check get location from GPS
                 {
                     Task<string> requestToTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo, myCity)));
                     requestTo = await requestToTask;
@@ -126,86 +121,50 @@ namespace Kiri
                 //Check Query
                 if (routeStatus == true)
                 {
-                    this.findRoute();
-                    if(locationFrom.Equals("")){
+                    if ((lFinder.coorLatFrom == 0.0 && lFinder.coorLongFrom == 0.0))
+                    {
                         getListItem(from, "from"); //Show Listbox for location From
                     }
-                    if (locationTo.Equals(""))
+                    if ((lFinder.coorLatTo == 0.0 && lFinder.coorLongTo == 0.0))
                     {
                         getListItem(to, "to");  //Show Listbox for location To
                     }
+                    this.findRoute();
                 }
                 progressFindPlace.IsIndeterminate = false;
             }
             else {
                 MessageBox.Show("Harap melengkapi tempat asal dan tempat tujuan");
             }
+        }
 
-            //getListItem(from);
-            //getListItem(to);
-        }
-        /*
-        public RootObjectSearchPlace toObjectSearchPlace(string uri) {
-            RootObjectSearchPlace sp = null;
-            Task<string> request = httpClient.GetStringAsync(new Uri(uri));
-            request.ContinueWith(delegate
-            {
-                Dispatcher.BeginInvoke(new Action(delegate
-                {
-                    sp = new RootObjectSearchPlace();
-                    sp = JsonConvert.DeserializeObject<RootObjectSearchPlace>(request.Result);
-                }));
-            });
-            return sp;
-        }
-        */
         private void changeMapFrom(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=from", UriKind.Relative));    
+            PhoneApplicationService.Current.State["location"] = lFinder;
+            NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=from", UriKind.Relative));
+            //NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=from", UriKind.Relative));    
         }
         private void changeMapTo(object sender, RoutedEventArgs e)
         {
+            PhoneApplicationService.Current.State["location"] = lFinder;
             NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=to", UriKind.Relative));    
         }
 
         private void getHereFrom(object sender, RoutedEventArgs e)
         {
-            locationFrom = lFinder.coorLat + "," + lFinder.coorLong;
+            this.lFinder.setCoordinateHere("from");
             fromBox.Text = "Here";
         }
 
         private void getHereTo(object sender, RoutedEventArgs e)
         {
-            locationTo = lFinder.coorLat + "," + lFinder.coorLong;
+            this.lFinder.setCoordinateHere("to");
             toBox.Text = "Here";
         }
 
-        /*reference: zhttps://msdn.microsoft.com/en-us/library/bb412179%28v=vs.110%29.aspx*/
-        /*
-        public static T Deserialize<T>(string json)
-        {
-            var obj = Activator.CreateInstance<T>();
-            using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(json)))
-            {
-                var serializer = new DataContractJsonSerializer(obj.GetType());
-                obj = (T)serializer.ReadObject(ms);
-                return obj;
-            }
-        }
-
-        public static string Serialize<T>(T obj)
-        {
-            var serializer = new DataContractJsonSerializer(obj.GetType());
-            using (var ms = new MemoryStream())
-            {
-                serializer.WriteObject(ms, obj);
-                return Encoding.UTF8.GetString(ms.ToArray(),0,(int)ms.Length);
-            }
-        }
-         */
+        /* old reference: zhttps://msdn.microsoft.com/en-us/library/bb412179%28v=vs.110%29.aspx*/
 
         //zhttps://social.msdn.microsoft.com/forums/windowsapps/en-us/7db73c64-86f7-4c43-9fd4-faa03421ea21/popup-blocking-listbox-selection-changed
-        
         private void getListItem(RootObjectSearchPlace request,String forRequest)
         {
             //ListBox listFrom = new ListBox();
@@ -218,11 +177,17 @@ namespace Kiri
                     {
                         if (forRequest.Equals("from"))
                         {
-                            this.locationFrom = request.searchresult[0].location.ToString();
+                            String locFrom = request.searchresult[0].location.ToString();
+                            string[] coordinate = locFrom.Split(',');
+                            lFinder.coorLatFrom = Double.Parse(coordinate[0]);
+                            lFinder.coorLongFrom = Double.Parse(coordinate[1]);
                         }
                         else
                         {
-                            this.locationTo = request.searchresult[0].location.ToString();
+                            String locTo = request.searchresult[0].location.ToString();
+                            string[] coordinate = locTo.Split(',');
+                            lFinder.coorLatTo = Double.Parse(coordinate[0]);
+                            lFinder.coorLongTo = Double.Parse(coordinate[1]);
                         }
                     }
                     else
@@ -274,7 +239,11 @@ namespace Kiri
                 {
                     if ((sender as ListBox).SelectedIndex >= 0)
                     {
-                        this.locationFrom = searchCoordinatePlace((List<Searchresult>)listPlaceFrom.DataContext, listPlaceFrom.SelectedItem.ToString());  //((sender as ListBox).SelectedItem as Searchresult).placename;
+                        String locFrom = searchCoordinatePlace((List<Searchresult>)listPlaceFrom.DataContext, listPlaceFrom.SelectedItem.ToString());  //((sender as ListBox).SelectedItem as Searchresult).placename;
+                        string[] coordinate = locFrom.Split(',');
+                        lFinder.coorLatFrom = Double.Parse(coordinate[0]);
+                        lFinder.coorLongFrom = Double.Parse(coordinate[1]);
+                        lFinder.addressFrom = listPlaceFrom.SelectedItem.ToString();
                     }
                 }
                 panelFrom.Children.Clear();
@@ -286,7 +255,11 @@ namespace Kiri
                 {
                     if ((sender as ListBox).SelectedIndex >= 0)
                     {
-                        this.locationTo = searchCoordinatePlace((List<Searchresult>)listPlaceTo.DataContext, listPlaceTo.SelectedItem.ToString()); //((sender as ListBox).SelectedItem as Searchresult).placename;
+                        String locTo = searchCoordinatePlace((List<Searchresult>)listPlaceTo.DataContext, listPlaceTo.SelectedItem.ToString()); //((sender as ListBox).SelectedItem as Searchresult).placename;
+                        string[] coordinate = locTo.Split(',');
+                        lFinder.coorLatTo = Double.Parse(coordinate[0]);
+                        lFinder.coorLongTo = Double.Parse(coordinate[1]);
+                        lFinder.addressTo = listPlaceTo.SelectedItem.ToString();
                     }
                 }
                 panelTo.Children.Clear();
@@ -311,9 +284,10 @@ namespace Kiri
 
         public void findRoute()
         {
-            if (!this.locationFrom.Equals("") && !this.locationTo.Equals(""))
+            if ((lFinder.coorLatFrom != 0.0 && lFinder.coorLongFrom != 0.0) && (lFinder.coorLatTo != 0.0 && lFinder.coorLongTo != 0.0))
             {
-                NavigationService.Navigate(new Uri("/Route.xaml?start=" + locationFrom + "&nameFrom=" + fromBox.Text + "&finish=" + locationTo + "&nameTo=" + toBox.Text, UriKind.Relative));
+                PhoneApplicationService.Current.State["location"] = lFinder;
+                NavigationService.Navigate(new Uri("/Route.xaml?", UriKind.Relative)); //start=" + locationFrom + "&nameFrom=" + fromBox.Text + "&finish=" + locationTo + "&nameTo=" + toBox.Text
             }
         }
 
@@ -378,22 +352,5 @@ namespace Kiri
                 this.popup.IsOpen = false;
             });
         }
-
-
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
-
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
     }
 }

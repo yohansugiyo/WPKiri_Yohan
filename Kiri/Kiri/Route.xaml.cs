@@ -34,10 +34,6 @@ namespace Kiri
     {
         //get location
         //zhttps://msdn.microsoft.com/en-us/library/windows/apps/jj247548%28v=vs.105%29.aspx
-        private string startCoordinate;
-        private string finishCoordinate;
-        private string queryFrom;
-        private string queryTo;
         private Boolean listBoxStatus; //true == show, false == hide
         private LocationFinder lFinder;
         private Point[] arrayFocus;
@@ -47,147 +43,63 @@ namespace Kiri
         private MapLayer myLocationLayer;
 
         Geolocator geolocator = null;
-        bool tracking = true;
-
-        private GeoCoordinateWatcher watcher;
         private BackgroundWorker backgroundWorker;
 
         public Route()
         {
-
             InitializeComponent();
-            this.lFinder = new LocationFinder();
+            this.lFinder = null;
             this.arrayFocus = null;
             this.detailRoute = null;
             this.focusPointNumber = 0;
             this.routeLayer = new MapLayer();
             this.myLocationLayer = new MapLayer();
             ShowLoading();
-            this.TrackLocation_Click();
             //this.StartLoadingData();
             //startLocation();
         }
 
-        //zhttp://www.geekchamp.com/articles/understanding-the-windows-phone-location-service-how-to-get-current-gps-coordinates
-        //zhttps://msdn.microsoft.com/en-us/library/windows/apps/ff431782(v=vs.105).aspx
-        /*
-        private void startLocation()
-        {
-          // The watcher variable was previously declared as type GeoCoordinateWatcher. 
-          if (watcher == null)
-          {
-            watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.Default); // using high accuracy
-            watcher.MovementThreshold = 20; // use MovementThreshold to ignore noise in the signal
-            watcher.StatusChanged += new EventHandler<GeoPositionStatusChangedEventArgs>(watcher_StatusChanged);
-            watcher.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(watcher_PositionChanged);
-          }
-          watcher.Start();
-        } // End of the Start button Click handler.
-
-        void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
-        {
-            MessageBox.Show(e.Position.Location.Latitude+","+e.Position.Location.Longitude);
-            ShowMyLocationOnTheMap();
-            MessageBox.Show("changed");
-        }
-
-        void watcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
-        {
-            switch (e.Status)
-            {
-                case GeoPositionStatus.Disabled:
-                    // The Location Service is disabled or unsupported.
-                    // Check to see whether the user has disabled the Location Service.
-                    if (watcher.Permission == GeoPositionPermission.Denied)
-                    {
-                        // The user has disabled the Location Service on their device.
-                        MessageBox.Show("you have this application access to location.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("location is not functioning on this device");
-                    }
-                    break;
-
-                case GeoPositionStatus.Initializing:
-                    // The Location Service is initializing.
-                    // Disable the Start Location button.
-                    //startLocationButton.IsEnabled = false;
-                    break;
-
-                case GeoPositionStatus.NoData:
-                    // The Location Service is working, but it cannot get location data.
-                    // Alert the user and enable the Stop Location button.
-                    MessageBox.Show("location data is not available.");
-                    watcher.Stop();
-                    break;
-
-                case GeoPositionStatus.Ready:
-                    // The Location Service is working and is receiving location data.
-                    // Show the current position and enable the Stop Location button.
-                    MessageBox.Show("location data is available.");
-                    ShowMyLocationOnTheMap();
-                    watcher.Stop();
-                    break;
-            }
-        }
-         */
+        //old zhttp://www.geekchamp.com/articles/understanding-the-windows-phone-location-service-how-to-get-current-gps-coordinates
+        //old zhttps://msdn.microsoft.com/en-us/library/windows/apps/ff431782(v=vs.105).aspx
  
         //source zhttps://msdn.microsoft.com/en-us/library/windows/apps/ff626521%28v=vs.105%29.asp
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            string start = ""; 
-            string finish = "";
-            string nameFrom = "";
-            string nameTo = "";
-            if (NavigationContext.QueryString.TryGetValue("start", out start));
-            this.startCoordinate = start;
-            if (NavigationContext.QueryString.TryGetValue("finish", out finish));
-            this.finishCoordinate = finish;
-            if (NavigationContext.QueryString.TryGetValue("nameFrom", out nameFrom)) ;
-            this.queryFrom = nameFrom;
-            if (NavigationContext.QueryString.TryGetValue("nameTo", out nameTo)) ;
-            this.queryTo = nameTo;
+            if (PhoneApplicationService.Current.State.ContainsKey("location"))
+            {
+                this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
+            }
+            this.TrackLocation_Click();
 
             //detect location
-            
-                if (IsolatedStorageSettings.ApplicationSettings.Contains("LocationConsent"))
+            if (IsolatedStorageSettings.ApplicationSettings.Contains("LocationConsent"))
+            {
+                // User has opted in or out of Location
+                return;
+            }
+            else
+            {
+                MessageBoxResult result = 
+                    MessageBox.Show("This app accesses your phone's location. Is that ok?", 
+                    "Location",
+                    MessageBoxButton.OKCancel);
+
+                if (result == MessageBoxResult.OK)
                 {
-                    // User has opted in or out of Location
-                    return;
-                }
-                else
+                    IsolatedStorageSettings.ApplicationSettings["LocationConsent"] = true;
+                }else
                 {
-                    MessageBoxResult result = 
-                        MessageBox.Show("This app accesses your phone's location. Is that ok?", 
-                        "Location",
-                        MessageBoxButton.OKCancel);
-
-                    if (result == MessageBoxResult.OK)
-                    {
-                        IsolatedStorageSettings.ApplicationSettings["LocationConsent"] = true;
-                    }else
-                    {
-                        IsolatedStorageSettings.ApplicationSettings["LocationConsent"] = false;
-                    }
-
-                    IsolatedStorageSettings.ApplicationSettings.Save();
+                    IsolatedStorageSettings.ApplicationSettings["LocationConsent"] = false;
                 }
-             
 
+                IsolatedStorageSettings.ApplicationSettings.Save();
+            }
             //Find(); // After get start coordinate and finish coordinate then call Find Method
         }
 
         private void TrackLocation_Click()
         {
-            /*
-            if ((bool)IsolatedStorageSettings.ApplicationSettings["LocationConsent"] != true)
-            {
-                // The user has opted out of Location.
-                return;
-            }
-             */
             geolocator = lFinder.geolocator;
 
             geolocator.StatusChanged += geolocator_StatusChanged;
@@ -242,8 +154,7 @@ namespace Kiri
             Boolean status = true; 
             HttpClient httpClient = new HttpClient();
             Protocol p = new Protocol();
-            String uri = p.getFindRoute(startCoordinate, finishCoordinate);
-
+            String uri = p.getFindRoute(lFinder.coorLatFrom + "," + lFinder.coorLongFrom, lFinder.coorLatTo + "," + lFinder.coorLongTo);
             Task<string> requestRouteTask = httpClient.GetStringAsync(new Uri(uri));
             string requestRoute = await requestRouteTask;
 
@@ -251,7 +162,6 @@ namespace Kiri
             if (r.status.Equals("ok"))
             {
                 //source zhttps://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn792121.aspx 
-                
                 MapPolyline routeRoad = new MapPolyline();
                 routeRoad.StrokeThickness = 3;
                 if (!r.routingresults[0].steps[0][3].Equals("Maaf, kami tidak dapat menemukan rute transportasi publik untuk perjalanan Anda.")) //Check ditemukan atau tidak
@@ -319,21 +229,18 @@ namespace Kiri
                                 this.detailRoute[j+1] = "Sampai di tujuan!";
                             }
                             //Add image 
-                            Uri imgUri = new Uri(p.getTypeTransport(r.routingresults[i].steps[j][0].ToString(), r.routingresults[i].steps[j][1].ToString()), UriKind.RelativeOrAbsolute);
+                            Uri imgUri = new Uri(p.getTypeTransportWOBaloon(r.routingresults[i].steps[j][0].ToString(), r.routingresults[i].steps[j][1].ToString()), UriKind.RelativeOrAbsolute);
                             BitmapImage imgSourceR = new BitmapImage(imgUri);
                             Image image = new Image();
                             image.Source = imgSourceR;
                             image.Height = 30;
                             image.Width = 50;
-                            //ImageBrush imgBrush = new ImageBrush() { ImageSource = imgSourceR };
                             //add description
                             listRoute.Items.Add(image);
                             listRoute.Items.Add(r.routingresults[i].steps[j][3].ToString() + System.Environment.NewLine); // Add text to listBox
                             routeRoad.Path.Add(geoCoo);
                         }
-                        //point.Add();
-                        //..Items.Add(r.routingresults[c].placename);
-                        addFindRoute.Text = queryFrom + " ke " + queryTo + " ( " + r.routingresults[i] .traveltime+ " )";
+                        addFindRoute.Text = lFinder.addressFrom + " ke " + lFinder.addressTo + " ( " + r.routingresults[i] .traveltime+ " )";
                     }
 
                     // Add the list box to a parent container in the visual tree.
@@ -352,11 +259,10 @@ namespace Kiri
 
             if (status == false)
             {
+                this.lFinder.reset();
+                PhoneApplicationService.Current.State["location"] = lFinder;
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
-
-            //    }));
-            //});
         }
 
         public void setFocus(object sender, RoutedEventArgs e)
@@ -388,7 +294,7 @@ namespace Kiri
         public void toMyLocation(object sender, RoutedEventArgs e)
         {
             this.route.Center = new GeoCoordinate(lFinder.coorLat, lFinder.coorLong);
-            this.route.ZoomLevel = 13;
+            this.route.ZoomLevel = 15;
         }
 
         private void ShowList(object sender, RoutedEventArgs e)
@@ -437,60 +343,19 @@ namespace Kiri
             return p;
         }
 
-        //zhttps://msdn.microsoft.com/en-us/library/windows/apps/jj206956%28v=vs.105%29.aspx
-        private async void ShowMyLocationOnTheMap()
-        {
-            this.route.Layers.Remove(myLocationLayer);
-            // Get my current location.
-            Geolocator myGeolocator = new Geolocator();
-            Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
-            Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
-            GeoCoordinate myGeoCoordinate = CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
-
-            double myAccuracy = 50.0;//Double.Parse(myGeolocator.DesiredAccuracyInMeters+"");
-            double metersPerPixels = (Math.Cos(myGeoCoordinate.Latitude * Math.PI / 180) * 2 * Math.PI * 6378137) / (256 * Math.Pow(2, this.route.ZoomLevel));
-            double radius = myAccuracy / metersPerPixels;
-
-            Ellipse ellipse = new Ellipse();
-            ellipse.Width = radius * 2;
-            ellipse.Height = radius * 2;
-            ellipse.Fill = new SolidColorBrush(Color.FromArgb(75, 200, 0, 0));
-
-            Ellipse myCircle = new Ellipse();
-            myCircle.Fill = new SolidColorBrush(Colors.Black);
-            myCircle.Height = 10;
-            myCircle.Width = 10;
-            myCircle.Opacity = 50;
-
-            MapOverlay myLocationOverlayPosition = new MapOverlay();
-            myLocationOverlayPosition.Content = myCircle;
-            myLocationOverlayPosition.PositionOrigin = new Point(0, 0);
-            myLocationOverlayPosition.GeoCoordinate = myGeoCoordinate;
-
-            MapOverlay myLocationOverlayAccuracy = new MapOverlay();
-            myLocationOverlayAccuracy.Content = ellipse;
-            myLocationOverlayAccuracy.PositionOrigin = new Point(0, 0);
-            myLocationOverlayAccuracy.GeoCoordinate = myGeoCoordinate;
-
-            myLocationLayer.Add(myLocationOverlayPosition);
-            myLocationLayer.Add(myLocationOverlayAccuracy);
-
-            this.route.Center = myGeoCoordinate;
-            this.route.ZoomLevel = 13;
-            this.route.Layers.Add(myLocationLayer);
-        }
-
         private void drawMyLocationOnTheMap(Double latitude, Double longitude)
         {
             this.route.Layers.Remove(myLocationLayer);
             GeoCoordinate myGeoCoordinate = new GeoCoordinate(latitude, longitude);
-            double myAccuracy = 50.0;//Double.Parse(myGeolocator.DesiredAccuracyInMeters+"");
+            double myAccuracy = lFinder.accuracy; 
+            //MessageBox.Show(lFinder.accuracy + "");
             double metersPerPixels = (Math.Cos(myGeoCoordinate.Latitude * Math.PI / 180) * 2 * Math.PI * 6378137) / (256 * Math.Pow(2, this.route.ZoomLevel));
             double radius = myAccuracy / metersPerPixels;
 
             Ellipse ellipse = new Ellipse();
             ellipse.Width = radius * 2;
             ellipse.Height = radius * 2;
+            ellipse.Margin = new Thickness(-radius, -radius,0, 0);
             ellipse.Fill = new SolidColorBrush(Color.FromArgb(75, 200, 0, 0));
 
             Ellipse myCircle = new Ellipse();
@@ -509,6 +374,7 @@ namespace Kiri
             myLocationOverlayAccuracy.PositionOrigin = new Point(0, 0);
             myLocationOverlayAccuracy.GeoCoordinate = myGeoCoordinate;
 
+            myLocationLayer = new MapLayer();
             myLocationLayer.Add(myLocationOverlayPosition);
             myLocationLayer.Add(myLocationOverlayAccuracy);
             this.route.Layers.Add(myLocationLayer);
@@ -547,14 +413,5 @@ namespace Kiri
         //JSON data to c# using JSON.NET
         //package from zhttp://www.nuget.org/packages/newtonsoft.json
         // dok zhttp://www.newtonsoft.com/json/help/html/SerializingJSON.htm
-        public static T Deserialize<T>(string json)
-        {
-            var obj = Activator.CreateInstance<T>();
-            using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(json)))
-            {
-                JsonConvert.DeserializeObject<T>(json);
-                return obj;
-            }
-        }
     }
 }
