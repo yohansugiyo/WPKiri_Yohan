@@ -68,10 +68,8 @@ Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence} k
 \hspace{0.5cm} \textit{MainPage} merupakan kelas kelas turunan dari kelas \textit{PhoneApplicationPage} yang menangani interaksi langsung antara halaman aplikasi dengan pengguna. Pada kelas ini akan ditaruh kontrol yang diperlukan. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
 	\item protocol bertipe Protocol untuk mendapatkan URL yang digunakan dalam permintaan ke Kiri API.
-	\item lFinder bertipe LocationFinder yang akan menampung objek untuk pencarian lokasi.
+	\item lFinder bertipe LocationFinder digunakan untuk menampung semua informasi mengenai lokasi.
 	\item httpClient bertipe HttpClient merupakan objek yang akan mengurus permintaan dan kembalian dari Kiri API.
-	\item locationFrom bertipe string untuk menampung kordinat awal.
-	\item locationTo bertipe string untuk menampung kordinat tujuan.
 	\item city bertipe kumpulan String untuk menampung kota yang didukung oleh layanan Kiri.
 	\item myCity bertipe String untuk menampung kode kota sesuai Kode Penerbangan IATA.
 	\item backgroundWorker bertipe BackgroundWorker untuk mengurus pencarian lokasi di belakang layar.
@@ -129,19 +127,36 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 %Kelas LocationFinder
 \subsection{Kelas \textit{LocationFinder}}
 \label{lab:Kelas LocationFinder}
-\hspace{0.5cm} \textit{LocationFinder} merupakan kelas yang akan menampung lokasi perangkat. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\hspace{0.5cm} \textit{LocationFinder} merupakan kelas yang akan menampung lokasi dan pencarian lokasi. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item coorLat bertipe Double untuk menampung kordinat latitude.
-	\item coorLong bertipe Double untuk menampung kordinat longitude.
-	\item myGeoCoordinate bertipe GeoCoordinate untuk menampung lokasi perangkat
+	\item coorLat bertipe Double untuk menampung kordinat latitude pengguna.
+	\item coorLong bertipe Double untuk menampung kordinat longitude pengguna.
+	\item coorLat bertipe Double untuk menampung kordinat latitude lokasi asal yang diinginkan pengguna.
+	\item coorLong bertipe Double untuk menampung kordinat longitude lokasi asal yang diinginkan pengguna.
+	\item coorLat bertipe Double untuk menampung kordinat latitude lokasi tujuan yang diinginkan pengguna.
+	\item coorLong bertipe Double untuk menampung kordinat longitude lokasi tujuan yang diinginkan pengguna.
+	
+	\item addressDevice bertipe String untuk menyimpan alamat perangkat berada.
+	\item addressDeviceFrom bertipe String untuk menyimpan alamat berdasarkan lokasi lokasi asal yang diinginkan pengguna.
+	\item addressDeviceTo bertipe String untuk menyimpan alamat berdasarkan lokasi tujuan yang diinginkan pengguna.
+	
 	\item geolocator bertipe Geolocator untuk menampung pengaturan mendapatkan lokasi.
+	\item MyReverseGeocodeQuery bertipe ReverseGeocodeQuery untuk konversi dari alamat ke lokasi dan sebalikny.
+	\item MyCoordinate bertipe GeoCoordinate untuk menampung kordinat geografis.
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
+	\item Konstruktor LocationFinder berfungsi mengatur atribut geolocator dan mencari lokasi perangkat.
 	\item Metode OneShotLocation berfungsi inisialisasi GPS lalu mendapat kordinat dan menampungnya di atribut.
+	\item Metode updateAccuracy berfungsi untuk mengubah nilai akurasi dari perangkat.
 	\item Metode setPositionChanged berfungsi mengubah atribut coorLat dan atribut coorLong jika terdapat perubahan lokasi.
-	\item Metode getAddress berfungsi untuk mendapatkan alamat dengan masukan \textit{latitude} dan \textit{longitude}.
+	\item Metode GetCurrentCoordinate berfungsi mengubah posisi saat ini, posisi lokasi asal, dan lokasi tujuan. Metode ini memiliki tiga buah parameter \textit{latitude} bertipe Double, \textit{longitude} bertipe Double, dan paramFor bertipe String. Parameter \textit{latitude} dan \textit{longitude} merupakan lokasi sedangkan parameter paramFor digunakan sebagai tujuan perubahan lokasi. 
+	\item Metode ReverseGeocodeQueryFrom\_QueryCompleted berfungsi untuk mencari alamat lokasi asal.
+	\item Metode ReverseGeocodeQueryTo\_QueryCompleted berfungsi untuk mencari alamat lokasi tujuan.
+	\item Metode ReverseGeocodeQuery\_QueryCompleted berfungsi untuk mencari alamat lokasi perangkat.
+	\item Metode setCoordinateHere berfungsi untuk menyimpan kordinat dan alamat perangkat ke kordinat dan alamat lokasi asal dan lokasi tujuan. Metode ini memiliki parameter paramFor bertipe String yang akan digunakan sebagai masukan disimpannya lokasi perangkat.
+	\item Metode reset berfungsi untuk memasang kembali lokasi asal dan lokasi tujuan.
 \end{enumerate}
 
 %Kelas Map
@@ -149,18 +164,18 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \label{lab:Kelas Map}
 \hspace{0.5cm} \textit{Map} merupakan kelas yang akan mendapatkan titik yang ditunjuk pengguna pada peta lalu menerjemahkannya dalam bentuk titik kordinat. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item lFinder bertipe LocationFinder 
-	\item location bertipe string untuk menampung lokasi.
+	\item lFinder bertipe LocationFinder digunakan untuk menampung semua informasi mengenai lokasi.
 	\item fromMapFor bertipe string digunakan sebagai indikator lokasi asal atau lokasi tujuan yang didapatkan dari map.
+	\item address
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
-	\item Konstruktor Map
-	\item Metode getPoint berfungsi mengambil titik yang ditunjuk lalu menerjemahkan dalam bentuk latitude dan longitude. 
+	\item Konstruktor Map untuk inisialisasi dan penambahan \textit{event} mengetuk pada peta.
 	\item Metode OnNavigatedTo berfungsi untuk mendapatkan masukan lokasi asal atau lokasi tujuan yang akan ditentukan dari map untuk kemudian ditampung di atribut fromMapFor.
 	\item Metode ShowMyLocationOnTheMap digunakan untuk memberitahu dan menandai lokasi perangkat.
-	\item Metode map\_Tap
+	\item Metode map\_Tap berfungsi untuk menerjemahkan lokasi yang ditunjuk pengguna pada peta dan mengirimnya ke kelas LocationFinder.
+	\item Metode pilihLokasi berfungsi berpindah ke kelas MainPage dan memberitahu kelas MainPage bahwa lokasi sudah dipilih.
 \end{enumerate}
 
 %Kelas HttpClient
@@ -262,39 +277,34 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \label{lab:Kelas Route}
 \hspace{0.5cm} \textit{Route} merupakan kelas untuk pencarian rute dan menampilkannya kepada pengguna. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item startCoordinate
-	\item finishCoordinate
-	\item queryFrom
-	\item queryTo
-	\item listBoxStatus
-	\item lFinder
-	\item arrayFocus
-	\item detailRoute
-	\item focusPointNumber
-	\item routeLayer
-	\item myLocationLayer
-	\item geolocator
-	\item backgroundWorker
+	\item listBoxStatus bertipe boolean digunakan untuk status rute dalam bentuk daftar sedang tertutup atau terbuka. 
+	\item lFinder bertipe LocationFinder digunakan untuk menampung semua informasi mengenai lokasi.
+	\item arrayFocus bertipe \textit{array of Point} digunakan untuk menampung titik fokus perubahan jenis transportasi yang digunakan pengguna.  
+	\item detailRoute bertipe \textit{array of String} digunakan untuk menampung keterangan yang dibutuhkan pengguna dari Kiri API.
+	\item focusPointNumber bertipe \textit{integer} digunakan untuk menentukan \textit{index of} dari atribut arrayFocus dan detailRoute.
+	\item routeLayer bertipe MapLayer digunakan untuk menampung \textit{Polyline} dan \textit{Pushpin}
+	\item myLocationLayer bertipe MapLayer digunakan untuk menampung titik dari lokasi perangakt berada.
+	\item geolocator bertipe Geolocator untuk menangani perubahan lokasi yang terjadi.
+	\item backgroundWorker bertipe BackgroundWorker digunakan untuk menangain proses di belakang layar.
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
-	\item Konstruktor Route
-	\item Metode OnNavigatedTo
-	\item Metode TrackLocation_Click
-	\item Metode geolocator_StatusChanged
-	\item Metode geolocator_PositionChanged
-	\item Metode Find
-	\item Metode setFocus
-	\item Metode toMyLocation
-	\item Metode ShowList
-	\item Metode createNew
-	\item Metode ShowMyLocationOnTheMap
-	\item Metode drawMyLocationOnTheMap
-	\item Metode ShowLoading
-	\item Metode StartLoadingData
-	\item Metode backgroundWorker_DoWork
-	\item Metode backgroundWorker_RunWorkerCompleted
+	\item Konstruktor Route digunakan untuk inisialisasi dan pemanggilan backgroundWorker.
+	\item Metode OnNavigatedTo digunakan untuk menangani masukan dari kelas lain dan memanggil metode TrackLocation.
+	\item Metode TrackLocation digunakan untuk inisislisasi GeoLocator dan dan memulai pelacakan lokasi terus menerus. 
+	\item Metode geolocator\_StatusChanged digunakan untuk mengetahui status GeoLocator.
+	\item Metode geolocator\_PositionChanged digunakan untuk mengetahui perubahan lokasi yang terjadi dan menyimpannya di kelas LocationFinder.
+	\item Metode Find digunakan untuk mencari rute yang dicari pengguna.
+	\item Metode setFocus digunakan untuk mengarahkan pusat pandangan ke titik lokasi pergantian jenis transportasi.
+	\item Metode toMyLocation digunakan untuk mengarahkan pusat pandangan ke titik lokasi perangakt berada.
+	\item Metode ShowList digunakan untuk membuka dan menutup rute dalam bentuk daftar.
+	\item Metode createNew digunakan untuk membuat Pushpins.
+	\item Metode drawMyLocationOnTheMap digunakan untuk membuat penanda lokasi di lapisan myLocationLayer pada peta.
+	\item Metode ShowLoading digunakan untuk memunculkan \textit{popup} menunggu.
+	\item Metode StartLoadingData digunakan untuk pemanggilan BackgroundWorker.
+	\item Metode backgroundWorker\_DoWork digunakan untuk eksekusi metode dengan BackgroundWorker.
+	\item Metode backgroundWorker\_RunWorkerCompleted digunakan untuk menutup \textit{popup} menunggu jika semua metode sudah selesai dijalankan.
 \end{enumerate}
 
 %Perancangan Antar Muka

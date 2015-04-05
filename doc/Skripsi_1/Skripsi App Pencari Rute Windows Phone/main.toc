@@ -63,18 +63,18 @@
 \contentsline {subsection}{\numberline {4.2.5}Kelas \textit {Geolocator}}{50}{subsection.4.2.5}
 \contentsline {subsection}{\numberline {4.2.6}Kelas \textit {Geoposition}}{50}{subsection.4.2.6}
 \contentsline {subsection}{\numberline {4.2.7}Kelas \textit {LocationFinder}}{50}{subsection.4.2.7}
-\contentsline {subsection}{\numberline {4.2.8}Kelas \textit {Map}}{51}{subsection.4.2.8}
-\contentsline {subsection}{\numberline {4.2.9}Kelas \textit {HttpClient}}{51}{subsection.4.2.9}
+\contentsline {subsection}{\numberline {4.2.8}Kelas \textit {Map}}{52}{subsection.4.2.8}
+\contentsline {subsection}{\numberline {4.2.9}Kelas \textit {HttpClient}}{52}{subsection.4.2.9}
 \contentsline {subsection}{\numberline {4.2.10}Kelas \textit {JsonConvert}}{52}{subsection.4.2.10}
-\contentsline {subsection}{\numberline {4.2.11}Kelas \textit {Protocol}}{52}{subsection.4.2.11}
-\contentsline {subsection}{\numberline {4.2.12}Kelas \textit {RootObjectSearchPlace}}{53}{subsection.4.2.12}
-\contentsline {subsection}{\numberline {4.2.13}Kelas \textit {SearchResult}}{53}{subsection.4.2.13}
-\contentsline {subsection}{\numberline {4.2.14}Kelas \textit {RootObjectFindRoute}}{54}{subsection.4.2.14}
-\contentsline {subsection}{\numberline {4.2.15}Kelas \textit {RoutingResult}}{54}{subsection.4.2.15}
-\contentsline {subsection}{\numberline {4.2.16}Kelas \textit {Route}}{54}{subsection.4.2.16}
-\contentsline {section}{\numberline {4.3}Perancangan Antar Muka}{54}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Antarmuka Kelas \textit {MainPage}}{54}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Antarmuka Kelas \textit {Map}}{56}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Antarmuka Kelas \textit {Route}}{56}{subsection.4.3.3}
-\contentsline {chapter}{Daftar Referensi}{59}{chapter*.5}
+\contentsline {subsection}{\numberline {4.2.11}Kelas \textit {Protocol}}{53}{subsection.4.2.11}
+\contentsline {subsection}{\numberline {4.2.12}Kelas \textit {RootObjectSearchPlace}}{54}{subsection.4.2.12}
+\contentsline {subsection}{\numberline {4.2.13}Kelas \textit {SearchResult}}{54}{subsection.4.2.13}
+\contentsline {subsection}{\numberline {4.2.14}Kelas \textit {RootObjectFindRoute}}{55}{subsection.4.2.14}
+\contentsline {subsection}{\numberline {4.2.15}Kelas \textit {RoutingResult}}{55}{subsection.4.2.15}
+\contentsline {subsection}{\numberline {4.2.16}Kelas \textit {Route}}{55}{subsection.4.2.16}
+\contentsline {section}{\numberline {4.3}Perancangan Antar Muka}{56}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Antarmuka Kelas \textit {MainPage}}{56}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Antarmuka Kelas \textit {Map}}{58}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Antarmuka Kelas \textit {Route}}{59}{subsection.4.3.3}
+\contentsline {chapter}{Daftar Referensi}{61}{chapter*.5}
 \renewcommand {\cftchappresnum }{\bf \scshape }
