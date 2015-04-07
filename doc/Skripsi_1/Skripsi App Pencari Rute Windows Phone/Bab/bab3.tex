@@ -350,14 +350,14 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 %\vtop{\hbox{\strut kalimat_1} \hbox{\strut kalimat_2}}
 \begin{table}[H]
 	\centering
-		\begin{tabular}{ |l|l| }
+		\begin{tabular}{ |p{2cm}|p{10cm}| }
 			\hline
 			Nama &  Mendapatkan lokasi perangkat\\ \hline
 			Aktor & Pengguna  \\ \hline
 			Deskripsi & Mendapatkan lokasi perangkat berada  \\ \hline
 			Kondisi awal & TextBox masih kosong dan pengguna menekan tombol lokasi \\ \hline
 			Kondisi akhir & Lokasi ditemukan dan TextBox berisi "here" \\ \hline
-			Skenario utama & \vtop{\hbox{\strut Pengguna menekan tombol lalu perangkat akan mencari lokasi perangkat dan} \hbox{\strut TextBox berisi "here"}} \\ \hline
+			Skenario utama & Pengguna menekan tombol lalu perangkat akan mencari lokasi perangkat dan TextBox berisi "here" \\ \hline
 			Eksespsi & lokasi tidak ditemukan jika GPS perangkat tidak aktif  \\ 
 			\hline
 		\end{tabular}
@@ -367,14 +367,14 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 
 \begin{table}[H]
 	\centering
-		\begin{tabular}{ |l|l| }
+		\begin{tabular}{ |p{2cm}|p{10cm}| }
 			\hline
 			Nama &  Masukan pada \textit{TextBox}\\ \hline
 			Aktor & Pengguna  \\ \hline
-			Deskripsi & \vtop{\hbox{\strut Memasukan lokasi asal pengguna dan tujuan pengguna} \hbox{\strut (masukan dapat berupa alamat, kordinat, atau tempat)}} \\ \hline
+			Deskripsi & Memasukan lokasi asal pengguna dan tujuan pengguna(masukan dapat berupa alamat, kordinat, atau tempat) \\ \hline
 			Kondisi awal & TextBox masih dalam keadaan belum terisi \\ \hline
 			Kondisi akhir & Lokasi awal dan tujuan sudah dimasukan   \\ \hline
-			Skenario utama & \vtop{\hbox{\strut Pengguna mengetikan lokasi awal dan tujuan pada TextBox yang sudah} \hbox{\strut disediakan}} \\ \hline
+			Skenario utama & Pengguna mengetikan lokasi awal dan tujuan pada TextBox yang sudah disediakan \\ \hline
 			Eksespsi & tidak ada  \\ 
 			\hline
 		\end{tabular}
@@ -384,14 +384,14 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 
 \begin{table}[H]
 	\centering
-		\begin{tabular}{ |l|l| }
+		\begin{tabular}{ |p{2cm}|p{10cm}| }
 			\hline
 			Nama &  Menunjuk lokasi\\ \hline
 			Aktor & Pengguna  \\ \hline
-			Deskripsi & \vtop{\hbox{\strut Memasukan lokasi asal pengguna dan tujuan pengguna dengan menunjuk} \hbox{\strut pada peta}} \\ \hline
+			Deskripsi & Memasukan lokasi asal pengguna dan tujuan pengguna dengan menunjuk pada peta \\ \hline
 			Kondisi awal & TextBox masih dalam keadaan belum terisi \\ \hline
 			Kondisi akhir & TextBox terisi dengan "lokasi dari peta"   \\ \hline
-			Skenario utama & \vtop{\hbox{\strut Pengguna menunjuk lokasi pada peta dan TextBox terisi dengan} \hbox{\strut "lokasi dari peta"}} \\ \hline
+			Skenario utama & Pengguna menunjuk lokasi pada peta dan TextBox terisi dengan "lokasi dari peta" \\ \hline
 			Eksespsi & tidak ada  \\ 
 			\hline
 		\end{tabular}
@@ -401,14 +401,14 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 
 \begin{table}[H]
 	\centering
-		\begin{tabular}{ |l|l| }
+		\begin{tabular}{ |p{2cm}|p{10cm}| }
 			\hline
 			Nama &  Memilih alamat\\ \hline
 			Aktor & Pengguna  \\ \hline
 			Deskripsi & Pengguna memilih alamat atau lokasi yang terkait masukan pengguna \\ \hline
 			Kondisi awal & Lokasi awal dan lokasi tujuan terisi dan pengguna menekan tombol "Find" \\ \hline
 			Kondisi akhir & Pengguna sudah memilih dan lokasi sudah dapat dipastikan  \\ \hline
-			Skenario utama & \vtop{\hbox{\strut Pengguna menekan tombol "Find". Sistem mengembalikan daftar yang berisi} \hbox{\strut alamat atau tempat terkait masukan pengguna}} \\ \hline
+			Skenario utama & Pengguna menekan tombol "Find". Sistem mengembalikan daftar yang berisi alamat atau tempat terkait masukan pengguna \\ \hline
 			Eksespsi & Lokasi masukan pengguna tidak ditemukan  \\ 
 			\hline
 		\end{tabular}
@@ -418,14 +418,14 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 
 \begin{table}[H]
 	\centering
-		\begin{tabular}{ |l|l| }
+		\begin{tabular}{ |p{2cm}|p{10cm}| }
 			\hline
 			Nama &  Menampilkan rute kendaraan umum\\ \hline
 			Aktor & Pengguna  \\ \hline
-			Deskripsi & \vtop{\hbox{\strut Lokasi dari pengguna diolah menjadi rute} \hbox{\strut kendaraan umum dari lokasi asal dan lokasi tujuan}} \\ \hline
+			Deskripsi & Lokasi dari pengguna diolah menjadi rute kendaraan umum dari lokasi asal dan lokasi tujuan \\ \hline
 			Kondisi awal & Lokasi sudah dapat dipastikan \\ \hline
 			Kondisi akhir & Rute kendaraan umum dimunculkan pada peta dan dalam bentuk daftar \\ \hline
-			Skenario utama & \vtop{\hbox{\strut Lokasi dapat dipastikan sistem. Sistem lalu akan memproses data masukan.} \hbox{\strut Sistem akan mengembalikan hasil rute kendaraan umum pada peta dan} \hbox{\strut dalam bentuk daftar}} \\ \hline
+			Skenario utama & Lokasi dapat dipastikan sistem. Sistem lalu akan memproses data masukan. Sistem akan mengembalikan hasil rute kendaraan umum pada peta dan dalam bentuk daftar \\ \hline
 			Eksespsi & Rute kendaraan umum tidak ditemukan  \\ 
 			\hline
 		\end{tabular}

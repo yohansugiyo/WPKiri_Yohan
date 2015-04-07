@@ -525,7 +525,8 @@ Berikut Properti yang disediakan kelas \textit{Geoposition}:
 
 Sebelum data dapat dikirim antar perangkat perlu dilakukan \textit{Serialization}. \textit{Serialization} disini merupakan proses mentransformasikan objek ke format yang bisa dengan mudah dikirim melewati jaringan atau disimpan di database. Formatnya disini berupa string yang direpresentasikan sebagai objek di XML atau JSON(Javascript Object Notation). Ada beberapa objek yang dapat melakukan serialisasi, tetapi yang akan dibahas penulis disini hanya serialisasi JSON\cite{Manning}. 
 
-Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memiliki struktur yang mudah dipahami. Kurung kurawal mengindikasikan objek, kurung siku berarti array, dan properti berupa nama dan nilai pasangan yang dipisahkan oleh titik dua. JSON format memiliki ukuran data yang kecil dan baik untuk penggunaan perangkat bergerak. Untuk contoh format JSON dapat dilihat di bagian Kiri API pada Bab dua ini karena Kiri API menggunakan format JSON. Serialisasi menggunakan \textit{DataContractJsonSerializer} membuat serialisasi mudah untuk menerjemahkan form String JSON ke objek yang dapat langsung digunakan. \textit{DataContractJsonSerializer} memakai \textit{WriteObject()} untuk serialisasi and \textit{ReadObject()} untuk de-serialisasi.
+%sumber http://json.org/
+Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memiliki format \textit{data-interchange} yang ringan. Karena hal tersebut JSON mudah diurai dan dihasilkan oleh mesin. Kurung kurawal mengindikasikan objek, kurung siku berarti array, dan properti berupa nama dan nilai pasangan yang dipisahkan oleh titik dua. JSON format memiliki ukuran data yang kecil dan baik untuk penggunaan perangkat bergerak. Untuk contoh format JSON dapat dilihat di bagian Kiri API pada Bab dua ini karena Kiri API menggunakan format JSON. Serialisasi menggunakan \textit{DataContractJsonSerializer} membuat serialisasi mudah untuk menerjemahkan form String JSON ke objek yang dapat langsung digunakan. \textit{DataContractJsonSerializer} memakai \textit{WriteObject()} untuk serialisasi and \textit{ReadObject()} untuk de-serialisasi.
 
 % SUBSUB Kelas HttpClient
 \subsubsection{\textit{HttpClient}}
@@ -555,6 +556,15 @@ Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memi
 \footnotetext[2]{\url{http://msdn.microsoft.com/en-us/library/ms734701\%28v=vs.110\%29.aspx}}
 % http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn440594.aspx
 % http://msdn.microsoft.com/en-us/library/windows/apps/xaml/windows.web.http.httpclient.aspx
+
+% SUBSUB Json.NET from http://www.newtonsoft.com/json
+\subsubsection{Json.NET}
+\label{subsubsec:Json.NET}
+\hspace{0.5cm} Json.NET merupakan \textit{library} untuk melakukan \textit{serialize} dan \textit{deserialize} terhadap objek dalam .NET. \textit{Library} ini memiliki 2 kelas yaitu kelas JsonConvert dan kelas JsonSerializer. Berikut merupakan keterangan dari dua kelas tersebut.
+\begin{itemize}
+	\item JsonConvert merupakan kelas yang berfungsi untuk konversi dari JSON String ke objek dan sebaliknya. Kelas ini memiliki dua buah metode yaitu SerializeObject() dan DeserializeObject().
+	\item JsonSerializer merupakan kelas yang berfungsi untuk konversi dari JSON String ke objek dan sebaliknya. Kelebihan yang dimiliki kelas ini adalah dapat membaca dan menulis JSON dari \textit{file text}.
+\end{itemize}
 
 % Kiri API
 \section{Kiri API}

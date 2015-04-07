@@ -39,35 +39,144 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 \begin{enumerate}
 	\item Komputer
 		\begin{enumerate}
-			\item Sistem Operasi
-			\item IDE
-			\item Bahasa Pemrograman
-			\item Library
+			\item Sistem Operasi Windows 8.1
+			\item IDE Visual Studio Express 2012
+			\item Bahasa Pemrograman C\#
+			\item Library .Net Framework 4.5
 		\end{enumerate}
 		
 	\item Perangkat Bergerak
 		\begin{enumerate}
-			\item Sistem Operasi
+			\item Sistem Operasi Windows Phone 8.1
 		\end{enumerate}
 \end{enumerate}
 
 %Hasil Implementasi
 \subsection{Hasil Implementasi}
 \label{lab:Hasil Implementasi}
+\hspace{0.5cm} Hasil implementasi dari perangkat lunak ini terbagi dalam tiga bagian, yaitu:
+\begin{enumerate}
+	\item Kode Program \\
+	Kode Program pada perangkat lunak ditulis dengan menggunakan bahasa c\#. Bahasa C\# dipilih berdasarkan analisa pada bab 3 dan kemampuan penulis.
+	\item Hasil kompilasi program \\
+	Hasil dari kompilasi program berupa \textit{file} Kiri\_Debug\_AnyCPU.xap. \textit{File} ini dapat dipasang pada perangkat dengan sistem operasi Windows Phone versi 8 atau lebih tinggi.
+	\item Antarmuka Aplikasi \\
+	Berikut merupakan hasil implementasi antarmuka aplikasi Pencari Rute Kendaraan Umum untuk Windows phone.
+\end{enumerate}
+
+% Gambar antarmuka kelas MainPage
+	\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.2]{Gambar/antarmuka/home}
+		\caption{Gambar antarmuka kelas MainPage}
+		\label{fig:antarmuka MainPage}
+	\end{figure}
+	
+	\newpage
+	
+	% Gambar antarmuka Splash MainPage
+	\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.2]{Gambar/antarmuka/splash}
+		\caption{Gambar antarmuka Splash di kelas MainPage}
+		\label{fig:antarmuka splash MainPage}
+	\end{figure}	
+	
+	% Gambar antarmuka list di kelas MainPage
+	\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.2]{Gambar/antarmuka/list_main}
+		\caption{Gambar antarmuka \textit{list} asal dan \textit{list} tujuan di kelas MainPage}
+		\label{fig:antarmuka list MainPage}
+	\end{figure}
+	
+	% Gambar antarmuka kelas Map
+	\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.2]{Gambar/antarmuka/map}
+		\caption{Gambar antarmuka kelas Map}
+		\label{fig:antarmuka Map}
+	\end{figure}
+	
+	% Gambar antarmuka menunggu di kelas Route
+	\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.2]{Gambar/antarmuka/wait_route}
+		\caption{Gambar antarmuka menunggu di kelas Route}
+		\label{fig:antarmuka menunggu Route}
+	\end{figure}
+	
+	% Gambar antarmuka kelas Route
+	\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.2]{Gambar/antarmuka/route_map}
+		\caption{Gambar antarmuka kelas Route}
+		\label{fig:antarmuka Route}
+	\end{figure}
+	
+	% Gambar antarmuka kelas Route bentuk list
+	\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.2]{Gambar/antarmuka/list_route}
+		\caption{Gambar antarmuka \textit{list} di kelas Route}
+		\label{fig:antarmuka list Route}
+	\end{figure}
+
+\newpage
 
 %Pengujian
 \section{Pengujian}
 \label{lab:Pengujian}
-\hspace{0.5cm} 
+\hspace{0.5cm} Pada bagian ini akan dibahas mengenai hasil pengujian yang telah dilakukan terhadap aplikasi yang telah dibangun penulis. Pengujian yang dilakukan terdiri dari dua bagian yaitu pengujian fungsional dan pengujian experimental. Pengujian fungsional bertujuan untuk memastikan semua fungsi aplikasi berjalan sesuai harapan. Sementara pengujian eksperimental bertujuan untuk mengetahui keberhasilan proses kerja dari aplikasi.
 
 %Lingkungan Pengujian
 \subsection{Lingkungan Pengujian}
 \label{lab:Lingkungan Pengujian}
+\hspace{0.5cm} Dalam proses pengujian perangkat lunak penulis menggunakan sistem operasi Windows Phone 8.1 dengan spesifikasi perangkat keras sebagai berikut.
+\begin{enumerate}
+	\item \textit{Processor} : 1.2 Ghz Quad Core
+	\item RAM : 1 GB
+	\item Layar : 1280 x 720 \textit{pixels}, 4,7 inch
+	\item GPS : A-GPS, GLONASS, Beidou
+\end{enumerate}
 
 %Pengujian Fungsional untuk mengetahui kesesuaian reaksi nyata dengan yang diharapkan
 \subsection{Pengujian Fungsional}
 \label{lab:Pengujian Fungsional}
+\hspace{0.5cm} Pengujian fungsional dilakukan untuk menguji kesesuaian reaksi yang terjadi dengan reaksi yang diharapkan. Hasil pengujian tersebut ditunjukan pada tabel ~\ref{tab:TabelHasilPengujianFungsionalitas}.
 
+\begin{table}[h]
+	\centering
+		\begin{tabular}{|p{1cm}|p{4cm}|p{6cm}|p{3cm}|}\hline
+				No & Aksi Pengguna & Reaksi yang Diharapkan & Reaksi Perangkat lunak \\ \hline
+				1 & Menjalankan aplikasi & Aplikasi menampilkan SplashScreen selama beberapa saat dan tampilan awal halaman MainPage ditampilkan & sesuai \\ \hline
+				2 & Memasukan lokasi asal dan lokasi tujuan dari \textit{textbox} & \textit{Textbox} terisi sesuai masukan & sesuai \\ \hline
+				3 & Memasukan lokasi asal atau lokasi tujuan berdasarkan lokasi perangkat dengan menekan tombol "here" & \textit{Textbox} lokasi asal atau lokasi tujuan terisi "here" & sesuai \\ \hline
+				4 & Menekan tombol "maps" untuk memilih lokasi pada peta & Pindah halaman ke kelas Map & sesuai \\ \hline
+				5 & Menekan lokasi pada peta lalu menekan tombol "pilih lokasi" & Lokasi ditandai dan pengguna diarahkan kembali ke kelas Main Page & sesuai \\ \hline
+				6 & Memilih kota & Kota berubah sesusai yang dipilih pengguna & sesuai \\ \hline
+				7 & Menekan tombol "Find" & Bila lokasi diambil dari peta dan lokasi perangkat maka tidak akan tampil \textit{ListBox} dan antarmuka dialihkan ke kelas Route & sesuai \\ \hline
+				8 & & Bila input masukan berupa kata kunci tempat maka akan tampil \textit{ListBox} untuk dipilih, lalu setelah dipilih antarmuka dialihkan ke kelas Route & sesuai \\ \hline
+				9 & Bila \textit{ListBox} ditampilkan dan pengguna memilih & \textit{ListBox} akan tertutup & sesuai \\ \hline
+				10 & Pada kelas Route pengguna menekan tombol "here" & Pusat peta akan diarahkan ke lokasi pengguna berada & sesuai \\ \hline
+				11 & Pada kelas Route pengguna menekan tombol "Tunjukan Daftar" & Jika daftar tertutup maka daftar akan terbuka & sesuai \\ \hline
+				12 & & Jika daftar terbuka maka daftar akan tertutup & sesuai \\ \hline
+				13 & Pada kelas Route pengguna menekan tombol "Next" & Pusat peta akan diarahkan ke pergantian transportasi berikutnya sesua kembalian Kiri disertai keterangan & sesuai \\ \hline
+				14 & Pada kelas Route pengguna menekan tombol "Prev" & Pusat peta akan diarahkan ke pergantian transportasi sebelumnya sesua kembalian Kiri disertai keterangan & sesuai \\ \hline
+		\end{tabular}
+	\caption{Tabel Hasil pengujian fungsionalitas}
+	\label{tab:TabelHasilPengujianFungsionalitas}
+\end{table}
+ 
 %Pengujian Experimental untuk mengetahui tingkat keberhasilan proses kerja aplikasi
 \subsection{Pengujian Experimental}
 \label{lab:Pengujian Experimental}
+\hspace{0.5cm} Pengujian eksperimental dilakukan untuk mengetahui keberhasilan aplikasi yang dibangun penulis. Berikut pengujian eksperimental yang dilakukan penulis.
+\begin{enumerate}
+	\item Pengujian 1
+		\begin{itemize}
+			\item Tempat : Rumah(Jalan Kejaksaan menuju Unpar)
+			\item Waktu : Pukul 9 pada tanggal 7 April 2014
+			Pada pengujian 1 penulis memasukan alamat di dalam rumah untuk menuju Unpar. Saat penulis memasukan kata Unpar muncul daftar tempat sesuai kata kunci "Unpar", lalu penulis memilih "Universitas Katolik Parahyangan".
+		\end{itemize}
+\end{enumerate}
