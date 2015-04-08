@@ -24,7 +24,6 @@ namespace Kiri
         public string addressFrom = "";
         public string addressTo = "";
 
-        public GeoCoordinate myGeoCoordinate;
         public Geolocator geolocator;
         private ReverseGeocodeQuery MyReverseGeocodeQuery = null;
         private GeoCoordinate MyCoordinate = null;
@@ -35,7 +34,6 @@ namespace Kiri
             this.geolocator.DesiredAccuracy = PositionAccuracy.High;
             this.geolocator.MovementThreshold = 20; // The units are meters.
             this.accuracy = 0.0;
-            this.myGeoCoordinate = new GeoCoordinate();
             findLocation();
         }
 
@@ -52,7 +50,7 @@ namespace Kiri
                 Deployment.Current.Dispatcher.BeginInvoke(() =>
                 {
                     Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
-                    myGeoCoordinate = CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
+                    GeoCoordinate myGeoCoordinate = CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
                     GetCurrentCoordinate((Double)myGeoCoordinate.Latitude, (Double)myGeoCoordinate.Longitude,"device");
                 });
             }

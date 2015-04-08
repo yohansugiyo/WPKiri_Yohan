@@ -12,6 +12,7 @@ namespace Kiri
 {
     class Protocol
     {
+        HttpClient httpClient = new HttpClient();
         public String uri_version
         {
             get
@@ -204,5 +205,25 @@ namespace Kiri
             String uri = handle + uri_version + version_2 + uri_mode + modeRoute + uri_locale + localeId + uri_start + start + uri_finish + finish + uri_presentation + presentationDesktop + uri_apikey + apiKey;
             return uri;
         }
+
+        public async Task<RootObjectSearchPlace> getRequestSearch(string query, string region)
+        {
+            String uri = getSearchPlace(query,region);
+            Task<String> requestRouteTask = httpClient.GetStringAsync(new Uri(uri));
+            String request = await requestRouteTask;
+            RootObjectSearchPlace objectRootSearch = JsonConvert.DeserializeObject<RootObjectSearchPlace>(request);
+            return objectRootSearch;
+        }
+
+        public async Task<RootObjectFindRoute> getRequestRoute(Double startLat, Double startLong, Double finishLat, Double finishLong)
+        {
+            String uri = getFindRoute(startLat + "," + startLong, finishLat + "," + finishLong);
+            Task<String> requestRouteTask = httpClient.GetStringAsync(new Uri(uri));
+            String request  = await requestRouteTask;
+            RootObjectFindRoute objectRootRoute = JsonConvert.DeserializeObject<RootObjectFindRoute>(request);
+            return objectRootRoute;
+        }
+
+
     }
 }

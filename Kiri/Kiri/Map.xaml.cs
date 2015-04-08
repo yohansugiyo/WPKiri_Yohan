@@ -21,7 +21,6 @@ namespace Kiri
     {
         private LocationFinder lFinder;
         public string fromMapFor;
-        public string address;
 
         public Map()
         {
@@ -64,8 +63,8 @@ namespace Kiri
             myCircle.Stroke = new SolidColorBrush(Colors.Black);
             myCircle.StrokeThickness = 4;
             myCircle.Fill = new SolidColorBrush(Colors.Green);
-            myCircle.Height = 20;
-            myCircle.Width = 20;
+            myCircle.Height = 25;
+            myCircle.Width = 25;
             myCircle.Opacity = 50;
 
             MapOverlay myLocationOverlay = new MapOverlay();

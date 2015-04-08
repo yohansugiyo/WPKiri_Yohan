@@ -96,10 +96,11 @@ namespace Kiri
                 if ((!queryFrom.Equals("Here") || !queryFrom.Equals("Maps")) && (lFinder.coorLatFrom == 0.0 && lFinder.coorLongFrom == 0.0)) //Check get location from GPS
                 {
                     //Reference zhttps://msdn.microsoft.com/en-us/library/hh191443.aspx
-                    Task<string> requestFromTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom, myCity)));
-                    requestFrom = await requestFromTask;
-                    from = new RootObjectSearchPlace();
-                    from = JsonConvert.DeserializeObject<RootObjectSearchPlace>(requestFrom); //Mengubah String menjadi objek
+                    //Task<string> requestFromTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom, myCity)));
+                    //requestFrom = await requestFromTask;
+                    //from = new RootObjectSearchPlace();
+                    //from = JsonConvert.DeserializeObject<RootObjectSearchPlace>(requestFrom); //Mengubah String menjadi objek
+                    from = await protocol.getRequestSearch(queryFrom, myCity); //Mengubah String menjadi objek
                     if (from.searchresult.Count() == 0)
                     {
                         MessageBox.Show("Pencarian untuk kata " + fromBox.Text + " tidak ditemukan");
@@ -108,10 +109,11 @@ namespace Kiri
                 }
                 if ((!queryTo.Equals("Here") || !queryTo.Equals("Maps")) && (lFinder.coorLatTo == 0.0 && lFinder.coorLongTo == 0.0)) //Check get location from GPS
                 {
-                    Task<string> requestToTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo, myCity)));
-                    requestTo = await requestToTask;
-                    to = new RootObjectSearchPlace();
-                    to = JsonConvert.DeserializeObject<RootObjectSearchPlace>(requestTo);//Mengubah String menjadi objek
+                    //Task<string> requestToTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo, myCity)));
+                    //requestTo = await requestToTask;
+                    //to = new RootObjectSearchPlace();
+                    //to = JsonConvert.DeserializeObject<RootObjectSearchPlace>(requestTo);//Mengubah String menjadi objek
+                    to = await protocol.getRequestSearch(queryTo, myCity); //Mengubah String menjadi objek
                     if (to.searchresult.Count() == 0)
                     {
                         MessageBox.Show("Pencarian untuk kata " + toBox.Text + " tidak ditemukan");
@@ -189,6 +191,7 @@ namespace Kiri
                             lFinder.coorLatTo = Double.Parse(coordinate[0]);
                             lFinder.coorLongTo = Double.Parse(coordinate[1]);
                         }
+                        this.findRoute();
                     }
                     else
                     {
@@ -205,22 +208,14 @@ namespace Kiri
                         }
                         else
                         {
+                            panelTo.Visibility = Visibility.Visible;
                             for (int c = 0; c < request.searchresult.Count; c++)
                             {
                                 listPlaceTo.Items.Add(request.searchresult[c].placename);
                             }
-                            if (panelFrom.Visibility == Visibility.Visible)
-                            {
-                                panelTo.Visibility = Visibility.Collapsed;
-                            }
-                            else {
-                                panelTo.Visibility = Visibility.Visible;
-                            }
                             listPlaceTo.DataContext = request.searchresult;
                             listPlaceTo.SelectionChanged += ListBoxSelectedPlace;
                         }
-
-                        
                     }
                 }
                 else
@@ -228,7 +223,6 @@ namespace Kiri
                     MessageBox.Show("Error!");
                 }
             }));
-
         }
 
         private void ListBoxSelectedPlace(object sender, SelectionChangedEventArgs e)
@@ -248,7 +242,7 @@ namespace Kiri
                 }
                 panelFrom.Children.Clear();
                 panelFrom.Visibility = Visibility.Collapsed;
-                panelTo.Visibility = Visibility.Visible;
+                //panelTo.Visibility = Visibility.Visible;
             }
             else {
                 if (null != (sender as ListBox).SelectedItem)
@@ -265,7 +259,6 @@ namespace Kiri
                 panelTo.Children.Clear();
                 panelTo.Visibility = Visibility.Collapsed;
             }
-
             this.findRoute();
         }
 

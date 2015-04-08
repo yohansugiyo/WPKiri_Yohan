@@ -166,6 +166,7 @@
     <Content Include="icons\kiri_logo.png" />
     <Content Include="icons\map.png" />
     <Content Include="icons\marker.png" />
+    <Content Include="icons\back.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />

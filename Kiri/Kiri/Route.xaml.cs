@@ -41,9 +41,12 @@ namespace Kiri
         private int focusPointNumber;
         private MapLayer routeLayer;
         private MapLayer myLocationLayer;
+        private Protocol p;
 
         Geolocator geolocator = null;
         private BackgroundWorker backgroundWorker;
+        //private Boolean routeReady;
+        //private AutoResetEvent _workerCompleted = new AutoResetEvent(false);
 
         public Route()
         {
@@ -54,7 +57,10 @@ namespace Kiri
             this.focusPointNumber = 0;
             this.routeLayer = new MapLayer();
             this.myLocationLayer = new MapLayer();
+            this.p = new Protocol();
+            //this.routeReady = false;
             ShowLoading();
+            //PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             //this.StartLoadingData();
             //startLocation();
         }
@@ -66,12 +72,20 @@ namespace Kiri
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            //if (PhoneApplicationService.Current.State.ContainsKey("route"))
+            //{
+            //    this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["route"];
+            //}else
             if (PhoneApplicationService.Current.State.ContainsKey("location"))
             {
                 this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
             }
-            this.TrackLocation_Click();
-
+            this.TrackLocation();
+            //this.route.Center = new GeoCoordinate(lFinder.coorLatFrom, lFinder.coorLongFrom);
+            //GeoCoordinate[] recLocation = new GeoCoordinate[]{new GeoCoordinate(lFinder.coorLatFrom, lFinder.coorLongFrom),new GeoCoordinate(lFinder.coorLatTo, lFinder.coorLongTo)};
+            //LocationRectangle lr = LocationRectangle.CreateBoundingRectangle(recLocation);
+            //this.route.SetView(new GeoCoordinate(lFinder.coorLatFrom, lFinder.coorLongFrom), 1, MapAnimationKind.Linear);
+            
             //detect location
             if (IsolatedStorageSettings.ApplicationSettings.Contains("LocationConsent"))
             {
@@ -98,7 +112,12 @@ namespace Kiri
             //Find(); // After get start coordinate and finish coordinate then call Find Method
         }
 
-        private void TrackLocation_Click()
+        private void Application_Deactivated(object sender, DeactivatedEventArgs e)
+        {
+            PhoneApplicationService.Current.State["route"] = this.route;
+        }
+
+        private void TrackLocation()
         {
             geolocator = lFinder.geolocator;
 
@@ -153,99 +172,20 @@ namespace Kiri
             //this.TrackLocation_Click();
             Boolean status = true; 
             HttpClient httpClient = new HttpClient();
-            Protocol p = new Protocol();
-            String uri = p.getFindRoute(lFinder.coorLatFrom + "," + lFinder.coorLongFrom, lFinder.coorLatTo + "," + lFinder.coorLongTo);
-            Task<string> requestRouteTask = httpClient.GetStringAsync(new Uri(uri));
-            string requestRoute = await requestRouteTask;
+            
+            //p.getRequestRoute(lFinder.coorLatFrom, lFinder.coorLongFrom, lFinder.coorLatTo, lFinder.coorLongTo);
+            //String uri = p.getFindRoute(lFinder.coorLatFrom + "," + lFinder.coorLongFrom, lFinder.coorLatTo + "," + lFinder.coorLongTo);
+            //Task<String> requestRouteTask = httpClient.GetStringAsync(new Uri(uri));
+            //String requestRoute = await requestRouteTask;
+            //RootObjectFindRoute r = JsonConvert.DeserializeObject<RootObjectFindRoute>(requestRoute); //Mengubah String menjadi objek
 
-            RootObjectFindRoute r = JsonConvert.DeserializeObject<RootObjectFindRoute>(requestRoute); //Mengubah String menjadi objek
+            RootObjectFindRoute r = await p.getRequestRoute(lFinder.coorLatFrom, lFinder.coorLongFrom, lFinder.coorLatTo, lFinder.coorLongTo);
             if (r.status.Equals("ok"))
             {
                 //source zhttps://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn792121.aspx 
-                MapPolyline routeRoad = new MapPolyline();
-                routeRoad.StrokeThickness = 3;
                 if (!r.routingresults[0].steps[0][3].Equals("Maaf, kami tidak dapat menemukan rute transportasi publik untuk perjalanan Anda.")) //Check ditemukan atau tidak
                 {
-                    for (int i = 0; i < 1; i++) // Ambil Routing result yg pertama
-                    {
-                        this.arrayFocus = new Point[r.routingresults[i].steps.Count+1];
-                        this.detailRoute = new String[r.routingresults[i].steps.Count + 1];
-                        for (int j = 0; j < r.routingresults[i].steps.Count; j++)
-                        {
-                            if (r.routingresults[i].steps[j][0].ToString().Equals("walk"))
-                            {
-                                //MessageBox.Show(r.routingresults[i].steps[j][0].ToString()+"  "+"walk");
-                                routeRoad.StrokeColor = Color.FromArgb(255, 255, 0, 0);
-                            }
-                            else {
-                                //MessageBox.Show(r.routingresults[i].steps[j][0].ToString() + "  " + "angkot");
-                                routeRoad.StrokeColor = Color.FromArgb(255, 0, 255, 255);
-                            }
-                            GeoCoordinate geoCoo = new GeoCoordinate();
-                            String temp = r.routingresults[i].steps[j][2].ToString();
-                            temp = temp.Replace("[", "");
-                            temp = temp.Replace("]", "");
-                            temp = temp.Replace("\"", "");
-                            temp = temp.Replace(" ", "");
-                            string[] coordinate = temp.Split(',');
-                            for (int c = 0; c < coordinate.Length; c = c + 2)
-                            {
-                                geoCoo = new GeoCoordinate();
-                                geoCoo.Latitude = double.Parse(coordinate[c]);
-                                geoCoo.Longitude = double.Parse(coordinate[c + 1]);
-                                routeRoad.Path.Add(geoCoo);
-
-                                MapOverlay overlay1 = new MapOverlay();
-                                //Process add icon/pushpin
-                                if(j==0  && c==0){
-                                    overlay1.Content = createNew(p.iconStart, geoCoo, "start");
-                                    this.route.Center = geoCoo;
-                                    this.route.ZoomLevel = 14;
-                                }
-                                else if (j == r.routingresults[i].steps.Count - 1 && c == coordinate.Length-2)
-                                {
-                                    overlay1.Content = createNew(p.iconFinish, geoCoo, "finish"); 
-                                }else if(c==0){
-                                    String iconLoc = p.getTypeTransport(r.routingresults[i].steps[j][0].ToString(), r.routingresults[i].steps[j][1].ToString());
-                                    if (r.routingresults[i].steps[j][0].ToString().Equals("walk"))
-                                    {
-                                        overlay1.Content = createNew(iconLoc, geoCoo, "walk");
-                                    }
-                                    else 
-                                    {
-                                        overlay1.Content = createNew(iconLoc, geoCoo, "umum");
-                                    }
-                                }
-                                overlay1.GeoCoordinate = geoCoo;
-                                routeLayer.Add(overlay1);   
-                            }
-                            
-                            //reference add image zhttp://stackoverflow.com/questions/676869/add-image-to-listbox
-                            this.arrayFocus[j] = new Point(double.Parse(coordinate[0]), double.Parse(coordinate[1]));
-                            this.detailRoute[j] = r.routingresults[i].steps[j][3].ToString();
-                            if (j == r.routingresults[i].steps.Count-1) // Untuk yg terakhir/sampai di tujuan
-                            {
-                                this.arrayFocus[j + 1] = new Point(double.Parse(coordinate[coordinate.Length - 2]), double.Parse(coordinate[coordinate.Length - 1]));
-                                this.detailRoute[j+1] = "Sampai di tujuan!";
-                            }
-                            //Add image 
-                            Uri imgUri = new Uri(p.getTypeTransportWOBaloon(r.routingresults[i].steps[j][0].ToString(), r.routingresults[i].steps[j][1].ToString()), UriKind.RelativeOrAbsolute);
-                            BitmapImage imgSourceR = new BitmapImage(imgUri);
-                            Image image = new Image();
-                            image.Source = imgSourceR;
-                            image.Height = 30;
-                            image.Width = 50;
-                            //add description
-                            listRoute.Items.Add(image);
-                            listRoute.Items.Add(r.routingresults[i].steps[j][3].ToString() + System.Environment.NewLine); // Add text to listBox
-                            routeRoad.Path.Add(geoCoo);
-                        }
-                        addFindRoute.Text = lFinder.addressFrom + " ke " + lFinder.addressTo + " ( " + r.routingresults[i] .traveltime+ " )";
-                    }
-
-                    // Add the list box to a parent container in the visual tree.
-                    route.MapElements.Add(routeRoad);
-                    route.Layers.Add(routeLayer);
+                    this.setRouteToMap(r);
                 }
                 else {
                     MessageBox.Show("Maaf, kami tidak dapat menemukan rute transportasi publik untuk perjalanan Anda.");
@@ -263,6 +203,96 @@ namespace Kiri
                 PhoneApplicationService.Current.State["location"] = lFinder;
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
+        }
+
+        private void setRouteToMap(RootObjectFindRoute r) {
+            MapPolyline routeRoad = new MapPolyline();
+            for (int i = 0; i < 1; i++) // Ambil Routing result yg pertama
+            {
+                this.arrayFocus = new Point[r.routingresults[i].steps.Count + 1];
+                this.detailRoute = new String[r.routingresults[i].steps.Count + 1];
+                for (int j = 0; j < r.routingresults[i].steps.Count; j++)
+                {
+                    routeRoad = new MapPolyline();
+                    if (r.routingresults[i].steps[j][0].ToString().Equals("walk"))
+                    {
+                        //MessageBox.Show(r.routingresults[i].steps[j][0].ToString()+"  "+"walk");
+                        routeRoad.StrokeColor = Color.FromArgb(255, 255, 0, 0);
+                    }
+                    else
+                    {
+                        //MessageBox.Show(r.routingresults[i].steps[j][0].ToString() + "  " + "angkot");
+                        routeRoad.StrokeColor = Color.FromArgb(255, 0, 0, 255);
+                    }
+                    routeRoad.StrokeThickness = 4;
+                    GeoCoordinate geoCoo = new GeoCoordinate();
+                    //Trim character
+                    String temp = r.routingresults[i].steps[j][2].ToString();
+                    char[] charsToTrim = { '[', ']', ' ' };
+                    String result = temp.Trim(charsToTrim);
+                    result = result.Replace("\"", "");
+                    //Split string coordinate to array
+                    string[] coordinate = result.Split(',');
+                    for (int c = 0; c < coordinate.Length; c = c + 2)
+                    {
+                        geoCoo = new GeoCoordinate();
+                        geoCoo.Latitude = double.Parse(coordinate[c]);
+                        geoCoo.Longitude = double.Parse(coordinate[c + 1]);
+                        routeRoad.Path.Add(geoCoo);
+                        MapOverlay overlay1 = new MapOverlay();
+                        //Process add icon/pushpin
+                        if (j == 0 && c == 0)
+                        {
+                            overlay1.Content = createNew(p.iconStart, geoCoo, "start");
+                            this.route.Center = geoCoo;
+                            this.route.ZoomLevel = 14;
+                        }
+                        else if (j == r.routingresults[i].steps.Count - 1 && c == coordinate.Length - 2)
+                        {
+                            //MessageBox.Show("finish");
+                            overlay1.Content = createNew(p.iconFinish, geoCoo, "finish");
+                        }
+                        else if (c == 0)
+                        {
+                            String iconLoc = p.getTypeTransport(r.routingresults[i].steps[j][0].ToString(), r.routingresults[i].steps[j][1].ToString());
+                            if (r.routingresults[i].steps[j][0].ToString().Equals("walk"))
+                            {
+                                overlay1.Content = createNew(iconLoc, geoCoo, "walk");
+                            }
+                            else
+                            {
+                                overlay1.Content = createNew(iconLoc, geoCoo, "umum");
+                            }
+                        }
+                        overlay1.GeoCoordinate = geoCoo;
+                        routeLayer.Add(overlay1);
+                    }
+
+                    //reference add image zhttp://stackoverflow.com/questions/676869/add-image-to-listbox
+                    this.arrayFocus[j] = new Point(double.Parse(coordinate[0]), double.Parse(coordinate[1]));
+                    this.detailRoute[j] = r.routingresults[i].steps[j][3].ToString();
+                    if (j == r.routingresults[i].steps.Count - 1) // Untuk yg terakhir/sampai di tujuan
+                    {
+                        this.arrayFocus[j + 1] = new Point(double.Parse(coordinate[coordinate.Length - 2]), double.Parse(coordinate[coordinate.Length - 1]));
+                        this.detailRoute[j + 1] = "Sampai di tujuan!";
+                    }
+                    //Add image 
+                    Uri imgUri = new Uri(p.getTypeTransportWOBaloon(r.routingresults[i].steps[j][0].ToString(), r.routingresults[i].steps[j][1].ToString()), UriKind.RelativeOrAbsolute);
+                    BitmapImage imgSourceR = new BitmapImage(imgUri);
+                    Image image = new Image();
+                    image.Source = imgSourceR;
+                    image.Height = 30;
+                    image.Width = 50;
+                    //add description
+                    listRoute.Items.Add(image);
+                    listRoute.Items.Add(r.routingresults[i].steps[j][3].ToString()); // Add text to listBox
+                    routeRoad.Path.Add(geoCoo);
+                    route.MapElements.Add(routeRoad);
+                }
+                addFindRoute.Text = lFinder.addressFrom + " ke " + lFinder.addressTo + " ( " + r.routingresults[i].traveltime + " )";
+            }
+            // Add the list box to a parent container in the visual tree.
+            route.Layers.Add(routeLayer);
         }
 
         public void setFocus(object sender, RoutedEventArgs e)
@@ -355,13 +385,15 @@ namespace Kiri
             Ellipse ellipse = new Ellipse();
             ellipse.Width = radius * 2;
             ellipse.Height = radius * 2;
-            ellipse.Margin = new Thickness(-radius, -radius,0, 0);
+            ellipse.Margin = new Thickness(-radius+10, -radius+10,0, 0);
             ellipse.Fill = new SolidColorBrush(Color.FromArgb(75, 200, 0, 0));
 
             Ellipse myCircle = new Ellipse();
-            myCircle.Fill = new SolidColorBrush(Colors.Black);
-            myCircle.Height = 10;
-            myCircle.Width = 10;
+            myCircle.Stroke = new SolidColorBrush(Colors.Black);
+            myCircle.StrokeThickness = 4;
+            myCircle.Fill = new SolidColorBrush(Colors.Green);
+            myCircle.Height = 25;
+            myCircle.Width = 25;
             myCircle.Opacity = 50;
 
             MapOverlay myLocationOverlayPosition = new MapOverlay();
@@ -380,6 +412,18 @@ namespace Kiri
             this.route.Layers.Add(myLocationLayer);
         }
 
+        private void back(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Anda yakin mengakhiri Navigasi?","Kembali ke Menu Utama",MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
+            {
+                this.lFinder.reset();
+                PhoneApplicationService.Current.State["location"] = lFinder;
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            }
+        }
+
         private void ShowLoading()
         {
             this.popup.IsOpen = true;
@@ -389,17 +433,23 @@ namespace Kiri
         private void StartLoadingData()
         {
             backgroundWorker = new BackgroundWorker();
-            backgroundWorker.DoWork += new DoWorkEventHandler(backgroundWorker_DoWork);
-            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker_RunWorkerCompleted);
             backgroundWorker.RunWorkerAsync();
+            backgroundWorker.DoWork += new DoWorkEventHandler(backgroundWorker_DoWork);
+            //backgroundWorker.WorkerReportsProgress = true;
+            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker_RunWorkerCompleted);
+            //_workerCompleted.WaitOne();
         }
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             this.Dispatcher.BeginInvoke(() =>
             {
-                Find();
+                this.Find();
             });
+            //while(this.routeReady!=false){
+            //    Thread.Sleep(1000);
+            //}
+            //_workerCompleted.Set();
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -408,6 +458,20 @@ namespace Kiri
             {
                 this.popup.IsOpen = false;
             });
+        }
+
+        protected override void OnBackKeyPress(CancelEventArgs e)
+        {
+            if (MessageBox.Show("Anda yakin mengakhiri Navigasi?", "Kembali ke Menu Utama?", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            {
+                this.lFinder.reset();
+                PhoneApplicationService.Current.State["location"] = lFinder;
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
 
         //JSON data to c# using JSON.NET
