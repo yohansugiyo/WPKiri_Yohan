@@ -54,6 +54,32 @@ namespace Kiri
             if (PhoneApplicationService.Current.State.ContainsKey("location"))
             {
                 this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
+                //check form
+                if (lFinder.coorLatFrom == 0.0 && lFinder.coorLongFrom == 0.0 && !lFinder.addressFrom.Equals("Maps") && !lFinder.addressFrom.Equals("Here")) {
+                    fromBox.Text = lFinder.addressFrom;
+                }else if (lFinder.coorLatFrom != 0.0 && lFinder.coorLongFrom != 0.0) {
+                    if (lFinder.addressFrom.Equals("Here"))
+                    {
+                        fromBox.Text = "Here";
+                    }
+                    else 
+                    {
+                        fromBox.Text = "Maps";
+                    }
+                }
+                if (lFinder.coorLatTo == 0.0 && lFinder.coorLongTo == 0.0 && !lFinder.addressTo.Equals("Maps") && lFinder.addressTo.Equals("Here")){
+                    toBox.Text = lFinder.addressTo;
+                }else if (lFinder.coorLatTo != 0.0 && lFinder.coorLongTo != 0.0)
+                {
+                    if (lFinder.addressTo.Equals("Here"))
+                    {
+                        toBox.Text = "Here";
+                    }
+                    else 
+                    {
+                        toBox.Text = "Maps";
+                    }
+                }
             }
             string forMaps = "";
             if (NavigationContext.QueryString.TryGetValue("for", out forMaps)) ;
@@ -62,10 +88,12 @@ namespace Kiri
                 if (forMaps.Equals("from"))
                 {
                     fromBox.Text = "Maps";
+                    lFinder.addressFrom = "Maps";
                 }
                 else
                 {
                     toBox.Text = "Maps";
+                    lFinder.addressTo = "Maps";
                 }
             }
         }
@@ -75,8 +103,6 @@ namespace Kiri
             
             String queryFrom = fromBox.Text;
             String queryTo = toBox.Text;
-            string requestFrom = "";
-            string requestTo = "";
             RootObjectSearchPlace from = null; //Untuk Asal
             RootObjectSearchPlace to = null; //Untuk Tujuan
             //Penting!
@@ -156,12 +182,14 @@ namespace Kiri
         {
             this.lFinder.setCoordinateHere("from");
             fromBox.Text = "Here";
+            lFinder.addressFrom = "Here";
         }
 
         private void getHereTo(object sender, RoutedEventArgs e)
         {
             this.lFinder.setCoordinateHere("to");
             toBox.Text = "Here";
+            lFinder.addressTo = "Here";
         }
 
         /* old reference: zhttps://msdn.microsoft.com/en-us/library/bb412179%28v=vs.110%29.aspx*/

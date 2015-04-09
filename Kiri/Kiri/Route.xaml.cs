@@ -42,6 +42,7 @@ namespace Kiri
         private MapLayer routeLayer;
         private MapLayer myLocationLayer;
         private Protocol p;
+        private Boolean routeReady;
 
         Geolocator geolocator = null;
         private BackgroundWorker backgroundWorker;
@@ -58,7 +59,7 @@ namespace Kiri
             this.routeLayer = new MapLayer();
             this.myLocationLayer = new MapLayer();
             this.p = new Protocol();
-            //this.routeReady = false;
+            this.routeReady = false;
             ShowLoading();
             //PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             //this.StartLoadingData();
@@ -293,6 +294,7 @@ namespace Kiri
             }
             // Add the list box to a parent container in the visual tree.
             route.Layers.Add(routeLayer);
+            this.routeReady = true;
         }
 
         public void setFocus(object sender, RoutedEventArgs e)
@@ -446,9 +448,9 @@ namespace Kiri
             {
                 this.Find();
             });
-            //while(this.routeReady!=false){
+            while(this.routeReady==false){
             //    Thread.Sleep(1000);
-            //}
+            }
             //_workerCompleted.Set();
         }
 
