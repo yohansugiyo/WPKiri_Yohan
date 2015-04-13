@@ -65,7 +65,7 @@ Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence} k
 %Kelas MainPage
 \subsection{Kelas \textit{MainPage}}
 \label{lab:Kelas MainPage}
-\hspace{0.5cm} \textit{MainPage} merupakan kelas kelas turunan dari kelas \textit{PhoneApplicationPage} yang menangani interaksi langsung antara halaman aplikasi dengan pengguna. Pada kelas ini akan ditaruh kontrol yang diperlukan. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\hspace{0.5cm} \textit{MainPage} merupakan kelas turunan dari kelas \textit{PhoneApplicationPage} yang menangani interaksi langsung antara halaman aplikasi dengan pengguna. Pada kelas ini akan ditaruh kontrol yang diperlukan. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
 	\item protocol bertipe Protocol untuk mendapatkan URL yang digunakan dalam permintaan ke Kiri API.
 	\item lFinder bertipe LocationFinder digunakan untuk menampung semua informasi mengenai lokasi.
@@ -77,14 +77,14 @@ Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence} k
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
-	\item Konstruktor MainPage digunakan sebagai konstruktor pada kelas MainPage.
-	\item Metode OnNavigatedTo digunakan untuk mendapatkan lokasi dari peta dengan masukan NavigationEventArgs.
-	\item Metode startRoute digunakan untuk mendapatkan masukan pengguna lalu mengkalkulasi masukan tersebut menjadi kordinat asal dan tujuan lalu mengirimkannya ke kelas Route.
-	\item Metode changeMapFrom digunakan untuk berpindah ke halaman mapFrom.
-	\item Metode changeMapTo digunakan untuk berpindah ke halaman mapTo.
-	\item Metode getHereFrom digunakan untuk mendapatkan kordinat dimana perangkat berada dan menyimpan nilainya di atribut locationFrom.
-	\item Metode getHereTo digunakan untuk mendapatkan kordinat dimana perangkat berada dan menyimpan nilainya di atribut locationTo.
-	\item Metode getListItem digunakan untuk membuat listBox lalu menampilkan ke pengguna. 
+	\item Konstruktor MainPage digunakan untuk memuat komponen yang ada di halaman MainPage dan mendapatkan kota terdekat dari lokasi perangkat.
+	\item Metode OnNavigatedTo digunakan untuk mendapatkan lokasi dari peta dan mendapatkan objek LocationFinder. Metode ini memiliki parameter NavigationEventArgs.
+	\item Metode startRoute digunakan untuk mendapatkan masukan pengguna. Jika masukan didapat dari peta atau lokasi perangkat berarti sudah dalam kordinat, namun jika masukan didapat dari \textit{query} maka akan dicari lokasi yang terkait sesuai \textit{query} tersebut. Lokasi terkait yang didapatkan akan dikembalikan ke pengguna untuk dipilih. Setelah pengguna lokasi dalam bentuk kordinat didapatkan maka kelas akan diarahkan ke kelas Route. Metode ini memiliki parameter objek tombol dan event.
+	\item Metode changeMapFrom digunakan untuk berpindah ke halaman mapFrom. Metode ini memiliki parameter objek tombol dan event.
+	\item Metode changeMapTo digunakan untuk berpindah ke halaman mapTo. Metode ini memiliki parameter objek tombol dan event.
+	\item Metode getHereFrom digunakan untuk mendapatkan kordinat perangkat lalu menyimpan nilainya di kordinat asal di kelas LocationFinder dan menulisakan "Here" pada TextBox lokasi asal. Metode ini memiliki parameter objek tombol dan event.
+	\item Metode getHereTo digunakan untuk mendapatkan kordinat perangkat lalu menyimpan nilainya di kordinat tujuan di kelas LocationFinder dan menulisakan "Here" pada TextBox lokasi tujuan. Metode ini memiliki parameter objek tombol dan event.
+	\item Metode getListItem digunakan untuk membuat listBox lalu menampilkan ke pengguna. Metode ini memiliki parameter RootObjectSearchPlace dan string yang menunjukan \textit{list} yang ditampilkan untuk lokasi asal dan lokasi tujuan. 
 	\item Metode ListBoxSelectedPlace digunakan untuk mendapatkan tempat asal yang dipilih pengguna. Metode ini memiliki parameter objek dan \textit{event SelectionChangedEventArgs}. 
 	\item Metode searchCoordinatePlace digunakan untuk mencari kordinat dari tempat pilihan pengguna. Metode ini memiliki parameter ListBox dan tempat yang dipilih dalam bentuk string.
 	\item Metode findRoute digunakan untuk berpindah ke kelas Route jika lokasi asal dan lokasi tujuan sudah ditentukan.
@@ -92,8 +92,25 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 	\item Metode showCity digunakan untuk mencari kota yang paling dekat dengan lokasi perangkat.
 	\item Metode ShowSplash digunakan untuk menampilkan tampilan awal untuk proses inisialisasi aplikasi.
 	\item Metode StartLoadingData digunakan untuk memanggil BackgroundWorker. BackgroundWorker digunakan untuk melakukan aksi di belakang layar.
-	\item Metode backgroundWorker\_DoWork digunakan untuk melakukan pemanggilan aksi di belakang layar.
-	\item Metode backgroundWorker\_RunWorkerCompleted digunakan untuk melakukan pemanggilan saat BackgroundWorker selesai melakukan tugasnya.
+	\item Metode backgroundWorker\_DoWork digunakan untuk melakukan pemanggilan aksi di belakang layar. Metode ini memiliki parameter objek dan DoWorkEventArgs.
+	\item Metode backgroundWorker\_RunWorkerCompleted digunakan untuk melakukan pemanggilan saat BackgroundWorker selesai melakukan tugasnya. Metode ini memiliki parameter objek dan RunWorkerCompletedEventArgs.
+\end{enumerate}
+
+%Kelas City
+\subsection{Kelas \textit{City}}
+\label{lab:Kelas City}
+\hspace{0.5cm} \textit{City} merupakan kelas yang menyimpan kota-kota yang mendukung pencarian rute kendaraam umum dengan bantuan Kiri. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
+\begin{enumerate}
+	\item centerCity bertipe \textit{array of GeoCoordinate} untuk menyimpan kordinat pusat dari kota.
+	\item city bertipe \textit{array of String} untuk menyimpan nama kota.
+	\item cityCode bertipe \textit{array of String} untuk menyimpan kode kota dalam huruf kecil sesuai aturan IATA Airport Code. 
+\end{enumerate}
+
+Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
+\begin{enumerate}
+	\item Konstruktor City digunakan untuk untuk inisialisasi nilai atribut.
+	\item Metode getNearby digunakan untuk mencari kota terdekat dengan lokasi perangkat. Metode ini mengembalikan interger yang merupakan index kota pada atribut city. Metode ini memiliki 2 buah parameter yaitu \textit{latitude} dan \textit{longitude} yang bertipe double.
+	\item Metode getIndexFromCityCode digunakan untuk mencari index pada \textit{array}  sesuai kode kota. Metode ini memiliki parameter bertipe String yang merupakan kode kota.
 \end{enumerate}
 
 %Kelas BackgroundWorker
@@ -106,7 +123,7 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \end{enumerate}
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
-	\item Metode RunWorkerAsync
+	\item Metode RunWorkerAsync digunakan untuk memulai operasi di belakang layar.
 \end{enumerate}
 
 %Kelas Geocoordinate
@@ -131,30 +148,31 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
 	\item coorLat bertipe Double untuk menampung kordinat latitude pengguna.
 	\item coorLong bertipe Double untuk menampung kordinat longitude pengguna.
-	\item coorLat bertipe Double untuk menampung kordinat latitude lokasi asal yang diinginkan pengguna.
-	\item coorLong bertipe Double untuk menampung kordinat longitude lokasi asal yang diinginkan pengguna.
-	\item coorLat bertipe Double untuk menampung kordinat latitude lokasi tujuan yang diinginkan pengguna.
-	\item coorLong bertipe Double untuk menampung kordinat longitude lokasi tujuan yang diinginkan pengguna.
+	\item coorLatFrom bertipe Double untuk menampung kordinat latitude lokasi asal yang diinginkan pengguna.
+	\item coorLongFrom bertipe Double untuk menampung kordinat longitude lokasi asal yang diinginkan pengguna.
+	\item coorLatTo bertipe Double untuk menampung kordinat latitude lokasi tujuan yang diinginkan pengguna.
+	\item coorLongTo bertipe Double untuk menampung kordinat longitude lokasi tujuan yang diinginkan pengguna.
 	
 	\item addressDevice bertipe String untuk menyimpan alamat perangkat berada.
 	\item addressDeviceFrom bertipe String untuk menyimpan alamat berdasarkan lokasi lokasi asal yang diinginkan pengguna.
 	\item addressDeviceTo bertipe String untuk menyimpan alamat berdasarkan lokasi tujuan yang diinginkan pengguna.
 	
 	\item geolocator bertipe Geolocator untuk menampung pengaturan mendapatkan lokasi.
-	\item MyReverseGeocodeQuery bertipe ReverseGeocodeQuery untuk konversi dari alamat ke lokasi dan sebalikny.
-	\item MyCoordinate bertipe GeoCoordinate untuk menampung kordinat geografis.
+	\item myReverseGeocodeQuery bertipe ReverseGeocodeQuery untuk konversi dari alamat ke lokasi dan sebalikny.
+	\item myCoordinate bertipe GeoCoordinate untuk menampung kordinat geografis.
+	\item accuracy bertipe double untuk menampung akurasi perangkat mendapatkan lokasi.
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
 	\item Konstruktor LocationFinder berfungsi mengatur atribut geolocator dan mencari lokasi perangkat.
-	\item Metode OneShotLocation berfungsi inisialisasi GPS lalu mendapat kordinat dan menampungnya di atribut.
+	\item Metode findLocation berfungsi inisialisasi GPS lalu mendapat kordinat dan menampungnya di atribut.
 	\item Metode updateAccuracy berfungsi untuk mengubah nilai akurasi dari perangkat.
-	\item Metode setPositionChanged berfungsi mengubah atribut coorLat dan atribut coorLong jika terdapat perubahan lokasi.
+	\item Metode setPositionChanged berfungsi mengubah atribut coorLat, atribut coorLong, dan akurasi jika terdapat perubahan lokasi. Metode ini memiliki parameter Geolocator dan PositionChangedEventArgs yang akan menjalankan metode jika terdapat perubahan yang diberitahukan melalui kelas Geolocator.
 	\item Metode GetCurrentCoordinate berfungsi mengubah posisi saat ini, posisi lokasi asal, dan lokasi tujuan. Metode ini memiliki tiga buah parameter \textit{latitude} bertipe Double, \textit{longitude} bertipe Double, dan paramFor bertipe String. Parameter \textit{latitude} dan \textit{longitude} merupakan lokasi sedangkan parameter paramFor digunakan sebagai tujuan perubahan lokasi. 
-	\item Metode ReverseGeocodeQueryFrom\_QueryCompleted berfungsi untuk mencari alamat lokasi asal.
-	\item Metode ReverseGeocodeQueryTo\_QueryCompleted berfungsi untuk mencari alamat lokasi tujuan.
-	\item Metode ReverseGeocodeQuery\_QueryCompleted berfungsi untuk mencari alamat lokasi perangkat.
+	\item Metode ReverseGeocodeQueryFrom\_QueryCompleted berfungsi untuk mencari alamat lokasi asal. Metode ini memiliki parameter objek dan QueryCompletedEventArgs<IList<MapLocation>>.
+	\item Metode ReverseGeocodeQueryTo\_QueryCompleted berfungsi untuk mencari alamat lokasi tujuan. Metode ini memiliki parameter objek dan QueryCompletedEventArgs<IList<MapLocation>>.
+	\item Metode ReverseGeocodeQuery\_QueryCompleted berfungsi untuk mencari alamat lokasi perangkat. Metode ini memiliki parameter objek dan QueryCompletedEventArgs<IList<MapLocation>>.
 	\item Metode setCoordinateHere berfungsi untuk menyimpan kordinat dan alamat perangkat ke kordinat dan alamat lokasi asal dan lokasi tujuan. Metode ini memiliki parameter paramFor bertipe String yang akan digunakan sebagai masukan disimpannya lokasi perangkat.
 	\item Metode reset berfungsi untuk memasang kembali lokasi asal dan lokasi tujuan.
 \end{enumerate}
@@ -166,16 +184,15 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
 	\item lFinder bertipe LocationFinder digunakan untuk menampung semua informasi mengenai lokasi.
 	\item fromMapFor bertipe string digunakan sebagai indikator lokasi asal atau lokasi tujuan yang didapatkan dari map.
-	\item address
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
 	\item Konstruktor Map untuk inisialisasi dan penambahan \textit{event} mengetuk pada peta.
-	\item Metode OnNavigatedTo berfungsi untuk mendapatkan masukan lokasi asal atau lokasi tujuan yang akan ditentukan dari map untuk kemudian ditampung di atribut fromMapFor.
+	\item Metode OnNavigatedTo berfungsi untuk mendapatkan masukan lokasi asal atau lokasi tujuan yang akan ditentukan dari map untuk kemudian ditampung di Objek LocationFinder. Metode ini memiliki sebuah parameter NavigationEventArgs.
 	\item Metode ShowMyLocationOnTheMap digunakan untuk memberitahu dan menandai lokasi perangkat.
-	\item Metode map\_Tap berfungsi untuk menerjemahkan lokasi yang ditunjuk pengguna pada peta dan mengirimnya ke kelas LocationFinder.
-	\item Metode pilihLokasi berfungsi berpindah ke kelas MainPage dan memberitahu kelas MainPage bahwa lokasi sudah dipilih.
+	\item Metode map\_Tap berfungsi untuk menandai lokasi yang ditunjuk pengguna lalu  menerjemahkan lokasi yang ditunjuk pengguna pada peta dan mengirimnya ke kelas LocationFinder.
+	\item Metode pilihLokasi berfungsi berpindah ke kelas MainPage dan memberitahu kelas MainPage bahwa lokasi sudah dipilih. Metode ini memiliki parameter objek tombol dan event.
 \end{enumerate}
 
 %Kelas HttpClient
@@ -229,9 +246,12 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
-	\item getTypeTransport merupakan metode yang akan mengembalikan alamat dari gambar transportasi. Metode ini memiliki 2 parmeter yaitu means sebagai tipe transportasi dan meansDetail sebagai nama kendaraan.
+	\item Metode getTypeTransport merupakan metode yang akan mengembalikan alamat dari gambar transportasi dengan bingkai. Metode ini memiliki 2 parmeter yaitu means sebagai tipe transportasi dan meansDetail sebagai nama kendaraan.
+	\item Metode getTypeTransportWOBaloon merupakan metode yang akan mengembalikan alamat dari gambar transportasi tanpa bingkai tambahan. Metode ini memiliki 2 parmeter yaitu means sebagai tipe transportasi dan meansDetail sebagai nama kendaraan.
 	\item getSearchPlace merupakan metode yang akan mengembalikan URI pencarian lokasi sesuai paramater. Parameter yang dimaksud adalah kata kunci masukan pengguna.
-	\item getFindRoute merupakan metode yang akan mengembalikan URI pencarian rute sesuai parameter. Parameter yang dimaksud adalah kordinat lokasi asal dan kordinat lokasi tujuan yang bertipe string.
+	\item Metode getFindRoute merupakan metode yang akan mengembalikan URI pencarian rute sesuai parameter. Parameter yang dimaksud adalah kordinat lokasi asal dan kordinat lokasi tujuan yang bertipe string.
+	\item Metode getRequestSearch digunakan untuk mendapatkan lokasi terkait sesuai masukan pengguna. Metode ini akan mengembalikan Task<RootObjectSearchPlace> karena menggunakan operasi \textit{asynchronous}. Metode ini memiliki parameter kata kunci masukan pengguna dan kota yang masing-masing parameter bertipe String.
+		\item Metode getRequestRoute digunakan untuk mendapatkan rute sesuai lokasi asal dan lokasi tujuan. Metode ini akan mengembalikan Task<RootObjectFindRoute> karena menggunakan operasi \textit{asynchronous}. Metode ini memiliki parameter \textit{latitude} lokasi asal, \textit{longitude} lokasi asal, \textit{latitude} lokasi tujuan, dan \textit{longitude} lokasi tujuan yang masing-masing bertipe double.
 \end{enumerate}
 
 %Kelas RootObjectSearchPlace
@@ -284,27 +304,31 @@ Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 	\item focusPointNumber bertipe \textit{integer} digunakan untuk menentukan \textit{index of} dari atribut arrayFocus dan detailRoute.
 	\item routeLayer bertipe MapLayer digunakan untuk menampung \textit{Polyline} dan \textit{Pushpin}
 	\item myLocationLayer bertipe MapLayer digunakan untuk menampung titik dari lokasi perangakt berada.
+	\item p bertipe Protocol digunakan untuk menampung permintaan data dengan Kiri API.
 	\item geolocator bertipe Geolocator untuk menangani perubahan lokasi yang terjadi.
 	\item backgroundWorker bertipe BackgroundWorker digunakan untuk menangain proses di belakang layar.
 \end{enumerate}
 
 Berikut adalah penjelasan metode-metode yang dimiliki kelas ini:
 \begin{enumerate}
-	\item Konstruktor Route digunakan untuk inisialisasi dan pemanggilan backgroundWorker.
-	\item Metode OnNavigatedTo digunakan untuk menangani masukan dari kelas lain dan memanggil metode TrackLocation.
+	\item Konstruktor Route digunakan untuk memuat komponen yang ada di halaman Route, inisialisasi atribu, dan pemanggilan backgroundWorker.
+	\item Metode OnNavigatedTo digunakan untuk mendapatkan objek LocationFinder dan memanggil metode TrackLocation. Metode ini memiliki parameter NavigationEventArgs.
 	\item Metode TrackLocation digunakan untuk inisislisasi GeoLocator dan dan memulai pelacakan lokasi terus menerus. 
 	\item Metode geolocator\_StatusChanged digunakan untuk mengetahui status GeoLocator.
 	\item Metode geolocator\_PositionChanged digunakan untuk mengetahui perubahan lokasi yang terjadi dan menyimpannya di kelas LocationFinder.
 	\item Metode Find digunakan untuk mencari rute yang dicari pengguna.
-	\item Metode setFocus digunakan untuk mengarahkan pusat pandangan ke titik lokasi pergantian jenis transportasi.
-	\item Metode toMyLocation digunakan untuk mengarahkan pusat pandangan ke titik lokasi perangakt berada.
-	\item Metode ShowList digunakan untuk membuka dan menutup rute dalam bentuk daftar.
-	\item Metode createNew digunakan untuk membuat Pushpins.
-	\item Metode drawMyLocationOnTheMap digunakan untuk membuat penanda lokasi di lapisan myLocationLayer pada peta.
+	\item Metode setRouteToMap digunakan untuk menggambar rute dan lokasi pada \textit{layer} peta. Metode ini memiliki parameter RootObjectFindRoute yang merupakan objek untuk pencarian rute.
+	\item Metode setFocus digunakan untuk mengarahkan pusat pandangan ke titik lokasi pergantian jenis transportasi. Metode ini memiliki parameter objek dan RoutedEventArgs.
+	\item Metode toMyLocation digunakan untuk mengarahkan pusat pandangan ke titik lokasi perangakt berada. Metode ini memiliki parameter objek dan RoutedEventArgs.
+	\item Metode ShowList digunakan untuk membuka dan menutup rute dalam bentuk daftar. Metode ini memiliki parameter objek dan RoutedEventArgs.
+	\item Metode createNew digunakan untuk membuat objek Pushpins. Metode ini memiliki parameter uri bertipe String, transport bertipe String yang menandakan jenis transportasi, dan geoCoordinate bertipe GeoCoordinate sebagai lokasi dari Pushpins.
+	\item Metode drawMyLocationOnTheMap digunakan untuk membuat penanda lokasi di lapisan myLocationLayer pada peta. Metode ini memiliki parameter latitude bertipe double dan longitude bertipe double.
+	\item Metode back digunakan untuk konfirmasi ke pengguna jika pengguna ingin meninggalkan aplikasi. Metode ini memiliki dua buah parameter sender bertipe objek dan e bertipe RoutedEventArgs.
 	\item Metode ShowLoading digunakan untuk memunculkan \textit{popup} menunggu.
 	\item Metode StartLoadingData digunakan untuk pemanggilan BackgroundWorker.
-	\item Metode backgroundWorker\_DoWork digunakan untuk eksekusi metode dengan BackgroundWorker.
-	\item Metode backgroundWorker\_RunWorkerCompleted digunakan untuk menutup \textit{popup} menunggu jika semua metode sudah selesai dijalankan.
+	\item Metode backgroundWorker\_DoWork digunakan untuk eksekusi metode dengan BackgroundWorker. Metode ini memiliki dua buah parameter sender bertipe objek dan e bertipe DoWorkEventArgs.
+	\item Metode backgroundWorker\_RunWorkerCompleted digunakan untuk menutup \textit{popup} menunggu jika semua metode sudah selesai dijalankan. Metode ini memiliki dua buah parameter sender bertipe objek dan e bertipe RunWorkerCompletedEventArgs.
+	\item Metode OnBackKeyPress digunakan untuk konfirmasi ke pengguna jika pengguna ingin meninggalkan aplikasi dengan menekan tombol "back". Metode ini memiliki parameter e bertipe CancelEventArgs.
 \end{enumerate}
 
 %Perancangan Antar Muka
