@@ -167,8 +167,8 @@ Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan apl
 	Merupakan tampilan awal saat aplikasi dipilih yang memberitahukan pengguna bahwa aplikasi sedang dijalankan. \textit{Event} ini akan dipanggil ketika aplikasi di jalankan pertama kali. \textit{Event} ini akan berjalan di belakang (\textit{background processing}) ketika aplikasi ditutup sementara atau sedang berada pada keadaan \textit{Dormant} atau \textit{Tombstoned} menjadi \textit{running}.
 	\item \textit{Running} \\
 	Setelah dijalankan, aplikasi akan masuk ke keadaan \textit{running}. Hal ini akan terus berlangsung sampai pengguna berpindah ke halaman depan, atau mundur melewati halaman utama aplikasi. Aplikasi keluar dari keadaan \textit{running} jika perangkat di kunci. Keadaan \textit{running} masih dapat terjadi saat perangkat di kunci dengan menonaktifkan \textit{idle detection} pada aplikasi.
-	\item Metode \textit{OnNavigatedFrom} \\
-	Merupakan metode yang dipanggil ketika berpindah ke halaman lain aplikasi. Ketika metode ini dipanggil maka aplikasi akan menyimpan keadaan dari halaman sebelum ditinggalkan. Hal tersebut dibutuhkan agar halaman tersebut bisa dikembalikan ke keadaan sebelum ditinggalkan saat pengguna ingin kembali ke halaman tersebut. Pemanggilan dilakukan ketika berpindah antara halaman di aplikasi atau ketika berpindah aplikasi.
+	\item \textit{method} \textit{OnNavigatedFrom} \\
+	Merupakan \textit{method} yang dipanggil ketika berpindah ke halaman lain aplikasi. Ketika \textit{method} ini dipanggil maka aplikasi akan menyimpan keadaan dari halaman sebelum ditinggalkan. Hal tersebut dibutuhkan agar halaman tersebut bisa dikembalikan ke keadaan sebelum ditinggalkan saat pengguna ingin kembali ke halaman tersebut. Pemanggilan dilakukan ketika berpindah antara halaman di aplikasi atau ketika berpindah aplikasi.
 	\item \textit{The Deactivated Event} \\
 	\textit{Event} ini akan terjadi ketika pengguna berpindah aplikasi dan menekan tombol "\textit{start}" atau menjalankan aplikasi lain. Untuk penanganan \textit{deactivated event}, aplikasi harus menyimpan data sebelumnya, sehingga data sebelumnya dapat dikembalikan suatu saat. Windows Phone 8 juga mendukung sistem pengembalian data dengan \textit{State Object}. \textit{State Object} akan digunakan untuk menyimpan keadaan aplikasi sebelum aplikasi dinonaktifkan. 
 	\item \textit{Dormant} \\
@@ -178,7 +178,7 @@ Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan apl
 	\item \textit{The Activated Event} \\
 	\textit{Event} ini dipanggil ketika aplikasi meninggalkan keadaan \textit{Dormant} atau \textit{Tombstoned}. Operasi ini dilakukan pada latar belakang. 
 	\item \textit{The OnNavigatedTo Method} \\
-	Metode ini dipanggil ketika pengguna berpindah ke halaman yang sebelumya ditinggalkan. Metode ini akan memeriksa keadaan aplikasi dan memulihkannya jika keadaan sebelumnya pernah disimpan. 
+	\textit{method} ini dipanggil ketika pengguna berpindah ke halaman yang sebelumya ditinggalkan. \textit{method} ini akan memeriksa keadaan aplikasi dan memulihkannya jika keadaan sebelumnya pernah disimpan. 
 	\item \textit{The Closing Event} \\
 	\textit{Event} ini akan tercapai ketika pengguna berpindah mundur keluar dari halaman utama. Pada kasus ini, aplikasi akan dihentikan dan tidak ada keadaan yang disimpan. 
 \end{itemize}
@@ -354,30 +354,30 @@ Berikut properti yang dapat digunakan pada kelas ini.
 	\label{tab:PropertiKelasMap}
 \end{table}
 
-Berikut metode yang dapat digunakan pada kelas ini.
+Berikut \textit{method} yang dapat digunakan pada kelas ini.
 \begin{itemize}
 	\item \textit{SetView(LocationRectangle)} \\
-	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai wilayah geografis. Metode ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai wilayah geografis. \textit{method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(GeoCoordinate, Double)} \\
-	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah dan tingkat zoom. Metode ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah dan tingkat zoom. \textit{method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(LocationRectangle, MapAnimationKind)}\\
-	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis dan animasi. Metode ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis dan animasi. \textit{method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(LocationRectangle, Thickness)} \\
-	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis dengan batas tertentu. Metode ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis dengan batas tertentu. \textit{method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(GeoCoordinate, Double, MapAnimationKind)} \\
-	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, dan animasi. Metode ini tidak mengambalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, dan animasi. \textit{method} ini tidak mengambalikan nilai.
 	\item \textit{SetView(GeoCoordinate, Double, Double)} \\
-	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, dan \textit{heading}. Metode ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, dan \textit{heading}. \textit{method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(LocationRectangle, Thickness, MapAnimationKind)} \\
-	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai wilayah geografis dengan batas tertentu, dan animasi. Metode ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai wilayah geografis dengan batas tertentu, dan animasi. \textit{method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(GeoCoordinate, Double, Double, MapAnimationKind)} \\
-	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, dan animasi. Metode ini tidak mengembalikan nilai.	
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, dan animasi. \textit{method} ini tidak mengembalikan nilai.	
 	\item \textit{SetView(GeoCoordinate, Double, Double, Double)} \\
-	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, \textit{pitch}. Metode ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, \textit{pitch}. \textit{method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(GeoCoordinate, Double, Double, Double, MapAnimationKind)} \\
-	Metode untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, \textit{pitch}, dan animasi. Metode ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, \textit{pitch}, dan animasi. \textit{method} ini tidak mengembalikan nilai.
 	\item \textit{UpdateLayout} \\
-	Metode yang memastikan semua posisi objek turunan mengikuti tata letak. 
+	\textit{method} yang memastikan semua posisi objek turunan mengikuti tata letak. 
 \end{itemize}
 
 % SUBSUB Polyline Class
@@ -402,14 +402,14 @@ Berikut properti yang dapat digunakan pada kelas ini.
 	\label{tab:PropertiKelasPolyline}
 \end{table}
 
-Berikut metode yang dapat digunakan pada kelas ini.
+Berikut \textit{method} yang dapat digunakan pada kelas ini.
 \begin{itemize}
 	\item \textit{CheckAccess}\\
-	Metode yang menentukan bisa atau tidaknya pemanggilan \textit{thread} untuk mengakses objek.
+	\textit{method} yang menentukan bisa atau tidaknya pemanggilan \textit{thread} untuk mengakses objek.
 	\item \textit{ClearValue}\\
-	Metode yang akan membersihkan nilai lokal
+	\textit{method} yang akan membersihkan nilai lokal
 	\item \textit{Finalize} \\
-	Metode yang dipakai untuk melakukan pembersihan pada sumber daya yang tidak terpakai sebelum objek dihancurkan.
+	\textit{method} yang dipakai untuk melakukan pembersihan pada sumber daya yang tidak terpakai sebelum objek dihancurkan.
 \end{itemize}
 
 % SUBSUB Pushpin Class
@@ -444,7 +444,7 @@ Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelac
 % SUBSUB Namespace Geolocator
 \subsubsection{\textit{Namespace Geolocator}}
 \label{subsubsec:Namespace Geolocator}
-\hspace{0.5cm} \textit{Namespace} merupakan nama yang dipakai untuk mengatur kelas-kelas. Windows Phone 8 sudah menyediakan \textit{namespace} bawaan untuk mengakses lokasi. \textit{Namespace} yang disediakan adalah \textit{namespace geolocator}. \textit{Namespace} ini akan mengakses lokasi geografis dari perangkat dan mendukung pelacakan lokasi dari waktu ke waktu. Agar dapat menggunakan kelas pada \textit{namespace} tersebut perlu ditambahkan \textit{namespace} dan \textit{capabilities}. \textit{Namespace} yang harus ditambahkan pada baris awal XAML adalah \textbf{Windows.Device.Geolocator}. Selanjutnya ada penambahan \textit{capabilities ID\_CAP\_LOCATION}. Penambahan \textit{capabilities} ditambahkan pada \textit{WMAppManifest.xml}. Kelas yang diatur oleh \textit{namespace geolocator} dapat di lihat pada tabel ~\ref{tab:KelasPadaNamespaceGeolocator}.
+\hspace{0.5cm} \textit{Namespace} merupakan nama yang dipakai untuk mengatur kelas-kelas. Windows Phone 8 sudah menyediakan \textit{namespace} bawaan untuk mengakses lokasi. \textit{Namespace} yang disediakan adalah \textit{namespace geolocator}. \textit{Namespace} ini akan mengakses lokasi geografis dari perangkat dan mendukung pelacakan lokasi dari waktu ke waktu. Agar dapat menggunakan kelas pada \textit{namespace} tersebut perlu ditambahkan \textit{namespace} dan \textit{capabilities}. \textit{Namespace} yang harus ditambahkan pada baris awal XAML adalah \textbf{Windows.Device.Geolocator}. Selanjutnya ada penambahan \textit{capabilities ID\_CAP\_LOCATION}. Penambahan \textit{capabilities} ditambahkan pada \textit{WMAppManifest.xml}. Kelas yang diatur oleh \textit{namespace geolocator} dapat di lihat pada tabel ~\ref{tab:KelasPadaNamespaceGeolocator}\cite{DevWP8}.
 \begin{table}[h]
 	\centering
 		\begin{tabular}{ |c|c|}
@@ -486,7 +486,7 @@ Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelac
 \label{subsubsec:Kelas Geolocator}
 \hspace{0.5cm} \textit{Geolocator} merupakan kelas yang mendukung pengaksesan terhadap lokasi.
 
-Berikut metode yang disediakan \textit{Geolocator}:
+Berikut \textit{method} yang disediakan \textit{Geolocator}:
 \begin{itemize}
 	\item \textit{public IAsyncOperation<Geoposition> GetGeopositionAsync()} \\
 		Operator await diatas dimaksudkan untuk meminta posisi lokasi terus menerus sampai selesai dan menunda tugas yang lain. \\
@@ -521,36 +521,36 @@ Berikut Properti yang disediakan kelas \textit{Geoposition}:
 % SUB Memanfaatkan Sumber Data
 \subsection{Memanfaatkan Sumber Data}
 \label{subsec:Memanfaatkan Sumber Data}
-\hspace{0.5cm} Hal yang penting dari sebuah aplikasi adalah informasi. Windows Phone 8 memiliki kemampuan dalam menghubungkan aplikasi dengan sumber data lainnya. Memanfaatkan sumber data ada dua cara yaitu yang lokal atau berada di perangkat dan \textit{web service}. \textit{Web Service} merupakan metode komunikasi antara dua perangkat melalui jaringan. 
+\hspace{0.5cm} Hal yang penting dari sebuah aplikasi adalah informasi. Windows Phone 8 memiliki kemampuan dalam menghubungkan aplikasi dengan sumber data lainnya. Memanfaatkan sumber data ada dua cara yaitu yang lokal atau berada di perangkat dan \textit{web service}. \textit{Web Service} merupakan \textit{method} komunikasi antara dua perangkat melalui jaringan. 
 
 Sebelum data dapat dikirim antar perangkat perlu dilakukan \textit{Serialization}. \textit{Serialization} disini merupakan proses mentransformasikan objek ke format yang bisa dengan mudah dikirim melewati jaringan atau disimpan di database. Formatnya disini berupa string yang direpresentasikan sebagai objek di XML atau JSON(Javascript Object Notation). Ada beberapa objek yang dapat melakukan serialisasi, tetapi yang akan dibahas penulis disini hanya serialisasi JSON\cite{Manning}. 
 
 %sumber http://json.org/
-Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memiliki format \textit{data-interchange} yang ringan. Karena hal tersebut JSON mudah diurai dan dihasilkan oleh mesin. Kurung kurawal mengindikasikan objek, kurung siku berarti array, dan properti berupa nama dan nilai pasangan yang dipisahkan oleh titik dua. JSON format memiliki ukuran data yang kecil dan baik untuk penggunaan perangkat bergerak. Untuk contoh format JSON dapat dilihat di bagian Kiri API pada Bab dua ini karena Kiri API menggunakan format JSON. Serialisasi menggunakan \textit{DataContractJsonSerializer} membuat serialisasi mudah untuk menerjemahkan form String JSON ke objek yang dapat langsung digunakan. \textit{DataContractJsonSerializer} memakai \textit{WriteObject()} untuk serialisasi and \textit{ReadObject()} untuk de-serialisasi.
+Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memiliki format \textit{data-interchange} yang ringan \cite{rfc7159}. Karena hal tersebut JSON mudah diurai dan dihasilkan oleh mesin. Kurung kurawal mengindikasikan objek, kurung siku berarti array, dan properti berupa nama dan nilai pasangan yang dipisahkan oleh titik dua. JSON format memiliki ukuran data yang kecil dan baik untuk penggunaan perangkat bergerak. Untuk contoh format JSON dapat dilihat di bagian Kiri API pada Bab dua ini karena Kiri API menggunakan format JSON. Serialisasi menggunakan \textit{DataContractJsonSerializer} membuat serialisasi mudah untuk menerjemahkan form String JSON ke objek yang dapat langsung digunakan. \textit{DataContractJsonSerializer} memakai \textit{WriteObject()} untuk serialisasi and \textit{ReadObject()} untuk de-serialisasi.
 
 % SUBSUB Kelas HttpClient
 \subsubsection{\textit{HttpClient}}
 \label{subsubsec:Kelas HttpClient}
-\hspace{0.5cm} Merupakan Kelas yang dipakai untuk mengirim permintaan HTTP dan menerima kembalian HTTP dari \textit{Uniform Resource Identifier}(URI) yang dapat diidentifikasi. Berikut metode yang disediakan kelas \textit{HttpClient}.
+\hspace{0.5cm} Merupakan Kelas yang dipakai untuk mengirim permintaan HTTP dan menerima kembalian HTTP dari \textit{Uniform Resource Identifier}(URI) yang dapat diidentifikasi. Berikut \textit{method} yang disediakan kelas \textit{HttpClient}.
 \begin{itemize}
 	\item \textit{DeleteAsync(Uri)} \\
-	Metode yang dipakai untuk mengirimkan permintaan DELETE ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{method} yang dipakai untuk mengirimkan permintaan DELETE ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item \textit{GetAsync(Uri)} \\
-	Metode yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item \textit{GetAsync(Uri,HttpCompletionOption)} \\
-	Metode yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item \textit{GetBufferAsync(Uri)} \\
-	Metode yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian yang dikirimkan secara buffer(disimpan dalam memori) dan kemajuan dari data yang dikirim.
+	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian yang dikirimkan secara buffer(disimpan dalam memori) dan kemajuan dari data yang dikirim.
 	\item \textit{GetInputStreamAsync(Uri)} \\
-	Metode yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian yang dikirimkan secara stream(langsung sesuai waktu) dan kemajuan dari data yang dikirim.
+	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian yang dikirimkan secara stream(langsung sesuai waktu) dan kemajuan dari data yang dikirim.
 	\item \textit{GetStringAsync(Uri)} \\
-	Metode yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dalam bentuk string dan kemajuan dari data yang dikirim.
+	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dalam bentuk string dan kemajuan dari data yang dikirim.
 	\item \textit{PostAsync(Uri)} \\
-	Metode yang dipakai untuk mengirimkan permintaan \textit{POST} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{POST} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item \textit{SendRequestAsync(HttpRequestMessage)} \\
-	Metode yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter pesan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{method} yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter pesan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item \textit{SendRequestAsync(HttpRequestMessage, HttpCompletionOption)} \\
-	Metode yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi metode ini dipanggil\footnotemark[2]. Metode ini membutuhkan parameter pesan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{method} yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter pesan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 \end{itemize}
 
 \footnotetext[2]{\url{http://msdn.microsoft.com/en-us/library/ms734701\%28v=vs.110\%29.aspx}}
@@ -562,7 +562,7 @@ Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memi
 \label{subsubsec:Json.NET}
 \hspace{0.5cm} Json.NET merupakan \textit{library} untuk melakukan \textit{serialize} dan \textit{deserialize} terhadap objek dalam .NET. \textit{Library} ini memiliki 2 kelas yaitu kelas JsonConvert dan kelas JsonSerializer. Berikut merupakan keterangan dari dua kelas tersebut.
 \begin{itemize}
-	\item JsonConvert merupakan kelas yang berfungsi untuk konversi dari JSON String ke objek dan sebaliknya. Kelas ini memiliki dua buah metode yaitu SerializeObject() dan DeserializeObject().
+	\item JsonConvert merupakan kelas yang berfungsi untuk konversi dari JSON String ke objek dan sebaliknya. Kelas ini memiliki dua buah \textit{method} yaitu SerializeObject() dan DeserializeObject().
 	\item JsonSerializer merupakan kelas yang berfungsi untuk konversi dari JSON String ke objek dan sebaliknya. Kelebihan yang dimiliki kelas ini adalah dapat membaca dan menulis JSON dari \textit{file text}.
 \end{itemize}
 
