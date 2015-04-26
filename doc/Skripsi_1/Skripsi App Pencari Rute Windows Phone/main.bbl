@@ -1,3 +1,26 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{MSDN}
+``Windows phone silverlight development.''
+  \url{http://msdn.microsoft.com/library/windows/apps/ff402535.aspx}, 2014.
+\newblock Accessed: 2014-8-17.
+
+\bibitem{Manning}
+P.~Manning, {\em {Pro Windows Phone App Development}}.
+\newblock Apress, 2013.
+
+\bibitem{DevWP8}
+A.~Whitechapel and S.~McKenna, {\em {Windows Phone 8 Development Internals}}.
+\newblock Microsoft, 2013.
+
+\bibitem{rfc7159}
+T.~Bray, ``{The JavaScript Object Notation (JSON) Data Interchange Format}.''
+  RFC 7159 (Proposed Standard), Mar. 2014.
+
+\bibitem{Kiri}
+``Kiri api v2 documentation.''
+  \url{https://bitbucket.org/projectkiri/kiri_api/wiki/KIRI%20API%20v2%20Documentation},
+  2014.
+\newblock Accessed: 2014-8-17.
 
 \end{thebibliography}

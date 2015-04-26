@@ -143,7 +143,38 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 %Pengujian Fungsional untuk mengetahui kesesuaian reaksi nyata dengan yang diharapkan
 \subsection{Pengujian Fungsional}
 \label{lab:Pengujian Fungsional}
-\hspace{0.5cm} Pengujian fungsional dilakukan untuk menguji kesesuaian reaksi yang terjadi dengan reaksi yang diharapkan. Hasil pengujian tersebut ditunjukan pada tabel ~\ref{tab:TabelHasilPengujianFungsionalitas}.
+\hspace{0.5cm} Pengujian fungsional dilakukan untuk menguji kesesuaian reaksi yang terjadi dengan reaksi yang diharapkan. Untuk menguji kesesuaian rreaksi yang terjadi dengan reaksi yang diharapkan penulis menguji 5 orang pengguna dengan perintah sebagai berikut. 
+\begin{enumerate}
+	\item Carilah rute dari sini ke BIP!
+	\item Carilah rute dari BIP ke Ciwalk!
+	\item Carilah rute dari sini ke ITB pintu jalan Ganesa!
+\end{enumerate}
+
+Dari tiga perintah berikut didapat hasil sebagi berikut.
+
+\begin{table}[h]
+	\centering
+		\begin{tabular}{|p{1,5cm}|p{1,5cm}|p{5cm}|p{4cm}|}\hline
+				Pengguna & Perintah & Aksi Pengguna & Reaksi yang Diharapkan \\ \hline
+				1 & 1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
+				  & 2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
+				  & 3 & Menekan tombol "Here" dan menulis "jl Ganesa" pada TextBox & tidak sesuai \\ \hline
+				2 & 1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
+				  & 2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
+				  & 3 & Menekan tombol "Here" dan menunjuk pada peta & sesuai \\ \hline
+				3 & 1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
+				  & 2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
+				  & 3 & Menekan tombol "Here" dan menulis "ITB Ganeca" pada TextBox lalu menyadari tombol map dan menggunakannya & sesuai \\ \hline
+				4 & 1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
+				  & 2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
+				  & 3 & Menekan tombol "Here" dan menulis "Institut Teknologi Bandung" pada TextBox & tidak sesuai \\ \hline			
+		\end{tabular}
+	\caption{Tabel Hasil pengujian fungsionalitas terhadap pengguna}
+	\label{tab:TabelHasilPengujianFungsionalitasTerhadapPengguna}
+\end{table}
+
+
+Hasil pengujian tersebut ditunjukan pada tabel ~\ref{tab:TabelHasilPengujianFungsionalitas}.
 
 \begin{table}[h]
 	\centering
@@ -180,3 +211,19 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 			Pada pengujian 1 penulis memasukan alamat di dalam rumah untuk menuju Unpar. Saat penulis memasukan kata Unpar muncul daftar tempat sesuai kata kunci "Unpar", lalu penulis memilih "Universitas Katolik Parahyangan".
 		\end{itemize}
 \end{enumerate}
+
+\subsection{Perbandingan Aplikasi Pencari Rute di Android dengan Aplikasi Pencari Rute di Windows Phone}
+\label{lab:Perbandingan}
+\hspace{0.5cm} Aplikasi Pencari rute yang penulis buat dengan yang ada di Android memiliki beberapa perbedaan. Berikut perbedaan antara aplikasi pencari rute di Android dengan Windwows Phone.
+
+\begin{table}[h]
+	\centering
+		\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}\hline
+				Perbedaan & Android & Windows Phone \\ \hline
+				1 & 1 & 1 \\ \hline
+				2  & 2 & 2 \\ \hline
+				3  & 3 & 3 \\ \hline
+		\end{tabular}
+	\caption{Tabel perbedaan}
+	\label{tab:TabelPerbedaan}
+\end{table}
