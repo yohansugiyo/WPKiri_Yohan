@@ -41,6 +41,12 @@ namespace Kiri
             ShowMyLocationOnTheMap();
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            PhoneApplicationService.Current.State["location"] = lFinder;
+        }
+
         private void ShowMyLocationOnTheMap()
         {
 
@@ -87,7 +93,6 @@ namespace Kiri
 
         private void pilihLokasi(object sender, RoutedEventArgs e)
         {
-            PhoneApplicationService.Current.State["location"] = lFinder;
             if (fromMapFor.Equals("from"))
             {
                 NavigationService.Navigate(new Uri("/MainPage.xaml?for=from", UriKind.Relative));

@@ -37,6 +37,7 @@ namespace Kiri
         private String myCity;
 
         private BackgroundWorker backgroundWorker;
+        public String test = "aaa";
         
         public MainPage()
         {
@@ -54,28 +55,44 @@ namespace Kiri
             if (PhoneApplicationService.Current.State.ContainsKey("location"))
             {
                 this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
+                //this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
+                if (lFinder.coorLongFrom != 0.0)
+                {
+                    fromBox.Text = lFinder.coorLongFrom + "aaa";
+                }
+                if (lFinder.coorLongTo != 0.0)
+                {
+                    fromBox.Text = lFinder.coorLongTo + "";
+                }
+                
                 //check form
-                if (lFinder.coorLatFrom == 0.0 && lFinder.coorLongFrom == 0.0 && !lFinder.addressFrom.Equals("Maps") && !lFinder.addressFrom.Equals("Here")) {
+                if (lFinder.coorLatFrom == 0.0 && lFinder.coorLongFrom == 0.0 && !lFinder.addressFrom.Equals("Maps") && !lFinder.addressFrom.Equals("Here"))
+                {
                     fromBox.Text = lFinder.addressFrom;
-                }else if (lFinder.coorLatFrom != 0.0 && lFinder.coorLongFrom != 0.0) {
+                }
+                else if (lFinder.coorLatFrom != 0.0 && lFinder.coorLongFrom != 0.0)
+                {
                     if (lFinder.addressFrom.Equals("Here"))
                     {
                         fromBox.Text = "Here";
                     }
-                    else 
+                    else
                     {
                         fromBox.Text = "Maps";
                     }
                 }
-                if (lFinder.coorLatTo == 0.0 && lFinder.coorLongTo == 0.0 && !lFinder.addressTo.Equals("Maps") && lFinder.addressTo.Equals("Here")){
+                //System.Diagnostics.Debug.WriteLine("stuff");
+                if (lFinder.coorLatTo == 0.0 && lFinder.coorLongTo == 0.0 && !lFinder.addressTo.Equals("Maps") && lFinder.addressTo.Equals("Here"))
+                {
                     toBox.Text = lFinder.addressTo;
-                }else if (lFinder.coorLatTo != 0.0 && lFinder.coorLongTo != 0.0)
+                }
+                else if (lFinder.coorLatTo != 0.0 && lFinder.coorLongTo != 0.0)
                 {
                     if (lFinder.addressTo.Equals("Here"))
                     {
                         toBox.Text = "Here";
                     }
-                    else 
+                    else
                     {
                         toBox.Text = "Maps";
                     }
@@ -88,13 +105,43 @@ namespace Kiri
                 if (forMaps.Equals("from"))
                 {
                     fromBox.Text = "Maps";
-                    lFinder.addressFrom = "Maps";
+                    //lFinder.addressFrom = "Maps";
                 }
                 else
                 {
                     toBox.Text = "Maps";
-                    lFinder.addressTo = "Maps";
+                    //lFinder.addressTo = "Maps";
                 }
+            }
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            PhoneApplicationService.Current.State["location"] = lFinder;
+            State["lFinder"] = lFinder;
+        }
+
+        private void Application_Deactivated(object sender, DeactivatedEventArgs e){
+            PhoneApplicationService.Current.State["location"] = lFinder;
+        }
+
+        private void Application_Activated(object sender, ActivatedEventArgs e) {
+            //Console.WriteLine("Test");
+            if (PhoneApplicationService.Current.State.ContainsKey("location"))
+            {
+                this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
+                this.findRoute();
+                /*
+                if (lFinder.coorLongFrom != 0.0)
+                {
+                    fromBox.Text = lFinder.coorLongFrom + "aaa";
+                }
+                if (lFinder.coorLongTo != 0.0)
+                {
+                    fromBox.Text = lFinder.coorLongTo + "";
+                }
+                 * */
             }
         }
 
@@ -168,13 +215,11 @@ namespace Kiri
 
         private void changeMapFrom(object sender, RoutedEventArgs e)
         {
-            PhoneApplicationService.Current.State["location"] = lFinder;
             NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=from", UriKind.Relative));
             //NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=from", UriKind.Relative));    
         }
         private void changeMapTo(object sender, RoutedEventArgs e)
         {
-            PhoneApplicationService.Current.State["location"] = lFinder;
             NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=to", UriKind.Relative));    
         }
 
@@ -307,8 +352,7 @@ namespace Kiri
         {
             if ((lFinder.coorLatFrom != 0.0 && lFinder.coorLongFrom != 0.0) && (lFinder.coorLatTo != 0.0 && lFinder.coorLongTo != 0.0))
             {
-                PhoneApplicationService.Current.State["location"] = lFinder;
-                NavigationService.Navigate(new Uri("/Route.xaml?", UriKind.Relative)); //start=" + locationFrom + "&nameFrom=" + fromBox.Text + "&finish=" + locationTo + "&nameTo=" + toBox.Text
+                NavigationService.Navigate(new Uri("/Route.xaml", UriKind.Relative)); //start=" + locationFrom + "&nameFrom=" + fromBox.Text + "&finish=" + locationTo + "&nameTo=" + toBox.Text
             }
         }
 

@@ -173,8 +173,7 @@ Dari tiga perintah berikut didapat hasil sebagi berikut.
 	\label{tab:TabelHasilPengujianFungsionalitasTerhadapPengguna}
 \end{table}
 
-
-Hasil pengujian tersebut ditunjukan pada tabel ~\ref{tab:TabelHasilPengujianFungsionalitas}.
+Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan reaksi dari aplikasi. Hasil pengujian tersebut ditunjukan pada tabel ~\ref{tab:TabelHasilPengujianFungsionalitas}.
 
 \begin{table}[h]
 	\centering
@@ -208,7 +207,8 @@ Hasil pengujian tersebut ditunjukan pada tabel ~\ref{tab:TabelHasilPengujianFung
 		\begin{itemize}
 			\item Tempat : Rumah(Jalan Kejaksaan menuju Unpar)
 			\item Waktu : Pukul 9 pada tanggal 7 April 2014
-			Pada pengujian 1 penulis memasukan alamat di dalam rumah untuk menuju Unpar. Saat penulis memasukan kata Unpar muncul daftar tempat sesuai kata kunci "Unpar", lalu penulis memilih "Universitas Katolik Parahyangan".
+			Pada pengujian 1 penulis memasukan alamat di dalam rumah untuk menuju Unpar. Saat penulis memasukan kata Unpar muncul daftar tempat sesuai kata kunci "Unpar", lalu penulis memilih "Universitas Katolik Parahyangan". Saat rute ditampilkan ada ketidaktepatan lokasi yang ditunjukan untuk lokasi asal(rumah) sedangkan untuk lokasi tujuan(Unpar) ditunjukan dengan tepat. Katidaktepatan tersebut kira-kira seratus meter dan lokasi ditandai lingkaran merah dengan ukuran besar. Hal tersebut dikarenakan tempat tertutup yang membuat GPS tidak menunjukan lokasi yang akurat. Tapi saat pengujian penulis berusaha mengikuti titik naik angkutan umum.
+			Penulis mulai dengan mengikuti petunjuk berjalan kaki menuju Jalan Tamblong. Saat keluar rumah lingkaran merah disekitar lokasi perangkat mulai mengecil yang menandakan akurasi GPS semakin baik. Angkutan kota yang penulis naiki pertama kali adalah angkutan kota kalapa. Sambil berada di angkot penulis mengamati rute yang ditunjukan aplikasi sudah sesuai dengan rute angkutan kota dan penunjuk lokasi menunjukan pergerakan dengan akurat. Angkutan kota yang penulis naiki berhenti di stasiun lalu penulis turun dan menuju Jalan Kebon Jukut. Di jalan kebon jukut penulis naik angkutan kota Ciumbuleuit - St. Hall. Selama perjalanan petunjuk rute dan \textit{polyline} sudah tepat sesuai rute angkutan kota. Angkutan kota ke dua langsung mengantarkan penulis menuju Jalan Ciumbuleuit untuk selanjutnya penulis berjalan menuju Unpar.
 		\end{itemize}
 \end{enumerate}
 
@@ -220,9 +220,8 @@ Hasil pengujian tersebut ditunjukan pada tabel ~\ref{tab:TabelHasilPengujianFung
 	\centering
 		\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}\hline
 				Perbedaan & Android & Windows Phone \\ \hline
-				1 & 1 & 1 \\ \hline
-				2  & 2 & 2 \\ \hline
-				3  & 3 & 3 \\ \hline
+				Mendapatkan Lokasi & Memanfaatkan pemanggilan lokasi secara berulang-ulang dan akan mengunah lokasi dari yang kurang tepat menjadi lebih tepat. & Memanfaatkan pemanggilan sampai mendapat akurasi yang cukup tepat. \\ \hline
+				Map  & Google Map & Windows Phone Map \\ \hline
 		\end{tabular}
 	\caption{Tabel perbedaan}
 	\label{tab:TabelPerbedaan}

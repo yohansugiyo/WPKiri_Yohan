@@ -76,8 +76,10 @@ Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence}, 
 Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \begin{enumerate}
 	\item Konstruktor MainPage digunakan untuk memuat komponen yang ada di halaman MainPage dan mendapatkan kota terdekat dari lokasi perangkat.
-	\item \textit{method} OnNavigatedTo digunakan untuk mendapatkan lokasi dari peta dan mendapatkan objek LocationFinder. \textit{method} ini memiliki parameter NavigationEventArgs.
-	\item \textit{method} OnNavigatedFrom digunakan untuk mengirimkan \textit{state} objek LocationFinder saat berpindah kelas. \textit{method} ini memiliki parameter NavigationEventArgs.
+	\item \textit{method} OnNavigatedTo digunakan untuk mendapatkan lokasi dari peta dan mendapatkan objek LocationFinder. \textit{Method} ini secara otomatis dipanggil jika pengguna kembali ke kelas MainPage. \textit{method} ini memiliki parameter NavigationEventArgs.
+	\item \textit{method} OnNavigatedFrom digunakan untuk mengirimkan \textit{state} objek LocationFinder saat berpindah kelas. \textit{Method} ini secara otomatis dipanggil jika pengguna berpindah dari kelas MainPage ke kelas lain. \textit{method} ini memiliki parameter NavigationEventArgs.
+	\item \textit{method} Application\_Deactivated digunakan untuk menyimpan \textit{state} objek saat meninggalkan aplikasi. \textit{method} ini memiliki parameter object dan DeactivatedEventArgs.
+	\item \textit{method} Application\_Activated digunakan untuk mengambil \textit{state} objek saat kembali ke aplikasi. \textit{method} ini memiliki parameter object dan ActivatedEventArgs.
 	\item \textit{method} startRoute digunakan untuk mendapatkan masukan pengguna. Jika masukan didapat dari peta atau lokasi perangkat berarti sudah dalam kordinat, namun jika masukan didapat dari \textit{query} maka akan dicari lokasi yang terkait sesuai \textit{query} tersebut. Lokasi terkait yang didapatkan akan dikembalikan ke pengguna untuk dipilih. Setelah pengguna lokasi dalam bentuk kordinat didapatkan maka kelas akan diarahkan ke kelas Route. \textit{method} ini memiliki parameter objek tombol dan event.
 	\item \textit{method} changeMapFrom digunakan untuk berpindah ke halaman mapFrom. \textit{method} ini memiliki parameter objek tombol dan event.
 	\item \textit{method} changeMapTo digunakan untuk berpindah ke halaman mapTo. \textit{method} ini memiliki parameter objek tombol dan event.
@@ -297,7 +299,7 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \label{lab:Kelas Route}
 \hspace{0.5cm} \textit{Route} merupakan kelas untuk pencarian rute dan menampilkannya kepada pengguna. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item listBoxStatus bertipe boolean digunakan untuk status rute dalam bentuk daftar sedang tertutup atau terbuka. 
+	\item listBoxStatus bertipe boolean digunakan untuk menentukan nilai status rute dalam bentuk daftar sedang tertutup atau terbuka. 
 	\item lFinder bertipe LocationFinder digunakan untuk menampung semua informasi mengenai lokasi.
 	\item arrayFocus bertipe \textit{array of Point} digunakan untuk menampung titik fokus perubahan jenis transportasi yang digunakan pengguna.  
 	\item detailRoute bertipe \textit{array of String} digunakan untuk menampung keterangan yang dibutuhkan pengguna dari Kiri API.
@@ -306,6 +308,8 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 	\item myLocationLayer bertipe MapLayer digunakan untuk menampung titik dari lokasi perangakt berada.
 	\item p bertipe Protocol digunakan untuk menampung permintaan data dengan Kiri API.
 	\item geolocator bertipe Geolocator untuk menangani perubahan lokasi yang terjadi.
+	\item newTimer bertipe DispatcherTimer digunakan untuk membuat perngatur waktu.
+	\item timeOut bertipe boolean digunakan untuk menentukan nilai status apakah waktu untuk satu proses sudah mencapai batas.
 	\item backgroundWorker bertipe BackgroundWorker digunakan untuk menangain proses di belakang layar.
 \end{enumerate}
 
@@ -314,6 +318,7 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 	\item Konstruktor Route digunakan untuk memuat komponen yang ada di halaman Route, inisialisasi atribu, dan pemanggilan backgroundWorker.
 	\item \textit{method} OnNavigatedTo digunakan untuk mendapatkan objek LocationFinder dan memanggil \textit{method} TrackLocation. \textit{method} ini memiliki parameter NavigationEventArgs.
 	\item \textit{method} OnNavigatedFrom digunakan untuk mengirimkan \textit{state} objek LocationFinder saat berpindah kelas. \textit{method} ini memiliki parameter NavigationEventArgs.
+	\item \textit{method} Application\_Deactivated digunakan untuk menyimpan \textit{state} objek saat meninggalkan aplikasi. \textit{method} ini memiliki parameter object dan DeactivatedEventArgs.
 	\item \textit{method} TrackLocation digunakan untuk inisislisasi GeoLocator dan dan memulai pelacakan lokasi terus menerus. 
 	\item \textit{method} geolocator\_StatusChanged digunakan untuk mengetahui status GeoLocator.
 	\item \textit{method} geolocator\_PositionChanged digunakan untuk mengetahui perubahan lokasi yang terjadi dan menyimpannya di kelas LocationFinder.

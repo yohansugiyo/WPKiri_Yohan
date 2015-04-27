@@ -27,6 +27,8 @@ using System.ComponentModel;
 using System.Windows.Controls.Primitives;
 using System.Threading;
 using System.IO.IsolatedStorage;
+using System.Windows.Threading;
+using System.Diagnostics;
 
 namespace Kiri
 {
@@ -44,10 +46,14 @@ namespace Kiri
         private Protocol p;
         private Boolean routeReady;
 
-        Geolocator geolocator = null;
+        private Geolocator geolocator = null;
         private BackgroundWorker backgroundWorker;
+        private DispatcherTimer newTimer;
+        private Boolean timeOut = false;
         //private Boolean routeReady;
         //private AutoResetEvent _workerCompleted = new AutoResetEvent(false);
+        public string AppStatus = String.Empty;
+        public string SavedData = String.Empty;
 
         public Route()
         {
@@ -60,6 +66,11 @@ namespace Kiri
             this.myLocationLayer = new MapLayer();
             this.p = new Protocol();
             this.routeReady = false;
+            this.newTimer = new DispatcherTimer();
+            newTimer.Interval = new TimeSpan(0, 0, 60);
+            newTimer.Tick += OnTimerTick;
+            newTimer.Start();
+
             ShowLoading();
             //PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             //this.StartLoadingData();
@@ -72,6 +83,7 @@ namespace Kiri
         //source zhttps://msdn.microsoft.com/en-us/library/windows/apps/ff626521%28v=vs.105%29.asp
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
+            //System.Diagnostics.Debug.WriteLine("route");
             base.OnNavigatedTo(e);
             //if (PhoneApplicationService.Current.State.ContainsKey("route"))
             //{
@@ -93,29 +105,20 @@ namespace Kiri
                 // User has opted in or out of Location
                 return;
             }
-            else
-            {
-                MessageBoxResult result = 
-                    MessageBox.Show("This app accesses your phone's location. Is that ok?", 
-                    "Location",
-                    MessageBoxButton.OKCancel);
-
-                if (result == MessageBoxResult.OK)
-                {
-                    IsolatedStorageSettings.ApplicationSettings["LocationConsent"] = true;
-                }else
-                {
-                    IsolatedStorageSettings.ApplicationSettings["LocationConsent"] = false;
-                }
-
-                IsolatedStorageSettings.ApplicationSettings.Save();
-            }
+            
             //Find(); // After get start coordinate and finish coordinate then call Find Method
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            this.lFinder.reset();
+            PhoneApplicationService.Current.State["location"] = lFinder;
         }
 
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
-            PhoneApplicationService.Current.State["route"] = this.route;
+            PhoneApplicationService.Current.State["location"] = lFinder;
         }
 
         private void TrackLocation()
@@ -201,7 +204,6 @@ namespace Kiri
             if (status == false)
             {
                 this.lFinder.reset();
-                PhoneApplicationService.Current.State["location"] = lFinder;
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
         }
@@ -421,7 +423,6 @@ namespace Kiri
             if (result == MessageBoxResult.OK)
             {
                 this.lFinder.reset();
-                PhoneApplicationService.Current.State["location"] = lFinder;
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
         }
@@ -437,7 +438,6 @@ namespace Kiri
             backgroundWorker = new BackgroundWorker();
             backgroundWorker.RunWorkerAsync();
             backgroundWorker.DoWork += new DoWorkEventHandler(backgroundWorker_DoWork);
-            //backgroundWorker.WorkerReportsProgress = true;
             backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker_RunWorkerCompleted);
             //_workerCompleted.WaitOne();
         }
@@ -448,10 +448,20 @@ namespace Kiri
             {
                 this.Find();
             });
-            while(this.routeReady==false){
-            //    Thread.Sleep(1000);
+            
+            while (this.routeReady == false)
+            {
+                if (this.timeOut == true) {
+                    //this.timeOutReached();
+                    this.routeReady = true;
+                }
             }
-            //_workerCompleted.Set();
+        }
+
+        void OnTimerTick(Object sender, EventArgs args)
+        {
+            newTimer.Stop();
+            this.timeOut = true;
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -459,6 +469,12 @@ namespace Kiri
             this.Dispatcher.BeginInvoke(() =>
             {
                 this.popup.IsOpen = false;
+                if (this.timeOut == true)
+                {
+                    MessageBox.Show("Maaf saat ini kami tidak dapet memproses rute anda!");
+                    this.lFinder.reset();
+                    NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+                }
             });
         }
 
@@ -467,7 +483,6 @@ namespace Kiri
             if (MessageBox.Show("Anda yakin mengakhiri Navigasi?", "Kembali ke Menu Utama?", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 this.lFinder.reset();
-                PhoneApplicationService.Current.State["location"] = lFinder;
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
             else
