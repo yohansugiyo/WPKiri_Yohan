@@ -239,7 +239,7 @@ Berikut format layanan yang penulis kirim:\newline
 }
 \end{lstlisting}
 
-Hasil dari kembalian berupa kumpulan \textit{placename} dan \textit{location}. Hasil tersebut akan aplikasi tampung namun yang akan ditampilkan ke pengguna hanya \textit{placename}. Menampilkan \textit{location} tidak efektif menurut penulis karena akan membingungkan pengguna. Dari percobaan yang penulis lakukan, nilai dari \textit{attributions} selalu bernilai "null". Karena hal tersebut maka nilai\textit{attributions} akan penulis abaikan.
+Hasil dari kembalian berupa kumpulan \textit{placename} dan \textit{location}. Hasil tersebut akan aplikasi tampung namun yang akan ditampilkan ke pengguna hanya \textit{placename}. Menampilkan \textit{location} tidak efektif menurut penulis karena akan membingungkan pengguna. Dari percobaan yang penulis lakukan, nilai dari \textit{attributions} selalu bernilai "null". Karena hal tersebut maka nilai \textit{attributions} akan penulis abaikan.
 
 Pemanfaatan layanan penentuan rute untuk mendapatkan langkah yang harus ditempuh pengguna untuk mencapai lokasi tujuan dari lokasi asal. Pemanfaatan layanan ini yaitu dengan parameter \textit{GET} melalui protokol HTTP. Berikut parameter yang harus dikirim:
 \begin{itemize}
@@ -254,7 +254,7 @@ Pemanfaatan layanan penentuan rute untuk mendapatkan langkah yang harus ditempuh
 	\item \textit{finish}: koordinat lokasi tujuan dalam berupa latitude dan longitude. \\
 	Masukan untuk lokasi tujuan harus dalam bentuk koordinat. Jika masukan dari pengguna adalah alamat atau tempat maka perlu dicari kordinatnya dahulu.
 	\item \textit{presentation}: "mobile" untuk perangkat bergerak dan "desktop" untuk komputer. \\
-	Karena aplikasi ini dirancang untuk Windows Phone 8, presentasi yang penulis pilih adalah "mobile".
+	Karena aplikasi ini dirancang untuk Windows Phone 8, presentasi yang penulis pilih adalah "desktop". Pemilihan ini didasarkan karena deskripsi yang ditampilkan tidak ada tulisan "image from" dan "image to", selain itu presentasi "desktop" juga memungkinkan rute alternatif. 
 	\item \textit{apikey}: 16 digit heksadesimal.
 \end{itemize}
 
@@ -324,8 +324,8 @@ Berikut hasil kembalian dari Kiri API:
 
 Setiap langkah akan aplikasi tampung dalam elemen \textit{array}. Untuk keterangan dan jenis angkutan umum akan aplikasi tampilkan dalam bentuk \textit{pushpin} pada peta atau daftar. Sedangkan untuk titik-titik kordinat akan digambarkan pada peta. Dari analisa penulis setiap langkah menunjukan perpindahan angkutan umum yang dipakai, berpindah dari angkutan umum atau jalan, dan dari jalan untuk menaiki angkutan umum. Keterangan yang penulis akan tambahkan harus berada antara setiap \textit{steps} tersebut. Dari analisa penulis juga terdapat kata "\%fromicon" dan "\%toicon" yang tidak menunjukan sesuatu. Karena itu kedua kata tersebut akan penulis hilangkan agar tidak mengganggu pengguna. Penulis juga akan mengambil gambar angkutan kota dan gambar jalan yang sudah disediakan dari Kiri dengan memanfaatkan URL yang disediakan. 
 
-%Analisis Diagram Use-Case dan Scenario
-\subsection{Diagram \textit{Use Case} dan Scenario}
+%Analisis Diagram Use-Case dan Skenario
+\subsection{Diagram \textit{Use Case} dan Skenario}
 \label{lab:Diagram Use-Case dan Scenario}
 \hspace{0.5cm} Diagram \textit{use case} adalah diagram yang menjelaskan interaksi sistem dengan lingkungan (contoh: pengguna). Berdasarkan analisa di atas maka pengguna dapat:
 \begin{itemize}

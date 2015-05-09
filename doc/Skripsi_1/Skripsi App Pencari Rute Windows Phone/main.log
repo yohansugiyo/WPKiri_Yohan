@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.19)  27 APR 2015 21:47
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.19)  9 MAY 2015 14:28
 entering extended mode
 **main.tex
 
@@ -608,17 +608,7 @@ LaTeX Warning: Label `lab:Perancangan Kelas' multiply defined.
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
 Rute Windows Phone\Bab/bab5.aux")
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
-Rute Windows Phone\Bab/bab6.aux")
-
-LaTeX Warning: Label `MSDN' multiply defined.
-
-
-LaTeX Warning: Label `Kiri' multiply defined.
-
-
-LaTeX Warning: Label `Manning' multiply defined.
-
-)
+Rute Windows Phone\Bab/bab6.aux"))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 305.
 LaTeX Font Info:    ... okay on input line 305.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 305.
@@ -703,7 +693,7 @@ Rute Windows Phone\main.out")
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
 Rute Windows Phone\main.out")
 \@outlinefile=\write4
- <Gambar/logo-unpar.png, id=295, 360.59718pt x 356.0803pt>
+ <Gambar/logo-unpar.png, id=291, 360.59718pt x 356.0803pt>
 File: Gambar/logo-unpar.png Graphic file (type png)
  <use Gambar/logo-unpar.png>
 Package pdftex.def Info: Gambar/logo-unpar.png used on input line 473.
@@ -732,17 +722,24 @@ Package pdftex.def Info: Gambar/logo-unpar.png used on input line 473.
 
 ]
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
-Rute Windows Phone\main.toc" [9])
+Rute Windows Phone\main.toc"
+Overfull \hbox (0.15294pt too wide) detected at line 4
+ \T1/cmr/bx/n/10.95 xiii
+ []
+
+[9])
 \tf@toc=\write5
  [10]
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
-Rute Windows Phone\main.lof")
+Rute Windows Phone\main.lof" [11])
 \tf@lof=\write6
- [11]
+ [12]
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
 Rute Windows Phone\main.lot")
 \tf@lot=\write7
- [12]
+ [13] [14
+
+]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -792,7 +789,6 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 
 
 
-
 ]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 25.
 
@@ -809,7 +805,7 @@ Rute Windows Phone\Bab/bab2.tex" [4
 
 ]
 Bab 2.
-[5] <Gambar/nav_hierarchy.jpg, id=567, 316.18124pt x 591.20876pt>
+[5] <Gambar/nav_hierarchy.jpg, id=589, 316.18124pt x 591.20876pt>
 File: Gambar/nav_hierarchy.jpg Graphic file (type jpg)
  <use Gambar/nav_hierarchy.jpg>
 Package pdftex.def Info: Gambar/nav_hierarchy.jpg used on input line 49.
@@ -819,7 +815,7 @@ Package pdftex.def Info: Gambar/nav_hierarchy.jpg used on input line 49.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [6] [7 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pe
-ncari Rute Windows Phone/Gambar/nav_hierarchy.jpg>] <Gambar/Tombol/kontrol_teks.jpg, id=585, 316.18124pt x 591.20876pt>
+ncari Rute Windows Phone/Gambar/nav_hierarchy.jpg>] <Gambar/Tombol/kontrol_teks.jpg, id=606, 316.18124pt x 591.20876pt>
 File: Gambar/Tombol/kontrol_teks.jpg Graphic file (type jpg)
 
 <use Gambar/Tombol/kontrol_teks.jpg>
@@ -827,7 +823,7 @@ Package pdftex.def Info: Gambar/Tombol/kontrol_teks.jpg used on input line 88.
 (pdftex.def)             Requested size: 158.09023pt x 295.60365pt.
  [8 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penca
 ri Rute Windows Phone/Gambar/Tombol/kontrol_teks.jpg>]
-<Gambar/Tombol/tombol_dan_pilihan.jpg, id=598, 316.18124pt x 591.20876pt>
+<Gambar/Tombol/tombol_dan_pilihan.jpg, id=619, 316.18124pt x 591.20876pt>
 File: Gambar/Tombol/tombol_dan_pilihan.jpg Graphic file (type jpg)
  <use Gambar/Tombol/tombol_dan_pilihan.jpg>
 Package pdftex.def Info: Gambar/Tombol/tombol_dan_pilihan.jpg used on input line 113.
@@ -835,13 +831,13 @@ Package pdftex.def Info: Gambar/Tombol/tombol_dan_pilihan.jpg used on input line
 
 [9 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencar
 i Rute Windows Phone/Gambar/Tombol/tombol_dan_pilihan.jpg>]
-<Gambar/kontrol/listBox.PNG, id=608, 303.38344pt x 109.1578pt>
+<Gambar/kontrol/listBox.PNG, id=629, 303.38344pt x 109.1578pt>
 File: Gambar/kontrol/listBox.PNG Graphic file (type png)
  <use Gambar/kontrol/listBox.PNG>
 Package pdftex.def Info: Gambar/kontrol/listBox.PNG used on input line 136.
 (pdftex.def)             Requested size: 121.35121pt x 43.66234pt.
 
-<Gambar/lifecycle_wp8.png, id=610, 595.22375pt x 652.4375pt>
+<Gambar/lifecycle_wp8.png, id=631, 595.22375pt x 652.4375pt>
 File: Gambar/lifecycle_wp8.png Graphic file (type png)
  <use Gambar/lifecycle_wp8.png>
 Package pdftex.def Info: Gambar/lifecycle_wp8.png used on input line 158.
@@ -849,7 +845,7 @@ Package pdftex.def Info: Gambar/lifecycle_wp8.png used on input line 158.
  [10 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
 ari Rute Windows Phone/Gambar/kontrol/listBox.PNG> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/K
 iriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/lifecycle_wp8.png>] [11]
-<Gambar/map.png, id=635, 948.54375pt x 1773.62625pt>
+<Gambar/map.png, id=657, 948.54375pt x 1773.62625pt>
 File: Gambar/map.png Graphic file (type png)
  <use Gambar/map.png>
 Package pdftex.def Info: Gambar/map.png used on input line 198.
@@ -860,7 +856,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 222--223
  []
 
 [12 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penca
-ri Rute Windows Phone/Gambar/map.png>] <Gambar/kartografi.png, id=654, 486.31688pt x 195.73125pt>
+ri Rute Windows Phone/Gambar/map.png>] <Gambar/kartografi.png, id=676, 486.31688pt x 195.73125pt>
 File: Gambar/kartografi.png Graphic file (type png)
 
 <use Gambar/kartografi.png>
@@ -868,13 +864,13 @@ Package pdftex.def Info: Gambar/kartografi.png used on input line 255.
 (pdftex.def)             Requested size: 194.5233pt x 78.2911pt.
  [13 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
 ari Rute Windows Phone/Gambar/kartografi.png>]
-<Gambar/toolkit_pushpin.jpg, id=678, 338.76563pt x 299.61937pt>
+<Gambar/toolkit_pushpin.jpg, id=699, 338.76563pt x 299.61937pt>
 File: Gambar/toolkit_pushpin.jpg Graphic file (type jpg)
  <use Gambar/toolkit_pushpin.jpg>
 Package pdftex.def Info: Gambar/toolkit_pushpin.jpg used on input line 277.
 (pdftex.def)             Requested size: 169.38239pt x 149.80931pt.
 
-<Gambar/kontrol/polyline.png, id=682, 223.58531pt x 265.74281pt>
+<Gambar/kontrol/polyline.png, id=703, 223.58531pt x 265.74281pt>
 File: Gambar/kontrol/polyline.png Graphic file (type png)
  <use Gambar/kontrol/polyline.png>
 Package pdftex.def Info: Gambar/kontrol/polyline.png used on input line 309.
@@ -947,26 +943,26 @@ Rute Windows Phone\Bab/bab3.tex" [28
 
 ]
 Bab 3.
-<Gambar/KIRI_Android/home.png, id=896, 243.91125pt x 433.62pt>
+<Gambar/KIRI_Android/home.png, id=917, 243.91125pt x 433.62pt>
 File: Gambar/KIRI_Android/home.png Graphic file (type png)
  <use Gambar/KIRI_Android/home.png>
 Package pdftex.def Info: Gambar/KIRI_Android/home.png used on input line 17.
 (pdftex.def)             Requested size: 121.95532pt x 216.80946pt.
  [29 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
-ari Rute Windows Phone/Gambar/KIRI_Android/home.png>] <Gambar/KIRI_Android/menunjuk_lokasi.png, id=902, 243.91125pt x 43
+ari Rute Windows Phone/Gambar/KIRI_Android/home.png>] <Gambar/KIRI_Android/menunjuk_lokasi.png, id=924, 243.91125pt x 43
 3.62pt>
 File: Gambar/KIRI_Android/menunjuk_lokasi.png Graphic file (type png)
 
 <use Gambar/KIRI_Android/menunjuk_lokasi.png>
 Package pdftex.def Info: Gambar/KIRI_Android/menunjuk_lokasi.png used on input line 26.
 (pdftex.def)             Requested size: 121.95532pt x 216.80946pt.
- <Gambar/KIRI_Android/terkait.png, id=904, 243.91125pt x 433.62pt>
+ <Gambar/KIRI_Android/terkait.png, id=926, 243.91125pt x 433.62pt>
 File: Gambar/KIRI_Android/terkait.png Graphic file (type png)
 
 <use Gambar/KIRI_Android/terkait.png>
 Package pdftex.def Info: Gambar/KIRI_Android/terkait.png used on input line 35.
 (pdftex.def)             Requested size: 121.95532pt x 216.80946pt.
- <Gambar/KIRI_Android/tampilan_daftar.png, id=906, 243.91125pt x 433.62pt>
+ <Gambar/KIRI_Android/tampilan_daftar.png, id=928, 243.91125pt x 433.62pt>
 File: Gambar/KIRI_Android/tampilan_daftar.png Graphic file (type png)
 
 <use Gambar/KIRI_Android/tampilan_daftar.png>
@@ -976,7 +972,7 @@ Package pdftex.def Info: Gambar/KIRI_Android/tampilan_daftar.png used on input l
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Gambar/KIRI_Android/tampilan_peta.png, id=908, 243.91125pt x 433.62pt>
+<Gambar/KIRI_Android/tampilan_peta.png, id=930, 243.91125pt x 433.62pt>
 File: Gambar/KIRI_Android/tampilan_peta.png Graphic file (type png)
  <use Gambar/KIRI_Android/tampilan_peta.png>
 Package pdftex.def Info: Gambar/KIRI_Android/tampilan_peta.png used on input line 53.
@@ -1003,13 +999,13 @@ Overfull \hbox (6.51163pt too wide) in paragraph at lines 138--139
 
  []
 
-<Gambar/out_kiri/angkot.png, id=937, 225.84375pt x 225.84375pt>
+<Gambar/out_kiri/angkot.png, id=958, 225.84375pt x 225.84375pt>
 File: Gambar/out_kiri/angkot.png Graphic file (type png)
  <use Gambar/out_kiri/angkot.png>
 Package pdftex.def Info: Gambar/out_kiri/angkot.png used on input line 142.
 (pdftex.def)             Requested size: 112.92159pt x 112.92159pt.
 
-<Gambar/out_kiri/jalan.png, id=938, 225.84375pt x 225.84375pt>
+<Gambar/out_kiri/jalan.png, id=959, 225.84375pt x 225.84375pt>
 File: Gambar/out_kiri/jalan.png Graphic file (type png)
  <use Gambar/out_kiri/jalan.png>
 Package pdftex.def Info: Gambar/out_kiri/jalan.png used on input line 149.
@@ -1072,7 +1068,7 @@ Overfull \hbox (23.58691pt too wide) in paragraph at lines 284--285
 [][][][][] 
  []
 
-
+[38]
 Overfull \hbox (23.58691pt too wide) in paragraph at lines 285--286
 [][][][][] 
  []
@@ -1082,7 +1078,7 @@ Overfull \hbox (23.58691pt too wide) in paragraph at lines 286--287
 [][][][][] 
  []
 
-[38]
+
 Overfull \hbox (23.58691pt too wide) in paragraph at lines 287--288
 [][][][][] 
  []
@@ -1147,10 +1143,13 @@ Overfull \hbox (27.98587pt too wide) in paragraph at lines 306--307
 [][][][][] 
  []
 
-[39] [40] <Gambar/useCase_dan_Class/UseCase.jpg, id=1095, 883.3pt x 695.59875pt>
-File: Gambar/useCase_dan_Class/UseCase.jpg Graphic file (type jpg)
 
-<use Gambar/useCase_dan_Class/UseCase.jpg>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39] [40]
+<Gambar/useCase_dan_Class/UseCase.jpg, id=1116, 883.3pt x 695.59875pt>
+File: Gambar/useCase_dan_Class/UseCase.jpg Graphic file (type jpg)
+ <use Gambar/useCase_dan_Class/UseCase.jpg>
 Package pdftex.def Info: Gambar/useCase_dan_Class/UseCase.jpg used on input line 344.
 (pdftex.def)             Requested size: 441.64893pt x 347.79852pt.
 
@@ -1246,7 +1245,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 428--428
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [42]
-<Gambar/useCase_dan_Class/class.jpg, id=1108, 1104.125pt x 756.8275pt>
+<Gambar/useCase_dan_Class/class.jpg, id=1130, 1104.125pt x 756.8275pt>
 File: Gambar/useCase_dan_Class/class.jpg Graphic file (type jpg)
  <use Gambar/useCase_dan_Class/class.jpg>
 Package pdftex.def Info: Gambar/useCase_dan_Class/class.jpg used on input line 444.
@@ -1261,14 +1260,14 @@ ri Rute Windows Phone/Gambar/useCase_dan_Class/class.jpg>]) [44]
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
 Rute Windows Phone\Bab/bab4.tex"
 Bab 4.
-<Gambar/sequence/MendapatkanKordinatPerangkat.png, id=1119, 680.5425pt x 599.99156pt>
+<Gambar/sequence/MendapatkanKordinatPerangkat.png, id=1140, 680.5425pt x 599.99156pt>
 File: Gambar/sequence/MendapatkanKordinatPerangkat.png Graphic file (type png)
 
 <use Gambar/sequence/MendapatkanKordinatPerangkat.png>
 Package pdftex.def Info: Gambar/sequence/MendapatkanKordinatPerangkat.png used on input line 14.
 (pdftex.def)             Requested size: 272.21217pt x 239.99237pt.
 
-<Gambar/sequence/MendapatkanKordinatDiMap.png, id=1121, 906.38625pt x 774.64406pt>
+<Gambar/sequence/MendapatkanKordinatDiMap.png, id=1142, 906.38625pt x 774.64406pt>
 File: Gambar/sequence/MendapatkanKordinatDiMap.png Graphic file (type png)
 
 <use Gambar/sequence/MendapatkanKordinatDiMap.png>
@@ -1285,124 +1284,214 @@ LaTeX Warning: `h' float specifier changed to `ht'.
  <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari 
 Rute Windows Phone/Gambar/sequence/MendapatkanKordinatPerangkat.png>] [46 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semest
 er-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/sequence/MendapatkanK
-ordinatDiMap.png>] [47] <Gambar/sequence/MendapatkanRute.png, id=1140, 791.95876pt x 1575.63657pt>
+ordinatDiMap.png>] [47] <Gambar/sequence/MendapatkanRute.png, id=1162, 791.95876pt x 1575.63657pt>
 File: Gambar/sequence/MendapatkanRute.png Graphic file (type png)
 
 <use Gambar/sequence/MendapatkanRute.png>
 Package pdftex.def Info: Gambar/sequence/MendapatkanRute.png used on input line 38.
-(pdftex.def)             Requested size: 395.97841pt x 787.81636pt.
+(pdftex.def)             Requested size: 316.7779pt x 630.24347pt.
+ [48 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
+ari Rute Windows Phone/Gambar/sequence/MendapatkanRute.png>]
+<Gambar/useCase_dan_Class/class4kosong.png, id=1169, 904.88063pt x 961.34157pt>
+File: Gambar/useCase_dan_Class/class4kosong.png Graphic file (type png)
 
+<use Gambar/useCase_dan_Class/class4kosong.png>
+Package pdftex.def Info: Gambar/useCase_dan_Class/class4kosong.png used on input line 53.
+(pdftex.def)             Requested size: 271.46628pt x 288.4047pt.
 
-LaTeX Warning: Float too large for page by 82.30916pt on input line 41.
+<Gambar/useCase_dan_Class/perClass/city.png, id=1170, 258.21469pt x 123.46124pt>
+File: Gambar/useCase_dan_Class/perClass/city.png Graphic file (type png)
+
+<use Gambar/useCase_dan_Class/perClass/city.png>
+Package pdftex.def Info: Gambar/useCase_dan_Class/perClass/city.png used on input line 64.
+(pdftex.def)             Requested size: 154.93pt x 74.0773pt.
+
+<Gambar/useCase_dan_Class/perClass/jsonConvert.png, id=1171, 325.215pt x 161.10187pt>
+File: Gambar/useCase_dan_Class/perClass/jsonConvert.png Graphic file (type png)
+
+<use Gambar/useCase_dan_Class/perClass/jsonConvert.png>
+Package pdftex.def Info: Gambar/useCase_dan_Class/perClass/jsonConvert.png used on input line 72.
+(pdftex.def)             Requested size: 195.1305pt x 96.66187pt.
+
+<Gambar/useCase_dan_Class/perClass/locationFinder.png, id=1172, 619.56468pt x 333.49594pt>
+File: Gambar/useCase_dan_Class/perClass/locationFinder.png Graphic file (type png)
+
+<use Gambar/useCase_dan_Class/perClass/locationFinder.png>
+Package pdftex.def Info: Gambar/useCase_dan_Class/perClass/locationFinder.png used on input line 80.
+(pdftex.def)             Requested size: 371.74167pt x 200.09909pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Gambar/useCase_dan_Class/class4.png, id=1142, 1295.59032pt x 2223.05531pt>
-File: Gambar/useCase_dan_Class/class4.png Graphic file (type png)
- <use Gambar/useCase_dan_Class/class4.png>
-Package pdftex.def Info: Gambar/useCase_dan_Class/class4.png used on input line 52.
-(pdftex.def)             Requested size: 259.11346pt x 444.6032pt.
+<Gambar/useCase_dan_Class/perClass/map.png, id=1173, 308.65312pt x 146.79843pt>
+File: Gambar/useCase_dan_Class/perClass/map.png Graphic file (type png)
+
+<use Gambar/useCase_dan_Class/perClass/map.png>
+Package pdftex.def Info: Gambar/useCase_dan_Class/perClass/map.png used on input line 88.
+(pdftex.def)             Requested size: 185.1933pt x 88.07973pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48]
-Overfull \hbox (1.27052pt too wide) in paragraph at lines 86--87
+<Gambar/useCase_dan_Class/perClass/packageWindowsPhone.png, id=1174, 700.86844pt x 377.91188pt>
+File: Gambar/useCase_dan_Class/perClass/packageWindowsPhone.png Graphic file (type png)
+
+<use Gambar/useCase_dan_Class/perClass/packageWindowsPhone.png>
+Package pdftex.def Info: Gambar/useCase_dan_Class/perClass/packageWindowsPhone.png used on input line 96.
+(pdftex.def)             Requested size: 420.5243pt x 226.74887pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[49 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penca
+ri Rute Windows Phone/Gambar/useCase_dan_Class/class4kosong.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/Kiri
+WindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/useCase_dan_Class/perClass/cit
+y.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pe
+ncari Rute Windows Phone/Gambar/useCase_dan_Class/perClass/jsonConvert.png>]
+<Gambar/useCase_dan_Class/perClass/protocol.png, id=1182, 467.49657pt x 374.90062pt>
+File: Gambar/useCase_dan_Class/perClass/protocol.png Graphic file (type png)
+
+<use Gambar/useCase_dan_Class/perClass/protocol.png>
+Package pdftex.def Info: Gambar/useCase_dan_Class/perClass/protocol.png used on input line 106.
+(pdftex.def)             Requested size: 280.50009pt x 224.94211pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Gambar/useCase_dan_Class/perClass/route.png, id=1183, 489.32813pt x 409.53pt>
+File: Gambar/useCase_dan_Class/perClass/route.png Graphic file (type png)
+
+<use Gambar/useCase_dan_Class/perClass/route.png>
+Package pdftex.def Info: Gambar/useCase_dan_Class/perClass/route.png used on input line 114.
+(pdftex.def)             Requested size: 293.59914pt x 245.7199pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Gambar/useCase_dan_Class/perClass/SearchPlace.png, id=1184, 226.59656pt x 242.40562pt>
+File: Gambar/useCase_dan_Class/perClass/SearchPlace.png Graphic file (type png)
+
+<use Gambar/useCase_dan_Class/perClass/SearchPlace.png>
+Package pdftex.def Info: Gambar/useCase_dan_Class/perClass/SearchPlace.png used on input line 122.
+(pdftex.def)             Requested size: 135.95897pt x 145.44447pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Gambar/useCase_dan_Class/perClass/FindRoute.png, id=1185, 231.11343pt x 243.15843pt>
+File: Gambar/useCase_dan_Class/perClass/FindRoute.png Graphic file (type png)
+
+<use Gambar/useCase_dan_Class/perClass/FindRoute.png>
+Package pdftex.def Info: Gambar/useCase_dan_Class/perClass/FindRoute.png used on input line 130.
+(pdftex.def)             Requested size: 138.66913pt x 145.89618pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [50 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
+ari Rute Windows Phone/Gambar/useCase_dan_Class/perClass/locationFinder.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Sem
+ester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/useCase_dan_Class/
+perClass/map.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skr
+ipsi App Pencari Rute Windows Phone/Gambar/useCase_dan_Class/perClass/packageWindowsPhone.png>]
+
+LaTeX Warning: Text page 51 contains only floats.
+
+
+Overfull \vbox (2.67065pt too high) has occurred while \output is active []
+
+ [51 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
+ari Rute Windows Phone/Gambar/useCase_dan_Class/perClass/protocol.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-
+7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/useCase_dan_Class/perCla
+ss/route.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi
+ App Pencari Rute Windows Phone/Gambar/useCase_dan_Class/perClass/SearchPlace.png>] [52 <C:/Users/Yohan Sugiyo/Documents
+/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/useCase
+_dan_Class/perClass/FindRoute.png>]
+Overfull \hbox (1.27052pt too wide) in paragraph at lines 164--165
 []\T1/cmr/m/it/10.95 method \T1/cmr/m/n/10.95 ge-tHe-re-From di-gu-nak-an un-tuk men-da-patk-an ko-rdi-nat per-ang-kat l
 a-lu me-nyimp-
  []
 
-[49] [50] [51] [52] [53]
-Overfull \hbox (3.72617pt too wide) in paragraph at lines 233--234
+[53] [54] [55] [56] [57]
+Overfull \hbox (3.72617pt too wide) in paragraph at lines 311--312
 []\T1/cmr/m/n/10.95 handle ber-ti-pe string di-gu-nak-an un-tuk me-nyimp-an ala-mat host di-tam-bah "han-dle.php". 
  []
 
-[54] [55] [56] [57] <Gambar/perancangan_antarmuka/Home.png, id=1321, 237.0456pt x 311.4837pt>
+[58] [59] [60] [61] <Gambar/perancangan_antarmuka/Home.png, id=1379, 237.0456pt x 311.4837pt>
 File: Gambar/perancangan_antarmuka/Home.png Graphic file (type png)
 
 <use Gambar/perancangan_antarmuka/Home.png>
-Package pdftex.def Info: Gambar/perancangan_antarmuka/Home.png used on input line 352.
+Package pdftex.def Info: Gambar/perancangan_antarmuka/Home.png used on input line 430.
 (pdftex.def)             Requested size: 142.22844pt x 186.89166pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[58] <Gambar/perancangan_antarmuka/ListTempat.png, id=1329, 216.81pt x 274.626pt>
+ [62 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
+ari Rute Windows Phone/Gambar/perancangan_antarmuka/Home.png>]
+<Gambar/perancangan_antarmuka/ListTempat.png, id=1388, 216.81pt x 274.626pt>
 File: Gambar/perancangan_antarmuka/ListTempat.png Graphic file (type png)
 
 <use Gambar/perancangan_antarmuka/ListTempat.png>
-Package pdftex.def Info: Gambar/perancangan_antarmuka/ListTempat.png used on input line 390.
+Package pdftex.def Info: Gambar/perancangan_antarmuka/ListTempat.png used on input line 468.
 (pdftex.def)             Requested size: 130.08699pt x 164.77686pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Gambar/perancangan_antarmuka/Map.png, id=1331, 201.6333pt x 278.9622pt>
+<Gambar/perancangan_antarmuka/Map.png, id=1390, 201.6333pt x 278.9622pt>
 File: Gambar/perancangan_antarmuka/Map.png Graphic file (type png)
  <use Gambar/perancangan_antarmuka/Map.png>
-Package pdftex.def Info: Gambar/perancangan_antarmuka/Map.png used on input line 404.
+Package pdftex.def Info: Gambar/perancangan_antarmuka/Map.png used on input line 482.
 (pdftex.def)             Requested size: 120.9809pt x 167.3786pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Gambar/perancangan_antarmuka/Route.png, id=1333, 222.5916pt x 280.4076pt>
+<Gambar/perancangan_antarmuka/Route.png, id=1392, 222.5916pt x 280.4076pt>
 File: Gambar/perancangan_antarmuka/Route.png Graphic file (type png)
  <use Gambar/perancangan_antarmuka/Route.png>
-Package pdftex.def Info: Gambar/perancangan_antarmuka/Route.png used on input line 418.
+Package pdftex.def Info: Gambar/perancangan_antarmuka/Route.png used on input line 496.
 (pdftex.def)             Requested size: 133.55598pt x 168.24585pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Gambar/perancangan_antarmuka/ListRoute.png, id=1335, 217.5327pt x 276.7941pt>
+[63 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penca
+ri Rute Windows Phone/Gambar/perancangan_antarmuka/ListTempat.png>]
+<Gambar/perancangan_antarmuka/ListRoute.png, id=1399, 217.5327pt x 276.7941pt>
 File: Gambar/perancangan_antarmuka/ListRoute.png Graphic file (type png)
 
 <use Gambar/perancangan_antarmuka/ListRoute.png>
-Package pdftex.def Info: Gambar/perancangan_antarmuka/ListRoute.png used on input line 438.
+Package pdftex.def Info: Gambar/perancangan_antarmuka/ListRoute.png used on input line 516.
 (pdftex.def)             Requested size: 130.52061pt x 166.07773pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [59] [60 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi Ap
-p Pencari Rute Windows Phone/Gambar/sequence/MendapatkanRute.png>] [61 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-
-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/useCase_dan_Class/class4
-.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pen
-cari Rute Windows Phone/Gambar/perancangan_antarmuka/Home.png>] [62 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/K
-iriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/perancangan_antarmuka/ListT
-empat.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi Ap
-p Pencari Rute Windows Phone/Gambar/perancangan_antarmuka/Map.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/Ki
-riWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/perancangan_antarmuka/Route.
-png>] [63 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App
- Pencari Rute Windows Phone/Gambar/perancangan_antarmuka/ListRoute.png>]
+) [64 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pen
+cari Rute Windows Phone/Gambar/perancangan_antarmuka/Map.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWin
+dowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/perancangan_antarmuka/Route.png>]
+[65 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penca
+ri Rute Windows Phone/Gambar/perancangan_antarmuka/ListRoute.png>]
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
-Rute Windows Phone\Bab/bab5.tex" [64
+Rute Windows Phone\Bab/bab5.tex" [66
 
 
 
 ]
 Bab 5.
-[65] <Gambar/antarmuka/home.png, id=1387, 722.7pt x 1284.8pt>
+[67] <Gambar/antarmuka/home.png, id=1435, 722.7pt x 1284.8pt>
 File: Gambar/antarmuka/home.png Graphic file (type png)
  <use Gambar/antarmuka/home.png>
 Package pdftex.def Info: Gambar/antarmuka/home.png used on input line 70.
 (pdftex.def)             Requested size: 144.53743pt x 256.95544pt.
- [66 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
-ari Rute Windows Phone/Gambar/antarmuka/home.png>] <Gambar/antarmuka/splash.png, id=1401, 722.7pt x 1284.8pt>
+ [68 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
+ari Rute Windows Phone/Gambar/antarmuka/home.png>] <Gambar/antarmuka/splash.png, id=1449, 722.7pt x 1284.8pt>
 File: Gambar/antarmuka/splash.png Graphic file (type png)
  <use Gambar/antarmuka/splash.png>
 Package pdftex.def Info: Gambar/antarmuka/splash.png used on input line 80.
 (pdftex.def)             Requested size: 144.53743pt x 256.95544pt.
 
-<Gambar/antarmuka/list_main.png, id=1402, 1517.67pt x 1284.8pt>
+<Gambar/antarmuka/list_main.png, id=1450, 1517.67pt x 1284.8pt>
 File: Gambar/antarmuka/list_main.png Graphic file (type png)
  <use Gambar/antarmuka/list_main.png>
 Package pdftex.def Info: Gambar/antarmuka/list_main.png used on input line 88.
 (pdftex.def)             Requested size: 303.52863pt x 256.95544pt.
 
-<Gambar/antarmuka/map.png, id=1403, 722.7pt x 1284.8pt>
+<Gambar/antarmuka/map.png, id=1451, 722.7pt x 1284.8pt>
 File: Gambar/antarmuka/map.png Graphic file (type png)
  <use Gambar/antarmuka/map.png>
 Package pdftex.def Info: Gambar/antarmuka/map.png used on input line 96.
@@ -1411,7 +1500,7 @@ Package pdftex.def Info: Gambar/antarmuka/map.png used on input line 96.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Gambar/antarmuka/wait_route.png, id=1404, 722.7pt x 1284.8pt>
+<Gambar/antarmuka/wait_route.png, id=1452, 722.7pt x 1284.8pt>
 File: Gambar/antarmuka/wait_route.png Graphic file (type png)
  <use Gambar/antarmuka/wait_route.png>
 Package pdftex.def Info: Gambar/antarmuka/wait_route.png used on input line 104.
@@ -1420,7 +1509,7 @@ Package pdftex.def Info: Gambar/antarmuka/wait_route.png used on input line 104.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Gambar/antarmuka/route_map.png, id=1405, 722.7pt x 1284.8pt>
+<Gambar/antarmuka/route_map.png, id=1453, 722.7pt x 1284.8pt>
 File: Gambar/antarmuka/route_map.png Graphic file (type png)
  <use Gambar/antarmuka/route_map.png>
 Package pdftex.def Info: Gambar/antarmuka/route_map.png used on input line 112.
@@ -1429,7 +1518,7 @@ Package pdftex.def Info: Gambar/antarmuka/route_map.png used on input line 112.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Gambar/antarmuka/list_route.png, id=1406, 722.7pt x 1284.8pt>
+<Gambar/antarmuka/list_route.png, id=1454, 722.7pt x 1284.8pt>
 File: Gambar/antarmuka/list_route.png Graphic file (type png)
  <use Gambar/antarmuka/list_route.png>
 Package pdftex.def Info: Gambar/antarmuka/list_route.png used on input line 120.
@@ -1438,14 +1527,14 @@ Package pdftex.def Info: Gambar/antarmuka/list_route.png used on input line 120.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[67 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penca
+[69 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penca
 ri Rute Windows Phone/Gambar/antarmuka/splash.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/K
 iriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/antarmuka/list_main.png>]
 Underfull \vbox (badness 7667) has occurred while \output is active []
 
- [68 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
+ [70 <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Penc
 ari Rute Windows Phone/Gambar/antarmuka/map.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/Kir
-iWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/antarmuka/wait_route.png>] [69 <C:/Users/Yohan
+iWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/antarmuka/wait_route.png>] [71 <C:/Users/Yohan
  Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/doc/Skripsi_1/Skripsi App Pencari Rute Windows Pho
 ne/Gambar/antarmuka/route_map.png> <C:/Users/Yohan Sugiyo/Documents/Kuliah/Semester-7/KiriWindowsPhone/KiriWindowsPhone/
 doc/Skripsi_1/Skripsi App Pencari Rute Windows Phone/Gambar/antarmuka/list_route.png>]
@@ -1459,13 +1548,18 @@ Underfull \hbox (badness 3168) in paragraph at lines 170--170
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--185
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
 \T1/cmr/m/n/10.95 atau lo-ka-si tu-ju-an
  []
 
 
-Underfull \hbox (badness 1253) in paragraph at lines 190--190
+Underfull \hbox (badness 1253) in paragraph at lines 189--189
 []|\T1/cmr/m/n/10.95 Bila in-put ma-suk-an ber-u-pa ka-ta
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 191--191
+\T1/cmr/m/n/10.95 gu-na me-nek-an tom-bol
  []
 
 
@@ -1474,7 +1568,7 @@ Underfull \hbox (badness 1454) in paragraph at lines 192--192
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 193--193
+Underfull \hbox (badness 1454) in paragraph at lines 194--194
 \T1/cmr/m/n/10.95 gu-na me-nek-an tom-bol
  []
 
@@ -1484,33 +1578,42 @@ Underfull \hbox (badness 1454) in paragraph at lines 195--195
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 196--196
-\T1/cmr/m/n/10.95 gu-na me-nek-an tom-bol
- []
-
-
-Overfull \hbox (14.43398pt too wide) in paragraph at lines 181--198
+Overfull \hbox (14.43398pt too wide) in paragraph at lines 180--197
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[70]
+[72]
+Underfull \hbox (badness 10000) in paragraph at lines 225--225
+[]|\T1/cmr/m/n/10.95 Memanfaatkan pe-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--225
+\T1/cmr/m/n/10.95 berulang-ulang dan
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 225--225
+\T1/cmr/m/n/10.95 ak-an meng-u-nah lo-ka-si
+ []
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [71] [72] [73]
+) [73] [74] [75]
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
-Rute Windows Phone\Bab/bab6.tex" [74
+Rute Windows Phone\Bab/bab6.tex" [76
 
 
 
 ]
 Bab 6.
-) [75]
+) [77]
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
-Rute Windows Phone\main.bbl" [76
+Rute Windows Phone\main.bbl" [78
 
 
 ]
@@ -1519,26 +1622,10 @@ Underfull \hbox (badness 2376) in paragraph at lines 4--7
 t . com / library /
  []
 
-) [77] [78
-
-]pdfTeX warning (ext4): destination with the same identifier (name{cite.MSDN}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.498 	\bibitem{MSDN}
-                      Microsoft  {\em Windows Phone Silverlight development ...pdfTeX warning (ext4): destination with t
-he same identifier (name{cite.Kiri}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.500 	\bibitem{Kiri}
-                      Kiri Team  {\em KIRI API v2 Documentation} 2014 : \url...pdfTeX warning (ext4): destination with t
-he same identifier (name{cite.Manning}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.502   \bibitem{Manning}
-                          Manning, Paul  {\em Pro Windows Phone App Developm...
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 523.
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 510.
  [79]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 523.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 510.
 
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
 Rute Windows Phone\main.aux"
@@ -1554,10 +1641,10 @@ Rute Windows Phone\Bab/bab4.aux")
 Rute Windows Phone\Bab/bab5.aux")
 ("C:\Users\Yohan Sugiyo\Documents\Kuliah\Semester-7\KiriWindowsPhone\KiriWindowsPhone\doc\Skripsi_1\Skripsi App Pencari 
 Rute Windows Phone\Bab/bab6.aux"))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 523.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 523.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 510.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 510.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0306BF87D1C2FBB0343E69A46FD0A492;11663.
+(rerunfilecheck)             Checksum: 73F252B02B21A0D60B999BE5090C9B39;11539.
 
 
 LaTeX Warning: There were undefined references.
@@ -1567,10 +1654,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12801 strings out of 494045
- 186107 string characters out of 3145948
- 546812 words of memory out of 3000000
- 15144 multiletter control sequences out of 15000+200000
+ 12866 strings out of 494045
+ 188456 string characters out of 3145948
+ 548363 words of memory out of 3000000
+ 15191 multiletter control sequences out of 15000+200000
  23024 words of font info for 52 fonts, out of 3000000 for 9000
  719 hyphenation exceptions out of 8191
  45i,12n,44p,1636b,1742s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1587,9 +1674,9 @@ iles (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfti1000.pfb><C:/Program Files
 super/sfti1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sftt0900.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/cm-super/sftt1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfxc10
 95.pfb>
-Output written on main.pdf (91 pages, 4581190 bytes).
+Output written on main.pdf (93 pages, 4371532 bytes).
 PDF statistics:
- 1692 PDF objects out of 1728 (max. 8388607)
- 656 named destinations out of 1000 (max. 500000)
- 760 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1725 PDF objects out of 1728 (max. 8388607)
+ 665 named destinations out of 1000 (max. 500000)
+ 797 words of extra memory for PDF output out of 10000 (max. 10000000)
 
