@@ -92,3 +92,6 @@
 \contentsline {section}{\numberline {6.2}Saran}{77}{section.6.2}
 \contentsline {chapter}{Daftar Referensi}{79}{chapter*.4}
 \renewcommand {\cftchappresnum }{\bf \scshape }
+\contentsline {chapter}{\numberline {A}Kode Program Kelas MainPage}{81}{appendix.A}
+\contentsline {chapter}{\numberline {B}Kode Program Kelas Map}{89}{appendix.B}
+\contentsline {chapter}{\numberline {C}Kode Program kelas Route}{91}{appendix.C}

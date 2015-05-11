@@ -1,72 +1,157 @@
-\chapter{The Source Code}
+\chapter{Kode Program Kelas Map}
 \label{app:B}
 
-%selalu gunakan single spacing untuk source code !!!!!
 \singlespacing 
-% language: bahasa dari kode program
-% terdapat beberapa pilihan : Java, C, C++, PHP, Matlab, R, dll
-%
-% basicstyle : ukuran font untuk kode program
-% terdapat beberapa pilihan : tiny, scriptsize, footnotesize, dll
-%
-% caption : nama yang akan ditampilkan di dokumen akhir, lihat contoh
-\begin{lstlisting}[language=Java,basicstyle=\tiny,caption=MyFurSet.java]
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
+\begin{lstlisting} [language=C,basicstyle=\tiny,caption=Map.xaml.cs]
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Navigation;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using System.Device.Location;
 
-/**
- *
- * @author Lionov
- */
+using Windows.Devices.Geolocation; //Provides the Geocoordinate class.
+using System.Windows.Media;
+using System.Windows.Shapes;
+using Microsoft.Phone.Maps.Controls;
+using Microsoft.Phone.Maps.Toolkit;
 
-//class for set of vertices close to furthest edge
-public class MyFurSet {
-    protected int id;                                  //id of the set
-    protected MyEdge FurthestEdge;                     //the furthest edge
-    protected HashSet<MyVertex> set;                   //set of vertices close to furthest edge
-    protected ArrayList<ArrayList<Integer>> ordered;   //list of all vertices in the set for each trajectory
-    protected ArrayList<Integer> closeID;              //store the ID of all vertices
-    protected ArrayList<Double> closeDist;             //store the distance of all vertices
-    protected int totaltrj;                            //total trajectories in the set
+namespace Kiri
+{
+    public partial class Map : PhoneApplicationPage
+    {
+        private LocationFinder lFinder;
+        public string fromMapFor;
 
-    /**
-     * Constructor
-     * @param id : id of the set
-     * @param totaltrj : total number of trajectories in the set
-     * @param FurthestEdge : the furthest edge
-     */
-    public MyFurSet(int id,int totaltrj,MyEdge FurthestEdge) {
-        this.id = id;
-        this.totaltrj = totaltrj;
-        this.FurthestEdge = FurthestEdge;
-        set = new HashSet<MyVertex>();
-        ordered = new ArrayList<ArrayList<Integer>>();
-        for (int i=0;i<totaltrj;i++) ordered.add(new ArrayList<Integer>());
-        closeID = new ArrayList<Integer>(totaltrj);
-        closeDist = new ArrayList<Double>(totaltrj);
-        for (int i = 0;i <totaltrj;i++) {
-            closeID.add(-1);
-            closeDist.add(Double.MAX_VALUE);
+        public Map()
+        {
+            this.lFinder = null ;
+            InitializeComponent();
+            MyMap.Tap += new EventHandler<System.Windows.Input.GestureEventArgs>(map_Tap);
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (NavigationContext.QueryString.TryGetValue("fromMapFor", out fromMapFor)) ;
+            this.fromMapFor = fromMapFor + "";
+            if (PhoneApplicationService.Current.State.ContainsKey("location"))
+            {
+                this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
+            }
+            ShowMyLocationOnTheMap();
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            PhoneApplicationService.Current.State["location"] = lFinder;
+        }
+
+        private void ShowMyLocationOnTheMap()
+        {
+
+            // Get my current location.
+            loadingFrom.IsIndeterminate = true;
+            GeoCoordinate myGeoCoordinate = new GeoCoordinate(lFinder.coorLat, lFinder.coorLong);
+            this.MyMap.Center = myGeoCoordinate;
+            this.MyMap.ZoomLevel = 13;
+            loadingFrom.IsIndeterminate = false;
+        }
+
+        private void map_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            ButtonPilih.Visibility = Visibility.Visible;
+            Point p = e.GetPosition(MyMap);
+            GeoCoordinate s = MyMap.ConvertViewportPointToGeoCoordinate(p);
+            MyMap.Layers.Clear();
+
+            Ellipse myCircle = new Ellipse();
+            myCircle.Stroke = new SolidColorBrush(Colors.Black);
+            myCircle.StrokeThickness = 4;
+            myCircle.Fill = new SolidColorBrush(Colors.Green);
+            myCircle.Height = 25;
+            myCircle.Width = 25;
+            myCircle.Opacity = 50;
+
+            MapOverlay myLocationOverlay = new MapOverlay();
+            myLocationOverlay.Content = myCircle;
+            myLocationOverlay.PositionOrigin = new Point(0, 0);
+            myLocationOverlay.GeoCoordinate = s;
+
+            if (fromMapFor.Equals("from"))
+            {
+                this.lFinder.GetCurrentCoordinate(s.Latitude, s.Longitude,"from");
+            }
+            else {
+                this.lFinder.GetCurrentCoordinate(s.Latitude, s.Longitude, "to");
+            }
+            MapLayer myLocationLayer = new MapLayer();
+            myLocationLayer.Add(myLocationOverlay);
+
+            MyMap.Layers.Add(myLocationLayer);
+        }
+
+        private void pilihLokasi(object sender, RoutedEventArgs e)
+        {
+            if (fromMapFor.Equals("from"))
+            {
+                NavigationService.Navigate(new Uri("/MainPage.xaml?for=from", UriKind.Relative));
+            }
+            else 
+            {
+                NavigationService.Navigate(new Uri("/MainPage.xaml?for=to", UriKind.Relative));
+            }
         }
     }
-
-    /**
-     * set a vertex into the set
-     * @param v : vertex to be added to the set
-     */
-    public void add(MyVertex v) {
-        set.add(v);
-    }
-
-    /**
-     * check whether vertex v is a member of the set
-     * @param v : vertex to be checked
-     * @return true if v is a member of the set, false otherwise
-     */
-    public boolean contains(MyVertex v) {
-        return this.set.contains(v);
-    }
 }
+\end{lstlisting}
+
+\begin{lstlisting} [language=C,basicstyle=\tiny,caption=Map.xaml]
+<phone:PhoneApplicationPage
+    x:Class="Kiri.Map"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="true">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Kiri" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Pilih lokasi" FontSize="40" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+
+            <Controls:Map x:Name="MyMap" ZoomLevel="14" Margin="0,10,-16,0">
+            </Controls:Map>
+            <Button x:Name="ButtonPilih" Content="Pilih Lokasi" HorizontalAlignment="Left" Margin="-12,586,-16,-9" VerticalAlignment="Top" Width="484" Click="pilihLokasi" Visibility="Collapsed" Background="Black"/>
+        </Grid>
+        <ProgressBar x:Name="loadingFrom" Background="Black" HorizontalAlignment="Left" Height="16" Margin="0,96,0,0" VerticalAlignment="Top" Width="480"/>
+    </Grid>
+
+</phone:PhoneApplicationPage>
 \end{lstlisting}

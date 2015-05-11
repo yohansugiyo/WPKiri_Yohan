@@ -1,44 +1,537 @@
-\chapter{The Program}
+\chapter{Kode Program Kelas MainPage}
 \label{app:A}
 
-The interface of the program is shown in Figure~\ref{fig:appxa2}:
+\singlespacing 
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=1]{Gambar/appxa2}
-\caption[Interface of the program]{Interface of the program} 
-\label{fig:appxa2}
-\end{figure}
+\begin{lstlisting} [language=C,basicstyle=\tiny,caption=MainPage.xaml.cs]
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Navigation;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using Kiri.Resources;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Windows.Devices.Geolocation;
+using System.IO.IsolatedStorage;
+using System.Windows.Media;
+using System.IO;
+using System.Runtime.Serialization.Json;
+using System.Text;
+using Newtonsoft.Json;
 
-Step by step to compute the median trajectory using the program:
-\begin{enumerate}
-\item
-Create several waypoints. 
-Click anywhere in the ``Environment'' area(1) or create them automatically by setting the parameters for waypoint(2) or clicking the button ``Random''(3).
-\item
-The ``Variation'' tab could be used to create variations by providing values needed to make them(4).
-\item
-Create a set of trajectories by setting all parameters(5) and clicking the button ``Create''(6).
-\item
-Compute the median using the homotopic algorithm: 
-\begin{itemize}
-\item Define all parameters needed for the homotopic algorithm(7).
-\item Create crosses by clicking the ``Create Crosses'' button(8).\item Compute the median by clicking the ``Compute Median'' button(9).
-\end{itemize}
-\item
-Compute the median using the switching method and the buffer algorithm: 
-\begin{itemize}
-\item Define all parameters needed for the buffer algorithm(10).
-\item Create valid edges by clicking the ``Create Valid Edges''button(11). 
-\item Compute the median by clicking the ``Compute Median''button(12).
-\end{itemize}
-\item
-Save the resulting median by clicking the ``Save Trajectories'' button(13).
-The result is saved in the computer memory and can be seen in ``Data'' tab(14) 
-\item 
-The set of trajectories and its median trajectories will appear in the ``Environment'' area(1) and the user can change what to display by selecting various choices in ``Visualize'' and ``Median'' area(15).
-\item
-To save all data to the disk, click the ``Save''(16) button. A file dialog menu will appear.
-\item
-To load data from the disk, click the ``Load''(17) button.
-\end{enumerate}
+using System.Windows.Controls.Primitives;
+using System.ComponentModel;
+using System.Threading;
+
+using System.Device.Location; //ilangin kalo buat kelas city
+
+namespace Kiri
+{
+    public partial class MainPage : PhoneApplicationPage
+    {
+        // Constructor
+        private Protocol protocol;
+        private LocationFinder lFinder;
+        private HttpClient httpClient = new HttpClient();
+        private City c;
+        private String myCity;
+
+        private BackgroundWorker backgroundWorker;
+        public String test = "aaa";
+        
+        public MainPage()
+        {
+            InitializeComponent();
+            this.lFinder = new LocationFinder();
+            this.c = new City();
+            this.cmbCurrFrom.ItemsSource = c.city;
+            this.protocol = new Protocol();
+            ShowSplash();
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (PhoneApplicationService.Current.State.ContainsKey("location"))
+            {
+                this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
+                //this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
+                if (lFinder.coorLongFrom != 0.0)
+                {
+                    fromBox.Text = lFinder.coorLongFrom + "aaa";
+                }
+                if (lFinder.coorLongTo != 0.0)
+                {
+                    fromBox.Text = lFinder.coorLongTo + "";
+                }
+                
+                //check form
+                if (lFinder.coorLatFrom == 0.0 && lFinder.coorLongFrom == 0.0 && !lFinder.addressFrom.Equals("Maps") && !lFinder.addressFrom.Equals("Here"))
+                {
+                    fromBox.Text = lFinder.addressFrom;
+                }
+                else if (lFinder.coorLatFrom != 0.0 && lFinder.coorLongFrom != 0.0)
+                {
+                    if (lFinder.addressFrom.Equals("Here"))
+                    {
+                        fromBox.Text = "Here";
+                    }
+                    else
+                    {
+                        fromBox.Text = "Maps";
+                    }
+                }
+                //System.Diagnostics.Debug.WriteLine("stuff");
+                if (lFinder.coorLatTo == 0.0 && lFinder.coorLongTo == 0.0 && !lFinder.addressTo.Equals("Maps") && lFinder.addressTo.Equals("Here"))
+                {
+                    toBox.Text = lFinder.addressTo;
+                }
+                else if (lFinder.coorLatTo != 0.0 && lFinder.coorLongTo != 0.0)
+                {
+                    if (lFinder.addressTo.Equals("Here"))
+                    {
+                        toBox.Text = "Here";
+                    }
+                    else
+                    {
+                        toBox.Text = "Maps";
+                    }
+                }
+            }
+            string forMaps = "";
+            if (NavigationContext.QueryString.TryGetValue("for", out forMaps)) ;
+            if (forMaps!=null)
+            {
+                if (forMaps.Equals("from"))
+                {
+                    fromBox.Text = "Maps";
+                    //lFinder.addressFrom = "Maps";
+                }
+                else
+                {
+                    toBox.Text = "Maps";
+                    //lFinder.addressTo = "Maps";
+                }
+            }
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            PhoneApplicationService.Current.State["location"] = lFinder;
+            State["lFinder"] = lFinder;
+        }
+
+        private void Application_Deactivated(object sender, DeactivatedEventArgs e){
+            PhoneApplicationService.Current.State["location"] = lFinder;
+        }
+
+        private void Application_Activated(object sender, ActivatedEventArgs e) {
+            //Console.WriteLine("Test");
+            if (PhoneApplicationService.Current.State.ContainsKey("location"))
+            {
+                this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
+                this.findRoute();
+                /*
+                if (lFinder.coorLongFrom != 0.0)
+                {
+                    fromBox.Text = lFinder.coorLongFrom + "aaa";
+                }
+                if (lFinder.coorLongTo != 0.0)
+                {
+                    fromBox.Text = lFinder.coorLongTo + "";
+                }
+                 * */
+            }
+        }
+
+        private async void startRoute(object sender, RoutedEventArgs e)
+        {
+            
+            String queryFrom = fromBox.Text;
+            String queryTo = toBox.Text;
+            RootObjectSearchPlace from = null; //Untuk Asal
+            RootObjectSearchPlace to = null; //Untuk Tujuan
+            //Penting!
+            //Dokumentasi zhttps://bitbucket.org/projectkiri/kiri_api/wiki/KIRI%20API%20v2%20Documentation
+            //Contoh searchplace    zhttp://kiri.travel/handle.php?version=2&mode=searchplace&region=bdo&querystring=bip&apikey=97A7A1157A05ED6F
+            //                      zhttp://kiri.travel/handle.php?version=2&mode=searchplace&region=bdo&querystring=pvj&apikey=97A7A1157A05ED6F
+            //Contoh findroute      zhttp://kiri.travel/handle.php?version=2&mode=findroute&locale=id&&start=-6.90864,107.61108&finish=-6.88929,107.59574&presentation=mobile&apikey=97A7A1157A05ED6F
+            //Contoh findroute      zhttp://kiri.travel/handle.php?version=2&mode=findroute&locale=id&&start=-6.87474,107.60491&finish=-6.88909,107.59614&presentation=mobile&apikey=97A7A1157A05ED6F    
+
+            //Check form
+            if (!queryFrom.Equals("") && !queryTo.Equals(""))
+            {
+                //Validate From
+                Boolean routeStatus = true;
+                progressFindPlace.IsIndeterminate = true;
+                //Get place from query
+                if ((!queryFrom.Equals("Here") || !queryFrom.Equals("Maps")) && (lFinder.coorLatFrom == 0.0 && lFinder.coorLongFrom == 0.0)) //Check get location from GPS
+                {
+                    //Reference zhttps://msdn.microsoft.com/en-us/library/hh191443.aspx
+                    //Task<string> requestFromTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom, myCity)));
+                    //requestFrom = await requestFromTask;
+                    //from = new RootObjectSearchPlace();
+                    //from = JsonConvert.DeserializeObject<RootObjectSearchPlace>(requestFrom); //Mengubah String menjadi objek
+                    from = await protocol.getRequestSearch(queryFrom, myCity); //Mengubah String menjadi objek
+                    if (from.searchresult.Count() == 0)
+                    {
+                        MessageBox.Show("Pencarian untuk kata " + fromBox.Text + " tidak ditemukan");
+                        routeStatus = false;
+                    }
+                }
+                if ((!queryTo.Equals("Here") || !queryTo.Equals("Maps")) && (lFinder.coorLatTo == 0.0 && lFinder.coorLongTo == 0.0)) //Check get location from GPS
+                {
+                    //Task<string> requestToTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo, myCity)));
+                    //requestTo = await requestToTask;
+                    //to = new RootObjectSearchPlace();
+                    //to = JsonConvert.DeserializeObject<RootObjectSearchPlace>(requestTo);//Mengubah String menjadi objek
+                    to = await protocol.getRequestSearch(queryTo, myCity); //Mengubah String menjadi objek
+                    if (to.searchresult.Count() == 0)
+                    {
+                        MessageBox.Show("Pencarian untuk kata " + toBox.Text + " tidak ditemukan");
+                        routeStatus = false;
+                    }
+                }
+                //Check Query
+                if (routeStatus == true)
+                {
+                    if ((lFinder.coorLatFrom == 0.0 && lFinder.coorLongFrom == 0.0))
+                    {
+                        getListItem(from, "from"); //Show Listbox for location From
+                    }
+                    if ((lFinder.coorLatTo == 0.0 && lFinder.coorLongTo == 0.0))
+                    {
+                        getListItem(to, "to");  //Show Listbox for location To
+                    }
+                    this.findRoute();
+                }
+                progressFindPlace.IsIndeterminate = false;
+            }
+            else {
+                MessageBox.Show("Harap melengkapi tempat asal dan tempat tujuan");
+            }
+        }
+
+        private void changeMapFrom(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=from", UriKind.Relative));
+            //NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=from", UriKind.Relative));    
+        }
+        private void changeMapTo(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=to", UriKind.Relative));    
+        }
+
+        private void getHereFrom(object sender, RoutedEventArgs e)
+        {
+            this.lFinder.setCoordinateHere("from");
+            fromBox.Text = "Here";
+            lFinder.addressFrom = "Here";
+        }
+
+        private void getHereTo(object sender, RoutedEventArgs e)
+        {
+            this.lFinder.setCoordinateHere("to");
+            toBox.Text = "Here";
+            lFinder.addressTo = "Here";
+        }
+
+        /* old reference: zhttps://msdn.microsoft.com/en-us/library/bb412179%28v=vs.110%29.aspx*/
+
+        //zhttps://social.msdn.microsoft.com/forums/windowsapps/en-us/7db73c64-86f7-4c43-9fd4-faa03421ea21/popup-blocking-listbox-selection-changed
+        private void getListItem(RootObjectSearchPlace request,String forRequest)
+        {
+            //ListBox listFrom = new ListBox();
+            //ListBox listTo = new ListBox();
+            Dispatcher.BeginInvoke(new Action(delegate
+            {
+                if (request.status.ToString().Equals("ok")) //check status
+                {
+                    if (request.searchresult.Count() == 1)
+                    {
+                        if (forRequest.Equals("from"))
+                        {
+                            String locFrom = request.searchresult[0].location.ToString();
+                            string[] coordinate = locFrom.Split(',');
+                            lFinder.coorLatFrom = Double.Parse(coordinate[0]);
+                            lFinder.coorLongFrom = Double.Parse(coordinate[1]);
+                        }
+                        else
+                        {
+                            String locTo = request.searchresult[0].location.ToString();
+                            string[] coordinate = locTo.Split(',');
+                            lFinder.coorLatTo = Double.Parse(coordinate[0]);
+                            lFinder.coorLongTo = Double.Parse(coordinate[1]);
+                        }
+                        this.findRoute();
+                    }
+                    else
+                    {
+                        //LayoutRoot.Children.Add(getListItem(requestFrom));
+                        if (forRequest.Equals("from"))
+                        {
+                            for (int c = 0; c < request.searchresult.Count; c++)
+                            {
+                                listPlaceFrom.Items.Add(request.searchresult[c].placename);
+                            }
+                            panelFrom.Visibility = Visibility.Visible;
+                            listPlaceFrom.DataContext = request.searchresult;
+                            listPlaceFrom.SelectionChanged += ListBoxSelectedPlace;
+                        }
+                        else
+                        {
+                            panelTo.Visibility = Visibility.Visible;
+                            for (int c = 0; c < request.searchresult.Count; c++)
+                            {
+                                listPlaceTo.Items.Add(request.searchresult[c].placename);
+                            }
+                            listPlaceTo.DataContext = request.searchresult;
+                            listPlaceTo.SelectionChanged += ListBoxSelectedPlace;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error!");
+                }
+            }));
+        }
+
+        private void ListBoxSelectedPlace(object sender, SelectionChangedEventArgs e)
+        {
+            if (panelFrom.Visibility.Equals(Visibility.Visible))
+            { //Check visibility
+                if (null != (sender as ListBox).SelectedItem)
+                {
+                    if ((sender as ListBox).SelectedIndex >= 0)
+                    {
+                        String locFrom = searchCoordinatePlace((List<Searchresult>)listPlaceFrom.DataContext, listPlaceFrom.SelectedItem.ToString());  //((sender as ListBox).SelectedItem as Searchresult).placename;
+                        string[] coordinate = locFrom.Split(',');
+                        lFinder.coorLatFrom = Double.Parse(coordinate[0]);
+                        lFinder.coorLongFrom = Double.Parse(coordinate[1]);
+                        lFinder.addressFrom = listPlaceFrom.SelectedItem.ToString();
+                    }
+                }
+                panelFrom.Children.Clear();
+                panelFrom.Visibility = Visibility.Collapsed;
+                //panelTo.Visibility = Visibility.Visible;
+            }
+            else {
+                if (null != (sender as ListBox).SelectedItem)
+                {
+                    if ((sender as ListBox).SelectedIndex >= 0)
+                    {
+                        String locTo = searchCoordinatePlace((List<Searchresult>)listPlaceTo.DataContext, listPlaceTo.SelectedItem.ToString()); //((sender as ListBox).SelectedItem as Searchresult).placename;
+                        string[] coordinate = locTo.Split(',');
+                        lFinder.coorLatTo = Double.Parse(coordinate[0]);
+                        lFinder.coorLongTo = Double.Parse(coordinate[1]);
+                        lFinder.addressTo = listPlaceTo.SelectedItem.ToString();
+                    }
+                }
+                panelTo.Children.Clear();
+                panelTo.Visibility = Visibility.Collapsed;
+            }
+            this.findRoute();
+        }
+
+        public string searchCoordinatePlace(List<Searchresult> listResult, string place) { //Pasti ketemu
+            String coordinate = "0.0";
+            for (int c = 0; c < listResult.Count; c++)
+            {
+                if (place.Equals(listResult[c].placename))
+                {
+                    coordinate = listResult[c].location;
+                    c = listResult.Count;
+                }
+            }
+            return coordinate;
+        }
+
+        public void findRoute()
+        {
+            if ((lFinder.coorLatFrom != 0.0 && lFinder.coorLongFrom != 0.0) && (lFinder.coorLatTo != 0.0 && lFinder.coorLongTo != 0.0))
+            {
+                NavigationService.Navigate(new Uri("/Route.xaml", UriKind.Relative)); //start=" + locationFrom + "&nameFrom=" + fromBox.Text + "&finish=" + locationTo + "&nameTo=" + toBox.Text
+            }
+        }
+
+        private void changeCity(object sender, SelectionChangedEventArgs e)
+        {
+            if (!cmbCurrFrom.SelectedItem.Equals(null))
+            {
+                switch (cmbCurrFrom.SelectedItem.ToString())
+                {
+                    case "Bandung":
+                        this.myCity="bdo";
+                        break;
+                    case "Jakarta":
+                        this.myCity="cgk";
+                        break;
+                    case "Malang":
+                        this.myCity="mlg";
+                        break;
+                    case "Surabaya":
+                        this.myCity="sub";
+                        break;     
+                    default:
+                        this.myCity="bdo"; //Finder Auto
+                        break;
+                }
+            }
+        }
+
+        public void showCity() {
+            int indexCity = -1;
+            while (indexCity == -1)
+            {
+                indexCity = c.getNearby(lFinder.coorLat, lFinder.coorLong);
+            }
+            this.myCity = c.cityCode[indexCity];
+        }
+
+        private void ShowSplash()
+        {
+            this.popup.IsOpen = true;
+            StartLoadingData();
+        }
+
+        private void StartLoadingData()
+        {
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += new DoWorkEventHandler(backgroundWorker_DoWork);
+            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker_RunWorkerCompleted);
+            backgroundWorker.RunWorkerAsync();
+        }
+
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            showCity();
+        }
+
+        private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.Dispatcher.BeginInvoke(() =>
+            {
+                this.cmbCurrFrom.SelectedIndex = c.getIndexFromCityCode(myCity);
+                this.popup.IsOpen = false;
+            });
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting} [language=C,basicstyle=\tiny,caption=MainPage.xaml]
+	<!--Logo kiri from kiri.travel 
+    Icon from modernuiicons.com
+    -->
+    <phone:PhoneApplicationPage
+    x:Class="Kiri.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="158"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- LOCALIZATION NOTE:
+            To localize the displayed strings copy their values to appropriately named
+            keys in the app's neutral language resource file (AppResources.resx) then
+            replace the hard-coded text value between the attributes' quotation marks
+            with the binding clause whose path points to that string name.
+
+            For example:
+
+                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+
+            This binding points to the template's string resource named "ApplicationTitle".
+
+            Adding supported languages in the Project Properties tab will create a
+            new resx file per language that can carry the translated values of your
+            UI strings. The binding in these examples will cause the value of the
+            attributes to be drawn from the .resx file that matches the
+            CurrentUICulture of the app at run time.
+         -->
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="6,10,6,0" RenderTransformOrigin="0.5,0.5" Height="108" VerticalAlignment="Top">
+            <StackPanel.RenderTransform>
+                <CompositeTransform SkewX="0.781" TranslateX="0.736"/>
+            </StackPanel.RenderTransform>
+            <TextBlock Text="Public Transport" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="Kiri WP 8" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Height="111"/>
+        </StackPanel>
+        <Popup x:Name="popup" Margin="6,0,-6,10" Grid.RowSpan="3">
+            <Grid Background="Black" Height="756" Width="484">
+                <Image Source="/icons/kiri_logo.png" Margin="144,175,159,358" RenderTransformOrigin="1.509,0.516"/>
+                <ProgressBar Height="34" Width="481" IsIndeterminate="True" Margin="-7,489,10,233"/>
+            </Grid>
+        </Popup>
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Margin="0,0,0,0" Grid.Row="1" Grid.RowSpan="2">
+            <TextBlock Text="From" Style="{StaticResource PhoneTextNormalStyle}" Margin="26,0,278,484" FontSize="50"/>
+            <TextBlock Text="To" Style="{StaticResource PhoneTextNormalStyle}" Margin="26,137,361,274" FontSize="50"/>
+            <TextBox x:Name="fromBox" HorizontalAlignment="Left" Margin="12,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="325" Height="76"/>
+            <TextBox x:Name="toBox" HorizontalAlignment="Left" Margin="12,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="325" Height="76"/>
+            <Button Content="FIND" HorizontalAlignment="Left" Margin="10,376,0,0" VerticalAlignment="Top" Click="startRoute" Height="81" Width="460"/>
+            <Button HorizontalAlignment="Left" Margin="330,209,0,0" VerticalAlignment="Top" Click="changeMapTo" Height="77" Width="83">
+                <Image Source="icons/map.png" Margin="-14 -12 0 0" Width="60" Height="60"></Image>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="329,69,0,0" VerticalAlignment="Top" Click="changeMapFrom" Height="77" Width="83">
+                <Image Source="icons/map.png" Margin="-14 -12 0 0" Width="60" Height="60"></Image>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="393,210,0,0" VerticalAlignment="Top" Click="getHereTo" Height="77" Width="83">
+                <Image Source="icons/marker.png" Margin="-14 -12 0 0" Width="60" Height="60"></Image>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="393,70,0,0" VerticalAlignment="Top" Click="getHereFrom" Height="77" Width="83">
+                <Image Source="icons/marker.png" Margin="-14 -12 0 0" Width="60" Height="60"></Image>
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Margin="20,315,0,0" TextWrapping="Wrap" Text="Anda berada di kota" VerticalAlignment="Top"/>
+            <toolkit:ListPicker BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="217,298,74,-45" Name="cmbCurrFrom" SelectionChanged="changeCity" Visibility="Visible">
+            </toolkit:ListPicker>
+            <ProgressBar x:Name="progressFindPlace" Background="Black" HorizontalAlignment="Left" Height="19" Margin="0,-24,0,0" VerticalAlignment="Top" Width="456" RenderTransformOrigin="0.493,1.056"/>
+
+            <StackPanel x:Name="panelFrom" HorizontalAlignment="Stretch"  Canvas.ZIndex="10" Margin="0,-150,0,5" VerticalAlignment="Stretch" Visibility="Collapsed" Background="Black">
+                <TextBlock x:Name="textFrom" TextWrapping="Wrap" Text="Pilih lokasi Asal" FontSize="40"/>
+                <ListBox x:Name="listPlaceFrom" Padding="10" Height="700" FontSize="30"></ListBox>
+            </StackPanel>
+            <StackPanel x:Name="panelTo" HorizontalAlignment="Stretch"  Canvas.ZIndex="5" Margin="0,-150,0,5" VerticalAlignment="Stretch"  Visibility="Collapsed" Background="Black" Grid.ColumnSpan="2">
+                <TextBlock x:Name="textTo" TextWrapping="Wrap" Text="Pilih lokasi Tujuan" FontSize="40"/>
+                <ListBox x:Name="listPlaceTo" Padding="10" Height="700" FontSize="30" ></ListBox>
+            </StackPanel>
+        </Grid>
+
+
+
+        <!--Uncomment to see an alignment grid to help ensure your controls are
+            aligned on common boundaries.  The image has a top margin of -32px to
+            account for the System Tray. Set this to 0 (or remove the margin altogether)
+            if the System Tray is hidden.
+
+            Before shipping remove this XAML and the image itself.-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+    </Grid>
+
+</phone:PhoneApplicationPage>
+\end{lstlisting}
