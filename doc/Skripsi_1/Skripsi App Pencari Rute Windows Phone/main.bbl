@@ -17,6 +17,11 @@ A.~Whitechapel and S.~McKenna, {\em {Windows Phone 8 Development Internals}}.
 T.~Bray, ``{The JavaScript Object Notation (JSON) Data Interchange Format}.''
   RFC 7159 (Proposed Standard), Mar. 2014.
 
+\bibitem{rfc3986}
+T.~Berners-Lee, R.~Fielding, and L.~Masinter, ``{Uniform Resource Identifier
+  (URI): Generic Syntax}.'' RFC 3986 (INTERNET STANDARD), Jan. 2005.
+\newblock Updated by RFCs 6874, 7320.
+
 \bibitem{Kiri}
 ``Kiri api v2 documentation.''
   \url{https://bitbucket.org/projectkiri/kiri_api/wiki/KIRI%20API%20v2%20Documentation},

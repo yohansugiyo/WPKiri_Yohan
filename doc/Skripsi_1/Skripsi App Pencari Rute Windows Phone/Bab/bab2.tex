@@ -531,7 +531,7 @@ Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memi
 % SUBSUB Kelas HttpClient
 \subsubsection{\textit{HttpClient}}
 \label{subsubsec:Kelas HttpClient}
-\hspace{0.5cm} Merupakan Kelas yang dipakai untuk mengirim permintaan HTTP dan menerima kembalian HTTP dari \textit{Uniform Resource Identifier}(URI) yang dapat diidentifikasi. Berikut \textit{method} yang disediakan kelas \textit{HttpClient}.
+\hspace{0.5cm} Merupakan Kelas yang dipakai untuk mengirim permintaan HTTP dan menerima kembalian HTTP dari \textit{Uniform Resource Identifier}(URI) yang dapat diidentifikasi. \textit{Uniform Resource Identifier}(URI) merupakan urutan kompak karakter yang mengidentifikasikan sumber daya abstrak dan fisik \cite{rfc3986}. Berikut \textit{method} yang disediakan kelas \textit{HttpClient}.
 \begin{itemize}
 	\item \textit{DeleteAsync(Uri)} \\
 	\textit{method} yang dipakai untuk mengirimkan permintaan DELETE ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
@@ -562,8 +562,29 @@ Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memi
 \label{subsubsec:Json.NET}
 \hspace{0.5cm} Json.NET merupakan \textit{library} untuk melakukan \textit{serialize} dan \textit{deserialize} terhadap objek dalam .NET. \textit{Library} ini memiliki 2 kelas yaitu kelas JsonConvert dan kelas JsonSerializer. Berikut merupakan keterangan dari dua kelas tersebut.
 \begin{itemize}
-	\item JsonConvert merupakan kelas yang berfungsi untuk konversi dari JSON String ke objek dan sebaliknya. Kelas ini memiliki dua buah \textit{method} yaitu SerializeObject() dan DeserializeObject().
-	\item JsonSerializer merupakan kelas yang berfungsi untuk konversi dari JSON String ke objek dan sebaliknya. Kelebihan yang dimiliki kelas ini adalah dapat membaca dan menulis JSON dari \textit{file text}.
+	\item
+\end{itemize}
+
+% SUB Thread
+% from https://msdn.microsoft.com/en-us/library/windows/desktop/ms681917(v=vs.85).aspx
+\subsection{Thread}
+\label{subsec:Thread}
+\hspace{0.5cm} Thread merupakan entitas dalam suatu proses yang dapat dijalankan untuk eksekusi sebuah operasi. 
+
+\subsubsection{\textit{BackgroundWorker}}
+\label{subsubsec:BackgroundWorker}
+\hspace{0.5cm} \textit{BackgroundWorker} merupakan kelas dari Windows Phone yang dapat mengeksekusi operasi dalam thread terpisah. Berikut \textit{method} yang disediakan kelas \textit{BackgroundWorker}.
+\begin{itemize}
+	\item \textit{RunWorkerAsync()} \\
+	\textit{method} yang digunakan untuk memulai eksekusi operasi di latar belakang.
+\end{itemize}
+
+Berikut \textit{event} yang disediakan kelas \textit{BackgroundWorker}.
+\begin{itemize}
+	\item \textit{DoWork} \\
+	\textit{event} yang terjadi ketika \textit{method RunWorkerAsync()} dipanggil.
+	\item \textit{RunWorkerCompleted} \\
+	\textit{event} yang terjadi ketika operasi di latar belakang selesai dilakukan, dibatalkan, atau mencapai \textit{exception}.
 \end{itemize}
 
 % Kiri API

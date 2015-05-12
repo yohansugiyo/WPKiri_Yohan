@@ -260,10 +260,10 @@ Pemanfaatan layanan penentuan rute untuk mendapatkan langkah yang harus ditempuh
 
 Format layanan yang dikirim melalui URL adalah \url{kiri.travel/handle.php?version=2&mode=findroute&locale=en/id&start=lat,lng&finish=lat,lng&presentation=mobile/desktop&apikey=97A7A1157A05ED6}
 
-Penulis mencoba menuju jalan merdeka dari jalan ciumbuleuit. Layanan dikirimkan ke URL \url{kiri.travel/handle.php}. Berikut format layanan yang penulis kirim \url{http://kiri.travel/handle.php?version=2&mode=findroute&locale=en&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=mobile&apikey=97A7A1157A05ED6F}.\\
+Penulis mencoba menuju jalan merdeka dari jalan ciumbuleuit. Layanan dikirimkan ke URL \url{kiri.travel/handle.php}. Berikut format layanan yang penulis kirim dengan \textit{presentation mobile} \url{http://kiri.travel/handle.php?version=2&mode=findroute&locale=id&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=mobile&apikey=97A7A1157A05ED6F}.\\
 \newline
 Berikut hasil kembalian dari Kiri API:
-\begin{lstlisting} [caption= Kode kembalian pencarian rute]
+\begin{lstlisting} [caption= Kode kembalian pencarian rute dengan \textit{presentation mobile}]
 {
 	"status":"ok",
 	"routingresults":[
@@ -273,7 +273,8 @@ Berikut hasil kembalian dari Kiri API:
 					"walk",
 					"walk",
 					["-6.8747337,107.6048829","-6.87445,107.60465"],
-					"Walk about 41 meter from your starting point \%fromicon to Jalan Ciumbuleuit \%toicon.",
+					"Jalan dari lokasi mulai Anda \%fromicon ke Jalan Ciumbuleuit \%toicon sejauh kurang lebih 41 meter.",
+					null,
 					null
 				],
 				[
@@ -287,8 +288,16 @@ Berikut hasil kembalian dari Kiri API:
 					"-6.88782,107.60392","-6.88887,107.60404","-6.88991,107.60416","-6.88991,107.60416",
 					"-6.89161,107.60428","-6.89161,107.60428","-6.89166,107.60421","-6.89275,107.60424",
 					"-6.89275,107.60424","-6.89405,107.60408","-6.89405,107.60408","-6.89496,107.60400"],
-					"Take angkot Ciumbuleuit - St. Hall (lurus) at Jalan Ciumbuleuit \%fromicon, and alight at Jalan Cihampelas 
-					\%toicon about 2.3 kilometer later.",
+					"Naik angkot Ciumbuleuit - St. Hall (lurus) di Jalan Ciumbuleuit \%fromicon, dan turun di Jalan Cihampelas \%toicon kurang lebih setelah 3,3 kilometer.",
+					null,
+					https:\/\/angkot.web.id\/go\/route\/640?ref=kiri
+				],
+				[
+					"walk",
+					"walk",
+					["-6.90424,107.60433","-6.90429,107.60440"],
+					"Jalan dari Jalan Cihampelas \%fromicon ke Jalan Abdul Rivai \%toicon sejauh kurang lebih 10 meter.",
+					null,
 					null
 				],
 				[
@@ -304,15 +313,15 @@ Berikut hasil kembalian dari Kiri API:
 					"-6.90723,107.60939","-6.90891,107.60943","-6.90891,107.60943","-6.90909,107.60934",
 					"-6.90914,107.60857","-6.90933,107.60846","-6.91021,107.60887","-6.91021,107.60887",
 					"-6.91030,107.60897","-6.91028,107.60927","-6.90986,107.61040","-6.90986,107.61040"],
-					"Take angkot Kalapa - Ledeng at Jalan Cihampelas \%fromicon, and alight at Jalan Aceh 
-					\%toicon about 2.3 kilometer later.",
-					null
+					"Naik angkot Kalapa - Ledeng di Jalan Abdul Rivai \%fromicon, dan turun di Jalan Aceh \%toicon kurang lebih setelah 1,1 kilometer.",
+					"https:\/\/angkot.web.id\/go\/route\/156?ref=kiri"
 				],
 				[
 					"walk",
 					"walk",
 					["-6.90986,107.61040","-6.9114646,107.6104887"],
 					"Walk about 178 meter from Jalan Aceh \%fromicon to your destination \%toicon.",
+					null,
 					null
 				]
 				],
@@ -320,6 +329,79 @@ Berikut hasil kembalian dari Kiri API:
 				}
 			]
 }
+\end{lstlisting}
+
+Berikut format layanan yang penulis kirim dengan \textit{presentation mobile} \url{http://kiri.travel/handle.php?version=2&mode=findroute&locale=id&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=desktop&apikey=97A7A1157A05ED6F}.\\
+\newline
+\begin{lstlisting} [caption= Kode kembalian pencarian rute dengan \textit{presentation desktop}]
+{
+	"status":"ok",
+	"routingresults":[
+		{
+			"steps":[
+				[
+					"walk",
+					"walk",
+					["-6.8747337,107.6048829","-6.87445,107.60464"],
+					"Jalan dari lokasi mulai Anda ke Jalan Ciumbuleuit sejauh kurang lebih 41 meter.",
+					null,
+					null
+				],
+				[
+					"angkot",
+					"ciumbuleuitsthalllurus",
+					["-6.87445,107.60464","-6.87541,107.60443","-6.87541,107.60443","-6.87637,107.60422",
+					"-6.87637,107.60422","-6.87734,107.60400","-6.87734,107.60400","-6.87830,107.60378",
+					"-6.87830,107.60378","-6.87926,107.60356","-6.87926,107.60356","-6.87926,107.60356",
+					"-6.87963,107.60352","-6.87978,107.60352","-6.88093,107.60393","-6.88093,107.60393",
+					"-6.88209,107.60433","-6.88209,107.60433","-6.88209,107.60433","-6.88328,107.60490",
+					"-6.88328,107.60490","-6.88328,107.60490","-6.88347,107.60481","-6.88452,107.60458",
+					"-6.88452,107.60458","-6.88556,107.60435","-6.88556,107.60435","-6.88660,107.60413",
+					"-6.88660,107.60413","-6.88764,107.60390","-6.88764,107.60390","-6.88764,107.60390",
+					"-6.88782,107.60392","-6.88887,107.60404","-6.88887,107.60404","-6.88991,107.60416",
+					"-6.88991,107.60416","-6.88991,107.60416","-6.89161,107.60428","-6.89161,107.60428",
+					"-6.89161,107.60428","-6.89166,107.60420","-6.89275,107.60424","-6.89275,107.60424",
+					"-6.89275,107.60424","-6.89405,107.60407","-6.89405,107.60407","-6.89405,107.60407",
+					"-6.89496,107.60400","-6.89496,107.60400","-6.89586,107.60392","-6.89586,107.60392",
+					"-6.89586,107.60392","-6.89759,107.60397","-6.89759,107.60397","-6.89759,107.60397",
+					"-6.89895,107.60406","-6.89895,107.60406","-6.89895,107.60406","-6.89970,107.60413",
+					"-6.89999,107.60416","-6.90114,107.60426","-6.90114,107.60426","-6.90114,107.60426",
+					"-6.90218,107.60428","-6.90218,107.60428","-6.90321,107.60431","-6.90321,107.60431",
+					"-6.90424,107.60433"],
+					"Naik angkot Ciumbuleuit - St. Hall (lurus) di Jalan Ciumbuleuit, dan turun di Jalan Cihampelas kurang lebih setelah 3,3 kilometer.",
+					null,
+					"https:\/\/angkot.web.id\/go\/route\/640?ref=kiri"
+				],
+				[
+					"walk",
+					"walk",
+					["-6.90424,107.60433","-6.90429,107.60440"],
+					"Jalan dari Jalan Cihampelas ke Jalan Abdul Rivai sejauh kurang lebih 10 meter.",
+					null,
+					null
+				],
+				[
+					"angkot",
+					"kalapaledeng",
+					["-6.90429,107.60440","-6.90434,107.60490","-6.90398,107.60558","-6.90417,107.60619",
+					"-6.90465,107.60702","-6.90465,107.60702","-6.90465,107.60702","-6.90521,107.60748",
+					"-6.90600,107.60771","-6.90646,107.60775","-6.90755,107.60760","-6.90755,107.60760",
+					"-6.90755,107.60760","-6.90866,107.60789","-6.90866,107.60789","-6.90866,107.60789",
+					"-6.90911,107.60826","-6.91034,107.60892","-6.91034,107.60892","-6.91034,107.60892",
+					"-6.91007,107.60985"],
+					"Naik angkot Kalapa - Ledeng di Jalan Abdul Rivai, dan turun di Jalan Aceh kurang lebih setelah 1,1 kilometer.",
+					null,
+					"https:\/\/angkot.web.id\/go\/route\/156?ref=kiri"
+				],
+				[
+					"walk",
+					"walk",
+					["-6.91007,107.60985","-6.9114646,107.6104887"],
+					"Jalan dari Jalan Aceh ke tujuan akhir Anda sejauh kurang lebih 171 meter.",
+					null,
+					null
+				]],
+				"traveltime":"30 menit"}]}
 \end{lstlisting}
 
 Setiap langkah akan aplikasi tampung dalam elemen \textit{array}. Untuk keterangan dan jenis angkutan umum akan aplikasi tampilkan dalam bentuk \textit{pushpin} pada peta atau daftar. Sedangkan untuk titik-titik kordinat akan digambarkan pada peta. Dari analisa penulis setiap langkah menunjukan perpindahan angkutan umum yang dipakai, berpindah dari angkutan umum atau jalan, dan dari jalan untuk menaiki angkutan umum. Keterangan yang penulis akan tambahkan harus berada antara setiap \textit{steps} tersebut. Dari analisa penulis juga terdapat kata "\%fromicon" dan "\%toicon" yang tidak menunjukan sesuatu. Karena itu kedua kata tersebut akan penulis hilangkan agar tidak mengganggu pengguna. Penulis juga akan mengambil gambar angkutan kota dan gambar jalan yang sudah disediakan dari Kiri dengan memanfaatkan URL yang disediakan. 
@@ -336,7 +418,6 @@ Setiap langkah akan aplikasi tampung dalam elemen \textit{array}. Untuk keterang
 	\item Menampilkan rute kendaraan umum dalam bentuk titik dan \textit{pushpin} pada peta atau bentuk daftar dari tempat asal ke tempat tujuan.
 \end{itemize}
 
-\newpage
 Diagram \textit{use case} saat pengguna mencari rute kendaraan umum dapat dilihat pada gambar (Gambar:~\ref{fig:UseCase}):
 % Use case
 \begin{figure}[h]

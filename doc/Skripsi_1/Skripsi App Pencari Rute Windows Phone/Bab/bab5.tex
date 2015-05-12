@@ -175,7 +175,7 @@ Dari tiga perintah berikut didapat hasil sebagi berikut.
 
 Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan reaksi dari aplikasi. Hasil pengujian tersebut ditunjukan pada tabel ~\ref{tab:TabelHasilPengujianFungsionalitas}.
 
-\begin{table}[h]
+\begin{table}[h!]
 	\centering
 		\begin{tabular}{|p{1cm}|p{4cm}|p{6cm}|p{3cm}|}\hline
 				No & Aksi Pengguna & Reaksi yang Diharapkan & Reaksi Perangkat lunak \\ \hline
@@ -193,11 +193,14 @@ Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan r
 				12 & & Jika daftar terbuka maka daftar akan tertutup & sesuai \\ \hline
 				13 & Pada kelas Route pengguna menekan tombol "Next" & Pusat peta akan diarahkan ke pergantian transportasi berikutnya sesua kembalian Kiri disertai keterangan & sesuai \\ \hline
 				14 & Pada kelas Route pengguna menekan tombol "Prev" & Pusat peta akan diarahkan ke pergantian transportasi sebelumnya sesua kembalian Kiri disertai keterangan & sesuai \\ \hline
+				15 & Pada kelas Route pengguna menekan tombol "windows" & Keadaan aplikasi menjadi \textit{dormant} & tidak sesuai \\ \hline
 		\end{tabular}
 	\caption{Tabel Hasil pengujian fungsionalitas}
 	\label{tab:TabelHasilPengujianFungsionalitas}
 \end{table}
- 
+
+\hspace{0.5cm} Pada pengujian keadaan aplikasi dari keadaan \textit{running} ke \textit{dormant} tidak terjadi. Pada saat aplikasi dalam keadaan \textit{running} dan pengguna menekan tombol "windows" seharusnya keadaan aplikasi berpindah dari keadaan \textit{running} ke \textit{dormant} tetapi keadaan aplikasi malah \textit{terminate}. Hal tersebut dikarenakan aplikasi yang penulis kembangkan masih dalam mode debug.
+
 %Pengujian Eksperimental untuk mengetahui tingkat keberhasilan proses kerja aplikasi
 \subsection{Pengujian Eksperimental}
 \label{lab:Pengujian Eksperimental}
@@ -210,19 +213,20 @@ Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan r
 			\item Pengalaman : \\
 			\hspace{0.5cm} Pada pengujian 1 penulis memasukan alamat di dalam rumah untuk menuju Unpar. Saat penulis memasukan kata Unpar muncul daftar tempat sesuai kata kunci "Unpar", lalu penulis memilih "Universitas Katolik Parahyangan". Saat rute ditampilkan ada ketidaktepatan lokasi yang ditunjukan untuk lokasi asal(rumah) sedangkan untuk lokasi tujuan(Unpar) ditunjukan dengan tepat. Katidaktepatan tersebut kira-kira seratus meter dan lokasi ditandai lingkaran merah dengan ukuran besar. Hal tersebut dikarenakan tempat tertutup yang membuat GPS tidak menunjukan lokasi yang akurat. Tapi saat pengujian penulis berusaha mengikuti titik naik angkutan umum.
 			\hspace{0.5cm}Penulis mulai dengan mengikuti petunjuk berjalan kaki menuju Jalan Tamblong. Saat keluar rumah lingkaran merah disekitar lokasi perangkat mulai mengecil yang menandakan akurasi GPS semakin baik. Angkutan kota yang penulis naiki pertama kali adalah angkutan kota kalapa. Sambil berada di angkot penulis mengamati rute yang ditunjukan aplikasi sudah sesuai dengan rute angkutan kota dan penunjuk lokasi menunjukan pergerakan dengan akurat. Angkutan kota yang penulis naiki berhenti di stasiun lalu penulis turun dan menuju Jalan Kebon Jukut. Di jalan kebon jukut penulis naik angkutan kota Ciumbuleuit - St. Hall. Selama perjalanan petunjuk rute dan \textit{polyline} sudah tepat sesuai rute angkutan kota. Angkutan kota ke dua langsung mengantarkan penulis menuju Jalan Ciumbuleuit untuk selanjutnya penulis berjalan menuju Unpar. Ketika sampai di Unpar, kordinat lokasi pada peta juga menunjukan titik di Unpar dan memakan waktu 65 menit.
-			\hspace{0.5cm}Untuk perjalanan pulang penulis memulai dengan mencari rute dari Unpar menuju ke rumah di jalan Kejaksaan dengan mencari di peta. Perjalanan penulis mulai dengan naik angkot Ciumbuleuit - St. Hall (lurus). Angkot Ciumbuleuit - St. Hall (lurus) penulis naiki dari jalan Ciumbuleuit sampai jalan Cihampelas. Penulis turun di jalan Cihampelas dan naik angkot Kalapa - Ledeng di jalan Wastukencana. Namun di jalan Wastukencana rute pada peta menunjukan rute menyusuri jalan Wastukencana lalu ke jalan Aceh, namun angkot malah berbelok ke jalan Riau lalu ke jalan Purnawarman lalu ke jalan Aceh. Rute yang benar yaitu rute angkot dan bukan pada peta. Dari jalan Aceh angkot menuju jalan Sumatera lalu ke jalan Tamblong. Perjalannan penulispun berakhir setelah sampai di rumah.
+			\hspace{0.5cm}Untuk perjalanan pulang penulis memulai dengan mencari rute dari Unpar menuju ke rumah di jalan Kejaksaan dengan mencari di peta. Perjalanan penulis mulai dengan naik angkot Ciumbuleuit - St. Hall (lurus). Angkot Ciumbuleuit - St. Hall (lurus) penulis naiki dari jalan Ciumbuleuit sampai jalan Cihampelas. Penulis turun di jalan Cihampelas dan naik angkot Kalapa - Ledeng di jalan Cihampelas. Namun di jalan Wastukencana rute pada peta menunjukan rute menyusuri jalan Wastukencana lalu ke jalan Aceh, namun angkot malah berbelok ke jalan Riau lalu ke jalan Purnawarman lalu ke jalan Aceh. Rute yang benar yaitu rute angkot dan bukan pada peta. Dari jalan Aceh angkot menuju jalan Sumatera lalu ke jalan Tamblong. Perjalannan penulispun berakhir setelah sampai di rumah.
 		\end{itemize}
 
 
 \subsection{Perbandingan Aplikasi Pencari Rute di Android dengan Aplikasi Pencari Rute di Windows Phone}
 \label{lab:Perbandingan}
-\hspace{0.5cm} Aplikasi Pencari rute yang penulis buat dengan yang ada di Android memiliki beberapa perbedaan. Berikut perbedaan antara aplikasi pencari rute di Android dengan Windwows Phone.
+\hspace{0.5cm} Aplikasi Pencari rute yang penulis buat dengan yang ada di Android memiliki beberapa perbedaan. Berikut perbedaan antara aplikasi pencari rute di Android dengan Windows Phone.
 
 \begin{table}[h]
 	\centering
 		\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}\hline
 				Perbedaan & Android & Windows Phone \\ \hline
 				Mendapatkan Lokasi & Memanfaatkan pemanggilan lokasi secara berulang-ulang dan akan mengunah lokasi dari yang kurang tepat menjadi lebih tepat. & Memanfaatkan pemanggilan sampai mendapat akurasi yang cukup tepat. \\ \hline
+				Map  & Google Map & Windows Phone Map \\ \hline
 				Map  & Google Map & Windows Phone Map \\ \hline
 		\end{tabular}
 	\caption{Tabel perbedaan}

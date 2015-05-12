@@ -93,7 +93,6 @@ namespace Kiri
             {
                 this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
             }
-            this.TrackLocation();
             //this.route.Center = new GeoCoordinate(lFinder.coorLatFrom, lFinder.coorLongFrom);
             //GeoCoordinate[] recLocation = new GeoCoordinate[]{new GeoCoordinate(lFinder.coorLatFrom, lFinder.coorLongFrom),new GeoCoordinate(lFinder.coorLatTo, lFinder.coorLongTo)};
             //LocationRectangle lr = LocationRectangle.CreateBoundingRectangle(recLocation);
@@ -105,7 +104,16 @@ namespace Kiri
                 // User has opted in or out of Location
                 return;
             }
-            
+
+            if (routeReady==false)
+            {
+                newTimer.Interval = new TimeSpan(0, 0, 60);
+                newTimer.Tick += OnTimerTick;
+                newTimer.Start();
+
+                ShowLoading();
+            }
+
             //Find(); // After get start coordinate and finish coordinate then call Find Method
         }
 
@@ -475,6 +483,7 @@ namespace Kiri
                     this.lFinder.reset();
                     NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
                 }
+                this.routeReady = false;
             });
         }
 
