@@ -6,7 +6,7 @@ Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence}, 
 %Perancangan Diagram Sequence
 \section{Diagram \textit{Sequence}}
 \label{lab:Diagram Sequence}
-\hspace{0.5cm} Diagram \textit{sequence} merupakan diagram yang menggambarkan interaksi antar objek dalam suatu skenario. Gambar diagram \textit{sequence} dapat dilihat pada gambar ~ref{fig:sequence lokasi perangkat} sampai ~ref{fig:sequence rute}. 
+\hspace{0.5cm} Diagram \textit{sequence} merupakan diagram yang menggambarkan interaksi antar objek dalam suatu skenario. Gambar diagram \textit{sequence} dapat dilihat pada gambar ~\ref{fig:sequence lokasi perangkat} sampai ~\ref{fig:sequence rute}. 
 
 % Sequence mendapat lokasi perangkat
 \begin{figure}[h]
@@ -359,8 +359,8 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \label{lab:Kelas RootObjectFindRoute}
 \hspace{0.5cm} \textit{RootObjectFindRoute} merupakan kelas untuk menampung hasil pencarian rute. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item status
-	\item routingresults
+	\item status bertipe \textit{string} digunakan untuk menampung hasil kembalian status dari Kiri.
+	\item routingresults bertipe \textit{list} dan menampung banyak objek RoutingResult.
 \end{enumerate}
 
 %Kelas RoutingResult
@@ -368,8 +368,8 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \label{lab:Kelas RoutingResult}
 \hspace{0.5cm} \textit{RoutingResult} merupakan kelas untuk menampung langkah menuju tempat tujuan dan waktu yang dibutuhkan. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item steps
-	\item traveltime
+	\item steps bertipe \textit{list} digunakan untuk menampung tiap langkah dari lokasi asal ke lokasi tujuan. Tiap langkah yang dimaksud adalah kendaraan yang digunakan, jalur yang dilewati, dan informasi yang dibutuhkan pengguna.
+	\item traveltime bertipe \textit{string} digunakan untuk menampung waktu yang dibutuhkan dari lokasi asal ke lokasi tujuan.
 \end{enumerate}
 
 %Kelas Route

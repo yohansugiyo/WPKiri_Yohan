@@ -150,31 +150,85 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 	\item Carilah rute dari sini ke ITB pintu jalan Ganesa!
 \end{enumerate}
 
-Dari tiga perintah berikut didapat hasil sebagi berikut.
-
+Dari tiga perintah berikut penulis mengharapkan hasil sebagi berikut.
 \begin{table}[h]
 	\centering
-		\begin{tabular}{|p{1,5cm}|p{1,5cm}|p{5cm}|p{4cm}|}\hline
-				Pengguna & Perintah & Aksi Pengguna & Reaksi yang Diharapkan \\ \hline
-				1 & 1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
-				  & 2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
-				  & 3 & Menekan tombol "Here" dan menulis "jl Ganesa" pada TextBox & tidak sesuai \\ \hline
-				2 & 1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
-				  & 2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
-				  & 3 & Menekan tombol "Here" dan menunjuk pada peta & sesuai \\ \hline
-				3 & 1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
-				  & 2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
-				  & 3 & Menekan tombol "Here" dan menulis "ITB Ganeca" pada TextBox lalu menyadari tombol map dan menggunakannya & sesuai \\ \hline
-				4 & 1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
-				  & 2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
-				  & 3 & Menekan tombol "Here" dan menulis "Institut Teknologi Bandung" pada TextBox & tidak sesuai \\ \hline			
+		\begin{tabular}{|p{2cm}|p{10cm}|}\hline
+				Perintah & Aksi Pengguna \\ \hline
+				1 & Menekan tombol "Here" dan menulis kata "bip" pada TextBox \\ \hline
+				2 & Menulis kata "bip" pada TextBox dan menulis kata "Ciwalk" pada TextBox \\ \hline
+				3 & Menekan tombol "Here" dan menunjuk pintu masuk ITB yang di jalan Ganesa \\ \hline
 		\end{tabular}
-	\caption{Tabel Hasil pengujian fungsionalitas terhadap pengguna}
+	\caption{Tabel hasil yang diharapkan penulis}
+	\label{tab:TabelHasilyangdiharapkanPenulis}
+\end{table}
+
+Dari tiga perintah berikut didapat hasil sebagi berikut.
+\begin{table}[h!]
+	\centering
+		\begin{tabular}{|p{1,5cm}|p{9cm}|p{2cm}|}\hline
+				Perintah & Aksi Pengguna & Kesesuaian \\ \hline
+				1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
+				2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
+				3 & Menekan tombol "Here" dan menulis "jl Ganesa" pada TextBox & tidak sesuai \\ \hline
+		\end{tabular}
+	\caption{Tabel hasil pengujian fungsionalitas terhadap pengguna 1}
 	\label{tab:TabelHasilPengujianFungsionalitasTerhadapPengguna}
 \end{table}
 
-Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan reaksi dari aplikasi. Hasil pengujian tersebut ditunjukan pada tabel ~\ref{tab:TabelHasilPengujianFungsionalitas}.
+\begin{table}[h!]
+	\centering
+		\begin{tabular}{|p{1,5cm}|p{9cm}|p{2cm}|}\hline
+				Perintah & Aksi Pengguna & Kesesuaian \\ \hline
+				1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
+				2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
+				3 & Menekan tombol "Here" dan menunjuk pada peta & sesuai \\ \hline
+		\end{tabular}
+	\caption{Tabel hasil pengujian fungsionalitas terhadap pengguna 2}
+	\label{tab:TabelHasilPengujianFungsionalitasTerhadapPengguna}
+\end{table}
 
+\newpage
+
+\begin{table}[h!]
+	\centering
+		\begin{tabular}{|p{1,5cm}|p{9cm}|p{2cm}|}\hline
+				Perintah & Aksi Pengguna & Kesesuaian \\ \hline
+				1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
+				2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
+				3 & Menekan tombol "Here" dan menulis "ITB Ganeca" pada TextBox lalu menyadari tombol map dan menggunakannya & sesuai \\ \hline
+		\end{tabular}
+	\caption{Tabel hasil pengujian fungsionalitas terhadap pengguna 3}
+	\label{tab:TabelHasilPengujianFungsionalitasTerhadapPengguna}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+		\begin{tabular}{|p{1,5cm}|p{9cm}|p{2cm}|}\hline
+				Perintah & Aksi Pengguna & Kesesuaian \\ \hline
+				1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
+				2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
+				3 & Menekan tombol "Here" dan menulis "Institut Teknologi Bandung" pada TextBox & tidak sesuai \\ \hline
+		\end{tabular}
+	\caption{Tabel hasil pengujian fungsionalitas terhadap pengguna 4}
+	\label{tab:TabelHasilPengujianFungsionalitasTerhadapPengguna}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+		\begin{tabular}{|p{1,5cm}|p{9cm}|p{2cm}|}\hline
+				Perintah & Aksi Pengguna & Kesesuaian \\ \hline
+				1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
+				2 & Menulis "BIP" pada TextBox dan menulis "Ciwalk" pada TextBox & sesuai \\ \hline
+				3 & Menekan tombol "Here" dan menulis "jalan ganesa" pada TextBox & tidak sesuai \\ \hline
+		\end{tabular}
+	\caption{Tabel hasil pengujian fungsionalitas terhadap pengguna 5}
+	\label{tab:TabelHasilPengujianFungsionalitasTerhadapPengguna}
+\end{table}
+
+\hspace{0.5cm} Hasil pengujian menunjukan untuk perintah 1 dan 2 semua pengguna dapat menyelesaikan perintah dengan aksi yang sesuai. Sedangkan untuk perintah ke 3 sebagian pengguna masih salah dalam melakukan aksi yang sesuai. Dari hasil pengujian terhadap pengguna dapat dilihat pengguna lebih memilih untuk mengetikan kata kunci karena hal tersebut adalah yang paling mudah untuk dilakukan. Pengguna cenderung memikirkan suatu lokasi, memikirkan kata kunci lalu menuliskannya pada textbox di aplikasi. Menuliskan pada textbox memang lebih mudah dilakukan tapi ada beberapa pencarian spesifik yang tidak dapat dilakukan dengan mengetikan kata kunci.   
+
+Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan reaksi dari aplikasi. Hasil pengujian tersebut ditunjukan pada tabel ~\ref{tab:TabelHasilPengujianFungsionalitas}.
 \begin{table}[h!]
 	\centering
 		\begin{tabular}{|p{1cm}|p{4cm}|p{6cm}|p{3cm}|}\hline
@@ -192,6 +246,15 @@ Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan r
 				11 & Pada kelas Route pengguna menekan tombol "Tunjukan Daftar" & Jika daftar tertutup maka daftar akan terbuka & sesuai \\ \hline
 				12 & & Jika daftar terbuka maka daftar akan tertutup & sesuai \\ \hline
 				13 & Pada kelas Route pengguna menekan tombol "Next" & Pusat peta akan diarahkan ke pergantian transportasi berikutnya sesua kembalian Kiri disertai keterangan & sesuai \\ \hline
+		\end{tabular}
+	\caption{Tabel Hasil pengujian fungsionalitas}
+	\label{tab:TabelHasilPengujianFungsionalitas}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+		\begin{tabular}{|p{1cm}|p{4cm}|p{6cm}|p{3cm}|}\hline
+				No & Aksi Pengguna & Reaksi yang Diharapkan & Reaksi Perangkat lunak \\ \hline
 				14 & Pada kelas Route pengguna menekan tombol "Prev" & Pusat peta akan diarahkan ke pergantian transportasi sebelumnya sesua kembalian Kiri disertai keterangan & sesuai \\ \hline
 				15 & Pada kelas Route pengguna menekan tombol "windows" & Keadaan aplikasi menjadi \textit{dormant} & tidak sesuai \\ \hline
 		\end{tabular}
@@ -213,7 +276,7 @@ Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan r
 			\item Pengalaman : \\
 			\hspace{0.5cm} Pada pengujian 1 penulis memasukan alamat di dalam rumah untuk menuju Unpar. Saat penulis memasukan kata Unpar muncul daftar tempat sesuai kata kunci "Unpar", lalu penulis memilih "Universitas Katolik Parahyangan". Saat rute ditampilkan ada ketidaktepatan lokasi yang ditunjukan untuk lokasi asal(rumah) sedangkan untuk lokasi tujuan(Unpar) ditunjukan dengan tepat. Katidaktepatan tersebut kira-kira seratus meter dan lokasi ditandai lingkaran merah dengan ukuran besar. Hal tersebut dikarenakan tempat tertutup yang membuat GPS tidak menunjukan lokasi yang akurat. Tapi saat pengujian penulis berusaha mengikuti titik naik angkutan umum.
 			\hspace{0.5cm}Penulis mulai dengan mengikuti petunjuk berjalan kaki menuju Jalan Tamblong. Saat keluar rumah lingkaran merah disekitar lokasi perangkat mulai mengecil yang menandakan akurasi GPS semakin baik. Angkutan kota yang penulis naiki pertama kali adalah angkutan kota kalapa. Sambil berada di angkot penulis mengamati rute yang ditunjukan aplikasi sudah sesuai dengan rute angkutan kota dan penunjuk lokasi menunjukan pergerakan dengan akurat. Angkutan kota yang penulis naiki berhenti di stasiun lalu penulis turun dan menuju Jalan Kebon Jukut. Di jalan kebon jukut penulis naik angkutan kota Ciumbuleuit - St. Hall. Selama perjalanan petunjuk rute dan \textit{polyline} sudah tepat sesuai rute angkutan kota. Angkutan kota ke dua langsung mengantarkan penulis menuju Jalan Ciumbuleuit untuk selanjutnya penulis berjalan menuju Unpar. Ketika sampai di Unpar, kordinat lokasi pada peta juga menunjukan titik di Unpar dan memakan waktu 65 menit.
-			\hspace{0.5cm}Untuk perjalanan pulang penulis memulai dengan mencari rute dari Unpar menuju ke rumah di jalan Kejaksaan dengan mencari di peta. Perjalanan penulis mulai dengan naik angkot Ciumbuleuit - St. Hall (lurus). Angkot Ciumbuleuit - St. Hall (lurus) penulis naiki dari jalan Ciumbuleuit sampai jalan Cihampelas. Penulis turun di jalan Cihampelas dan naik angkot Kalapa - Ledeng di jalan Cihampelas. Namun di jalan Wastukencana rute pada peta menunjukan rute menyusuri jalan Wastukencana lalu ke jalan Aceh, namun angkot malah berbelok ke jalan Riau lalu ke jalan Purnawarman lalu ke jalan Aceh. Rute yang benar yaitu rute angkot dan bukan pada peta. Dari jalan Aceh angkot menuju jalan Sumatera lalu ke jalan Tamblong. Perjalannan penulispun berakhir setelah sampai di rumah.
+			\hspace{0.5cm}Untuk perjalanan pulang penulis memulai dengan mencari rute dari Unpar menuju ke rumah di jalan Kejaksaan dengan mencari di peta. Perjalanan penulis mulai dengan naik angkot Ciumbuleuit - St. Hall (lurus). Angkot Ciumbuleuit - St. Hall (lurus) penulis naiki dari jalan Ciumbuleuit sampai jalan Cihampelas. Penulis turun di jalan Cihampelas dan naik angkot Kalapa - Ledeng di jalan Cihampelas. Namun di jalan Wastukencana rute pada peta menunjukan rute menyusuri jalan Wastukencana lalu ke jalan Aceh, namun angkot malah berbelok ke jalan Riau lalu ke jalan Purnawarman lalu ke jalan Aceh. Rute yang benar yaitu rute angkot dan bukan pada peta. Dari jalan Aceh angkot menuju jalan Sumatera lalu ke jalan Tamblong. Perjalanan penulispun berakhir setelah sampai di rumah.
 		\end{itemize}
 
 
@@ -227,7 +290,7 @@ Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan r
 				Perbedaan & Android & Windows Phone \\ \hline
 				Mendapatkan Lokasi & Memanfaatkan pemanggilan lokasi secara berulang-ulang dan akan mengunah lokasi dari yang kurang tepat menjadi lebih tepat. & Memanfaatkan pemanggilan sampai mendapat akurasi yang cukup tepat. \\ \hline
 				Map  & Google Map & Windows Phone Map \\ \hline
-				Map  & Google Map & Windows Phone Map \\ \hline
+				Navigasi antar halaman  & Pengiriman parameter berupa nilai "key" dan "value" & Pengiriman state objek \\ \hline
 		\end{tabular}
 	\caption{Tabel perbedaan}
 	\label{tab:TabelPerbedaan}
