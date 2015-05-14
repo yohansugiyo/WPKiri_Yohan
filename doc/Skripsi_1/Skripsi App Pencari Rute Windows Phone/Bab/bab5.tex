@@ -228,6 +228,8 @@ Dari tiga perintah berikut didapat hasil sebagi berikut.
 
 \hspace{0.5cm} Hasil pengujian menunjukan untuk perintah 1 dan 2 semua pengguna dapat menyelesaikan perintah dengan aksi yang sesuai. Sedangkan untuk perintah ke 3 sebagian pengguna masih salah dalam melakukan aksi yang sesuai. Dari hasil pengujian terhadap pengguna dapat dilihat pengguna lebih memilih untuk mengetikan kata kunci karena hal tersebut adalah yang paling mudah untuk dilakukan. Pengguna cenderung memikirkan suatu lokasi, memikirkan kata kunci lalu menuliskannya pada textbox di aplikasi. Menuliskan pada textbox memang lebih mudah dilakukan tapi ada beberapa pencarian spesifik yang tidak dapat dilakukan dengan mengetikan kata kunci.   
 
+%start comment
+\iffalse
 Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan reaksi dari aplikasi. Hasil pengujian tersebut ditunjukan pada tabel ~\ref{tab:TabelHasilPengujianFungsionalitas}.
 \begin{table}[h!]
 	\centering
@@ -261,9 +263,12 @@ Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan r
 	\caption{Tabel Hasil pengujian fungsionalitas}
 	\label{tab:TabelHasilPengujianFungsionalitas}
 \end{table}
+\fi
+%end comment
 
 \hspace{0.5cm} Pada pengujian keadaan aplikasi dari keadaan \textit{running} ke \textit{dormant} tidak terjadi. Pada saat aplikasi dalam keadaan \textit{running} dan pengguna menekan tombol "windows" seharusnya keadaan aplikasi berpindah dari keadaan \textit{running} ke \textit{dormant} tetapi keadaan aplikasi malah \textit{terminate}. Hal tersebut dikarenakan aplikasi yang penulis kembangkan masih dalam mode debug.
 
+\newpage
 %Pengujian Eksperimental untuk mengetahui tingkat keberhasilan proses kerja aplikasi
 \subsection{Pengujian Eksperimental}
 \label{lab:Pengujian Eksperimental}
@@ -288,9 +293,11 @@ Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan r
 	\centering
 		\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}\hline
 				Perbedaan & Android & Windows Phone \\ \hline
+				Bahasa & Java dan antarmuka menggunakan XML & C\# dan antarmuka menggunakan XAML \\ \hline
 				Mendapatkan Lokasi & Memanfaatkan pemanggilan lokasi secara berulang-ulang dan akan mengunah lokasi dari yang kurang tepat menjadi lebih tepat. & Memanfaatkan pemanggilan sampai mendapat akurasi yang cukup tepat. \\ \hline
 				Map  & Google Map & Windows Phone Map \\ \hline
 				Navigasi antar halaman  & Pengiriman parameter berupa nilai "key" dan "value" & Pengiriman state objek \\ \hline
+				Pemanfaatan sumber data & JSON in Java & Json.NET \\ \hline
 		\end{tabular}
 	\caption{Tabel perbedaan}
 	\label{tab:TabelPerbedaan}

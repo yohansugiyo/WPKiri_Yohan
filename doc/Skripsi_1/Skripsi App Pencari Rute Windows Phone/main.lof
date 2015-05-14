@@ -21,32 +21,32 @@
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Diagram \textit {use case}}}{42}{figure.3.8}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Diagram Kelas}}{44}{figure.3.9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram \textit {sequence} Mendapatkan Kordinat perangkat}}{45}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Diagram \textit {sequence} Mendapatkan Kordinat pada Peta}}{46}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Diagram \textit {sequence} Mendapatkan Rute}}{47}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Diagram Kelas}}{48}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Kelas City}}{48}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Kelas JsonConvert}}{48}{figure.4.6}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Kelas LocationFinder}}{49}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Kelas Map}}{49}{figure.4.8}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {Package} WindowsPhone}}{49}{figure.4.9}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Kelas Protocol}}{50}{figure.4.10}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Kelas Route}}{50}{figure.4.11}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Kelas SearchPlace}}{50}{figure.4.12}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Kelas FindRoute}}{51}{figure.4.13}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Antarmuka \textit {MainPage}}}{61}{figure.4.14}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Antarmuka Daftar Tempat}}{62}{figure.4.15}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Antarmuka \textit {Map}}}{63}{figure.4.16}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Antarmuka \textit {Route}}}{63}{figure.4.17}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Antarmuka Rute dalam bentuk Daftar}}{64}{figure.4.18}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram \textit {sequence} Mendapatkan Kordinat perangkat}}{47}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Diagram \textit {sequence} Mendapatkan Kordinat pada Peta}}{48}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Diagram \textit {sequence} Mendapatkan Rute}}{49}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Diagram Kelas}}{50}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Kelas City}}{51}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Kelas JsonConvert}}{51}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Kelas LocationFinder}}{51}{figure.4.7}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Kelas Map}}{51}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {Package} WindowsPhone}}{52}{figure.4.9}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Kelas Protocol}}{52}{figure.4.10}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Kelas Route}}{53}{figure.4.11}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Kelas SearchPlace}}{53}{figure.4.12}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Kelas FindRoute}}{53}{figure.4.13}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Antarmuka \textit {MainPage}}}{64}{figure.4.14}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Antarmuka Daftar Tempat}}{65}{figure.4.15}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Antarmuka \textit {Map}}}{66}{figure.4.16}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Antarmuka \textit {Route}}}{66}{figure.4.17}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Antarmuka Rute dalam bentuk Daftar}}{67}{figure.4.18}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Gambar antarmuka kelas MainPage}}{66}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Gambar antarmuka Splash di kelas MainPage}}{67}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Gambar antarmuka \textit {list} asal dan \textit {list} tujuan di kelas MainPage}}{67}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Gambar antarmuka kelas Map}}{68}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Gambar antarmuka menunggu di kelas Route}}{68}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Gambar antarmuka kelas Route}}{69}{figure.5.6}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Gambar antarmuka \textit {list} di kelas Route}}{69}{figure.5.7}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Gambar antarmuka kelas MainPage}}{70}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Gambar antarmuka Splash di kelas MainPage}}{71}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Gambar antarmuka \textit {list} asal dan \textit {list} tujuan di kelas MainPage}}{71}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Gambar antarmuka kelas Map}}{72}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Gambar antarmuka menunggu di kelas Route}}{72}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Gambar antarmuka kelas Route}}{73}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Gambar antarmuka \textit {list} di kelas Route}}{73}{figure.5.7}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

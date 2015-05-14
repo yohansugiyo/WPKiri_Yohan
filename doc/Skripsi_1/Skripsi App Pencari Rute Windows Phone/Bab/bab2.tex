@@ -388,11 +388,11 @@ Berikut \textit{method} yang dapat digunakan pada kelas ini.
 Berikut properti yang dapat digunakan pada kelas ini.
 \begin{table}[h]
 	\centering
-		\begin{tabular}{ |c|c|}
+		\begin{tabular}{ |p{4cm}|p{10cm}|}
 				\hline
 					Nama & Deskripsi \\ \hline
 					\textit{Dispacher} & Mendapatkan objek yang terkait. \\ \hline
-					\textit{Path} & \vtop{\hbox{\strut Mengatur dan mendapatkan kumpulan nilai \textit{GeoCoordinates} yang membuat} \hbox{\strut \textit{polyline}.}} \\ \hline
+					\textit{Path} & Mengatur dan mendapatkan kumpulan nilai \textit{GeoCoordinates} yang membuat \textit{polyline}. \\ \hline
 					\textit{StrokeColor} & Mengatur dan mendapatkan warna garis. \\ \hline
 					\textit{StrokeDashed} & Mengatur dan mendapatkan nilai untuk menggambar \textit{polyline} pustus-putus. \\ \hline
 					\textit{StrokeThickness} & Mengatur dan mendapatkan lebar garis untuk menggambar \textit{polyline}. \\ \hline
@@ -430,7 +430,7 @@ Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelac
 % SUBSUB Mendapatkan Posisi Pengguna
 \subsubsection{Mendapatkan Posisi Pengguna}
 \label{subsubsec:Mendapatkan Posisi Pengguna}
-\hspace{0.5cm} Di Windows Phone 8 telah ada \textit{GeoCoordinate class} yang dapat digunakan untuk mengetahui posisi pengguna. \textit{Geolocator class} dari \textit{Windows.Devices.Geolocation} akan mengembalikan posisi saat ini. Untuk menggunakan \textit{Geolocator}, perlu menghidupkan \textit{ID\_CAP\_LOCATION} di \textit{\textbackslash properties\textbackslash WMAppManifest.xml}. Dalam mendapatkan posisi perlu diperhatikan status dari GPS karena membutuhkan waktu dari awal pengaktifan hingga mendapatkan lokasi pengguna secara akurat. Untuk lebih jelas mengenai status posisi dapat dilihat pada nilai status dibawah ini.
+\hspace{0.5cm} Di Windows Phone 8 telah ada \textit{GeoCoordinate class} yang dapat digunakan untuk mengetahui posisi pengguna. \textit{Geolocator class} dari \textit{Windows.Devices.Geolocation} akan mengembalikan posisi saat ini. Untuk menggunakan \textit{Geolocator}, perlu menghidupkan \textit{ID\_CAP\_LOCATION} di \url{/properties/WMAppManifest.xml}. Dalam mendapatkan posisi perlu diperhatikan status dari GPS karena membutuhkan waktu dari awal pengaktifan hingga mendapatkan lokasi pengguna secara akurat. Untuk lebih jelas mengenai status posisi dapat dilihat pada nilai status dibawah ini.
 
 \begin{itemize}
 	\item \textit{Ready} : Jika lokasi tersedia.
@@ -447,7 +447,7 @@ Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelac
 \hspace{0.5cm} \textit{Namespace} merupakan nama yang dipakai untuk mengatur kelas-kelas. Windows Phone 8 sudah menyediakan \textit{namespace} bawaan untuk mengakses lokasi. \textit{Namespace} yang disediakan adalah \textit{namespace geolocator}. \textit{Namespace} ini akan mengakses lokasi geografis dari perangkat dan mendukung pelacakan lokasi dari waktu ke waktu. Agar dapat menggunakan kelas pada \textit{namespace} tersebut perlu ditambahkan \textit{namespace} dan \textit{capabilities}. \textit{Namespace} yang harus ditambahkan pada baris awal XAML adalah \textbf{Windows.Device.Geolocator}. Selanjutnya ada penambahan \textit{capabilities ID\_CAP\_LOCATION}. Penambahan \textit{capabilities} ditambahkan pada \textit{WMAppManifest.xml}. Kelas yang diatur oleh \textit{namespace geolocator} dapat di lihat pada tabel ~\ref{tab:KelasPadaNamespaceGeolocator}\cite{DevWP8}.
 \begin{table}[h]
 	\centering
-		\begin{tabular}{ |c|c|}
+		\begin{tabular}{ |p{4cm}|p{10cm}|}
 				\hline
 				Kelas & Deskripsi \\ \hline
 				\textit{Geocoordinate} & Berisi informasi untuk mengidentifikasi lokasi geografis. \\ \hline
@@ -466,11 +466,11 @@ Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelac
 
 \begin{table}[h]
 	\centering
-		\begin{tabular}{ |c|c|}
+		\begin{tabular}{ |p{4cm}|p{10cm}|}
 				\hline
 				Properti & Deskripsi \\ \hline
 				\textit{Altitude} & Ketinggian lokasi dalam satuan meter. \\ \hline
-				\textit{Heading} & \vtop{\hbox{\strut Arah menghadap perangkat dalam satuan derajat yang} \hbox{\strut relative terhadap mata angin utara.}} \\ \hline
+				\textit{Heading} & Arah menghadap perangkat dalam satuan derajat yang relative terhadap mata angin utara. \\ \hline
 				\textit{Latitude} & Garis lintang dalam satuan derajat. \\ \hline
 				\textit{Longitude}  & Garis bujur dalam satuan derajat. \\ \hline
 				\textit{Point} & Lokasi dari \textit{Geocoordinate}. \\ \hline
@@ -523,10 +523,10 @@ Berikut Properti yang disediakan kelas \textit{Geoposition}:
 \label{subsec:Memanfaatkan Sumber Data}
 \hspace{0.5cm} Hal yang penting dari sebuah aplikasi adalah informasi. Windows Phone 8 memiliki kemampuan dalam menghubungkan aplikasi dengan sumber data lainnya. Memanfaatkan sumber data ada dua cara yaitu yang lokal atau berada di perangkat dan \textit{web service}. \textit{Web Service} merupakan \textit{method} komunikasi antara dua perangkat melalui jaringan. 
 
-Sebelum data dapat dikirim antar perangkat perlu dilakukan \textit{Serialization}. \textit{Serialization} disini merupakan proses mentransformasikan objek ke format yang bisa dengan mudah dikirim melewati jaringan atau disimpan di database. Formatnya disini berupa string yang direpresentasikan sebagai objek di XML atau JSON(Javascript Object Notation). Ada beberapa objek yang dapat melakukan serialisasi, tetapi yang akan dibahas penulis disini hanya serialisasi JSON\cite{Manning}. 
+Sebelum data dapat dikirim antar perangkat perlu dilakukan \textit{serialization}. \textit{Serialization} merupakan proses mentransformasikan objek ke format yang bisa dengan mudah dikirim melewati jaringan atau disimpan di database\cite{Manning}. Formatnya disini berupa string yang direpresentasikan sebagai objek di XML atau JSON(Javascript Object Notation). Setelah data yang dikirim didapatkan maka perlu dilakukan \textit{deserialization}. \textit{Deserialization} merupakan proses mentransformasikan dari format yang bisa dengan mudah dikirim melewati jaringan ke dalam bentuk objek. 
 
 %sumber http://json.org/
-Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memiliki format \textit{data-interchange} yang ringan \cite{rfc7159}. Karena hal tersebut JSON mudah diurai dan dihasilkan oleh mesin. Kurung kurawal mengindikasikan objek, kurung siku berarti array, dan properti berupa nama dan nilai pasangan yang dipisahkan oleh titik dua. JSON format memiliki ukuran data yang kecil dan baik untuk penggunaan perangkat bergerak. Untuk contoh format JSON dapat dilihat di bagian Kiri API pada Bab dua ini karena Kiri API menggunakan format JSON. Serialisasi menggunakan \textit{DataContractJsonSerializer} membuat serialisasi mudah untuk menerjemahkan form String JSON ke objek yang dapat langsung digunakan. \textit{DataContractJsonSerializer} memakai \textit{WriteObject()} untuk serialisasi and \textit{ReadObject()} untuk de-serialisasi.
+Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memiliki format \textit{data-interchange} yang ringan \cite{rfc7159}. Karena hal tersebut JSON mudah diurai dan dihasilkan oleh mesin. Kurung kurawal mengindikasikan objek, kurung siku berarti array, dan properti berupa nama dan nilai pasangan yang dipisahkan oleh titik dua. JSON format memiliki ukuran data yang kecil dan baik untuk penggunaan perangkat bergerak. Untuk contoh format JSON dapat dilihat di bagian Kiri API pada Bab dua ini karena Kiri API menggunakan format JSON. \textit{Serializes} menggunakan \textit{DataContractJsonSerializer} membuat \textit{serializes} mudah untuk menerjemahkan form String JSON ke objek yang dapat langsung digunakan. \textit{DataContractJsonSerializer} memakai \textit{WriteObject()} untuk \textit{serializes} and \textit{ReadObject()} untuk \textit{deserializes}.
 
 % SUBSUB Kelas HttpClient
 \subsubsection{\textit{HttpClient}}
@@ -560,9 +560,16 @@ Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memi
 % SUBSUB Json.NET from http://www.newtonsoft.com/json
 \subsubsection{Json.NET}
 \label{subsubsec:Json.NET}
-\hspace{0.5cm} Json.NET merupakan \textit{library} untuk melakukan \textit{serialize} dan \textit{deserialize} terhadap objek dalam .NET. \textit{Library} ini memiliki 2 kelas yaitu kelas JsonConvert dan kelas JsonSerializer. Berikut merupakan keterangan dari dua kelas tersebut.
+\hspace{0.5cm} Json.NET merupakan \textit{library} untuk melakukan \textit{serialize} dan \textit{deserialize} terhadap objek dalam .NET \cite{jsonNet}. \textit{Library} ini memiliki 2 kelas yaitu kelas JsonConvert dan kelas JsonSerializer. Berikut merupakan keterangan dari dua kelas tersebut.
 \begin{itemize}
-	\item
+	\item Kelas JsonConvert merupakan kelas yang dapat mengkonversi objek ke JSON dalam bentuk String dan sebaliknya. Berikut 2 buah \textit{method} yang disediakan kelas JsonConvert. \\
+		\begin{enumerate}
+			\item \textit{Method} SerializeObject() \\
+			\textit{Method} yang dipakai untuk mengkonversi objek ke JSON dalam bentuk String.
+			\item \textit{Method} DeserializeObject()\\
+			\textit{Method} yang dipakai untuk mengkonversi JSON dalam bentuk String ke objek.
+		\end{enumerate}
+	\item Kelas JsonSerializer merupakan kelas yang dapat melakukan \textit{serializes} dan \textit{deserializes} objek ke dan dari JSON format.
 \end{itemize}
 
 % SUB Thread

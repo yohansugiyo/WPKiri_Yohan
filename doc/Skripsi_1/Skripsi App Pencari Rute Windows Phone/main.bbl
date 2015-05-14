@@ -22,6 +22,11 @@ T.~Berners-Lee, R.~Fielding, and L.~Masinter, ``{Uniform Resource Identifier
   (URI): Generic Syntax}.'' RFC 3986 (INTERNET STANDARD), Jan. 2005.
 \newblock Updated by RFCs 6874, 7320.
 
+\bibitem{jsonNet}
+``Newtonsoft json.''
+  \url{http://www.newtonsoft.com/json/help/html/SerializingJSON.htm}, 2015.
+\newblock Accessed: 2015-2-15.
+
 \bibitem{Kiri}
 ``Kiri api v2 documentation.''
   \url{https://bitbucket.org/projectkiri/kiri_api/wiki/KIRI%20API%20v2%20Documentation},
