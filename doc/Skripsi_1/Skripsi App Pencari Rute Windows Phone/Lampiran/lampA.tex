@@ -29,7 +29,7 @@ using System.Windows.Controls.Primitives;
 using System.ComponentModel;
 using System.Threading;
 
-using System.Device.Location; //ilangin kalo buat kelas city
+using System.Device.Location; 
 
 namespace Kiri
 {
@@ -125,7 +125,6 @@ namespace Kiri
         {
             base.OnNavigatedFrom(e);
             PhoneApplicationService.Current.State["location"] = lFinder;
-            State["lFinder"] = lFinder;
         }
 
         private void Application_Deactivated(object sender, DeactivatedEventArgs e){
@@ -158,12 +157,6 @@ namespace Kiri
             String queryTo = toBox.Text;
             RootObjectSearchPlace from = null; //Untuk Asal
             RootObjectSearchPlace to = null; //Untuk Tujuan
-            //Penting!
-            //Dokumentasi zhttps://bitbucket.org/projectkiri/kiri_api/wiki/KIRI%20API%20v2%20Documentation
-            //Contoh searchplace    zhttp://kiri.travel/handle.php?version=2&mode=searchplace&region=bdo&querystring=bip&apikey=97A7A1157A05ED6F
-            //                      zhttp://kiri.travel/handle.php?version=2&mode=searchplace&region=bdo&querystring=pvj&apikey=97A7A1157A05ED6F
-            //Contoh findroute      zhttp://kiri.travel/handle.php?version=2&mode=findroute&locale=id&&start=-6.90864,107.61108&finish=-6.88929,107.59574&presentation=mobile&apikey=97A7A1157A05ED6F
-            //Contoh findroute      zhttp://kiri.travel/handle.php?version=2&mode=findroute&locale=id&&start=-6.87474,107.60491&finish=-6.88909,107.59614&presentation=mobile&apikey=97A7A1157A05ED6F    
 
             //Check form
             if (!queryFrom.Equals("") && !queryTo.Equals(""))

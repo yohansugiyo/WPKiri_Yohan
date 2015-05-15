@@ -47,7 +47,7 @@ Untuk aturan penulisan sintak XAML didasarkan pada XML. Setiap XAML Windows Runt
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/nav_hierarchy}
-	\caption{Hirarki navigasi}
+	\caption{Hirarki Navigasi}
 	\label{fig:nav_hierarchy}
 \end{figure}
 
@@ -67,7 +67,7 @@ Terdapat 3 jenis panel yang digunakan untuk menangani tata Letak yaitu \textit{G
 \end{itemize}
 
 Kode untuk mengatur jenis panel pada Windows Phone dapat dilihat pada \textit{listing}~\ref{lst:grid}.
-\begin{lstlisting} [caption= {Kode tata letak grid},label={lst:grid}]
+\begin{lstlisting} [caption= {Kode Tata Letak Grid},label={lst:grid}]
 	<Grid x:Name="ContentPanel">
 	</Grid>
 \end{lstlisting}
@@ -90,7 +90,7 @@ Kode untuk mengatur jenis panel pada Windows Phone dapat dilihat pada \textit{li
 	\label{fig:kontrol_teks}
 \end{figure}
 
-\begin{lstlisting} [caption= {Kode untuk menampilkan \textit{TextBlock} dan \textit{TextBox}},label={lst:text}]
+\begin{lstlisting} [caption= {Kode untuk Menampilkan \textit{TextBlock} dan \textit{TextBox}},label={lst:text}]
 	<TextBlock x:Name="TextBlock1" Text="TextBlock"/>
 	<TextBox x:Name="TextBox1"Text="TextBox"/>
 \end{lstlisting}
@@ -111,11 +111,11 @@ Kode untuk mengatur jenis panel pada Windows Phone dapat dilihat pada \textit{li
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/Tombol/tombol_dan_pilihan}
-	\caption{Gambar kontrol pada Windows Phone}
+	\caption{Gambar Kontrol pada Windows Phone}
 	\label{fig:kontrol_tombol}
 \end{figure}
 
-\begin{lstlisting} [caption= {Kode untuk menampilkan \textit{TextBlock}, \textit{TextBox}, dan \textit{PasswordBox}},label={lst:tombol}]
+\begin{lstlisting} [caption= {Kode untuk Menampilkan \textit{TextBlock}, \textit{TextBox}, dan \textit{PasswordBox}},label={lst:tombol}]
 	<Button x:Name="find" Content="Button"/>
 \end{lstlisting}
 
@@ -156,7 +156,7 @@ Kode untuk mengatur jenis panel pada Windows Phone dapat dilihat pada \textit{li
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.4]{Gambar/lifecycle_wp8}
-	\caption{Gambar siklus hidup aplikasi\cite{MSDN}}
+	\caption{Gambar siklus Hidup Aplikasi\cite{MSDN}}
 	\label{fig:Siklus Hidup Aplikasi}
 \end{figure}
 %sumber http://msdn.microsoft.com/en-us/library/windows/apps/ff817008%28v=vs.105%29.aspx
@@ -196,15 +196,15 @@ Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan apl
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.1]{Gambar/map}
-	\caption{Tampilan peta pada Windows Phone}
+	\caption{Tampilan Peta pada Windows Phone}
 	\label{fig:peta}
 \end{figure}
 
-\begin{lstlisting} [caption= {Menampilkan peta dengan nama MyMap dari XAML},label={lst:mapXAML}]
+\begin{lstlisting} [caption= {Menampilkan Peta dengan Nama MyMap dari XAML},label={lst:mapXAML}]
 	<Controls:Map x:Name="MyMap"/>
 \end{lstlisting}
 
-\begin{lstlisting} [caption= {Menampilkan peta dengan nama MyMap dari kode program},label={lst:mapCode}]
+\begin{lstlisting} [caption= {Menampilkan Peta dengan Nama MyMap dari Kode Program},label={lst:mapCode}]
 	public mapFrom()
   {
 		InitializeComponent();
@@ -225,7 +225,7 @@ Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan apl
 		<Controls:Map x:Name="MyMap" ZoomLevel="10" Margin="-25,0,-16,0"/>
 	\end{lstlisting}
 
-	\begin{lstlisting} [caption= {Mengatur tingkat zoom dari dari kode program},label={lst:zoomCode}]
+	\begin{lstlisting} [caption= {Mengatur Tingkat Zoom dari Kode Program},label={lst:zoomCode}]
 		public mapFrom()
 		{
 			InitializeComponent();
@@ -253,7 +253,7 @@ Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan apl
 		\begin{figure}[h]
 			\centering
 				\includegraphics[scale=0.4]{Gambar/kartografi}
-			\caption{\textit{cartographic}}
+			\caption{\textit{Cartographic}}
 			\label{fig:cartographic}
 		\end{figure}
 		
@@ -275,11 +275,11 @@ Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan apl
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/toolkit_pushpin}
-	\caption{Keluaran Toolkit Pushpin pada peta \cite{Manning}}
+	\caption{Keluaran Toolkit Pushpin pada Peta \cite{Manning}}
 	\label{fig:toolkit_pushpin}
 \end{figure}
 
-\begin{lstlisting} [caption= {Kode untuk menampilkan pushpin},label={lst:pushpin}]
+\begin{lstlisting} [caption= {Kode untuk Menampilkan Pushpin},label={lst:pushpin}]
 	MapOverlay overlay = new MapOverlay
 	{
 		GeoCoordinate = map.Center,
@@ -307,11 +307,11 @@ Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan apl
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/kontrol/polyline}
-	\caption{Tampilan polyline pada Peta}
+	\caption{Tampilan Polyline pada Peta}
 	\label{fig:TampilanpolylinepadaPeta}
 \end{figure}
 
-\begin{lstlisting} [caption= {Kode untuk menampilkan polyline},label={lst:polyline}]
+\begin{lstlisting} [caption= {Kode untuk Menampilkan Polyline},label={lst:polyline}]
 	MapPolyline line = new MapPolyline();
 	line.StrokeColor = Colors.Red;
 	line.StrokeThickness = 10;
@@ -350,7 +350,7 @@ Berikut properti yang dapat digunakan pada kelas ini.
 					\textit{ZoomLevel} & Mengatur dan mendapatkan tingkat zoom pada peta. \\ \hline
 				\hline
 		\end{tabular}
-	\caption{Properti kelas Map}
+	\caption{Properti Kelas Map}
 	\label{tab:PropertiKelasMap}
 \end{table}
 
@@ -637,13 +637,13 @@ Berikut langkah-langkah untuk mendapatkan \textit{API key}.
 			\textit{apikey} & 16-digit hexadecimals & \textit{API key} yang digunakan \\ \hline
 			\hline
 		\end{tabular}
-	\caption{Tabel parameter layanan penentuan rute}
+	\caption{Tabel Parameter Layanan Penentuan Rute}
 	\label{tab:routingWebService}
 \end{table}
 
 Format kembalian layanan penentuan rute dapat dilihat pada \textit{listing}~\ref{lst:pencarian}:
 
-\begin{lstlisting} [caption= {Kode kembalian pencarian rute},label={lst:pencarian}]
+\begin{lstlisting} [caption= {Kode Kembalian Pencarian Rute},label={lst:pencarian}]
 { 
     "status": "ok" or "error" 
     "routingresults": [ 
@@ -716,14 +716,14 @@ Nilai [means] dapat diambil dari indeks 0 nilai kembalian dan nilai [means\_deta
 			\textit{apikey} & 16-digit heksadesimal & \textit{API key} yang digunakan \\ \hline
 			\hline
 		\end{tabular}
-	\caption{Tabel parameter layanan pencarian lokasi}
+	\caption{Tabel Parameter Layanan Pencarian Lokasi}
 	\label{tab:pencarianLokasi}
 \end{table}
 
 \vspace{5mm}
 Format kembalian dari layanan pencarian lokasi dapat dilihat pada \textit{listing}~\ref{lst:pencarianLokasi}.
 
-\begin{lstlisting} [caption= {Kode kembalian pencarian lokasi},label={lst:pencarianLokasi}]
+\begin{lstlisting} [caption= {Kode Lembalian Pencarian Lokasi},label={lst:pencarianLokasi}]
 {
     "status": "ok" or "error"
     "searchresult": [
@@ -769,14 +769,14 @@ Berikut maksud dari \textit{listing}~\ref{lst:pencarianLokasi}:
 			\textit{apikey} & 16-digit hexadesimal & \textit{API key} yang digunakan \\ \hline
 			\hline
 		\end{tabular}
-	\caption{Tabel parameter layanan menemukan transportasi terdekat}
+	\caption{Tabel Parameter :ayanan Menemukan Transportasi Terdekat}
 	\label{tab:transportasiTerdekat}
 \end{table}
 
 
 Format kembalian layanan menemukan transportasi terdekati dapat dilihat pada \textit{listing}~\ref{lokasiTerdekat}.
 
-\begin{lstlisting} [caption= {Kode kembalian menemukan lokasi terdekat},label={lokasiTerdekat}]
+\begin{lstlisting} [caption= {Kode Kembalian Menemukan Lokasi Terdekat},label={lokasiTerdekat}]
 {
     "status": "ok" or "error"
     "nearbytransports": [

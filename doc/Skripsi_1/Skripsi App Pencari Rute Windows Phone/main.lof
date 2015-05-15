@@ -1,27 +1,27 @@
 \select@language {bahasa}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Hirarki navigasi}}{7}{figure.2.1}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Hirarki Navigasi}}{7}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces \textit {TextBlock}, \textit {TextBox} dan \textit {PasswordBox}}}{8}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Gambar kontrol pada Windows Phone}}{9}{figure.2.3}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Gambar Kontrol pada Windows Phone}}{9}{figure.2.3}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Antarmuka \textit {ListBox}}}{10}{figure.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Gambar siklus hidup aplikasi\cite {MSDN}}}{10}{figure.2.5}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Tampilan peta pada Windows Phone}}{12}{figure.2.6}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces \textit {cartographic}}}{13}{figure.2.7}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Keluaran Toolkit Pushpin pada peta \cite {Manning}}}{14}{figure.2.8}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Tampilan polyline pada Peta}}{15}{figure.2.9}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Gambar siklus Hidup Aplikasi\cite {MSDN}}}{10}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Tampilan Peta pada Windows Phone}}{12}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces \textit {Cartographic}}}{13}{figure.2.7}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Keluaran Toolkit Pushpin pada Peta \cite {Manning}}}{14}{figure.2.8}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Tampilan Polyline pada Peta}}{15}{figure.2.9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Tampilan utama aplikasi Public Transport}}{29}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Menunjuk lokasi pada peta}}{30}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Memberikan daftar nama tempat dan nama jalan terkait}}{30}{figure.3.3}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Tampilan rute kendaraan umum dalam bentuk daftar}}{31}{figure.3.4}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Tampilan rute kendaraan umum di peta}}{31}{figure.3.5}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Tampilan \textit {pushpin} untuk angkot}}{35}{figure.3.6}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Tampilan \textit {pushpin} untuk jalan kaki}}{35}{figure.3.7}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagram \textit {use case}}}{42}{figure.3.8}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Tampilan Utama Aplikasi Public Transport}}{29}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Menunjuk Lokasi pada Peta}}{30}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Memberikan Daftar Nama Tempat dan Nama Jalan Terkait}}{30}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Tampilan Rute Kendaraan Umum dalam Bentuk Daftar}}{31}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Tampilan Rute Kendaraan Umum di Peta}}{31}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Tampilan \textit {Pushpin} untuk Angkot}}{35}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Tampilan \textit {Pushpin} untuk Jalan Kaki}}{35}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagram \textit {Use Case}}}{42}{figure.3.8}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Diagram Kelas}}{44}{figure.3.9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram \textit {sequence} Mendapatkan Kordinat perangkat}}{47}{figure.4.1}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram \textit {sequence} Mendapatkan Kordinat Perangkat}}{47}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Diagram \textit {sequence} Mendapatkan Kordinat pada Peta}}{48}{figure.4.2}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Diagram \textit {sequence} Mendapatkan Rute}}{49}{figure.4.3}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Diagram Kelas}}{50}{figure.4.4}
@@ -38,15 +38,15 @@
 \contentsline {figure}{\numberline {4.15}{\ignorespaces Antarmuka Daftar Tempat}}{65}{figure.4.15}
 \contentsline {figure}{\numberline {4.16}{\ignorespaces Antarmuka \textit {Map}}}{66}{figure.4.16}
 \contentsline {figure}{\numberline {4.17}{\ignorespaces Antarmuka \textit {Route}}}{66}{figure.4.17}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Antarmuka Rute dalam bentuk Daftar}}{67}{figure.4.18}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Antarmuka Rute dalam Bentuk Daftar}}{67}{figure.4.18}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Gambar antarmuka kelas MainPage}}{70}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Gambar antarmuka Splash di kelas MainPage}}{71}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Gambar antarmuka \textit {list} asal dan \textit {list} tujuan di kelas MainPage}}{71}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Gambar antarmuka kelas Map}}{72}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Gambar antarmuka menunggu di kelas Route}}{72}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Gambar antarmuka kelas Route}}{73}{figure.5.6}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Gambar antarmuka \textit {list} di kelas Route}}{73}{figure.5.7}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Gambar Antarmuka Splash di Kelas MainPage}}{71}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Gambar Antarmuka \textit {List} Asal dan \textit {List} Tujuan di Kelas MainPage}}{71}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Gambar Antarmuka Kelas Map}}{72}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Gambar Antarmuka Menunggu di Kelas Route}}{72}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Gambar Antarmuka Kelas Route}}{73}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Gambar Antarmuka \textit {List} di Kelas Route}}{73}{figure.5.7}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

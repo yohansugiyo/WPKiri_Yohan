@@ -15,7 +15,7 @@ Berikut adalah tampilan dari aplikasi Public Transport (Gambar ~\ref{fig:home} s
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/KIRI_Android/home}
-	\caption{Tampilan utama aplikasi Public Transport}
+	\caption{Tampilan Utama Aplikasi Public Transport}
 	\label{fig:home}
 \end{figure}
 
@@ -24,7 +24,7 @@ Gambar ~\ref{fig:home} menunjukan halaman utama aplikasi Public Transport. Di ha
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/KIRI_Android/menunjuk_lokasi}
-	\caption{Menunjuk lokasi pada peta}
+	\caption{Menunjuk Lokasi pada Peta}
 	\label{fig:menunjuk}
 \end{figure}
 
@@ -33,7 +33,7 @@ Gambar ~\ref{fig:menunjuk} jika pengguna sudah mengetahui lokasi namun tidak tah
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/KIRI_Android/terkait}
-	\caption{Memberikan daftar nama tempat dan nama jalan terkait}
+	\caption{Memberikan Daftar Nama Tempat dan Nama Jalan Terkait}
 	\label{fig:terkait}
 \end{figure}
 
@@ -42,7 +42,7 @@ Pada gambar ~\ref{fig:terkait} pengguna dapat memilih nama tempat terkait. Pemil
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/KIRI_Android/tampilan_daftar}
-	\caption{Tampilan rute kendaraan umum dalam bentuk daftar}
+	\caption{Tampilan Rute Kendaraan Umum dalam Bentuk Daftar}
 	\label{fig:daftar}
 \end{figure}
 
@@ -51,7 +51,7 @@ Pada gambar ~\ref{fig:daftar} menampilkan daftar rute kendaraan umum yang harus 
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/KIRI_Android/tampilan_peta}
-	\caption{Tampilan rute kendaraan umum di peta}
+	\caption{Tampilan Rute Kendaraan Umum di Peta}
 	\label{fig:peta}
 \end{figure}
 \newpage
@@ -138,14 +138,14 @@ Di setiap kota ada satu angkutan umum yang banyak dipakai yaitu angkutan kota(an
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/out_kiri/angkot}
-	\caption{Tampilan \textit{pushpin} untuk angkot}
+	\caption{Tampilan \textit{Pushpin} untuk Angkot}
 	\label{fig:pushpin_angkot}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/out_kiri/jalan}
-	\caption{Tampilan \textit{pushpin} untuk jalan kaki}
+	\caption{Tampilan \textit{Pushpin} untuk Jalan Kaki}
 	\label{fig:pushpin_jalan}
 \end{figure}
 
@@ -188,7 +188,7 @@ Berikut format layanan yang penulis kirim:\newline
 \newline
 \\Berikut hasil kembalian dari Kiri API: 
 
-\begin{lstlisting} [caption= Kode kembalian dari pencarian rute]
+\begin{lstlisting} [caption= Kode Kembalian dari Pencarian Rute]
 { 
 	"status":"ok",
 	"searchresult":[
@@ -261,7 +261,7 @@ Format layanan yang dikirim melalui URL adalah \url{kiri.travel/handle.php?versi
 Penulis mencoba menuju jalan merdeka dari jalan ciumbuleuit. Layanan dikirimkan ke URL \url{kiri.travel/handle.php}. Berikut format layanan yang penulis kirim dengan \textit{presentation mobile} \url{http://kiri.travel/handle.php?version=2&mode=findroute&locale=id&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=mobile&apikey=97A7A1157A05ED6F}.\\
 \newline
 Berikut hasil kembalian dari Kiri API:
-\begin{lstlisting} [caption= Kode kembalian pencarian rute dengan \textit{presentation mobile}]
+\begin{lstlisting} [caption= Kode Kembalian Pencarian Rute dengan \textit{Presentation Mobile}]
 {
 	"status":"ok",
 	"routingresults":[
@@ -332,7 +332,7 @@ Berikut hasil kembalian dari Kiri API:
 Berikut format layanan yang penulis kirim dengan \textit{presentation mobile} \url{http://kiri.travel/handle.php?version=2&mode=findroute&locale=id&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=desktop&apikey=97A7A1157A05ED6F}.\\
 
 Berikut hasil kembalian dari Kiri API:
-\begin{lstlisting} [caption= Kode kembalian pencarian rute dengan \textit{presentation desktop}]
+\begin{lstlisting} [caption= Kode Kembalian Pencarian Rute dengan \textit{Presentation Desktop}]
 {
 	"status":"ok",
 	"routingresults":[
@@ -423,7 +423,7 @@ Diagram \textit{use case} saat pengguna mencari rute kendaraan umum dapat diliha
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.5]{Gambar/useCase_dan_Class/UseCase}
-	\caption{Diagram \textit{use case}}
+	\caption{Diagram \textit{Use Case}}
 	\label{fig:UseCase}
 \end{figure}
 
@@ -442,7 +442,7 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 			Eksespsi & lokasi tidak ditemukan jika GPS perangkat tidak aktif  \\ 
 			\hline
 		\end{tabular}
-	\caption{Skenario mandapatkan lokasi untuk masukan lokasi asal dan lokasi tujuan}
+	\caption{Skenario Mendapatkan Lokasi untuk Masukan Lokasi Asal dan Lokasi Tujuan}
 	\label{tab:mandapatLokasi}
 \end{table}
 
@@ -459,7 +459,7 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 			Eksespsi & tidak ada  \\ 
 			\hline
 		\end{tabular}
-	\caption{Skenario memasukan lokasi asal dan lokasi tujuan pada \textit{TextBox}}
+	\caption{Skenario Memasukan Lokasi Asal dan Lokasi Tujuan pada \textit{TextBox}}
 	\label{tab:masukanLokasi}
 \end{table}
 
@@ -476,7 +476,7 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 			Eksespsi & tidak ada  \\ 
 			\hline
 		\end{tabular}
-	\caption{Skenario menunjuk lokasi asal dan lokasi tujuan pada peta}
+	\caption{Skenario Menunjuk Lokasi Asal dan Lokasi Tujuan pada Peta}
 	\label{tab:lokasiPeta}
 \end{table}
 
@@ -493,7 +493,7 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 			Eksespsi & Lokasi masukan pengguna tidak ditemukan  \\ 
 			\hline
 		\end{tabular}
-	\caption{Skenario memilih alamat}
+	\caption{Skenario Memilih Alamat}
 	\label{tab:memilihAlamat}
 \end{table}
 
@@ -510,7 +510,7 @@ Skenario pencarian rute kendaraan umum dapat dilihat pada tabel~\ref{tab:mandapa
 			Eksespsi & Rute kendaraan umum tidak ditemukan  \\ 
 			\hline
 		\end{tabular}
-	\caption{Skenario menampilkan rute kendaraan umum}
+	\caption{Skenario Menampilkan Rute Kendaraan Umum}
 	\label{tab:menampilkan}
 \end{table}
 
