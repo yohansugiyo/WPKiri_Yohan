@@ -1,7 +1,7 @@
 \chapter{Perancangan}
 \label{chap:Perancangan}
 
-Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence}, diagram kelas secara rinci, deskripsi artibut dan \textit{method} dari setiap kelas, dan perancangan antarmuka.
+Pada bab 4 akan dibahas mengenai perancangan aplikasi mulai dari diagram \textit{sequence}, diagram kelas secara rinci, deskripsi artibut dan \textit{method} dari setiap kelas, dan perancangan antarmuka.
 
 %Perancangan Diagram Sequence
 \section{Diagram \textit{Sequence}}
@@ -16,7 +16,7 @@ Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence}, 
 	\label{fig:sequence lokasi perangkat}
 \end{figure}
 
-\hspace{0.5cm} Diagram ~\ref{fig:sequence lokasi perangkat} merupakan diagram \textit{sequence} untuk memilih lokasi dengan lokasi perangkat berada. Diagram menunjukan bahwa setelah aplikasi dibuka maka aplikasi akan mencari dahulu lokasi perangkat dengan memanfaatkan kelas LocationFinder. Lalu setelah aplikasi terbuka jika pengguna ingin memilih lokasi tersebut sebagai lokasi asal maka pengguna harus menekan tombol "here". Setelah tombol "here" ditekan maka kelas MainPage akan mengambil nilai \textit{Latitude} dan nilai \textit{Longitude} dari kelas LocatonFinder. Setelah lokasi didapatkan maka akan muncul tulisan "here" pada masukan di kelas MainPage.
+\hspace{0.5cm} Diagram ~\ref{fig:sequence lokasi perangkat} merupakan diagram \textit{sequence} untuk penentuan lokasi asal/tujuan dengan masukan lokasi perangkat. Diagram menunjukan bahwa setelah aplikasi dibuka maka aplikasi akan mencari dahulu lokasi perangkat dengan memanfaatkan kelas LocationFinder. Lalu setelah aplikasi terbuka jika pengguna ingin memilih lokasi tersebut sebagai lokasi asal maka pengguna harus menekan tombol "here". Setelah tombol "here" ditekan maka kelas MainPage akan mengambil nilai \textit{Latitude} dan nilai \textit{Longitude} dari kelas LocatonFinder. Setelah lokasi didapatkan maka akan muncul tulisan "here" pada \textit{TextBox} di kelas MainPage.
 
 % Sequence mendapat lokasi dari peta
 \begin{figure}[h]
@@ -26,16 +26,14 @@ Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence}, 
 	\label{fig:sequence lokasi pada peta}
 \end{figure}
 
-\hspace{0.5cm} Diagram ~\ref{fig:sequence lokasi pada peta} merupakan diagram \textit{sequence} untuk memilih lokasi. Diagram menunjukan bahwa setelah aplikasi dibuka maka pengguna dapat menekan tombol "map". Setelah tombol "map" ditekan maka halaman akan dialihkan ke kelas Map. Saat kelas Map terbuka maka lokasi yang ditunjukan adalah lokasi dimana perangkat berada. Untuk mengetahui lokasi kelas Map mengambil kordinat \textit{latitude} dan \textit{longitude} dari kelas LocationFinder. Di kelas "Map" pengguna dapat memilih lokasi dengan memilih lokasi pada peta dan memanggil \textit{method map\_tap}, lalu setelah pengguna memilih tempat pengguna akan menekan tombol Pilih Lokasi yang akan memanggil \textit{method pilihLokasi}. Lokasi yang dipilih pengguna akan disimpan di kelas MainPage dan pada masukan akan tertulis "map". 
+\hspace{0.5cm} Diagram ~\ref{fig:sequence lokasi pada peta} merupakan diagram \textit{sequence} untuk memilih lokasi. Diagram menunjukan bahwa setelah aplikasi dibuka maka pengguna dapat menekan tombol "map". Setelah tombol "map" ditekan maka halaman akan dialihkan ke kelas Map. Saat kelas Map terbuka maka lokasi yang ditunjukan adalah lokasi dimana perangkat berada. Untuk mengetahui lokasi kelas Map mengambil kordinat \textit{latitude} dan \textit{longitude} dari kelas LocationFinder. Di kelas "Map" pengguna dapat memilih lokasi dengan memilih lokasi pada peta dan memanggil \textit{method map\_tap()}, lalu setelah pengguna memilih tempat pengguna akan menekan tombol Pilih Lokasi yang akan memanggil \textit{method pilihLokasi()}. Lokasi yang dipilih pengguna akan disimpan di kelas MainPage dan pada masukan akan tertulis "Maps". 
 
-\hspace{0.5cm} Diagram ~\ref{fig:sequence rute} merupakan diagram \textit{sequence} untuk mencari rute. Diagram menunjukan bahwa setelah aplikasi dibuka maka aplikasi akan melakukan inisialisasi. Untuk mencari rute dari lokasi asal ke lokasi tujuan dibutuhkan kordinat \textit{latitude} lokasi asal, \textit{longitude} lokasi asal, \textit{latitude} lokasi tujuan, dan \textit{longitude} lokasi tujuan. Jika pengguna mendapatkan lokasi dari peta atau sesuai lokasi maka yang didapatkan sudah pasti kordinat, namun jika pengguna memasukan kata kunci perlu didapat kordinat \textit{latitude} dan \textit{longitude} dari kata kunci tersebut. Jika masukan yang didapat berupa kata kunci maka akan dilakukan pemeriksaan apakah kordinat untuk kata kunci tersebut tersedia. Pemeriksaan dilakukan dengan melakukan pemanggilan Kiri API. Tahap pemanggilan meliputi pemangilan \textit{method GetStringAsync} lalu mengjadikan objek kembaliannya dengan \textit{method Deselialize}. Jika sudah didapat dan hasilnya lebih dari satu maka akan dipanggil \textit{method getListItem} yang akan menampilkan daftar pilihan ke pengguna untuk dipilih. Pengguna dapat memilih tempat sesuai tempat asal maupun tujuan yang diinginkan. Setelah lokasi asal dan lokasi tujuan didapat maka kelas MainPage akan mengarahkan ke kelas Route untuk menampilkan hasilnya. Kelas Route akan memanggil \textit{method OnNavigatedTo} yang bertujuan untuk mendapatkan lokasi asal dan lokasi tujuan. Setelah itu akan memanggil \textit{method Find} lalu mengembalikan rute yang ditemukan kepada pengguna.
-
-\newpage
+\hspace{0.5cm} Diagram ~\ref{fig:sequence rute} merupakan diagram \textit{sequence} untuk mencari rute. Diagram menunjukan bahwa setelah aplikasi dibuka maka aplikasi akan melakukan inisialisasi. Untuk mencari rute dari lokasi asal ke lokasi tujuan dibutuhkan kordinat \textit{latitude} lokasi asal, \textit{longitude} lokasi asal, \textit{latitude} lokasi tujuan, dan \textit{longitude} lokasi tujuan. Jika pengguna mendapatkan lokasi dari peta atau sesuai lokasi maka yang didapatkan sudah pasti kordinat, namun jika pengguna memasukan kata kunci perlu didapat kordinat \textit{latitude} dan \textit{longitude} dari kata kunci tersebut. Jika masukan yang didapat berupa kata kunci maka akan dilakukan pemeriksaan apakah kordinat untuk kata kunci tersebut tersedia. Pemeriksaan dilakukan dengan melakukan pemanggilan Kiri API. Tahap pemanggilan meliputi pemangilan \textit{method GetStringAsync()} lalu mengjadikan objek kembaliannya dengan \textit{method Deselialize()}. Jika sudah didapat dan hasilnya lebih dari satu maka akan dipanggil \textit{method getListItem()} yang akan menampilkan daftar pilihan ke pengguna untuk dipilih. Pengguna dapat memilih tempat sesuai tempat asal maupun tujuan yang diinginkan. Setelah lokasi asal dan lokasi tujuan didapat maka kelas MainPage akan mengarahkan ke kelas Route untuk menampilkan hasilnya. Kelas Route akan memanggil \textit{method OnNavigatedTo()} yang bertujuan untuk mendapatkan lokasi asal dan lokasi tujuan. Setelah itu akan memanggil \textit{method Find()} lalu mengembalikan rute yang ditemukan kepada pengguna.
 
 % Sequence mendapat rute
 \begin{figure}[h!]
 	\centering
-		\includegraphics[scale=0.4]{Gambar/sequence/MendapatkanRute}
+		\includegraphics[scale=0.35]{Gambar/sequence/MendapatkanRute}
 	\caption{Diagram \textit{sequence} Mendapatkan Rute}
 	\label{fig:sequence rute}
 \end{figure}
@@ -45,7 +43,7 @@ Pada bab 4 akan dibahas mengenai perancangan seperti diagram \textit{sequence}, 
 %Perancangan Kelas
 \section{Perancangan Kelas}
 \label{lab:Perancangan Kelas}
-\hspace{0.5cm} Pada sub bab ini akan dibahas mengenai deskripsi kelas secara rinci pada aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone. Untuk lebih jelas mengenai kelas yang ada pada aplikasi ini, penulis menyajikan gambar diagram kelas yang dapat dilihat pada  gambar ~\ref{fig:kelas}. 
+\hspace{0.5cm} Pada sub-bab ini akan dibahas mengenai deskripsi kelas secara rinci pada aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone. Untuk lebih jelas mengenai kelas yang ada pada aplikasi ini, penulis menyajikan gambar diagram kelas yang dapat dilihat pada  gambar ~\ref{fig:kelas}. 
 
 % Kelas tanpa atribut 
 \begin{figure}[h!]
@@ -61,7 +59,15 @@ Berikut Penjelasan kelas diagram secara rinci dengan setiap kelas disertai atrib
 % Kelas
 \begin{figure}[h!]
 	\centering
-		\includegraphics[scale=0.6]{Gambar/useCase_dan_Class/perClass/city}
+		\includegraphics[scale=0.6]{Gambar/useCase_dan_Class/perClass/main}
+	\caption{Kelas Mainpage}
+	\label{fig:kelasMainpage}
+\end{figure}
+
+% Kelas
+\begin{figure}[h!]
+	\centering
+		\includegraphics[scale=0.7]{Gambar/useCase_dan_Class/perClass/city}
 	\caption{Kelas City}
 	\label{fig:kelasCity}
 \end{figure}
@@ -69,7 +75,7 @@ Berikut Penjelasan kelas diagram secara rinci dengan setiap kelas disertai atrib
 % Kelas
 \begin{figure}[h!]
 	\centering
-		\includegraphics[scale=0.6]{Gambar/useCase_dan_Class/perClass/jsonConvert}
+		\includegraphics[scale=0.7]{Gambar/useCase_dan_Class/perClass/jsonConvert}
 	\caption{Kelas JsonConvert}
 	\label{fig:kelasJsonConvert}
 \end{figure}
@@ -77,7 +83,7 @@ Berikut Penjelasan kelas diagram secara rinci dengan setiap kelas disertai atrib
 % Kelas
 \begin{figure}[h!]
 	\centering
-		\includegraphics[scale=0.6]{Gambar/useCase_dan_Class/perClass/locationFinder}
+		\includegraphics[scale=0.7]{Gambar/useCase_dan_Class/perClass/locationFinder}
 	\caption{Kelas LocationFinder}
 	\label{fig:kelaslLocationFinder}
 \end{figure}
@@ -85,7 +91,7 @@ Berikut Penjelasan kelas diagram secara rinci dengan setiap kelas disertai atrib
 % Kelas
 \begin{figure}[h!]
 	\centering
-		\includegraphics[scale=0.6]{Gambar/useCase_dan_Class/perClass/map}
+		\includegraphics[scale=0.7]{Gambar/useCase_dan_Class/perClass/map}
 	\caption{Kelas Map}
 	\label{fig:kelaslMap}
 \end{figure}
@@ -103,7 +109,7 @@ Berikut Penjelasan kelas diagram secara rinci dengan setiap kelas disertai atrib
 % Kelas
 \begin{figure}[h!]
 	\centering
-		\includegraphics[scale=0.6]{Gambar/useCase_dan_Class/perClass/protocol}
+		\includegraphics[scale=0.7]{Gambar/useCase_dan_Class/perClass/protocol}
 	\caption{Kelas Protocol}
 	\label{fig:kelaslProtocol}
 \end{figure}
@@ -111,7 +117,7 @@ Berikut Penjelasan kelas diagram secara rinci dengan setiap kelas disertai atrib
 % Kelas
 \begin{figure}[h!]
 	\centering
-		\includegraphics[scale=0.6]{Gambar/useCase_dan_Class/perClass/route}
+		\includegraphics[scale=0.7]{Gambar/useCase_dan_Class/perClass/route}
 	\caption{Kelas Route}
 	\label{fig:kelaslRoute}
 \end{figure}
@@ -119,7 +125,7 @@ Berikut Penjelasan kelas diagram secara rinci dengan setiap kelas disertai atrib
 % Kelas
 \begin{figure}[h!]
 	\centering
-		\includegraphics[scale=0.6]{Gambar/useCase_dan_Class/perClass/SearchPlace}
+		\includegraphics[scale=0.7]{Gambar/useCase_dan_Class/perClass/SearchPlace}
 	\caption{Kelas SearchPlace}
 	\label{fig:kelaslSearchPlace}
 \end{figure}
@@ -127,13 +133,12 @@ Berikut Penjelasan kelas diagram secara rinci dengan setiap kelas disertai atrib
 % Kelas
 \begin{figure}[h!]
 	\centering
-		\includegraphics[scale=0.6]{Gambar/useCase_dan_Class/perClass/FindRoute}
+		\includegraphics[scale=0.7]{Gambar/useCase_dan_Class/perClass/FindRoute}
 	\caption{Kelas FindRoute}
 	\label{fig:kelasFindRoute}
 \end{figure}
 
 \clearpage
-
 %Kelas PhoneApplicationPage
 \subsection{Kelas \textit{PhoneApplicationPage}}
 \label{lab:Kelas PhoneApplicationPage}
@@ -155,25 +160,25 @@ Berikut Penjelasan kelas diagram secara rinci dengan setiap kelas disertai atrib
 Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \begin{enumerate}
 	\item Konstruktor MainPage digunakan untuk memuat komponen yang ada di halaman MainPage dan mendapatkan kota terdekat dari lokasi perangkat.
-	\item \textit{method} OnNavigatedTo digunakan untuk mendapatkan lokasi dari peta dan mendapatkan objek LocationFinder. \textit{Method} ini secara otomatis dipanggil jika pengguna kembali ke kelas MainPage. \textit{method} ini memiliki parameter NavigationEventArgs.
-	\item \textit{method} OnNavigatedFrom digunakan untuk mengirimkan \textit{state} objek LocationFinder saat berpindah kelas. \textit{Method} ini secara otomatis dipanggil jika pengguna berpindah dari kelas MainPage ke kelas lain. \textit{method} ini memiliki parameter NavigationEventArgs.
+	\item \textit{method} OnNavigatedTo digunakan untuk mendapatkan lokasi dari peta dan mendapatkan objek LocationFinder. \textit{Method} ini secara otomatis dipanggil jika pengguna kembali ke kelas MainPage. \textit{Method} ini memiliki parameter NavigationEventArgs.
+	\item \textit{method} OnNavigatedFrom digunakan untuk mengirimkan \textit{state} objek LocationFinder saat berpindah kelas. \textit{Method} ini secara otomatis dipanggil jika pengguna berpindah dari kelas MainPage ke kelas lain. \textit{Method} ini memiliki parameter NavigationEventArgs.
 	\item \textit{method} Application\_Deactivated digunakan untuk menyimpan \textit{state} objek saat meninggalkan aplikasi. \textit{method} ini memiliki parameter object dan DeactivatedEventArgs.
 	\item \textit{method} Application\_Activated digunakan untuk mengambil \textit{state} objek saat kembali ke aplikasi. \textit{method} ini memiliki parameter object dan ActivatedEventArgs.
 	\item \textit{method} startRoute digunakan untuk mendapatkan masukan pengguna. Jika masukan didapat dari peta atau lokasi perangkat berarti sudah dalam kordinat, namun jika masukan didapat dari \textit{query} maka akan dicari lokasi yang terkait sesuai \textit{query} tersebut. Lokasi terkait yang didapatkan akan dikembalikan ke pengguna untuk dipilih. Setelah pengguna lokasi dalam bentuk kordinat didapatkan maka kelas akan diarahkan ke kelas Route. \textit{method} ini memiliki parameter objek tombol dan event.
 	\item \textit{method} changeMapFrom digunakan untuk berpindah ke halaman mapFrom. \textit{method} ini memiliki parameter objek tombol dan event.
 	\item \textit{method} changeMapTo digunakan untuk berpindah ke halaman mapTo. \textit{method} ini memiliki parameter objek tombol dan event.
-	\item \textit{method} getHereFrom digunakan untuk mendapatkan kordinat perangkat lalu menyimpan nilainya di kordinat asal di kelas LocationFinder dan menulisakan "Here" pada TextBox lokasi asal. \textit{method} ini memiliki parameter objek tombol dan event.
-	\item \textit{method} getHereTo digunakan untuk mendapatkan kordinat perangkat lalu menyimpan nilainya di kordinat tujuan di kelas LocationFinder dan menulisakan "Here" pada TextBox lokasi tujuan. \textit{method} ini memiliki parameter objek tombol dan event.
-	\item \textit{method} getListItem digunakan untuk membuat listBox lalu menampilkan ke pengguna. \textit{method} ini memiliki parameter RootObjectSearchPlace dan string yang menunjukan \textit{list} yang ditampilkan untuk lokasi asal dan lokasi tujuan. 
+	\item \textit{method} getHereFrom digunakan untuk mendapatkan kordinat perangkat lalu menyimpan nilainya di kordinat asal di kelas LocationFinder dan menulisakan "Here" pada \textit{TextBox} lokasi asal. \textit{method} ini memiliki parameter objek tombol dan event.
+	\item \textit{method} getHereTo digunakan untuk mendapatkan kordinat perangkat lalu menyimpan nilainya di kordinat tujuan di kelas LocationFinder dan menulisakan "Here" pada \textit{TextBox} lokasi tujuan. \textit{method} ini memiliki parameter objek tombol dan event.
+	\item \textit{method} getListItem digunakan untuk membuat \textit{listBox} lalu menampilkan ke pengguna. \textit{method} ini memiliki parameter RootObjectSearchPlace dan string yang menunjukan \textit{list} yang ditampilkan untuk lokasi asal dan lokasi tujuan. 
 	\item \textit{method} ListBoxSelectedPlace digunakan untuk mendapatkan tempat asal yang dipilih pengguna. \textit{method} ini memiliki parameter objek dan \textit{event SelectionChangedEventArgs}. 
-	\item \textit{method} searchCoordinatePlace digunakan untuk mencari kordinat dari tempat pilihan pengguna. \textit{method} ini memiliki parameter ListBox dan tempat yang dipilih dalam bentuk string.
+	\item \textit{method} searchCoordinatePlace digunakan untuk mencari kordinat dari tempat pilihan pengguna. \textit{method} ini memiliki parameter \textit{ListBox} dan tempat yang dipilih dalam bentuk \textit{string}.
 	\item \textit{method} findRoute digunakan untuk berpindah ke kelas Route jika lokasi asal dan lokasi tujuan sudah ditentukan.
 	\item \textit{method} changeCity digunakan untuk mengubah kota tujuan dari pencarian. \textit{method} ini memiliki parameter objek dan \textit{event SelectionChangedEventArgs}.
 	\item \textit{method} showCity digunakan untuk mencari kota yang paling dekat dengan lokasi perangkat.
 	\item \textit{method} ShowSplash digunakan untuk menampilkan tampilan awal untuk proses inisialisasi aplikasi.
 	\item \textit{method} StartLoadingData digunakan untuk memanggil BackgroundWorker. BackgroundWorker digunakan untuk melakukan aksi di belakang layar.
 	\item \textit{method} backgroundWorker\_DoWork digunakan untuk melakukan pemanggilan aksi di belakang layar. \textit{method} ini memiliki parameter objek dan DoWorkEventArgs.
-	\item \textit{method} backgroundWorker\_RunWorkerCompleted digunakan untuk melakukan pemanggilan saat BackgroundWorker selesai melakukan tugasnya. \textit{method} ini memiliki parameter objek dan RunWorkerCompletedEventArgs.
+	\item \textit{method} backgroundWorker\_RunWorkerCompleted digunakan untuk melakukan pemanggilan saat BackgroundWorker selesai melakukan tugasnya. \textit{method} ini memiliki parameter objek dan \textit{RunWorkerCompletedEventArgs}.
 \end{enumerate}
 
 %Kelas City
@@ -189,8 +194,8 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \begin{enumerate}
 	\item Konstruktor City digunakan untuk untuk inisialisasi nilai atribut.
-	\item \textit{method} getNearby digunakan untuk mencari kota terdekat dengan lokasi perangkat. \textit{method} ini mengembalikan interger yang merupakan index kota pada atribut city. \textit{method} ini memiliki 2 buah parameter yaitu \textit{latitude} dan \textit{longitude} yang bertipe double.
-	\item \textit{method} getIndexFromCityCode digunakan untuk mencari index pada \textit{array}  sesuai kode kota. \textit{method} ini memiliki parameter bertipe String yang merupakan kode kota.
+	\item \textit{method} getNearby digunakan untuk mencari kota terdekat dengan lokasi perangkat. \textit{method} ini mengembalikan interger yang merupakan index kota pada atribut city. \textit{method} ini memiliki 2 buah parameter yaitu \textit{latitude} dan \textit{longitude} yang bertipe \textit{double}.
+	\item \textit{method} getIndexFromCityCode digunakan untuk mencari indeks pada \textit{array}  sesuai kode kota. \textit{method} ini memiliki parameter bertipe \textit{string} yang merupakan kode kota.
 \end{enumerate}
 
 %Kelas BackgroundWorker
@@ -253,7 +258,7 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 	\item \textit{method} ReverseGeocodeQueryFrom\_QueryCompleted berfungsi untuk mencari alamat lokasi asal. \textit{method} ini memiliki parameter objek dan QueryCompletedEventArgs<IList<MapLocation>>.
 	\item \textit{method} ReverseGeocodeQueryTo\_QueryCompleted berfungsi untuk mencari alamat lokasi tujuan. \textit{method} ini memiliki parameter objek dan QueryCompletedEventArgs<IList<MapLocation>>.
 	\item \textit{method} ReverseGeocodeQuery\_QueryCompleted berfungsi untuk mencari alamat lokasi perangkat. \textit{method} ini memiliki parameter objek dan QueryCompletedEventArgs<IList<MapLocation>>.
-	\item \textit{method} setCoordinateHere berfungsi untuk menyimpan kordinat dan alamat perangkat ke kordinat dan alamat lokasi asal dan lokasi tujuan. \textit{method} ini memiliki parameter paramFor bertipe String yang akan digunakan sebagai masukan disimpannya lokasi perangkat.
+	\item \textit{method} setCoordinateHere berfungsi untuk menyimpan kordinat dan alamat perangkat ke kordinat dan alamat lokasi asal dan lokasi tujuan. \textit{method} ini memiliki parameter paramFor bertipe \textit{string} yang akan digunakan sebagai masukan disimpannya lokasi perangkat.
 	\item \textit{method} reset berfungsi untuk memasang kembali lokasi asal dan lokasi tujuan.
 \end{enumerate}
 
@@ -269,11 +274,11 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \begin{enumerate}
 	\item Konstruktor Map untuk inisialisasi dan penambahan \textit{event} mengetuk pada peta.
-	\item \textit{method} OnNavigatedTo berfungsi untuk mendapatkan masukan lokasi asal atau lokasi tujuan yang akan ditentukan dari map untuk kemudian ditampung di Objek LocationFinder. \textit{method} ini memiliki sebuah parameter NavigationEventArgs.
+	\item \textit{method} OnNavigatedTo berfungsi untuk mendapatkan masukan lokasi asal atau lokasi tujuan yang akan ditentukan dari map untuk kemudian ditampung di objek LocationFinder. \textit{method} ini memiliki sebuah parameter NavigationEventArgs.
 	\item \textit{method} OnNavigatedFrom digunakan untuk mengirimkan \textit{state} objek LocationFinder saat berpindah kelas. \textit{method} ini memiliki parameter NavigationEventArgs.
 	\item \textit{method} ShowMyLocationOnTheMap digunakan untuk memberitahu dan menandai lokasi perangkat.
 	\item \textit{method} map\_Tap berfungsi untuk menandai lokasi yang ditunjuk pengguna lalu  menerjemahkan lokasi yang ditunjuk pengguna pada peta dan mengirimnya ke kelas LocationFinder.
-	\item \textit{method} pilihLokasi berfungsi berpindah ke kelas MainPage dan memberitahu kelas MainPage bahwa lokasi sudah dipilih. \textit{method} ini memiliki parameter objek tombol dan event.
+	\item \textit{method} pilihLokasi berfungsi berpindah ke kelas MainPage dan memberitahu kelas MainPage bahwa lokasi sudah dipilih. \textit{method} ini memiliki parameter objek tombol dan \textit{event}.
 \end{enumerate}
 
 %Kelas HttpClient
@@ -281,7 +286,7 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \label{lab:Kelas HttpClient}
 \hspace{0.5cm} \textit{HttpClient} merupakan kelas bawaan Windows Phone untuk mengatur pengiriman dan kembalian menggunakan protokol HTTP. Berikut adalah penjelasan \textit{method} kelas \textit{HttpClient} yang dipakai untuk perancangan aplikasi ini:
 \begin{enumerate}
-	\item \textit{method} GetStringAsync membutuhkan parameter alamat bertipe string dan mengembalikan kembalian dari Kiri dalam bentuk Task<string>.
+	\item \textit{method} GetStringAsync membutuhkan parameter alamat bertipe \textit{string} dan mengembalikan kembalian dari Kiri dalam bentuk \textit{Task<string>}.
 \end{enumerate}
 
 %Kelas JsonConvert
@@ -289,7 +294,7 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \label{lab:Kelas JsonConvert}
 \hspace{0.5cm} \textit{JsonConvert} merupakan kelas yang menyediakan \textit{method} untuk mengkonversi berbagai jenis komponen \textit{common language runtime} dan \textit{JSON}. Kelas ini merupakan bagian \textit{namespace Newtonsoft}.  Berikut adalah penjelasan \textit{method} yang dipakai untuk perancangan aplikasi:
 \begin{enumerate}
-	\item \textit{method} DeserializeObject berfungsi untuk konversi dari bentuk string menjadi objek. \textit{method} ini memiliki satu parameter bertipe string lalu mengembalika string tersebut dalam bentuk objek.
+	\item \textit{method} DeserializeObject berfungsi untuk konversi dari bentuk \textit{string} menjadi objek. \textit{Method} ini memiliki satu parameter bertipe \textit{string} lalu mengembalikan \textit{string} tersebut dalam bentuk objek.
 \end{enumerate}
 
 %Kelas Protocol
@@ -297,32 +302,32 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \label{lab:Kelas Protocol}
 \hspace{0.5cm} \textit{Protocol} merupakan kelas untuk menampung semua alamat dalam pengiriman menggunakan protokol HTTP. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item uri\_version bertipe string digunakan untuk menyimpan nama dari parameter uri.
-	\item uri\_mode bertipe string digunakan untuk menyimpan nama dari parameter mode.
-	\item uri\_locale bertipe string digunakan untuk menyimpan nama dari parameter locale.
-	\item uri\_start bertipe string digunakan untuk menyimpan nama dari parameter start.
-	\item uri\_finish bertipe string digunakan untuk menyimpan nama dari parameter finish.
-	\item uri\_presentation bertipe string digunakan untuk menyimpan nama dari parameter presentation.
-	\item uri\_apikey bertipe string digunakan untuk menyimpan nama dari parameter apikey.
-	\item uri\_region bertipe string digunakan untuk menyimpan nama dari parameter region.
-	\item uri\_query bertipe string digunakan untuk menyimpan nama dari parameter query.
+	\item uri\_version bertipe \textit{string} digunakan untuk menyimpan nama dari parameter uri.
+	\item uri\_mode bertipe \textit{string} digunakan untuk menyimpan nama dari parameter mode.
+	\item uri\_locale bertipe \textit{string} digunakan untuk menyimpan nama dari parameter locale.
+	\item uri\_start bertipe \textit{string} digunakan untuk menyimpan nama dari parameter start.
+	\item uri\_finish bertipe \textit{string} digunakan untuk menyimpan nama dari parameter finish.
+	\item uri\_presentation bertipe \textit{string} digunakan untuk menyimpan nama dari parameter presentation.
+	\item uri\_apikey bertipe \textit{string} digunakan untuk menyimpan nama dari parameter apikey.
+	\item uri\_region bertipe \textit{string} digunakan untuk menyimpan nama dari parameter region.
+	\item uri\_query bertipe \textit{string} digunakan untuk menyimpan nama dari parameter query.
 
-	\item apiKey bertipe string digunakan untuk menyimpan nilai kunci API untuk mengirim permintaan ke Kiri.
-	\item hostname bertipe string digunakan untuk digunakan untuk menyimpan alamat host dari Kiri.
-	\item handle bertipe string digunakan untuk menyimpan alamat host ditambah "handle.php".
-	\item iconPath bertipe string digunakan untuk menyimpan lokasi gambar yang dibutuhkan.
-	\item iconStart bertipe string digunakan untuk menyimpan lokasi gambar awal perjalanan dari lokasi awal.
-	\item iconFinish bertipe string digunakan untuk menyimpan lokasi gambar akhir perjalanan ke lokasi tujuan.
+	\item apiKey bertipe \textit{string} digunakan untuk menyimpan nilai kunci API untuk mengirim permintaan ke Kiri.
+	\item hostname bertipe \textit{string} digunakan untuk digunakan untuk menyimpan alamat host dari Kiri.
+	\item handle bertipe \textit{string} digunakan untuk menyimpan alamat host ditambah "handle.php".
+	\item iconPath bertipe \textit{string} digunakan untuk menyimpan lokasi gambar yang dibutuhkan.
+	\item iconStart bertipe \textit{string} digunakan untuk menyimpan lokasi gambar awal perjalanan dari lokasi awal.
+	\item iconFinish bertipe \textit{string} digunakan untuk menyimpan lokasi gambar akhir perjalanan ke lokasi tujuan.
 	
-	\item version\_2 bertipe string digunakan untuk menyimpan nilai versi dari API yang digunakan (saat pembuatan penelitian ini versi Kiri API yang digunakan adalah versi 2).
-	\item modeFind bertipe string yang digunakan untuk menyimpan nilai "searchplace" yang merupakan mode mencari lokasi terkait pada Kiri API.
-	\item modeRoute bertipe string yang digunakan untuk menyimpan nilai "findroute" yang merupakan mode mencari rute pada Kiri API.
-	\item modeNearby bertipe string yang digunakan untuk menyimpan nilai "nearbytransport	" yang merupakan mode mencari lokasi terdekat pada Kiri API.
+	\item version\_2 bertipe \textit{string} digunakan untuk menyimpan nilai versi dari API yang digunakan (saat pembuatan penelitian ini versi Kiri API yang digunakan adalah versi 2).
+	\item modeFind bertipe \textit{string} yang digunakan untuk menyimpan nilai "searchplace" yang merupakan mode mencari lokasi terkait pada Kiri API.
+	\item modeRoute bertipe \textit{string} yang digunakan untuk menyimpan nilai "findroute" yang merupakan mode mencari rute pada Kiri API.
+	\item modeNearby bertipe \textit{string} yang digunakan untuk menyimpan nilai "nearbytransport	" yang merupakan mode mencari lokasi terdekat pada Kiri API.
 	
-	\item localeId bertipe string yang digunakan untuk menyimpan nilai bahasa jika kembalian yang diinginkan ingin berbahasa Indonesia.
-	\item localeEn bertipe string yang digunakan untuk menyimpan nilai bahasa jika kembalian yang diinginkan ingin berbahasa Inggris.
-	\item presentationMobile bertipe string yang digunakan untuk menyimpan nilai penyajian untuk perangkat \textit{mobile}.
-	\item presentationDesktop bertipe string yang digunakan untuk menyimpan nilai penyajian untuk perangkat \textit{desktop}.
+	\item localeId bertipe \textit{string} yang digunakan untuk menyimpan nilai bahasa jika kembalian yang diinginkan ingin berbahasa Indonesia.
+	\item localeEn bertipe \textit{string} yang digunakan untuk menyimpan nilai bahasa jika kembalian yang diinginkan ingin berbahasa Inggris.
+	\item presentationMobile bertipe \textit{string} yang digunakan untuk menyimpan nilai penyajian untuk perangkat \textit{mobile}.
+	\item presentationDesktop bertipe \textit{string} yang digunakan untuk menyimpan nilai penyajian untuk perangkat \textit{desktop}.
 \end{enumerate}
 
 Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
@@ -331,8 +336,8 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 	\item \textit{method} getTypeTransportWOBaloon merupakan \textit{method} yang akan mengembalikan alamat dari gambar transportasi tanpa bingkai tambahan. \textit{method} ini memiliki 2 parmeter yaitu means sebagai tipe transportasi dan meansDetail sebagai nama kendaraan.
 	\item getSearchPlace merupakan \textit{method} yang akan mengembalikan URI pencarian lokasi sesuai paramater. Parameter yang dimaksud adalah kata kunci masukan pengguna.
 	\item \textit{method} getFindRoute merupakan \textit{method} yang akan mengembalikan URI pencarian rute sesuai parameter. Parameter yang dimaksud adalah kordinat lokasi asal dan kordinat lokasi tujuan yang bertipe string.
-	\item \textit{method} getRequestSearch digunakan untuk mendapatkan lokasi terkait sesuai masukan pengguna. \textit{method} ini akan mengembalikan Task<RootObjectSearchPlace> karena menggunakan operasi \textit{asynchronous}. \textit{method} ini memiliki parameter kata kunci masukan pengguna dan kota yang masing-masing parameter bertipe String.
-		\item \textit{method} getRequestRoute digunakan untuk mendapatkan rute sesuai lokasi asal dan lokasi tujuan. \textit{method} ini akan mengembalikan Task<RootObjectFindRoute> karena menggunakan operasi \textit{asynchronous}. \textit{method} ini memiliki parameter \textit{latitude} lokasi asal, \textit{longitude} lokasi asal, \textit{latitude} lokasi tujuan, dan \textit{longitude} lokasi tujuan yang masing-masing bertipe double.
+	\item \textit{method} getRequestSearch digunakan untuk mendapatkan lokasi terkait sesuai masukan pengguna. \textit{method} ini akan mengembalikan Task<RootObjectSearchPlace> karena menggunakan operasi \textit{asynchronous}. \textit{method} ini memiliki parameter kata kunci masukan pengguna dan kota yang masing-masing parameter bertipe string.
+		\item \textit{method} getRequestRoute digunakan untuk mendapatkan rute sesuai lokasi asal dan lokasi tujuan. \textit{method} ini akan mengembalikan Task<RootObjectFindRoute> karena menggunakan operasi \textit{asynchronous}. \textit{method} ini memiliki parameter \textit{latitude} lokasi asal, \textit{longitude} lokasi asal, \textit{latitude} lokasi tujuan, dan \textit{longitude} lokasi tujuan yang masing-masing bertipe \textit{double}.
 \end{enumerate}
 
 %Kelas RootObjectSearchPlace
@@ -340,9 +345,9 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \label{lab:Kelas RootObjectSearchPlace}
 \hspace{0.5cm} \textit{RootObjectSearchPlace} merupakan kelas untuk menampung objek hasil pencarian lokasi. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item status bertipe \textit{string} digunakan untuk menampung hasil kembalian status dari Kiri.
+	\item status bertipe string digunakan untuk menampung hasil kembalian status dari Kiri.
 	\item searchresult bertipe \textit{list} dan menampung banyak objek SearchResult. 
-	\item attributions bertipe objek untuk menampung attributions.
+	\item attributions bertipe objek untuk menampung \textit{attributions}.
 \end{enumerate}
 
 
@@ -378,7 +383,7 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 \label{lab:Kelas Route}
 \hspace{0.5cm} \textit{Route} merupakan kelas untuk pencarian rute dan menampilkannya kepada pengguna. Berikut adalah penjelasan atribut-atribut yang dimiliki kelas ini:
 \begin{enumerate}
-	\item listBoxStatus bertipe boolean digunakan untuk menentukan nilai status rute dalam bentuk daftar sedang tertutup atau terbuka. 
+	\item listBoxStatus bertipe \textit{boolean} digunakan untuk menentukan nilai status rute dalam bentuk daftar sedang tertutup(bernilai \textit{false}) atau terbuka(bernilai \textit{true}). 
 	\item lFinder bertipe LocationFinder digunakan untuk menampung semua informasi mengenai lokasi.
 	\item arrayFocus bertipe \textit{array of Point} digunakan untuk menampung titik fokus perubahan jenis transportasi yang digunakan pengguna.  
 	\item detailRoute bertipe \textit{array of String} digunakan untuk menampung keterangan yang dibutuhkan pengguna dari Kiri API.
@@ -419,7 +424,7 @@ Berikut adalah penjelasan beberapa \textit{method} yang dimiliki kelas ini:
 %Perancangan Antar Muka
 \section{Perancangan Antar Muka}
 \label{lab:Perancangan Kelas}
-\hspace{0.5cm} Pada sub bab ini akan dibahas mengenai antarmuka pada aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone. Antarmuka berfungsi sebagai jembatan yang menghubungkan antara aplikasi dengan pengguna. Berikut ini akan dijelaskan mengenai rancangan antarmuka aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone. 
+\hspace{0.5cm} Pada sub-bab ini akan dibahas mengenai antarmuka pada aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone. Antarmuka berfungsi sebagai jembatan yang menghubungkan antara aplikasi dengan pengguna. Berikut ini akan dijelaskan mengenai rancangan antarmuka aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone. 
 
 %Kelas MainPage
 \subsection{Antarmuka Kelas \textit{MainPage}}

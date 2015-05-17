@@ -5,16 +5,16 @@ Bab ini berisi dasar teori dari pembangunan Aplikasi Pencarian Rute Kendaraan Um
 % Windows Phone
 \section{Windows Phone}
 \label{sec:Windows Phone}
-\hspace{0.5cm} Windows Phone merupakan sistem operasi untuk perangkat bergerak yang dikembangkan Microsoft. Pengembangan aplikasi Windows Phone membutuhkan Windows Desktop 8 sebagai media pengembangan. Bahasa pemrograman yang digunakan untuk membuat perangkat lunak di Windows Phone yaitu C\# atau Visual Basic\cite{Manning}.  
+\hspace{0.5cm} Windows Phone merupakan sistem operasi untuk perangkat \textit{mobile} yang dikembangkan oleh Microsoft. Pengembangan aplikasi Windows Phone membutuhkan Windows Desktop 8 sebagai media pengembangan. Bahasa pemrograman yang digunakan untuk membuat perangkat lunak di Windows Phone yaitu C\# atau Visual Basic\cite{Manning}.  
 
-Pada sub bab~\ref{subsec:Lingkungan Kerja} sampai~\ref{subsec:Memanfaatkan Sumber Data} akan membahas pemrograman di Windows Phone. Pembahasan akan dimulai dengan apa itu Windows Phone dan fitur di Windows Phone yang akan digunakan dalam pembangunan perangkat lunak Pencarian Rute Kendaraan di Windows Phone. 
+Pada sub-bab~\ref{subsec:Lingkungan Kerja} sampai~\ref{subsec:Memanfaatkan Sumber Data} akan membahas pemrograman di Windows Phone. Pembahasan akan dimulai dengan apa itu Windows Phone dan fitur di Windows Phone yang akan digunakan dalam pembangunan perangkat lunak Pencarian Rute Kendaraan di Windows Phone. 
 
 % SUB Lingkungan Kerja
 \subsection{Lingkungan Kerja}
 \label{subsec:Lingkungan Kerja}
-\hspace{0.5cm} Microsoft .NET framework merupakan sebuah perangkat lunak yang dibangun untuk membantu dalam pembangunan aplikasi di Windows, Windows Phone, Windows Server, and Microsoft Azure\cite{MSDN}. Microsoft .NET framework terdiri dari runtime bahasa umum dan perpustakaan kelas .NET Framework, yang meliputi kelas, interface, dan jenis nilai yang mendukung berbagai teknologi. Microsoft .NET Framework menyediakan lingkungan yang mudah dikelola, pengembangan yang disederhanakan, dan integrasi dengan berbagai bahasa pemrograman, termasuk Visual Basic dan Visual C\#.
+\hspace{0.5cm} Microsoft .NET framework merupakan sebuah perangkat lunak yang dibangun untuk membantu dalam pembangunan aplikasi di Windows, Windows Phone, Windows Server, and Microsoft Azure\cite{MSDN}. Microsoft .NET framework terdiri dari runtime bahasa umum dan \textit{library} .NET Framework, yang meliputi kelas, \textit{interface}, dan jenis nilai yang saling terintergrasi. Microsoft .NET Framework menyediakan lingkungan yang mudah dikelola, pengembangan yang disederhanakan, dan integrasi dengan berbagai bahasa pemrograman, termasuk Visual Basic dan Visual C\#.
 
-Seperti yang telah disebutkan ada dua bahasa pemrograman dalam .NET Framework yang dipakai dalam pembangunan aplikasi di Windows Phone 8 yaitu Visual Basic dan Visual C\#. \newline Untuk masalah kehandalan keduanya menawarkan kehandalan yang baik. Kelebihan dari Visual Basic adalah bahasa pemrograman berorientasi objek yang kuat dan memiliki banyak pengenbangan fitur di inheritance, polymorphism, interfaces, and overloading\cite{MSDN}. Kelebihan dari C\# yang merupakan pengembangan dari C/C++ adalah sederhana, modern, aman dan berorientasi objek\cite{MSDN}. Satu hal yang dirasakan penulis adalah kenyamanan ketika memilih bahasa .NET tersebut. Akan lebih mudah bagi developer yang menggunakan Visual Basic 6.0  untuk menggunakan Visual \newline Basic .NET. Tetapi bagi  developer yang menggunakan C++ atau java sebelumnya akan lebih mudah menggunakan C\#.
+Seperti yang telah disebutkan ada dua bahasa pemrograman dalam .NET Framework yang dipakai dalam pembangunan aplikasi di Windows Phone 8 yaitu Visual Basic dan Visual C\#. Untuk masalah kehandalan keduanya menawarkan kehandalan yang baik. Kelebihan dari Visual Basic adalah bahasa pemrograman berorientasi objek yang kuat dan memiliki banyak pengembangan fitur di \textit{inheritance}, \textit{polymorphism}, \textit{interfaces}, and \textit{overloading}\cite{MSDN}. Kelebihan dari C\# yang merupakan pengembangan dari C/C++ adalah sederhana, moderen, aman dan berorientasi objek\cite{MSDN}. Satu hal yang dirasakan penulis adalah kenyamanan ketika memilih bahasa .NET tersebut. Akan lebih mudah bagi developer yang menggunakan Visual Basic 6.0  untuk menggunakan Visual \newline Basic .NET. Tetapi bagi  developer yang menggunakan C++ atau java sebelumnya akan lebih mudah menggunakan C\#.
 %kutipan mengenai .NET
 %\footnotetext[2]{\url{http://msdn.microsoft.com/en-us/library/vstudio/w0x726c2\%28v=vs.110\%29}}
 %\footnotetext[3]{\url{http://msdn.microsoft.com/en-us/library/aa903378\%28v=vs.71\%29.aspx}}
@@ -25,10 +25,10 @@ Seperti yang telah disebutkan ada dua bahasa pemrograman dalam .NET Framework ya
 \label{subsec:XAML}
 \hspace{0.5cm} \textit{Extensible Application Markup Language} (XAML) merupakan bahasa deklaratif yang dipakai untuk membuat antarmuka aplikasi. XAML merupakan bahasa yang digunakan untuk membuat antarmuka di Windows Phone 8\cite{Manning}. Pada dasarnya penggunaan XAML sama dengan HTML pada pembuatan antarmuka web. XAML dapat menginisialisasi objek dan mengatur properti untuk menunjukan hubungan antar objek.
 
-Untuk aturan penulisan sintak XAML didasarkan pada XML. Setiap XAML Windows Runtime menggunakan konvensi bahasa XAML dan ditulis pada \textit{namespace} yang ditandai dengan \textit{prefix} x sebagai elemen paling atas. Setelah itu di baris ke dua dimulai dengan xmlns diikuti titik dua, lalu nama dari \textit{namespace}, diikuti tanda sama dengan dan \textit{path} yang merepresentasikan \textit{namespace}.
+Untuk aturan penulisan sintak XAML didasarkan pada XML. Setiap XAML menggunakan konvensi bahasa XAML dan ditulis pada \textit{namespace} yang ditandai dengan \textit{prefix} x sebagai elemen paling atas. Setelah itu di baris ke dua dimulai dengan xmlns diikuti titik dua, lalu nama dari \textit{namespace}, diikuti tanda sama dengan dan \textit{path} yang merepresentasikan \textit{namespace}\cite{Manning}.
 \textit{Prefix} x pada XAML mengandung beberapa struktur program yang sering kita gunakan yaitu :
 \begin{itemize}
-	\item x:Key : sebuah nama unik untuk menunjuk referensi ke suatu resource atau berkas lain. Nilai ini dapat dipanggil kembali untuk menggunakan resource tersebut.
+	\item x:Key : sebuah nama unik untuk menunjuk referensi ke suatu \textit{resource}. Nilai ini dapat dipanggil kembali untuk menggunakan \textit{resource} tersebut.
 	\item x:Class : menunjukkan nama kelas.
 	\item x:Name : menunjukkan nama sebuah obyek dan untuk membedakan antar obyek yang satu dengan obyek yang lain.
 	\item x:Uid : mengidentifikasi elemen objek dalam XAML. Elemen objek merupakan objek yang dapat melakukan kontrol terhadap kelas atau elemen lain yang ditampilkan di desain antarmuka.
@@ -186,12 +186,12 @@ Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan apl
 % SUB Peta di Windows Phone
 \subsection{Peta di Windows Phone}
 \label{subsec:Peta di Windows Phone}
-\hspace{0.5cm} Peta yang dipakai di Windows Phone adalah \textit{Windows Phone Maps}. Windows Phone menawarkan beberapa pilihan dalam tampilan peta mulai dari \textit{cartographic}, pencahayaan dan pandangan. Selain tampilan pada sub bab ini akan dibahas mengenai mendapatkan lokasi, petunjuk arah, \textit{MapPolyline} dan \textit{Pushpin}\cite{MSDN}.
+\hspace{0.5cm} Peta yang dipakai di Windows Phone adalah \textit{Windows Phone Maps}. \textit{Windows Phone Maps} menawarkan beberapa pilihan dalam tampilan peta mulai dari \textit{cartographic}, pencahayaan dan pandangan. Selain tampilan pada sub-bab ini akan dibahas mengenai mendapatkan lokasi, petunjuk arah, \textit{MapPolyline} dan \textit{Pushpin}\cite{MSDN}.
 
 % SUBSUB Mengenai Penambahan Peta Ke Aplikasi
 \subsubsection{Penambahan Peta Ke Aplikasi}
 \label{subsubsec:Penambahan Peta Ke Aplikasi}
-\hspace{0.5cm} Untuk penambahan peta pada Windows Phone menggunakan kontrol peta. Kontrol peta merupakan bagian dari \textit{library} Windows Phone. Dengan begitu untuk dapat menggunakannya perlu direferensikan. Untuk dapat menggunakannya juga harus ditambah \textit{capability} ID\_CAP\_MAP. Setelah hal tersebut dilakukan barulah peta dapat ditampilkan. Berikut gambar~\ref{fig:peta}, kode XAML pada \textit{listing}~\ref{lst:mapXAML}, dan kode program pada \textit{listing}~\ref{lst:mapCode} peta.
+\hspace{0.5cm} Untuk penambahan peta pada Windows Phone menggunakan kontrol peta. Kontrol peta merupakan bagian dari \textit{library} Windows Phone. Dengan begitu penggunaan peta di Windows Phone perlu direferensikan. Untuk dapat menggunakannya juga harus ditambah \textit{capability} ID\_CAP\_MAP. Setelah hal tersebut dilakukan barulah peta dapat ditampilkan. Berikut gambar~\ref{fig:peta}, kode XAML pada \textit{listing}~\ref{lst:mapXAML}, dan kode program pada \textit{listing}~\ref{lst:mapCode} peta.
 
 \begin{figure}[h]
 	\centering
@@ -302,7 +302,7 @@ Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan apl
 % SUBSUB Polyline pada Peta
 \subsubsection{\textit{Polyline} pada Peta}
 \label{subsubsec:Polyline pada Peta}
-\hspace{0.5cm} Dalam menentukan arah dibutuhkan dua titik yaitu titk awal dan titik tujuan. Tentu saja arah tersebut butuh ditandai dengan garis. \textit{Polyline} merupakan tentetan garis lurus yang saling terhubung satu sama lain. Dengan \textit{polyline} arah pada peta dapat ditandai dengan warna maupin tebal atau tipisnya garis. Contoh keluaran \textit{polyline} dapat dilihat pada Gambar~\ref{fig:TampilanpolylinepadaPeta} dan kode untuk menampilkannya dapat dilihat pada \textit{listing}~\ref{lst:polyline}.
+\hspace{0.5cm} Dalam menentukan arah dibutuhkan dua titik yaitu titik awal dan titik tujuan. Tentu saja arah tersebut butuh ditandai dengan garis. \textit{Polyline} merupakan rentetan garis lurus yang saling terhubung satu sama lain. Dengan \textit{polyline} arah pada peta dapat ditandai dengan warna maupun tebal atau tipisnya garis. Contoh keluaran \textit{polyline} dapat dilihat pada Gambar~\ref{fig:TampilanpolylinepadaPeta} dan kode untuk menampilkannya dapat dilihat pada \textit{listing}~\ref{lst:polyline}.
 
 \begin{figure}[h]
 	\centering
@@ -322,7 +322,7 @@ Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan apl
 % SUBSUB Namespace Map
 \subsubsection{\textit{Namespace Control Map}}
 \label{subsubsec:Namespace Control Map}
-\hspace{0.5cm} \textit{Namespace} merupakan nama yang dipakai untuk mengatur kelas-kelas. Windows Phone 8 sudah menyediakan \textit{namespace} bawaan untuk mengatur peta. \textit{Namespace} yang disediakan adalah \textit{Maps.Controls}. \textit{Namespace} ini yang berisi kelas-kelas yang paling sering digunakan untuk mengatur peta pada Windows Phone.  Agar dapat menggunakan kelas pada \textit{namespace} tersebut perlu ditambahkan \textit{namespace} dan \textit{capabilities}. \textit{Namespace} yang harus ditambahkan pada baris awal XAML adalah \textit{Microsoft.Phone.Maps.Controls}. Selanjutnya ada penambahan \textit{capabilities} \textit{ID\_CAP\_MAP}. Penambahan \textit{capabilities} ditambahkan pada \textit{WMAppManifest.xml}.
+\hspace{0.5cm} \textit{Namespace} merupakan nama yang dipakai untuk mengatur kelas-kelas. Windows Phone 8 sudah menyediakan \textit{namespace} bawaan untuk mengatur peta. \textit{Namespace} yang disediakan adalah \textit{Maps.Controls}. \textit{Namespace} ini yang berisi kelas-kelas yang paling sering digunakan untuk mengatur peta pada Windows Phone.  Agar dapat menggunakan kelas pada \textit{namespace} tersebut perlu ditambahkan \textit{namespace} dan \textit{capabilities}. \textit{Namespace} yang harus ditambahkan pada baris awal XAML adalah \textit{Microsoft.Phone.Maps.Controls}. Setelah penambahan \textit{Namespace} perlu ditambahkan pula \textit{capabilities} \textit{ID\_CAP\_MAP}. Penambahan \textit{capabilities} ditambahkan pada \textit{WMAppManifest.xml}.
 
 % SUBSUB Kelas Map
 \subsubsection{Kelas Map}
@@ -332,7 +332,7 @@ Sesuai gambar~\ref{fig:Siklus Hidup Aplikasi} lingkaran melambangkan keadaan apl
 Berikut properti yang dapat digunakan pada kelas ini.
 \begin{table}[h]
 	\centering
-		\begin{tabular}{ |c|c|}
+		\begin{tabular}{ |p{4,5cm}|p{9,5cm}|}
 				\hline
 					Nama & Deskripsi \\ \hline
 					\textit{CartographicMode} & Mengatur dan mendapatkan tipe dari peta. \\ \hline
@@ -354,28 +354,29 @@ Berikut properti yang dapat digunakan pada kelas ini.
 	\label{tab:PropertiKelasMap}
 \end{table}
 
+\newpage
 Berikut \textit{method} yang dapat digunakan pada kelas ini.
 \begin{itemize}
 	\item \textit{SetView(LocationRectangle)} \\
-	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai wilayah geografis. \textit{method} ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai wilayah geografis. \textit{Method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(GeoCoordinate, Double)} \\
-	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah dan tingkat zoom. \textit{method} ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah dan tingkat zoom. \textit{Method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(LocationRectangle, MapAnimationKind)}\\
-	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis dan animasi. \textit{method} ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis dan animasi. \textit{Method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(LocationRectangle, Thickness)} \\
-	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis dengan batas tertentu. \textit{method} ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai region geografis dengan batas tertentu. \textit{Method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(GeoCoordinate, Double, MapAnimationKind)} \\
-	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, dan animasi. \textit{method} ini tidak mengambalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, dan animasi. \textit{Method} ini tidak mengambalikan nilai.
 	\item \textit{SetView(GeoCoordinate, Double, Double)} \\
-	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, dan \textit{heading}. \textit{method} ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, dan \textit{heading}. \textit{Method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(LocationRectangle, Thickness, MapAnimationKind)} \\
-	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai wilayah geografis dengan batas tertentu, dan animasi. \textit{method} ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai wilayah geografis dengan batas tertentu, dan animasi. \textit{Method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(GeoCoordinate, Double, Double, MapAnimationKind)} \\
-	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, dan animasi. \textit{method} ini tidak mengembalikan nilai.	
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, dan animasi. \textit{Method} ini tidak mengembalikan nilai.	
 	\item \textit{SetView(GeoCoordinate, Double, Double, Double)} \\
-	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, \textit{pitch}. \textit{method} ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, \textit{pitch}. \textit{Method} ini tidak mengembalikan nilai.
 	\item \textit{SetView(GeoCoordinate, Double, Double, Double, MapAnimationKind)} \\
-	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, \textit{pitch}, dan animasi. \textit{method} ini tidak mengembalikan nilai.
+	\textit{method} untuk mengatur pandangan di atas peta secara spesifik sesuai titik tengah, tingkat zoom, \textit{heading}, \textit{pitch}, dan animasi. \textit{Method} ini tidak mengembalikan nilai.
 	\item \textit{UpdateLayout} \\
 	\textit{method} yang memastikan semua posisi objek turunan mengikuti tata letak. 
 \end{itemize}
@@ -415,7 +416,7 @@ Berikut \textit{method} yang dapat digunakan pada kelas ini.
 % SUBSUB Pushpin Class
 \subsubsection{\textit{Pushpin Class}}
 \label{subsubsec:Pushpin Class}
-\hspace{0.5cm} Merupakan kelas yang dipakai untuk menggambarkan elemen terpisah diatas peta. Meskipun pushpin merupakan bawaan pada peta untuk menunjuk suatu lokasi tetapi \textit{pushpin} dari peta tidak dapat diubah-ubah. \textit{Pushpin} pada Windows Phone 8 dapat dibuat sesuai kebutuhan. Namun ada cara lain dengan menambahkan Windows Phone Toolkit. Windows Phone Toolkit mempunyai komponan untuk menggambar pushpin diatas peta.  
+\hspace{0.5cm} Merupakan kelas yang dipakai untuk menggambarkan elemen terpisah diatas peta. Meskipun \textit{pushpin} merupakan bawaan pada peta untuk menunjuk suatu lokasi tetapi \textit{pushpin} dari peta tidak dapat diubah-ubah. Untuk dapat mengubah \textit{Pushpin} pada Windows Phone 8 sesuai kebutuhan dibutuhkan penambahan \textit{Windows Phone Toolkit}. \textit{Windows Phone Toolkit} mempunyai komponan untuk menggambar pushpin diatas peta.  
 %sumber http://developer.nokia.com/resources/library/Lumia/change-history/archived-content/maps-and-navigation/guide-to-the-wp8-maps-api.html
 
 % SUB Lokasi
@@ -423,7 +424,7 @@ Berikut \textit{method} yang dapat digunakan pada kelas ini.
 \label{subsec:Lokasi}
 \hspace{0.5cm} Aplikasi di Windows Phone 8 dapat memanfaatkan lokasi di mana perangkat berada. Aplikasi dapat melacak lokasi sesaat  pengguna atau pelacakan selama periode tertentu. Data lokasi perangkat berasal dari berbagai sumber termasuk \textit{Global Positioning System} (GPS), \textit{Wireless Fidelity} (Wi-Fi), dan jaringan seluler. Ada 2 set API berbeda yang dapat dimanfaatkan di Windows Phone yaitu \textit{Runtime Location} API dan .NET \textit{Location} API. Windows Phone \textit{Runtime Location} memiliki keunggulan fitur yang banyak sedangkan .NET \textit{Location} direkomendasikan jika aplikasi ditargetkan pada Windows Phone 7.1 dan Windows Phone 8\cite{MSDN}.
 
-Hal yang perlu diperhatikan dalam menentukan layanan lokasi adalah penangkap GPS, Wi-Fi, dan jaringan seluler. Perangkat tersebut berfungsi sebagai penyedia data lokasi dengan berbagai tingkat akurasi dan konsumsi daya. Perangkat diatas juga berkomunikasi langsung untuk memutuskan sumber mana yang digunakan untuk menentukan lokasi perangkat berdasarkan ketersediaan data lokasi dan prasyarat yang ditentukan aplikasi. Lapisan diatas penyedia data lokasi tersebut adalah pengelola antarmuka. Aplikasi akan mengunakan antarmuka tersebut untuk memulai dan menghentikan layanan lokasi, mengatur tingkat akurasi, dan menerima data lokasi.
+Hal yang perlu diperhatikan dalam menentukan layanan lokasi adalah penangkap GPS, Wi-Fi, dan jaringan seluler. Perangkat tersebut berfungsi sebagai penyedia data lokasi dengan berbagai tingkat akurasi dan konsumsi daya. Perangkat diatas juga berkomunikasi langsung untuk memutuskan sumber mana yang digunakan untuk menentukan lokasi perangkat berdasarkan ketersediaan data lokasi dan prasyarat yang ditentukan aplikasi. Lapisan diatas penyedia data lokasi tersebut adalah pengelola antarmuka. Aplikasi akan menggunakan antarmuka tersebut untuk memulai dan menghentikan layanan lokasi, mengatur tingkat akurasi, dan menerima data lokasi.
 
 Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelacakan lokasi harus dilakukan terus menerus. Pelacakan lokasi secara terus menerus ini dapat dilakukan di depan maupun di belakang aplikasi Windows Phone 8. Pelacakan aplikasi di depan akan memungkinkan aplikasi melacak lokasi pengguna sekaligus melakukan perbaruan antarmuka. Jika pelacakan lokasi di belakang aplikasi maka tidak ada perubahan pada antarmuka namun pelacakan dilakuan secara terus menerus. Pelacakan yang terus menerus di belakang aplikasi akan membuat keadaan aplikasi cepat dipulihkan dari keadaan \textit{Dormant}.
 
@@ -435,9 +436,9 @@ Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelac
 \begin{itemize}
 	\item \textit{Ready} : Jika lokasi tersedia.
 	\item \textit{Initializing} : Jika status penangkap GPS belum memiliki cukup satelit untuk mendapatkan posisi yang akurat. 
-	\item \textit{NoData} : Data lokasi belum tersedia. Status ini muncul jika aplikasi sedang mamanggil \textit{GetGeopositionAsync()} atau \textit{register}.
+	\item \textit{NoData} : Data lokasi belum tersedia. Status ini muncul jika aplikasi sedang mamanggil \textit{method} \textit{GetGeopositionAsync()} atau \textit{method} \textit{register}.
 	\item \textit{Disable} : Status mengindikasikan tidak diperbolehkannya pengaksesan lokasi.
-	\item \textit{NotInitialized} : Data lokasi belum tersedia. Status ini muncul jika aplikasi belum mamanggil \textit{GetGeopositionAsync()} atau \textit{register}.
+	\item \textit{NotInitialized} : Data lokasi belum tersedia. Status ini muncul jika aplikasi belum mamanggil \textit{method} \textit{GetGeopositionAsync()} atau \textit{method} \textit{register}.
 	\item \textit{NotAvailable} : Jika sensor arah mata angin dan lokasi tidak tersedia.
 \end{itemize}
 
@@ -460,9 +461,9 @@ Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelac
 \end{table}
 
 % SUBSUB Kelas Geocoordinate
-\subsubsection{\textit{Geocoordinate}}
+\subsubsection{Kelas \textit{Geocoordinate}}
 \label{subsubsec:Kelas Geocoordinate}
-\hspace{0.5cm} Geocoordinate adalah kelas yang menunjukan lokasi sebagai kordinat geografis. Kelas ini hanya menyediakan properti yang hanya bisa dibaca. Kelas ini menyediakan properti yang ditunjukan pada tabel ~\ref{tab:PropertiPadaKelasGeocoordinate}.
+\hspace{0.5cm} \textit{Geocoordinate} adalah kelas yang menunjukan lokasi sebagai kordinat geografis. Kelas ini hanya menyediakan properti yang hanya bisa dibaca. Kelas ini menyediakan properti yang ditunjukan pada tabel ~\ref{tab:PropertiPadaKelasGeocoordinate}.
 
 \begin{table}[h]
 	\centering
@@ -482,7 +483,7 @@ Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelac
 \end{table} 
 
 % SUBSUB Kelas Geolocator
-\subsubsection{\textit{Geolocator}}
+\subsubsection{Kelas \textit{Geolocator}}
 \label{subsubsec:Kelas Geolocator}
 \hspace{0.5cm} \textit{Geolocator} merupakan kelas yang mendukung pengaksesan terhadap lokasi.
 
@@ -507,7 +508,7 @@ Berikut Properti yang disediakan kelas Geolocator:
 \end{itemize}
 
 % SUBSUB Kelas Geoposition
-\subsubsection{\textit{Geoposition}}
+\subsubsection{Kelas \textit{Geoposition}}
 \label{subsubsec:Kelas Geoposition}
 \hspace{0.5cm} \textit{Geoposition} merupakan kelas yang memuat lokasi (\textit{latitude} dan \textit{longitude}).
 Berikut Properti yang disediakan kelas \textit{Geoposition}:
@@ -526,7 +527,7 @@ Berikut Properti yang disediakan kelas \textit{Geoposition}:
 Sebelum data dapat dikirim antar perangkat perlu dilakukan \textit{serialization}. \textit{Serialization} merupakan proses mentransformasikan objek ke format yang bisa dengan mudah dikirim melewati jaringan atau disimpan di database\cite{Manning}. Formatnya disini berupa string yang direpresentasikan sebagai objek di XML atau JSON(Javascript Object Notation). Setelah data yang dikirim didapatkan maka perlu dilakukan \textit{deserialization}. \textit{Deserialization} merupakan proses mentransformasikan dari format yang bisa dengan mudah dikirim melewati jaringan ke dalam bentuk objek. 
 
 %sumber http://json.org/
-Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memiliki format \textit{data-interchange} yang ringan \cite{rfc7159}. Karena hal tersebut JSON mudah diurai dan dihasilkan oleh mesin. Kurung kurawal mengindikasikan objek, kurung siku berarti array, dan properti berupa nama dan nilai pasangan yang dipisahkan oleh titik dua. JSON format memiliki ukuran data yang kecil dan baik untuk penggunaan perangkat bergerak. Untuk contoh format JSON dapat dilihat di bagian Kiri API pada Bab dua ini karena Kiri API menggunakan format JSON. \textit{Serializes} menggunakan \textit{DataContractJsonSerializer} membuat \textit{serializes} mudah untuk menerjemahkan form String JSON ke objek yang dapat langsung digunakan. \textit{DataContractJsonSerializer} memakai \textit{WriteObject()} untuk \textit{serializes} and \textit{ReadObject()} untuk \textit{deserializes}.
+Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memiliki format \textit{data-interchange} yang ringan \cite{rfc7159}. Karena hal tersebut JSON mudah diurai dan dihasilkan oleh mesin. Kurung kurawal mengindikasikan objek, kurung siku berarti array, dan properti berupa nama dan nilai pasangan yang dipisahkan oleh titik dua. JSON format memiliki ukuran data yang kecil dan baik untuk penggunaan perangkat \textit{mobile}. Untuk contoh format JSON dapat dilihat di bagian Kiri API pada Bab dua ini karena Kiri API menggunakan format JSON. \textit{Serializes} menggunakan \textit{DataContractJsonSerializer} membuat \textit{serializes} mudah untuk menerjemahkan form String JSON ke objek yang dapat langsung digunakan. \textit{DataContractJsonSerializer} memakai \textit{WriteObject()} untuk \textit{serializes} and \textit{ReadObject()} untuk \textit{deserializes}.
 
 % SUBSUB Kelas HttpClient
 \subsubsection{\textit{HttpClient}}
@@ -534,23 +535,23 @@ Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memi
 \hspace{0.5cm} Merupakan Kelas yang dipakai untuk mengirim permintaan HTTP dan menerima kembalian HTTP dari \textit{Uniform Resource Identifier}(URI) yang dapat diidentifikasi. \textit{Uniform Resource Identifier}(URI) merupakan urutan kompak karakter yang mengidentifikasikan sumber daya abstrak dan fisik \cite{rfc3986}. Berikut \textit{method} yang disediakan kelas \textit{HttpClient}.
 \begin{itemize}
 	\item \textit{DeleteAsync(Uri)} \\
-	\textit{method} yang dipakai untuk mengirimkan permintaan DELETE ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{Method} yang dipakai untuk mengirimkan permintaan DELETE ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{Method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item \textit{GetAsync(Uri)} \\
-	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{Method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{Method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item \textit{GetAsync(Uri,HttpCompletionOption)} \\
-	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{Method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{Method} ini membutuhkan parameter URI sebagai tujuan dari permintaan dan nilai tambahan yang dimasukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item \textit{GetBufferAsync(Uri)} \\
-	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian yang dikirimkan secara buffer(disimpan dalam memori) dan kemajuan dari data yang dikirim.
+	\textit{Method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{Method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian yang dikirimkan secara buffer(disimpan dalam memori) dan kemajuan dari data yang dikirim.
 	\item \textit{GetInputStreamAsync(Uri)} \\
-	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian yang dikirimkan secara stream(langsung sesuai waktu) dan kemajuan dari data yang dikirim.
+	\textit{Method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{Method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian yang dikirimkan secara stream(langsung sesuai waktu) dan kemajuan dari data yang dikirim.
 	\item \textit{GetStringAsync(Uri)} \\
-	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dalam bentuk string dan kemajuan dari data yang dikirim.
+	\textit{Method} yang dipakai untuk mengirimkan permintaan \textit{GET} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{Method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dalam bentuk string dan kemajuan dari data yang dikirim.
 	\item \textit{PostAsync(Uri)} \\
-	\textit{method} yang dipakai untuk mengirimkan permintaan \textit{POST} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{Method} yang dipakai untuk mengirimkan permintaan \textit{POST} ke URI yang spesifik sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{Method} ini membutuhkan parameter URI sebagai tujuan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item \textit{SendRequestAsync(HttpRequestMessage)} \\
-	\textit{method} yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter pesan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{Method} yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{Method} ini membutuhkan parameter pesan dari permintaan. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 	\item \textit{SendRequestAsync(HttpRequestMessage, HttpCompletionOption)} \\
-	\textit{method} yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{method} ini membutuhkan parameter pesan dari permintaan dan nilai tambahan yang dimaksukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
+	\textit{Method} yang dipakai untuk mengirimkan permintaan HTTP sebagai operasi \textit{asynchronous}. Maksud dari operasi \textit{asynchronous} adalah memungkinkan aplikasi untuk melanjutkan pekerjaan selagi \textit{method} ini dipanggil\footnotemark[2]. \textit{Method} ini membutuhkan parameter pesan dari permintaan dan nilai tambahan yang dimasukan sebagai indikasi operasi dianggap selesai. Sedangkan kembaliannya berupa objek yang mewakili operasi \textit{asynchronous} disertai kemajuan. Objek tersebut memiliki 2 parameter yaitu hasil berupa pesan kembalian dari http dan kemajuan dari data yang dikirim.
 \end{itemize}
 
 \footnotetext[2]{\url{http://msdn.microsoft.com/en-us/library/ms734701\%28v=vs.110\%29.aspx}}
@@ -606,7 +607,7 @@ Pemanfaatan Kiri API dengan melakuan permintaan dengan parameter \textit{POST} a
 	\item \url{http://kiri.travel/handle.php} \\
 	Merupakan URL produksi. Ini merupakan URL yang direkomendasikan untuk menangani permintaan pengguna.
 \end{itemize}
-Untuk setiap permintaan membutuhkan \textit{API key} yang didapat dengan mendaftar\cite{Kiri}. Penggunaan API memungkinkan pengaksesan di mana saja dengan menggunakan koneksi internet. Pada sub bab~\ref{subsec:Web Service Penentuan Rute} sampai sub bab~\ref{subsec:Service Menemukan Transportasi Terdekat} penulis akan membahas beberapa layanan Kiri API.
+Untuk setiap permintaan membutuhkan \textit{API key} yang didapat dengan mendaftar\cite{Kiri}. Penggunaan API memungkinkan pengaksesan di mana saja dengan menggunakan koneksi internet. Pada sub-bab~\ref{subsec:Web Service Penentuan Rute} sampai sub-bab~\ref{subsec:Service Menemukan Transportasi Terdekat} penulis akan membahas beberapa layanan Kiri API.
 
 Berikut langkah-langkah untuk mendapatkan \textit{API key}.
 \begin{itemize}
@@ -687,8 +688,8 @@ Berikut maksud dari \textit{listing}~\ref{lst:pencarian}: \newline
 	\item Indeks ke 2 atau baris 9 pada \textit{listing}~\ref{lst:pencarian} adalah deretan nilai tipe \textit{String} yang berisi jalur dalam format "lat,lng". Maksud dari "lat,lng" disini adalah titik awal dan titik akhir dari setiap jalur yang dilewati.
 	\item Indeks ke 3 atau baris 10 pada \textit{listing}~\ref{lst:pencarian} berisi bentuk yang akan ditampilkan kepada pengguna. Informasi yang disampaikan dapat berupa:
 		\begin{itemize}
-			\item \%fromicon = untuk menunjukan ikon "from". Biasanya untuk mode presentasi di perangkat bergerak.
-			\item \%toicon = untuk menunjukan ikon "to". Biasanya untuk mode presentasi di perangkat bergerak. 
+			\item \%fromicon = untuk menunjukan ikon "from". Biasanya untuk mode presentasi di perangkat \textit{mobile}.
+			\item \%toicon = untuk menunjukan ikon "to". Biasanya untuk mode presentasi di perangkat \textit{mobile}. 
 		\end{itemize}
 	\item Indeks ke 4 atau bari 11 pada \textit{listing}~\ref{lst:pencarian} berisi URL untuk pemesanan tiket jika tersedia. Jika tidak tersedia akan bernilai \textit{null}.
 \end{itemize}

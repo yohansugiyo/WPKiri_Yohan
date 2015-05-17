@@ -32,9 +32,9 @@
 \contentsline {subsection}{\numberline {2.1.6}Lokasi}{17}{subsection.2.1.6}
 \contentsline {subsubsection}{\numberline {2.1.6.1}Mendapatkan Posisi Pengguna}{18}{subsubsection.2.1.6.1}
 \contentsline {subsubsection}{\numberline {2.1.6.2}\textit {Namespace Geolocator}}{18}{subsubsection.2.1.6.2}
-\contentsline {subsubsection}{\numberline {2.1.6.3}\textit {Geocoordinate}}{19}{subsubsection.2.1.6.3}
-\contentsline {subsubsection}{\numberline {2.1.6.4}\textit {Geolocator}}{19}{subsubsection.2.1.6.4}
-\contentsline {subsubsection}{\numberline {2.1.6.5}\textit {Geoposition}}{20}{subsubsection.2.1.6.5}
+\contentsline {subsubsection}{\numberline {2.1.6.3}Kelas \textit {Geocoordinate}}{19}{subsubsection.2.1.6.3}
+\contentsline {subsubsection}{\numberline {2.1.6.4}Kelas \textit {Geolocator}}{19}{subsubsection.2.1.6.4}
+\contentsline {subsubsection}{\numberline {2.1.6.5}Kelas \textit {Geoposition}}{20}{subsubsection.2.1.6.5}
 \contentsline {subsection}{\numberline {2.1.7}Memanfaatkan Sumber Data}{20}{subsection.2.1.7}
 \contentsline {subsubsection}{\numberline {2.1.7.1}\textit {HttpClient}}{20}{subsubsection.2.1.7.1}
 \contentsline {subsubsection}{\numberline {2.1.7.2}Json.NET}{22}{subsubsection.2.1.7.2}
@@ -58,27 +58,27 @@
 \contentsline {chapter}{\numberline {4}Perancangan}{47}{chapter.4}
 \contentsline {section}{\numberline {4.1}Diagram \textit {Sequence}}{47}{section.4.1}
 \contentsline {section}{\numberline {4.2}Perancangan Kelas}{50}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Kelas \textit {PhoneApplicationPage}}{54}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Kelas \textit {MainPage}}{54}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Kelas \textit {City}}{56}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Kelas \textit {BackgroundWorker}}{56}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Kelas \textit {Geocoordinate}}{56}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}Kelas \textit {Geolocator}}{56}{subsection.4.2.6}
-\contentsline {subsection}{\numberline {4.2.7}Kelas \textit {Geoposition}}{56}{subsection.4.2.7}
-\contentsline {subsection}{\numberline {4.2.8}Kelas \textit {LocationFinder}}{57}{subsection.4.2.8}
-\contentsline {subsection}{\numberline {4.2.9}Kelas \textit {Map}}{58}{subsection.4.2.9}
-\contentsline {subsection}{\numberline {4.2.10}Kelas \textit {HttpClient}}{59}{subsection.4.2.10}
-\contentsline {subsection}{\numberline {4.2.11}Kelas \textit {JsonConvert}}{59}{subsection.4.2.11}
-\contentsline {subsection}{\numberline {4.2.12}Kelas \textit {Protocol}}{59}{subsection.4.2.12}
-\contentsline {subsection}{\numberline {4.2.13}Kelas \textit {RootObjectSearchPlace}}{61}{subsection.4.2.13}
-\contentsline {subsection}{\numberline {4.2.14}Kelas \textit {SearchResult}}{61}{subsection.4.2.14}
-\contentsline {subsection}{\numberline {4.2.15}Kelas \textit {RootObjectFindRoute}}{61}{subsection.4.2.15}
-\contentsline {subsection}{\numberline {4.2.16}Kelas \textit {RoutingResult}}{61}{subsection.4.2.16}
-\contentsline {subsection}{\numberline {4.2.17}Kelas \textit {Route}}{62}{subsection.4.2.17}
-\contentsline {section}{\numberline {4.3}Perancangan Antar Muka}{64}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Antarmuka Kelas \textit {MainPage}}{64}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Antarmuka Kelas \textit {Map}}{66}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Antarmuka Kelas \textit {Route}}{66}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.2.1}Kelas \textit {PhoneApplicationPage}}{55}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Kelas \textit {MainPage}}{55}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Kelas \textit {City}}{57}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Kelas \textit {BackgroundWorker}}{57}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Kelas \textit {Geocoordinate}}{57}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Kelas \textit {Geolocator}}{57}{subsection.4.2.6}
+\contentsline {subsection}{\numberline {4.2.7}Kelas \textit {Geoposition}}{57}{subsection.4.2.7}
+\contentsline {subsection}{\numberline {4.2.8}Kelas \textit {LocationFinder}}{58}{subsection.4.2.8}
+\contentsline {subsection}{\numberline {4.2.9}Kelas \textit {Map}}{59}{subsection.4.2.9}
+\contentsline {subsection}{\numberline {4.2.10}Kelas \textit {HttpClient}}{60}{subsection.4.2.10}
+\contentsline {subsection}{\numberline {4.2.11}Kelas \textit {JsonConvert}}{60}{subsection.4.2.11}
+\contentsline {subsection}{\numberline {4.2.12}Kelas \textit {Protocol}}{60}{subsection.4.2.12}
+\contentsline {subsection}{\numberline {4.2.13}Kelas \textit {RootObjectSearchPlace}}{62}{subsection.4.2.13}
+\contentsline {subsection}{\numberline {4.2.14}Kelas \textit {SearchResult}}{62}{subsection.4.2.14}
+\contentsline {subsection}{\numberline {4.2.15}Kelas \textit {RootObjectFindRoute}}{62}{subsection.4.2.15}
+\contentsline {subsection}{\numberline {4.2.16}Kelas \textit {RoutingResult}}{62}{subsection.4.2.16}
+\contentsline {subsection}{\numberline {4.2.17}Kelas \textit {Route}}{63}{subsection.4.2.17}
+\contentsline {section}{\numberline {4.3}Perancangan Antar Muka}{65}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Antarmuka Kelas \textit {MainPage}}{65}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Antarmuka Kelas \textit {Map}}{67}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Antarmuka Kelas \textit {Route}}{67}{subsection.4.3.3}
 \contentsline {chapter}{\numberline {5}Implementasi dan Pengujian Aplikasi}{69}{chapter.5}
 \contentsline {section}{\numberline {5.1}Implementasi}{69}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Perangkat Keras untuk Implementasi}{69}{subsection.5.1.1}
@@ -95,9 +95,9 @@
 \contentsline {chapter}{Daftar Referensi}{81}{chapter*.4}
 \renewcommand {\cftchappresnum }{\bf \scshape }
 \contentsline {chapter}{\numberline {A}Kode Program Kelas MainPage}{83}{appendix.A}
-\contentsline {chapter}{\numberline {B}Kode Program Kelas Map}{91}{appendix.B}
-\contentsline {chapter}{\numberline {C}Kode Program kelas Route}{93}{appendix.C}
-\contentsline {chapter}{\numberline {D}Kode Program kelas City}{101}{appendix.D}
-\contentsline {chapter}{\numberline {E}Kode Program kelas LocationFinder}{103}{appendix.E}
-\contentsline {chapter}{\numberline {F}Kode Program kelas Protocol}{107}{appendix.F}
-\contentsline {chapter}{\numberline {G}Kode Program objek dari JSON}{111}{appendix.G}
+\contentsline {chapter}{\numberline {B}Kode Program Kelas Map}{89}{appendix.B}
+\contentsline {chapter}{\numberline {C}Kode Program kelas Route}{91}{appendix.C}
+\contentsline {chapter}{\numberline {D}Kode Program kelas City}{99}{appendix.D}
+\contentsline {chapter}{\numberline {E}Kode Program kelas LocationFinder}{101}{appendix.E}
+\contentsline {chapter}{\numberline {F}Kode Program kelas Protocol}{105}{appendix.F}
+\contentsline {chapter}{\numberline {G}Kode Program objek dari JSON}{109}{appendix.G}

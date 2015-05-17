@@ -25,20 +25,21 @@
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Diagram \textit {sequence} Mendapatkan Kordinat pada Peta}}{48}{figure.4.2}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Diagram \textit {sequence} Mendapatkan Rute}}{49}{figure.4.3}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Diagram Kelas}}{50}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Kelas City}}{51}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Kelas JsonConvert}}{51}{figure.4.6}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Kelas LocationFinder}}{51}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Kelas Map}}{51}{figure.4.8}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {Package} WindowsPhone}}{52}{figure.4.9}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Kelas Protocol}}{52}{figure.4.10}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Kelas Route}}{53}{figure.4.11}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Kelas SearchPlace}}{53}{figure.4.12}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Kelas FindRoute}}{53}{figure.4.13}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Antarmuka \textit {MainPage}}}{64}{figure.4.14}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Antarmuka Daftar Tempat}}{65}{figure.4.15}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Antarmuka \textit {Map}}}{66}{figure.4.16}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Antarmuka \textit {Route}}}{66}{figure.4.17}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Antarmuka Rute dalam Bentuk Daftar}}{67}{figure.4.18}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Kelas Mainpage}}{51}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Kelas City}}{51}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Kelas JsonConvert}}{51}{figure.4.7}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Kelas LocationFinder}}{52}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Kelas Map}}{52}{figure.4.9}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \textit {Package} WindowsPhone}}{52}{figure.4.10}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Kelas Protocol}}{53}{figure.4.11}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Kelas Route}}{53}{figure.4.12}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Kelas SearchPlace}}{54}{figure.4.13}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Kelas FindRoute}}{54}{figure.4.14}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Antarmuka \textit {MainPage}}}{65}{figure.4.15}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Antarmuka Daftar Tempat}}{66}{figure.4.16}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Antarmuka \textit {Map}}}{67}{figure.4.17}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Antarmuka \textit {Route}}}{67}{figure.4.18}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Antarmuka Rute dalam Bentuk Daftar}}{68}{figure.4.19}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Gambar antarmuka kelas MainPage}}{70}{figure.5.1}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Gambar Antarmuka Splash di Kelas MainPage}}{71}{figure.5.2}
