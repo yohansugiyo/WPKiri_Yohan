@@ -1,7 +1,7 @@
 \chapter{Implementasi dan Pengujian Aplikasi}
 \label{chap:Implementasi dan Pengujian Aplikasi}
 
-Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendaraan umum untuk Windows Phone.
+Pada bab 5 akan dibahas implementasi dan pengujian aplikasi Pencari Rute Kendaraan Umum untuk Windows Phone.
 
 %Implementasi
 \section{Implementasi}
@@ -57,7 +57,7 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 \hspace{0.5cm} Hasil implementasi dari perangkat lunak ini terbagi dalam tiga bagian, yaitu:
 \begin{enumerate}
 	\item Kode Program \\
-	Kode Program pada perangkat lunak ditulis dengan menggunakan bahasa c\#. Bahasa C\# dipilih berdasarkan analisa pada bab 3 dan kemampuan penulis.
+	Kode Program pada perangkat lunak ditulis dengan menggunakan bahasa C\#. Bahasa C\# dipilih berdasarkan analisa pada bab 3 dan kemampuan penulis.
 	\item Hasil kompilasi program \\
 	Hasil dari kompilasi program berupa \textit{file} Kiri\_Debug\_AnyCPU.xap. \textit{File} ini dapat dipasang pada perangkat dengan sistem operasi Windows Phone versi 8 atau lebih tinggi.
 	\item Antarmuka Aplikasi \\
@@ -67,7 +67,7 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 % Gambar antarmuka kelas MainPage
 	\begin{figure}[!h]
 		\centering
-			\includegraphics[scale=0.2]{Gambar/antarmuka/home}
+			\includegraphics[scale=0.25]{Gambar/antarmuka/home}
 		\caption{Gambar antarmuka kelas MainPage}
 		\label{fig:antarmuka MainPage}
 	\end{figure}
@@ -77,7 +77,7 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 	% Gambar antarmuka Splash MainPage
 	\begin{figure}[!h]
 		\centering
-			\includegraphics[scale=0.2]{Gambar/antarmuka/splash}
+			\includegraphics[scale=0.25]{Gambar/antarmuka/splash}
 		\caption{Gambar Antarmuka Splash di Kelas MainPage}
 		\label{fig:antarmuka splash MainPage}
 	\end{figure}	
@@ -85,7 +85,7 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 	% Gambar antarmuka list di kelas MainPage
 	\begin{figure}[!h]
 		\centering
-			\includegraphics[scale=0.2]{Gambar/antarmuka/list_main}
+			\includegraphics[scale=0.25]{Gambar/antarmuka/list_main}
 		\caption{Gambar Antarmuka \textit{List} Asal dan \textit{List} Tujuan di Kelas MainPage}
 		\label{fig:antarmuka list MainPage}
 	\end{figure}
@@ -93,7 +93,7 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 	% Gambar antarmuka kelas Map
 	\begin{figure}[!h]
 		\centering
-			\includegraphics[scale=0.2]{Gambar/antarmuka/map}
+			\includegraphics[scale=0.25]{Gambar/antarmuka/map}
 		\caption{Gambar Antarmuka Kelas Map}
 		\label{fig:antarmuka Map}
 	\end{figure}
@@ -101,7 +101,7 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 	% Gambar antarmuka menunggu di kelas Route
 	\begin{figure}[!h]
 		\centering
-			\includegraphics[scale=0.2]{Gambar/antarmuka/wait_route}
+			\includegraphics[scale=0.25]{Gambar/antarmuka/wait_route}
 		\caption{Gambar Antarmuka Menunggu di Kelas Route}
 		\label{fig:antarmuka menunggu Route}
 	\end{figure}
@@ -109,7 +109,7 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 	% Gambar antarmuka kelas Route
 	\begin{figure}[!h]
 		\centering
-			\includegraphics[scale=0.2]{Gambar/antarmuka/route_map}
+			\includegraphics[scale=0.25]{Gambar/antarmuka/route_map}
 		\caption{Gambar Antarmuka Kelas Route}
 		\label{fig:antarmuka Route}
 	\end{figure}
@@ -117,7 +117,7 @@ Pada bab 5 akan dibahas implementasi dan pengujian aplikasi pencari rute kendara
 	% Gambar antarmuka kelas Route bentuk list
 	\begin{figure}[!h]
 		\centering
-			\includegraphics[scale=0.2]{Gambar/antarmuka/list_route}
+			\includegraphics[scale=0.25]{Gambar/antarmuka/list_route}
 		\caption{Gambar Antarmuka \textit{List} di Kelas Route}
 		\label{fig:antarmuka list Route}
 	\end{figure}
@@ -155,8 +155,8 @@ Dari tiga perintah berikut penulis mengharapkan hasil sebagi berikut.
 	\centering
 		\begin{tabular}{|p{2cm}|p{10cm}|}\hline
 				Perintah & Aksi Pengguna \\ \hline
-				1 & Menekan tombol "Here" dan menulis kata "bip" pada TextBox \\ \hline
-				2 & Menulis kata "bip" pada TextBox dan menulis kata "Ciwalk" pada TextBox \\ \hline
+				1 & Menekan tombol "Here" dan menulis kata "bip" pada \textit{TextBox} \\ \hline
+				2 & Menulis kata "bip" pada \textit{TextBox} dan menulis kata "Ciwalk" pada \textit{TextBox} \\ \hline
 				3 & Menekan tombol "Here" dan menunjuk pintu masuk ITB yang di jalan Ganesa \\ \hline
 		\end{tabular}
 	\caption{Tabel Hasil yang Diharapkan Penulis}
@@ -168,9 +168,9 @@ Dari tiga perintah berikut didapat hasil sebagi berikut.
 	\centering
 		\begin{tabular}{|p{1,5cm}|p{9cm}|p{2cm}|}\hline
 				Perintah & Aksi Pengguna & Kesesuaian \\ \hline
-				1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
-				2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
-				3 & Menekan tombol "Here" dan menulis "jl Ganesa" pada TextBox & tidak sesuai \\ \hline
+				1 & Menekan tombol "Here" dan menulis "BIP" pada \textit{TextBox} & sesuai \\ \hline
+				2 & Menulis "BIP" pada \textit{TextBox} dan menulis "CIwalk" pada \textit{TextBox} & sesuai \\ \hline
+				3 & Menekan tombol "Here" dan menulis "jl Ganesa" pada \textit{TextBox} & tidak sesuai \\ \hline
 		\end{tabular}
 	\caption{Tabel Hasil Pengujian Fungsionalitas Terhadap Pengguna 1}
 	\label{tab:TabelHasilPengujianFungsionalitasTerhadapPengguna}
@@ -180,8 +180,8 @@ Dari tiga perintah berikut didapat hasil sebagi berikut.
 	\centering
 		\begin{tabular}{|p{1,5cm}|p{9cm}|p{2cm}|}\hline
 				Perintah & Aksi Pengguna & Kesesuaian \\ \hline
-				1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
-				2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
+				1 & Menekan tombol "Here" dan menulis "BIP" pada \textit{TextBox} & sesuai \\ \hline
+				2 & Menulis "BIP" pada \textit{TextBox} dan menulis "CIwalk" pada \textit{TextBox} & sesuai \\ \hline
 				3 & Menekan tombol "Here" dan menunjuk pada peta & sesuai \\ \hline
 		\end{tabular}
 	\caption{Tabel Hasil Pengujian Fungsionalitas Terhadap Pengguna 2}
@@ -194,8 +194,8 @@ Dari tiga perintah berikut didapat hasil sebagi berikut.
 	\centering
 		\begin{tabular}{|p{1,5cm}|p{9cm}|p{2cm}|}\hline
 				Perintah & Aksi Pengguna & Kesesuaian \\ \hline
-				1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
-				2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
+				1 & Menekan tombol "Here" dan menulis "BIP" pada \textit{TextBox} & sesuai \\ \hline
+				2 & Menulis "BIP" pada \textit{TextBox} dan menulis "CIwalk" pada \textit{TextBox} & sesuai \\ \hline
 				3 & Menekan tombol "Here" dan menulis "ITB Ganeca" pada TextBox lalu menyadari tombol map dan menggunakannya & sesuai \\ \hline
 		\end{tabular}
 	\caption{Tabel Hasil Pengujian Fungsionalitas Terhadap Pengguna 3}
@@ -206,8 +206,8 @@ Dari tiga perintah berikut didapat hasil sebagi berikut.
 	\centering
 		\begin{tabular}{|p{1,5cm}|p{9cm}|p{2cm}|}\hline
 				Perintah & Aksi Pengguna & Kesesuaian \\ \hline
-				1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
-				2 & Menulis "BIP" pada TextBox dan menulis "CIwalk" pada TextBox & sesuai \\ \hline
+				1 & Menekan tombol "Here" dan menulis "BIP" pada \textit{TextBox} & sesuai \\ \hline
+				2 & Menulis "BIP" pada \textit{TextBox} dan menulis "CIwalk" pada \textit{TextBox} & sesuai \\ \hline
 				3 & Menekan tombol "Here" dan menulis "Institut Teknologi Bandung" pada TextBox & tidak sesuai \\ \hline
 		\end{tabular}
 	\caption{Tabel Hasil Pengujian Fungsionalitas Terhadap Pengguna 4}
@@ -218,9 +218,9 @@ Dari tiga perintah berikut didapat hasil sebagi berikut.
 	\centering
 		\begin{tabular}{|p{1,5cm}|p{9cm}|p{2cm}|}\hline
 				Perintah & Aksi Pengguna & Kesesuaian \\ \hline
-				1 & Menekan tombol "Here" dan menulis "BIP" pada TextBox & sesuai \\ \hline
-				2 & Menulis "BIP" pada TextBox dan menulis "Ciwalk" pada TextBox & sesuai \\ \hline
-				3 & Menekan tombol "Here" dan menulis "jalan ganesa" pada TextBox & tidak sesuai \\ \hline
+				1 & Menekan tombol "Here" dan menulis "BIP" pada \textit{TextBox} & sesuai \\ \hline
+				2 & Menulis "BIP" pada \textit{TextBox} dan menulis "Ciwalk" pada \textit{TextBox} & sesuai \\ \hline
+				3 & Menekan tombol "Here" dan menulis "jalan ganesa" pada \textit{TextBox} & tidak sesuai \\ \hline
 		\end{tabular}
 	\caption{Tabel Hasil Pengujian Fungsionalitas Terhadap Pengguna 5}
 	\label{tab:TabelHasilPengujianFungsionalitasTerhadapPengguna}
@@ -267,6 +267,7 @@ Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan r
 %end comment
 
 \hspace{0.5cm} Pada pengujian keadaan aplikasi dari keadaan \textit{running} ke \textit{dormant} tidak terjadi. Pada saat aplikasi dalam keadaan \textit{running} dan pengguna menekan tombol "windows" seharusnya keadaan aplikasi berpindah dari keadaan \textit{running} ke \textit{dormant} tetapi keadaan aplikasi malah \textit{terminate}. Hal tersebut dikarenakan aplikasi yang penulis kembangkan masih dalam mode debug.
+%http://stackoverflow.com/questions/24103101/suspending-event-not-raising-on-windows-phone-8-1-using-winrt
 
 \newpage
 %Pengujian Eksperimental untuk mengetahui tingkat keberhasilan proses kerja aplikasi
@@ -274,17 +275,59 @@ Penulis juga mencoba melakukan pengujian fungsionalitas untuk menguji aksi dan r
 \label{lab:Pengujian Eksperimental}
 \hspace{0.5cm} Pengujian eksperimental dilakukan untuk mengetahui keberhasilan aplikasi yang dibangun penulis. Berikut pengujian eksperimental yang dilakukan penulis.
 
-	Pengujian 1
 		\begin{itemize}
 			\item Tempat : Jalan Kejaksaan menuju Unpar dan kembali ke jalan Kejaksaan
 			\item Waktu : Pukul 9 pada tanggal 7 April 2014 
 			\item Pengalaman : \\
-			\hspace{0.5cm} Pada pengujian 1 penulis memasukan alamat di dalam rumah untuk menuju Unpar. Saat penulis memasukan kata Unpar muncul daftar tempat sesuai kata kunci "Unpar", lalu penulis memilih "Universitas Katolik Parahyangan". Saat rute ditampilkan ada ketidaktepatan lokasi yang ditunjukan untuk lokasi asal(rumah) sedangkan untuk lokasi tujuan(Unpar) ditunjukan dengan tepat. Katidaktepatan tersebut kira-kira seratus meter dan lokasi ditandai lingkaran merah dengan ukuran besar. Hal tersebut dikarenakan tempat tertutup yang membuat GPS tidak menunjukan lokasi yang akurat. Tapi saat pengujian penulis berusaha mengikuti titik naik angkutan umum.
-			\hspace{0.5cm}Penulis mulai dengan mengikuti petunjuk berjalan kaki menuju Jalan Tamblong. Saat keluar rumah lingkaran merah disekitar lokasi perangkat mulai mengecil yang menandakan akurasi GPS semakin baik. Angkutan kota yang penulis naiki pertama kali adalah angkutan kota kalapa. Sambil berada di angkot penulis mengamati rute yang ditunjukan aplikasi sudah sesuai dengan rute angkutan kota dan penunjuk lokasi menunjukan pergerakan dengan akurat. Angkutan kota yang penulis naiki berhenti di stasiun lalu penulis turun dan menuju Jalan Kebon Jukut. Di jalan kebon jukut penulis naik angkutan kota Ciumbuleuit - St. Hall. Selama perjalanan petunjuk rute dan \textit{polyline} sudah tepat sesuai rute angkutan kota. Angkutan kota ke dua langsung mengantarkan penulis menuju Jalan Ciumbuleuit untuk selanjutnya penulis berjalan menuju Unpar. Ketika sampai di Unpar, kordinat lokasi pada peta juga menunjukan titik di Unpar dan memakan waktu 65 menit.
+			\hspace{0.5cm} Pada pengujian penulis memasukan alamat di dalam rumah untuk menuju Unpar. Saat penulis memasukan kata Unpar muncul daftar tempat sesuai kata kunci "Unpar", lalu penulis memilih "Universitas Katolik Parahyangan". Saat rute ditampilkan ada ketidaktepatan lokasi yang ditunjukan untuk lokasi asal(rumah) sedangkan untuk lokasi tujuan(Unpar) ditunjukan dengan tepat. Katidaktepatan tersebut kira-kira seratus meter dan lokasi ditandai lingkaran merah dengan ukuran besar. Hal tersebut dikarenakan tempat tertutup yang membuat GPS tidak menunjukan lokasi yang akurat. Tapi saat pengujian penulis berusaha mengikuti titik naik angkutan umum.\\
+			
+			\hspace{0.5cm}Penulis mulai dengan mengikuti petunjuk berjalan kaki menuju Jalan Tamblong. Saat keluar rumah lingkaran merah disekitar lokasi perangkat mulai mengecil yang menandakan akurasi GPS semakin baik. Angkutan kota yang penulis naiki pertama kali adalah angkutan kota kalapa. Sambil berada di angkot penulis mengamati rute yang ditunjukan aplikasi sudah sesuai dengan rute angkutan kota dan penunjuk lokasi menunjukan pergerakan dengan akurat. Angkutan kota yang penulis naiki berhenti di stasiun lalu penulis turun dan menuju Jalan Kebon Jukut. Di jalan kebon jukut penulis naik angkutan kota Ciumbuleuit - St. Hall. Selama perjalanan petunjuk rute dan \textit{polyline} sudah tepat sesuai rute angkutan kota. Angkutan kota ke dua langsung mengantarkan penulis menuju Jalan Ciumbuleuit untuk selanjutnya penulis berjalan menuju Unpar. Ketika sampai di Unpar, kordinat lokasi pada peta juga menunjukan titik di Unpar dan memakan waktu 65 menit.\\
+			
 			\hspace{0.5cm}Untuk perjalanan pulang penulis memulai dengan mencari rute dari Unpar menuju ke rumah di jalan Kejaksaan dengan mencari di peta. Perjalanan penulis mulai dengan naik angkot Ciumbuleuit - St. Hall (lurus). Angkot Ciumbuleuit - St. Hall (lurus) penulis naiki dari jalan Ciumbuleuit sampai jalan Cihampelas. Penulis turun di jalan Cihampelas dan naik angkot Kalapa - Ledeng di jalan Cihampelas. Namun di jalan Wastukencana rute pada peta menunjukan rute menyusuri jalan Wastukencana lalu ke jalan Aceh, namun angkot malah berbelok ke jalan Riau lalu ke jalan Purnawarman lalu ke jalan Aceh. Rute yang benar yaitu rute angkot dan bukan pada peta. Dari jalan Aceh angkot menuju jalan Sumatera lalu ke jalan Tamblong. Perjalanan penulispun berakhir setelah sampai di rumah.
 		\end{itemize}
 
+Selain pengujian langsung penulis juga coba mambandingkan hasilnya pencarian di android dan di Windows Phone. Hasil perbandingan dapat dilihat pada gambar dibawah ini.
 
+	% Gambar perbandingan home
+	\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.15]{Gambar/perbandingan/perbandingan_home}
+		\caption{Gambar Perbandingan Antarmuka Home di Android(kiri) dan Windows Phone(kanan)}
+		\label{fig:perbandinganHome}
+	\end{figure}
+
+		% Gambar perbandingan home
+	\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.15]{Gambar/perbandingan/perbandingan_pilih}
+		\caption{Gambar Perbandingan Antarmuka Home di Android(kiri) dan Windows Phone(kanan)}
+		\label{fig:perbandinganPilih}
+	\end{figure}
+	
+		% Gambar perbandingan home
+	\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.15]{Gambar/perbandingan/perbandingan_menunggu}
+		\caption{Gambar Perbandingan Antarmuka Menunggu hasil pencarian rute di Android(kiri) dan Windows Phone(kanan)}
+		\label{fig:perbandinganMenunggu}
+	\end{figure}
+	
+		% Gambar perbandingan home
+	\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.15]{Gambar/perbandingan/perbandingan_route}
+		\caption{Gambar Perbandingan Antarmuka Penentuan Rute di Android(kiri) dan Windows Phone(kanan)}
+		\label{fig:perbandinganRoute}
+	\end{figure}
+	
+	\hspace{0.5cm} Dari hasil perbandingan aplikasi pencarian rute pada Android dan Windows Phone penulis mendapatkan kesimpulan sebagi berikut.
+	
+	\begin{itemize}
+		\item Penunjuk lokasi perangkat menunjuk lokasi yang hampir sama ketika berada di ruangan terbuka.
+		\item Hasil penentuan lokasi dari kata kunci memiliki nilai yang sama.
+		\item Hasil penentuan rute sama-sama menunjukan keakuratan yang sama.
+	\end{itemize}
+	
 \subsection{Perbandingan Aplikasi Pencari Rute di Android dengan Aplikasi Pencari Rute di Windows Phone}
 \label{lab:Perbandingan}
 \hspace{0.5cm} Aplikasi Pencari rute yang penulis buat dengan yang ada di Android memiliki beberapa perbedaan. Berikut perbedaan antara aplikasi pencari rute di Android dengan Windows Phone.

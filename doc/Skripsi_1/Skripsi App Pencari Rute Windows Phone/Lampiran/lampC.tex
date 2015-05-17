@@ -29,7 +29,6 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Maps.Controls;
 using Microsoft.Phone.Maps.Toolkit;
 
-//optional
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.IO;
@@ -48,8 +47,6 @@ namespace Kiri
 {
     public partial class Route : PhoneApplicationPage
     {
-        //get location
-        //zhttps://msdn.microsoft.com/en-us/library/windows/apps/jj247548%28v=vs.105%29.aspx
         private Boolean listBoxStatus; //true == show, false == hide
         private LocationFinder lFinder;
         private Point[] arrayFocus;
@@ -64,10 +61,6 @@ namespace Kiri
         private BackgroundWorker backgroundWorker;
         private DispatcherTimer newTimer;
         private Boolean timeOut = false;
-        //private Boolean routeReady;
-        //private AutoResetEvent _workerCompleted = new AutoResetEvent(false);
-        public string AppStatus = String.Empty;
-        public string SavedData = String.Empty;
 
         public Route()
         {
@@ -86,41 +79,22 @@ namespace Kiri
             newTimer.Start();
 
             ShowLoading();
-            //PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
-            //this.StartLoadingData();
-            //startLocation();
         }
 
-        //old zhttp://www.geekchamp.com/articles/understanding-the-windows-phone-location-service-how-to-get-current-gps-coordinates
-        //old zhttps://msdn.microsoft.com/en-us/library/windows/apps/ff431782(v=vs.105).aspx
- 
-        //source zhttps://msdn.microsoft.com/en-us/library/windows/apps/ff626521%28v=vs.105%29.asp
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            //System.Diagnostics.Debug.WriteLine("route");
             base.OnNavigatedTo(e);
-            //if (PhoneApplicationService.Current.State.ContainsKey("route"))
-            //{
-            //    this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["route"];
-            //}else
             if (PhoneApplicationService.Current.State.ContainsKey("location"))
             {
                 this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
             }
             this.TrackLocation();
-            //this.route.Center = new GeoCoordinate(lFinder.coorLatFrom, lFinder.coorLongFrom);
-            //GeoCoordinate[] recLocation = new GeoCoordinate[]{new GeoCoordinate(lFinder.coorLatFrom, lFinder.coorLongFrom),new GeoCoordinate(lFinder.coorLatTo, lFinder.coorLongTo)};
-            //LocationRectangle lr = LocationRectangle.CreateBoundingRectangle(recLocation);
-            //this.route.SetView(new GeoCoordinate(lFinder.coorLatFrom, lFinder.coorLongFrom), 1, MapAnimationKind.Linear);
-            
+
             //detect location
             if (IsolatedStorageSettings.ApplicationSettings.Contains("LocationConsent"))
             {
-                // User has opted in or out of Location
                 return;
             }
-            
-            //Find(); // After get start coordinate and finish coordinate then call Find Method
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -143,43 +117,10 @@ namespace Kiri
             geolocator.PositionChanged += geolocator_PositionChanged;
         }
 
-        void geolocator_StatusChanged(Geolocator sender, StatusChangedEventArgs args)
-        {
-            string status = "";
-            switch (args.Status)
-            {
-                case PositionStatus.Disabled:
-                    // the application does not have the right capability or the location master switch is off
-                    status = "location is disabled in phone settings";
-                    break;
-                case PositionStatus.Initializing:
-                    // the geolocator started the tracking operation
-                    status = "initializing";
-                    break;
-                case PositionStatus.NoData:
-                    // the location service was not able to acquire the location
-                    status = "no data";
-                    break;
-                case PositionStatus.Ready:
-                    // the location service is generating geopositions as specified by the tracking parameters
-                    status = "ready";
-                    break;
-                case PositionStatus.NotAvailable:
-                    status = "not available";
-                    // not used in WindowsPhone, Windows desktop uses this value to signal that there is no hardware capable to acquire location information
-                    break;
-                case PositionStatus.NotInitialized:
-                    // the initial state of the geolocator, once the tracking operation is stopped by the user the geolocator moves back to this state
-                    break;
-            }
-            System.Console.WriteLine(status);
-        }
-
         void geolocator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
         {
             Dispatcher.BeginInvoke(() =>
             {
-                //MessageBox.Show(args.Position.Coordinate.Latitude.ToString() + ", " + args.Position.Coordinate.Longitude.ToString());
                 drawMyLocationOnTheMap(args.Position.Coordinate.Latitude, args.Position.Coordinate.Longitude);
                 lFinder.setPositionChanged(sender,args);
             });
@@ -187,20 +128,12 @@ namespace Kiri
 
         public async void Find()
         {
-            //this.TrackLocation_Click();
             Boolean status = true; 
             HttpClient httpClient = new HttpClient();
-            
-            //p.getRequestRoute(lFinder.coorLatFrom, lFinder.coorLongFrom, lFinder.coorLatTo, lFinder.coorLongTo);
-            //String uri = p.getFindRoute(lFinder.coorLatFrom + "," + lFinder.coorLongFrom, lFinder.coorLatTo + "," + lFinder.coorLongTo);
-            //Task<String> requestRouteTask = httpClient.GetStringAsync(new Uri(uri));
-            //String requestRoute = await requestRouteTask;
-            //RootObjectFindRoute r = JsonConvert.DeserializeObject<RootObjectFindRoute>(requestRoute); //Mengubah String menjadi objek
 
             RootObjectFindRoute r = await p.getRequestRoute(lFinder.coorLatFrom, lFinder.coorLongFrom, lFinder.coorLatTo, lFinder.coorLongTo);
             if (r.status.Equals("ok"))
             {
-                //source zhttps://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn792121.aspx 
                 if (!r.routingresults[0].steps[0][3].Equals("Maaf, kami tidak dapat menemukan rute transportasi publik untuk perjalanan Anda.")) //Check ditemukan atau tidak
                 {
                     this.setRouteToMap(r);
@@ -285,7 +218,6 @@ namespace Kiri
                         routeLayer.Add(overlay1);
                     }
 
-                    //reference add image zhttp://stackoverflow.com/questions/676869/add-image-to-listbox
                     this.arrayFocus[j] = new Point(double.Parse(coordinate[0]), double.Parse(coordinate[1]));
                     this.detailRoute[j] = r.routingresults[i].steps[j][3].ToString();
                     if (j == r.routingresults[i].steps.Count - 1) // Untuk yg terakhir/sampai di tujuan
@@ -352,14 +284,12 @@ namespace Kiri
             {
                 routePanel.Visibility = Visibility.Visible;
                 buttonList.Content = "Tutup List";
-                //LayoutRoot.Children.Add(listRoute);
                 this.listBoxStatus = true;
             }
             else 
             {
                 routePanel.Visibility = Visibility.Collapsed;
                 buttonList.Content = "Lihat List";
-                //LayoutRoot.Children.Remove(listRoute);
                 this.listBoxStatus = false;
             }
         }
@@ -396,7 +326,6 @@ namespace Kiri
             this.route.Layers.Remove(myLocationLayer);
             GeoCoordinate myGeoCoordinate = new GeoCoordinate(latitude, longitude);
             double myAccuracy = lFinder.accuracy; 
-            //MessageBox.Show(lFinder.accuracy + "");
             double metersPerPixels = (Math.Cos(myGeoCoordinate.Latitude * Math.PI / 180) * 2 * Math.PI * 6378137) / (256 * Math.Pow(2, this.route.ZoomLevel));
             double radius = myAccuracy / metersPerPixels;
 
@@ -453,7 +382,6 @@ namespace Kiri
             backgroundWorker.RunWorkerAsync();
             backgroundWorker.DoWork += new DoWorkEventHandler(backgroundWorker_DoWork);
             backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker_RunWorkerCompleted);
-            //_workerCompleted.WaitOne();
         }
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -507,7 +435,7 @@ namespace Kiri
 
         //JSON data to c# using JSON.NET
         //package from zhttp://www.nuget.org/packages/newtonsoft.json
-        // dok zhttp://www.newtonsoft.com/json/help/html/SerializingJSON.htm
+        //dok http://www.newtonsoft.com/json/help/html/SerializingJSON.htm
     }
 }
 \end{lstlisting}

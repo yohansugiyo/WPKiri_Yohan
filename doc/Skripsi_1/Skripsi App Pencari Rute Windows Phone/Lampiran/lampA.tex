@@ -43,7 +43,6 @@ namespace Kiri
         private String myCity;
 
         private BackgroundWorker backgroundWorker;
-        public String test = "aaa";
         
         public MainPage()
         {
@@ -61,16 +60,6 @@ namespace Kiri
             if (PhoneApplicationService.Current.State.ContainsKey("location"))
             {
                 this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
-                //this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
-                if (lFinder.coorLongFrom != 0.0)
-                {
-                    fromBox.Text = lFinder.coorLongFrom + "aaa";
-                }
-                if (lFinder.coorLongTo != 0.0)
-                {
-                    fromBox.Text = lFinder.coorLongTo + "";
-                }
-                
                 //check form
                 if (lFinder.coorLatFrom == 0.0 && lFinder.coorLongFrom == 0.0 && !lFinder.addressFrom.Equals("Maps") && !lFinder.addressFrom.Equals("Here"))
                 {
@@ -87,7 +76,7 @@ namespace Kiri
                         fromBox.Text = "Maps";
                     }
                 }
-                //System.Diagnostics.Debug.WriteLine("stuff");
+
                 if (lFinder.coorLatTo == 0.0 && lFinder.coorLongTo == 0.0 && !lFinder.addressTo.Equals("Maps") && lFinder.addressTo.Equals("Here"))
                 {
                     toBox.Text = lFinder.addressTo;
@@ -137,16 +126,6 @@ namespace Kiri
             {
                 this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
                 this.findRoute();
-                /*
-                if (lFinder.coorLongFrom != 0.0)
-                {
-                    fromBox.Text = lFinder.coorLongFrom + "aaa";
-                }
-                if (lFinder.coorLongTo != 0.0)
-                {
-                    fromBox.Text = lFinder.coorLongTo + "";
-                }
-                 * */
             }
         }
 
@@ -167,11 +146,6 @@ namespace Kiri
                 //Get place from query
                 if ((!queryFrom.Equals("Here") || !queryFrom.Equals("Maps")) && (lFinder.coorLatFrom == 0.0 && lFinder.coorLongFrom == 0.0)) //Check get location from GPS
                 {
-                    //Reference zhttps://msdn.microsoft.com/en-us/library/hh191443.aspx
-                    //Task<string> requestFromTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryFrom, myCity)));
-                    //requestFrom = await requestFromTask;
-                    //from = new RootObjectSearchPlace();
-                    //from = JsonConvert.DeserializeObject<RootObjectSearchPlace>(requestFrom); //Mengubah String menjadi objek
                     from = await protocol.getRequestSearch(queryFrom, myCity); //Mengubah String menjadi objek
                     if (from.searchresult.Count() == 0)
                     {
@@ -181,10 +155,6 @@ namespace Kiri
                 }
                 if ((!queryTo.Equals("Here") || !queryTo.Equals("Maps")) && (lFinder.coorLatTo == 0.0 && lFinder.coorLongTo == 0.0)) //Check get location from GPS
                 {
-                    //Task<string> requestToTask = httpClient.GetStringAsync(new Uri(protocol.getSearchPlace(queryTo, myCity)));
-                    //requestTo = await requestToTask;
-                    //to = new RootObjectSearchPlace();
-                    //to = JsonConvert.DeserializeObject<RootObjectSearchPlace>(requestTo);//Mengubah String menjadi objek
                     to = await protocol.getRequestSearch(queryTo, myCity); //Mengubah String menjadi objek
                     if (to.searchresult.Count() == 0)
                     {
@@ -215,7 +185,6 @@ namespace Kiri
         private void changeMapFrom(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=from", UriKind.Relative));
-            //NavigationService.Navigate(new Uri("/Map.xaml?fromMapFor=from", UriKind.Relative));    
         }
         private void changeMapTo(object sender, RoutedEventArgs e)
         {
@@ -236,13 +205,8 @@ namespace Kiri
             lFinder.addressTo = "Here";
         }
 
-        /* old reference: zhttps://msdn.microsoft.com/en-us/library/bb412179%28v=vs.110%29.aspx*/
-
-        //zhttps://social.msdn.microsoft.com/forums/windowsapps/en-us/7db73c64-86f7-4c43-9fd4-faa03421ea21/popup-blocking-listbox-selection-changed
         private void getListItem(RootObjectSearchPlace request,String forRequest)
         {
-            //ListBox listFrom = new ListBox();
-            //ListBox listTo = new ListBox();
             Dispatcher.BeginInvoke(new Action(delegate
             {
                 if (request.status.ToString().Equals("ok")) //check status
@@ -267,7 +231,6 @@ namespace Kiri
                     }
                     else
                     {
-                        //LayoutRoot.Children.Add(getListItem(requestFrom));
                         if (forRequest.Equals("from"))
                         {
                             for (int c = 0; c < request.searchresult.Count; c++)
@@ -314,7 +277,6 @@ namespace Kiri
                 }
                 panelFrom.Children.Clear();
                 panelFrom.Visibility = Visibility.Collapsed;
-                //panelTo.Visibility = Visibility.Visible;
             }
             else {
                 if (null != (sender as ListBox).SelectedItem)
@@ -351,7 +313,7 @@ namespace Kiri
         {
             if ((lFinder.coorLatFrom != 0.0 && lFinder.coorLongFrom != 0.0) && (lFinder.coorLatTo != 0.0 && lFinder.coorLongTo != 0.0))
             {
-                NavigationService.Navigate(new Uri("/Route.xaml", UriKind.Relative)); //start=" + locationFrom + "&nameFrom=" + fromBox.Text + "&finish=" + locationTo + "&nameTo=" + toBox.Text
+                NavigationService.Navigate(new Uri("/Route.xaml", UriKind.Relative)); 
             }
         }
 
