@@ -1,14 +1,17 @@
 %_____________________________________________________________________________
 %=============================================================================
-% data.tex v5 (10-11-2013) \ldots dibuat oleh Lionov - Informatika FTIS UNPAR
+% data.tex v6 (13-04-2015) \ldots dibuat oleh Lionov - Informatika FTIS UNPAR
 %
-% Perubahan pada versi 5 (10-11-2013)
-% - Perbaikan pada memasukkan bab : tidak perlu menuliskan apapun untuk 
-%	memasukkan seluruh bab (bagian V)
-% - Perbaikan pada memasukkan lampiran : tidak perlu menuliskan apapun untuk
-%	memasukkan seluruh lampiran atau -1 jika tidak memasukkan apapun
+% Perubahan pada versi 6 (13-04-2015)
+% - Perubahan untuk data-data ``template" menjadi lebih generik dan menggunakan
+%	tanda << dan >>
 %
 % Perubahan pada versi sebelumnya
+% 	versi 5 (10-11-2013)
+% 	- Perbaikan pada memasukkan bab : tidak perlu menuliskan apapun untuk 
+%	  memasukkan seluruh bab (bagian V)
+% 	- Perbaikan pada memasukkan lampiran : tidak perlu menuliskan apapun untuk
+%	  memasukkan seluruh lampiran atau -1 jika tidak memasukkan apapun
 %	versi 4 (21-10-2012)
 %	- Data dosen dipindah ke dosen.tex agar jika ada perubahan/update data dosen
 %   mahasiswa tidak perlu mengubah data.tex
@@ -27,6 +30,7 @@
 % Masukkan ke dalam file ini, data-data yang diperlukan oleh template ini
 % Cara memasukkan data dijelaskan di setiap bagian
 % Data yang WAJIB dan HARUS diisi dengan baik dan benar adalah SELURUHNYA !!
+% Hilangkan tanda << dan >> jika anda menemukannya
 %=============================================================================
 %_____________________________________________________________________________
 %=============================================================================
@@ -59,8 +63,8 @@
 % \mode{kosong}
 % \mode{cover}
 % \mode{sidang}
-\mode{sidang_akhir}
-%\mode{final} 
+%\mode{sidang_akhir}
+\mode{final} 
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -139,14 +143,17 @@
 %			  ujian akhir skripsi/tugas akhir
 % - pembimbing: isi dengan pembimbing anda, lihat daftar dosen di file dosen.tex
 %				jika pembimbing hanya 1, kosongkan parameter kedua 
-%				(e.g. \pembimbing{\JND}{  } )
+%				(e.g. \pembimbing{\JND}{  } ) , \JND adalah kode dosen
 % - penguji : isi dengan para penguji anda, lihat daftar dosen di file dosen.tex
-%				(e.g. \penguji{\JHD}{\JCD} )
+%				(e.g. \penguji{\JHD}{\JCD} ) , \JND dan \JCD adalah kode dosen
+%
 %=============================================================================
-\namanpm{Yohan}{2011730048}
-\tanggal{1}{7}{2014}
-\pembimbing{\PAS}{}     %Lihat singkatan pembimbing anda di file dosen.tex
-\penguji{\TAB}{\CEN} 		%Lihat singkatan penguji anda di file dosen.tex
+\namanpm{Yohan}{2011730048}	%hilangkan tanda << & >>
+\tanggal{28}{5}{2015}			%hilangkan tanda << & >>
+\pembimbing{\TAB}{}     
+%Lihat singkatan pembimbing anda di file dosen.tex, hilangkan tanda << & >>
+\penguji{\JNH}{\LNV} 		
+%Lihat singkatan penguji anda di file dosen.tex, hilangkan tanda << & >>
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -160,11 +167,12 @@
 %			   bawahnya
 %			 - Gunakan \texorpdfstring{\\}{} untuk pindah ke baris baru
 %			 - Judul TIDAK ditulis dengan menggunakan huruf besar seluruhnya !!
+%			 - Gunakan perintah \texorpdfstring{\\}{} untuk baris baru
 %=============================================================================
 
-\judulINA{Pengembangan Aplikasi Pencari \texorpdfstring{\\}{} Rute Kendaraan Umum \texorpdfstring{\\}{} Untuk Windows Phone}
+\judulINA{Pengembangan Aplikasi Navigasi \texorpdfstring{\\}{} Kendaraan Umum untuk Windows Phone \texorpdfstring{\\}{} Berbasis Kiri API}
 
-\judulENG{Development Application Public Transport \texorpdfstring{\\}{} Route Search For Windows Phone}
+\judulENG{Development of Public Transport \texorpdfstring{\\}{} Navigation Application For Windows Phone Based on Kiri API}
 
 %_____________________________________________________________________________
 %=============================================================================
@@ -186,7 +194,7 @@
 	Windows Phone merupakan sistem operasi buatan Microsoft. Salah satu yang membedakan sistem operasi Windows Phone dengan sistem operasi lain adalah antarmuka yang Microsoft sebut Metno.
 	Saat penelitian ini dilakukan sistem operasi Windows Phone adalah versi 8. 
 	
-	\hspace{0.5cm} Perangkat lunak yang berhasil dibangun pada penelitian ini menggunakan bahasa C\# untuk Windows Phone. Untuk mencari rute angkutan umum penulis memanfaatkan Kiri API dan memanfaatkan \textit{web service} untuk mendapatkan rute yang diinginkan pengguna.
+	\hspace{0.5cm} Aplikasi yang berhasil dibangun pada penelitian ini menggunakan bahasa C\# untuk Windows Phone. Untuk mencari rute angkutan umum penulis memanfaatkan Kiri API dan memanfaatkan \textit{web service} untuk mendapatkan rute yang diinginkan pengguna. Aplikasi yang dibuat memanfaatkan protokol HTTP untuk permintaan data lalu mendapatkan kembalian berupa JSON. Antarmuka aplikasi menampilkan hasil pencarian rute dalam 2 bentuk yaitu bentuk daftar dan bentuk peta.
 }
 
 \abstrakENG{
@@ -194,8 +202,7 @@
 	
 	\hspace{0.5cm} The rapid development of technology makes it increasingly popular mobile devices in Indonesia. One of the operating system that enliven the mobile industry is Windows Phone. Windows Phone is Microsoft operating system. One of the differentiating Windows Phone operating system with other operating systems is a Microsoft interface called Metno. Currently this research system Windows Phone operating is version 8.
 	
-	\hspace{0.5cm} The software successfully constructed in this study using the language C\# for Windows Phone. To find a public transport route Left writers utilize the web service API and utilize to get the desired route
-users.
+	\hspace{0.5cm} The Application successfully constructed in this study using the language C\# for Windows Phone. To find a public transport route Left writers utilize the web service API and utilize to get the desired route users. The application is made utilizing the HTTP protocol for request data and get a return in the form of JSON. Application interface displays search results in two forms, namely the form of lists and maps.
 } 
 
 %=============================================================================
@@ -219,7 +226,7 @@ users.
 %=============================================================================
 % Persembahan : kepada siapa anda mempersembahkan skripsi ini ...
 %=============================================================================
-\untuk{Dipersembahkan untuk diri sendiri }
+\untuk{Dipersembahkan untuk diri sendiri dan orang tua}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -229,8 +236,26 @@ users.
 % Kata Pengantar: tempat anda menuliskan kata pengantar dan ucapan terima 
 % kasih kepada yang telah membantu anda bla bla bla ....  
 %=============================================================================
-\prakata{Puji Syukur penulis kepada Tuhan yang telah memberikan rahmatnya sehingga 
-penulis dapat menyelesaikan skripsi yang berjudul "Pencari Rute Kendaraan Untuk Windows Phone"}
+\prakata{
+	Puji Syukur penulis kepada Tuhan yang telah memberikan rahmatnya sehingga 
+penulis dapat menyelesaikan skripsi yang berjudul "\textbf{PENGEMBANGAN APLIKASI 
+NAVIGASI KENDARAAN UMUM UNTUK WINDOWS PHONE BERBASIS KIRI API}". Skripsi ini disusun 
+dengan maksud memenihi salah satu prasyarat menyelesaikan pendidikan di Jurusan Teknik 
+Informatika, Fakultas Teknologi Informasi dan Sains, Universitas Katolik Parahyangan.
+Penulis menyadari bahwa dalam penulisan skripsi ini tidak terlepas dari bantuan dan dukungan berbagai pihak.
+Oleh karena itu, penulis ingin mengucapkan terima kasih kepada:
+\begin{itemize}
+	\item Pak Thomas Anung Basuki selaku pembimbing yang telah memberikan banyak masukan untuk skripsi ini sehingga skripsi ini dapat diselesaikan dengan baik. 
+	\item Pak Pascal Alfadian atas masukan dan tambahan wawasan untuk skripsi ini sehingga skripsi ini dapat diselesaikan dengan baik. 
+	\item Orang tua penulis yang selalu memberi dukungan baik moril maupun materil dan doa.
+	\item Adik penulis yaitu Yovin yang selalu memberi dukungan dan doa.
+	\item Ibu Joanna Helga dan Pak Lionov selaku pengujiyang sudah memberikan banyak masukan dalam penyusunan skripsi ini.
+	\item Segenap teman penulis Alexius, Tommy, Winel, Jovan, Kevin Ferdi, Rico, David, Sam, Radit, Neta, Mario, Oswin, Edbert, Kiki, Jeane, Vinny, Reanta, Putri, Vania, Melissa, Willianto
+	\item Segenap dosen Jurusan Teknik Informatika Universitas Katolik Parahyangan yang terlah memberikan ilmu untuk penulis.
+	\item Seluruh teman jurusan Teknik Informatika, Fakultas Teknologi Informasi dan Sains Universitas Katolik Parahyangan.
+\end{itemize}
+Semoga segala bantuan dan dukungan berbagai pihak tersebut mendapat berkat dari Tuhan. Semoga skripsi ini berguna bagi semua orang dan dapat dijadikan bahan pembelajaran. Akhir kata, penulis mohon maaf apabila kesalahan dan kekurangan dalam penulisan skripsi ini. 
+}
 %=============================================================================
 
 %_____________________________________________________________________________

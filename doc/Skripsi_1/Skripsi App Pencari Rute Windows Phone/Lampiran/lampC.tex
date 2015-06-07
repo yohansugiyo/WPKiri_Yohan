@@ -100,8 +100,6 @@ namespace Kiri
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            this.lFinder.reset();
-            PhoneApplicationService.Current.State["location"] = lFinder;
         }
 
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
@@ -151,6 +149,7 @@ namespace Kiri
             if (status == false)
             {
                 this.lFinder.reset();
+								PhoneApplicationService.Current.State["location"] = lFinder;
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
         }
@@ -166,12 +165,10 @@ namespace Kiri
                     routeRoad = new MapPolyline();
                     if (r.routingresults[i].steps[j][0].ToString().Equals("walk"))
                     {
-                        //MessageBox.Show(r.routingresults[i].steps[j][0].ToString()+"  "+"walk");
                         routeRoad.StrokeColor = Color.FromArgb(255, 255, 0, 0);
                     }
                     else
                     {
-                        //MessageBox.Show(r.routingresults[i].steps[j][0].ToString() + "  " + "angkot");
                         routeRoad.StrokeColor = Color.FromArgb(255, 0, 0, 255);
                     }
                     routeRoad.StrokeThickness = 4;
@@ -199,7 +196,6 @@ namespace Kiri
                         }
                         else if (j == r.routingresults[i].steps.Count - 1 && c == coordinate.Length - 2)
                         {
-                            //MessageBox.Show("finish");
                             overlay1.Content = createNew(p.iconFinish, geoCoo, "finish");
                         }
                         else if (c == 0)
@@ -366,6 +362,7 @@ namespace Kiri
             if (result == MessageBoxResult.OK)
             {
                 this.lFinder.reset();
+								PhoneApplicationService.Current.State["location"] = lFinder;
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
         }
@@ -394,7 +391,6 @@ namespace Kiri
             while (this.routeReady == false)
             {
                 if (this.timeOut == true) {
-                    //this.timeOutReached();
                     this.routeReady = true;
                 }
             }
@@ -415,6 +411,7 @@ namespace Kiri
                 {
                     MessageBox.Show("Maaf saat ini kami tidak dapet memproses rute anda!");
                     this.lFinder.reset();
+										PhoneApplicationService.Current.State["location"] = lFinder;
                     NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
                 }
             });
@@ -425,6 +422,7 @@ namespace Kiri
             if (MessageBox.Show("Anda yakin mengakhiri Navigasi?", "Kembali ke Menu Utama?", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 this.lFinder.reset();
+								PhoneApplicationService.Current.State["location"] = lFinder;
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
             else

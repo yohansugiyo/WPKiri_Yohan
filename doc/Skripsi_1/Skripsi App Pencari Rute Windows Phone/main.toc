@@ -1,7 +1,8 @@
 \select@language {bahasa}
-\contentsline {chapter}{Daftar Isi}{ix}{section*.1}
-\contentsline {chapter}{Daftar Gambar}{xii}{section*.2}
-\contentsline {chapter}{Daftar Tabel}{xiv}{section*.3}
+\contentsline {chapter}{Kata Pengantar}{xv}{chapter*.1}
+\contentsline {chapter}{Daftar Isi}{xvii}{section*.2}
+\contentsline {chapter}{Daftar Gambar}{xx}{section*.3}
+\contentsline {chapter}{Daftar Tabel}{xxii}{section*.4}
 \contentsline {chapter}{\numberline {1}Pendahuluan}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Latar Belakang}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Rumusan Masalah}{2}{section.1.2}
@@ -12,93 +13,88 @@
 \contentsline {chapter}{\numberline {2}Dasar Teori}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Windows Phone}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Lingkungan Kerja}{5}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}XAML}{6}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Kontrol terhadap Ponsel}{6}{subsection.2.1.3}
-\contentsline {subsubsection}{\numberline {2.1.3.1}Navigasi}{6}{subsubsection.2.1.3.1}
-\contentsline {subsubsection}{\numberline {2.1.3.2}Kontrol Tata Letak}{7}{subsubsection.2.1.3.2}
-\contentsline {subsubsection}{\numberline {2.1.3.3}Kontrol Terhadap Teks}{8}{subsubsection.2.1.3.3}
-\contentsline {subsubsection}{\numberline {2.1.3.4}Tombol dan Kontrol Pilihan}{8}{subsubsection.2.1.3.4}
-\contentsline {subsubsection}{\numberline {2.1.3.5}Kontrol Daftar}{9}{subsubsection.2.1.3.5}
-\contentsline {subsection}{\numberline {2.1.4}Siklus Hidup Aplikasi}{10}{subsection.2.1.4}
-\contentsline {subsection}{\numberline {2.1.5}Peta di Windows Phone}{12}{subsection.2.1.5}
-\contentsline {subsubsection}{\numberline {2.1.5.1}Penambahan Peta Ke Aplikasi}{12}{subsubsection.2.1.5.1}
-\contentsline {subsubsection}{\numberline {2.1.5.2}Tampilan Peta di Windows Phone}{12}{subsubsection.2.1.5.2}
-\contentsline {subsubsection}{\numberline {2.1.5.3}\textit {Pushpin} ke Peta}{14}{subsubsection.2.1.5.3}
-\contentsline {subsubsection}{\numberline {2.1.5.4}\textit {Polyline} pada Peta}{14}{subsubsection.2.1.5.4}
-\contentsline {subsubsection}{\numberline {2.1.5.5}\textit {Namespace Control Map}}{15}{subsubsection.2.1.5.5}
-\contentsline {subsubsection}{\numberline {2.1.5.6}Kelas Map}{15}{subsubsection.2.1.5.6}
-\contentsline {subsubsection}{\numberline {2.1.5.7}Kelas \textit {Polyline}}{16}{subsubsection.2.1.5.7}
-\contentsline {subsubsection}{\numberline {2.1.5.8}Kelas \textit {Pushpin}}{17}{subsubsection.2.1.5.8}
-\contentsline {subsection}{\numberline {2.1.6}Lokasi}{17}{subsection.2.1.6}
-\contentsline {subsubsection}{\numberline {2.1.6.1}Mendapatkan Posisi Pengguna}{18}{subsubsection.2.1.6.1}
-\contentsline {subsubsection}{\numberline {2.1.6.2}\textit {Namespace Geolocator}}{19}{subsubsection.2.1.6.2}
-\contentsline {subsubsection}{\numberline {2.1.6.3}Kelas \textit {Geocoordinate}}{19}{subsubsection.2.1.6.3}
-\contentsline {subsubsection}{\numberline {2.1.6.4}Kelas \textit {Geolocator}}{19}{subsubsection.2.1.6.4}
-\contentsline {subsubsection}{\numberline {2.1.6.5}Kelas \textit {Geoposition}}{20}{subsubsection.2.1.6.5}
-\contentsline {subsubsection}{\numberline {2.1.6.6}Kelas \textit {ReverseGeocodeQuery}}{20}{subsubsection.2.1.6.6}
-\contentsline {subsection}{\numberline {2.1.7}Memanfaatkan Sumber Data}{21}{subsection.2.1.7}
-\contentsline {subsubsection}{\numberline {2.1.7.1}\textit {HttpClient}}{21}{subsubsection.2.1.7.1}
-\contentsline {subsubsection}{\numberline {2.1.7.2}Json.NET}{23}{subsubsection.2.1.7.2}
-\contentsline {subsection}{\numberline {2.1.8}Thread}{23}{subsection.2.1.8}
-\contentsline {subsubsection}{\numberline {2.1.8.1}\textit {BackgroundWorker}}{24}{subsubsection.2.1.8.1}
-\contentsline {section}{\numberline {2.2}Kiri API}{24}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}\textit {Web Service} Penentuan Rute}{25}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}\textit {Web Service} Pencarian Lokasi}{26}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}\textit {Web Service} Menemukan Transportasi Terdekat}{27}{subsection.2.2.3}
-\contentsline {chapter}{\numberline {3}Analisis}{29}{chapter.3}
-\contentsline {section}{\numberline {3.1}Analisis Aplikasi Sejenis}{29}{section.3.1}
-\contentsline {section}{\numberline {3.2}Analisis Aplikasi}{31}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Kebutuhan Aplikasi}{32}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Analisis Kontrol yang Dipakai}{32}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Analisis Terhadap Siklus Hidup Aplikasi}{33}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Analisis Peta}{34}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Analisis Pemanfaatan Sumber Data}{35}{subsection.3.2.5}
-\contentsline {subsection}{\numberline {3.2.6}Analisis Kiri API}{36}{subsection.3.2.6}
-\contentsline {subsection}{\numberline {3.2.7}Diagram \textit {Use Case} dan Skenario}{41}{subsection.3.2.7}
-\contentsline {subsection}{\numberline {3.2.8}Kelas Diagram}{44}{subsection.3.2.8}
-\contentsline {chapter}{\numberline {4}Perancangan}{47}{chapter.4}
-\contentsline {section}{\numberline {4.1}Diagram \textit {Sequence}}{47}{section.4.1}
-\contentsline {section}{\numberline {4.2}Perancangan Kelas}{50}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Kelas \textit {PhoneApplicationPage}}{55}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Kelas \textit {MainPage}}{55}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Kelas \textit {City}}{57}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Kelas \textit {BackgroundWorker}}{57}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Kelas \textit {Geocoordinate}}{57}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}Kelas \textit {Geolocator}}{57}{subsection.4.2.6}
-\contentsline {subsection}{\numberline {4.2.7}Kelas \textit {Geoposition}}{57}{subsection.4.2.7}
-\contentsline {subsection}{\numberline {4.2.8}Kelas \textit {LocationFinder}}{58}{subsection.4.2.8}
-\contentsline {subsection}{\numberline {4.2.9}Kelas \textit {Map}}{59}{subsection.4.2.9}
-\contentsline {subsection}{\numberline {4.2.10}Kelas \textit {HttpClient}}{60}{subsection.4.2.10}
-\contentsline {subsection}{\numberline {4.2.11}Kelas \textit {JsonConvert}}{60}{subsection.4.2.11}
-\contentsline {subsection}{\numberline {4.2.12}Kelas \textit {Protocol}}{60}{subsection.4.2.12}
-\contentsline {subsection}{\numberline {4.2.13}Kelas \textit {RootObjectSearchPlace}}{62}{subsection.4.2.13}
-\contentsline {subsection}{\numberline {4.2.14}Kelas \textit {SearchResult}}{62}{subsection.4.2.14}
-\contentsline {subsection}{\numberline {4.2.15}Kelas \textit {RootObjectFindRoute}}{62}{subsection.4.2.15}
-\contentsline {subsection}{\numberline {4.2.16}Kelas \textit {RoutingResult}}{62}{subsection.4.2.16}
-\contentsline {subsection}{\numberline {4.2.17}Kelas \textit {Route}}{63}{subsection.4.2.17}
-\contentsline {section}{\numberline {4.3}Perancangan Antar Muka}{65}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Antarmuka Kelas \textit {MainPage}}{65}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Antarmuka Kelas \textit {Map}}{67}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Antarmuka Kelas \textit {Route}}{67}{subsection.4.3.3}
-\contentsline {chapter}{\numberline {5}Implementasi dan Pengujian Aplikasi}{69}{chapter.5}
-\contentsline {section}{\numberline {5.1}Implementasi}{69}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Perangkat Keras untuk Implementasi}{69}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Perangkat Lunak untuk Implementasi}{69}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Hasil Implementasi}{70}{subsection.5.1.3}
-\contentsline {section}{\numberline {5.2}Pengujian}{74}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Lingkungan Pengujian}{74}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {2.1.2}XAML \cite {MSDN}}{6}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Navigasi \cite {MSDN}}{6}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Kontrol Tata Letak \cite {MSDN}}{7}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Kontrol Terhadap Teks \cite {MSDN}}{8}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.6}Tombol dan Kontrol Pilihan \cite {MSDN}}{9}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.1.7}Kontrol Daftar \cite {MSDN}}{10}{subsection.2.1.7}
+\contentsline {subsection}{\numberline {2.1.8}Siklus Hidup Aplikasi \cite {MSDN}}{11}{subsection.2.1.8}
+\contentsline {subsection}{\numberline {2.1.9}Peta di Windows Phone \cite {MSDN}\cite {Manning}}{12}{subsection.2.1.9}
+\contentsline {subsection}{\numberline {2.1.10}\textit {Pushpin} pada Peta\cite {MSDN}}{15}{subsection.2.1.10}
+\contentsline {subsection}{\numberline {2.1.11}\textit {Polyline} pada Peta\cite {MSDN}}{16}{subsection.2.1.11}
+\contentsline {subsection}{\numberline {2.1.12}\textit {Namespace} Control Map}{17}{subsection.2.1.12}
+\contentsline {subsection}{\numberline {2.1.13}Lokasi}{19}{subsection.2.1.13}
+\contentsline {subsubsection}{Mendapatkan Posisi Pengguna}{19}{subsubsection*.5}
+\contentsline {subsubsection}{\textit {Namespace} Geolocator}{20}{subsubsection*.6}
+\contentsline {subsubsection}{Kelas Geocoordinate}{20}{subsubsection*.7}
+\contentsline {subsubsection}{Kelas Geolocator}{20}{subsubsection*.8}
+\contentsline {subsubsection}{Kelas Geoposition}{21}{subsubsection*.9}
+\contentsline {subsubsection}{Kelas ReverseGeocodeQuery}{21}{subsubsection*.10}
+\contentsline {subsection}{\numberline {2.1.14}Memanfaatkan Sumber Data}{22}{subsection.2.1.14}
+\contentsline {subsubsection}{Kelas HttpClient}{22}{subsubsection*.11}
+\contentsline {subsubsection}{Json.NET}{24}{subsubsection*.12}
+\contentsline {subsection}{\numberline {2.1.15}Thread}{25}{subsection.2.1.15}
+\contentsline {subsubsection}{\textit {BackgroundWorker}}{25}{subsubsection*.13}
+\contentsline {section}{\numberline {2.2}Kiri API}{25}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}\textit {Web Service} Penentuan Rute}{26}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}\textit {Web Service} Pencarian Lokasi}{27}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}\textit {Web Service} Menemukan Transportasi Terdekat}{28}{subsection.2.2.3}
+\contentsline {chapter}{\numberline {3}Analisis}{31}{chapter.3}
+\contentsline {section}{\numberline {3.1}Analisis Aplikasi Sejenis}{31}{section.3.1}
+\contentsline {section}{\numberline {3.2}Analisis Aplikasi}{33}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Kebutuhan Aplikasi}{33}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Analisis Kontrol yang Dipakai}{34}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Analisis Terhadap Siklus Hidup Aplikasi}{35}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Analisis Peta}{36}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Analisis Pemanfaatan Sumber Data}{37}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}Analisis Kiri API}{38}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}Diagram \textit {Use Case} dan Skenario}{42}{subsection.3.2.7}
+\contentsline {subsection}{\numberline {3.2.8}Kelas Diagram}{46}{subsection.3.2.8}
+\contentsline {chapter}{\numberline {4}Perancangan}{49}{chapter.4}
+\contentsline {section}{\numberline {4.1}Diagram \textit {Sequence}}{49}{section.4.1}
+\contentsline {section}{\numberline {4.2}Perancangan Kelas}{52}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Kelas \textit {PhoneApplicationPage}}{57}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Kelas \textit {MainPage}}{57}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Kelas \textit {City}}{58}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Kelas \textit {BackgroundWorker}}{59}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Kelas \textit {Geocoordinate}}{59}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Kelas \textit {Geolocator}}{59}{subsection.4.2.6}
+\contentsline {subsection}{\numberline {4.2.7}Kelas \textit {Geoposition}}{59}{subsection.4.2.7}
+\contentsline {subsection}{\numberline {4.2.8}Kelas \textit {LocationFinder}}{60}{subsection.4.2.8}
+\contentsline {subsection}{\numberline {4.2.9}Kelas \textit {Map}}{61}{subsection.4.2.9}
+\contentsline {subsection}{\numberline {4.2.10}Kelas \textit {HttpClient}}{62}{subsection.4.2.10}
+\contentsline {subsection}{\numberline {4.2.11}Kelas \textit {JsonConvert}}{62}{subsection.4.2.11}
+\contentsline {subsection}{\numberline {4.2.12}Kelas \textit {Protocol}}{62}{subsection.4.2.12}
+\contentsline {subsection}{\numberline {4.2.13}Kelas \textit {RootObjectSearchPlace}}{64}{subsection.4.2.13}
+\contentsline {subsection}{\numberline {4.2.14}Kelas \textit {SearchResult}}{64}{subsection.4.2.14}
+\contentsline {subsection}{\numberline {4.2.15}Kelas \textit {RootObjectFindRoute}}{64}{subsection.4.2.15}
+\contentsline {subsection}{\numberline {4.2.16}Kelas \textit {RoutingResult}}{64}{subsection.4.2.16}
+\contentsline {subsection}{\numberline {4.2.17}Kelas \textit {Route}}{65}{subsection.4.2.17}
+\contentsline {section}{\numberline {4.3}Perancangan Antar Muka}{67}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Antarmuka Kelas MainPage}{67}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Antarmuka Kelas Map}{68}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Antarmuka Kelas Route}{69}{subsection.4.3.3}
+\contentsline {chapter}{\numberline {5}Implementasi dan Pengujian Aplikasi}{71}{chapter.5}
+\contentsline {section}{\numberline {5.1}Implementasi}{71}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Perangkat Keras untuk Implementasi}{71}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Perangkat Lunak untuk Implementasi}{72}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Hasil Implementasi}{72}{subsection.5.1.3}
+\contentsline {section}{\numberline {5.2}Pengujian}{73}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Lingkungan Pengujian}{73}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}Pengujian Fungsional}{74}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}Pengujian Eksperimental}{77}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Perbandingan Aplikasi Pencari Rute di Android dengan Aplikasi Pencari Rute di Windows Phone}{79}{subsection.5.2.4}
-\contentsline {chapter}{\numberline {6}Kesimpulan dan Saran}{81}{chapter.6}
-\contentsline {section}{\numberline {6.1}Kesimpulan}{81}{section.6.1}
-\contentsline {section}{\numberline {6.2}Saran}{81}{section.6.2}
-\contentsline {chapter}{Daftar Referensi}{83}{chapter*.4}
+\contentsline {subsection}{\numberline {5.2.4}Perbandingan Waktu pencarian Rute}{79}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}Perbandingan Aplikasi Pencari Rute di Android dengan Aplikasi Pencari Rute di Windows Phone}{81}{subsection.5.2.5}
+\contentsline {chapter}{\numberline {6}Kesimpulan dan Saran}{83}{chapter.6}
+\contentsline {section}{\numberline {6.1}Kesimpulan}{83}{section.6.1}
+\contentsline {section}{\numberline {6.2}Saran}{83}{section.6.2}
+\contentsline {chapter}{Daftar Referensi}{85}{chapter*.14}
 \renewcommand {\cftchappresnum }{\bf \scshape }
-\contentsline {chapter}{\numberline {A}Kode Program Kelas MainPage}{85}{appendix.A}
-\contentsline {chapter}{\numberline {B}Kode Program Kelas Map}{91}{appendix.B}
-\contentsline {chapter}{\numberline {C}Kode Program kelas Route}{93}{appendix.C}
-\contentsline {chapter}{\numberline {D}Kode Program kelas City}{99}{appendix.D}
-\contentsline {chapter}{\numberline {E}Kode Program kelas LocationFinder}{101}{appendix.E}
-\contentsline {chapter}{\numberline {F}Kode Program kelas Protocol}{105}{appendix.F}
-\contentsline {chapter}{\numberline {G}Kode Program objek dari JSON}{109}{appendix.G}
+\contentsline {chapter}{\numberline {A}Kode Program Kelas MainPage}{87}{appendix.A}
+\contentsline {chapter}{\numberline {B}Kode Program Kelas Map}{93}{appendix.B}
+\contentsline {chapter}{\numberline {C}Kode Program kelas Route}{95}{appendix.C}
+\contentsline {chapter}{\numberline {D}Kode Program kelas City}{101}{appendix.D}
+\contentsline {chapter}{\numberline {E}Kode Program kelas LocationFinder}{103}{appendix.E}
+\contentsline {chapter}{\numberline {F}Kode Program kelas Protocol}{107}{appendix.F}
+\contentsline {chapter}{\numberline {G}Kode Program objek dari JSON}{111}{appendix.G}

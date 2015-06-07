@@ -100,12 +100,10 @@ namespace Kiri
                 if (forMaps.Equals("from"))
                 {
                     fromBox.Text = "Maps";
-                    //lFinder.addressFrom = "Maps";
                 }
                 else
                 {
                     toBox.Text = "Maps";
-                    //lFinder.addressTo = "Maps";
                 }
             }
         }
@@ -113,7 +111,6 @@ namespace Kiri
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            PhoneApplicationService.Current.State["location"] = lFinder;
         }
 
         private void Application_Deactivated(object sender, DeactivatedEventArgs e){
@@ -121,7 +118,6 @@ namespace Kiri
         }
 
         private void Application_Activated(object sender, ActivatedEventArgs e) {
-            //Console.WriteLine("Test");
             if (PhoneApplicationService.Current.State.ContainsKey("location"))
             {
                 this.lFinder = (LocationFinder)PhoneApplicationService.Current.State["location"];
@@ -268,7 +264,7 @@ namespace Kiri
                 {
                     if ((sender as ListBox).SelectedIndex >= 0)
                     {
-                        String locFrom = searchCoordinatePlace((List<Searchresult>)listPlaceFrom.DataContext, listPlaceFrom.SelectedItem.ToString());  //((sender as ListBox).SelectedItem as Searchresult).placename;
+                        String locFrom = searchCoordinatePlace((List<Searchresult>)listPlaceFrom.DataContext, listPlaceFrom.SelectedItem.ToString()); 
                         string[] coordinate = locFrom.Split(',');
                         lFinder.coorLatFrom = Double.Parse(coordinate[0]);
                         lFinder.coorLongFrom = Double.Parse(coordinate[1]);
@@ -283,7 +279,7 @@ namespace Kiri
                 {
                     if ((sender as ListBox).SelectedIndex >= 0)
                     {
-                        String locTo = searchCoordinatePlace((List<Searchresult>)listPlaceTo.DataContext, listPlaceTo.SelectedItem.ToString()); //((sender as ListBox).SelectedItem as Searchresult).placename;
+                        String locTo = searchCoordinatePlace((List<Searchresult>)listPlaceTo.DataContext, listPlaceTo.SelectedItem.ToString()); 
                         string[] coordinate = locTo.Split(',');
                         lFinder.coorLatTo = Double.Parse(coordinate[0]);
                         lFinder.coorLongTo = Double.Parse(coordinate[1]);
@@ -296,7 +292,7 @@ namespace Kiri
             this.findRoute();
         }
 
-        public string searchCoordinatePlace(List<Searchresult> listResult, string place) { //Pasti ketemu
+        public string searchCoordinatePlace(List<Searchresult> listResult, string place) { 
             String coordinate = "0.0";
             for (int c = 0; c < listResult.Count; c++)
             {
@@ -311,6 +307,7 @@ namespace Kiri
 
         public void findRoute()
         {
+						PhoneApplicationService.Current.State["location"] = lFinder;
             if ((lFinder.coorLatFrom != 0.0 && lFinder.coorLongFrom != 0.0) && (lFinder.coorLatTo != 0.0 && lFinder.coorLongTo != 0.0))
             {
                 NavigationService.Navigate(new Uri("/Route.xaml", UriKind.Relative)); 
