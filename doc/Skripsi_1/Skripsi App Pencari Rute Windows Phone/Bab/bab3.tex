@@ -165,7 +165,7 @@ Untuk dapat memanfaatkan sumber data di Windows Phone perlu memanfaatkan kelas H
 %parameter get karena hanya untuk mendapatkan data dan tidak ada data sensiti yg dikirimkan.
 \hspace{0.5cm} Kiri API menyediakan 2 jenis permintaan yaitu \textit{POST} dan \textit{GET}. Dalam tugas akhir ini digunakan protokol \textit{GET} untuk melakukan permintaan. Permintaan \textbf{GET} dipilih karena dalam tugas akhir ini aplikasi banyak mendapatkan data dan tidak ada data sensitif yang dikirimkan. Untuk hal ini maka mengirim ke URI \url{http://kiri.travel/handle.php}.
 
-Untuk setiap permintaan terhadap Kiri API dibutuhkan \textit{API key}. Kegunaan \textit{API key} adalah password untuk mengakses Kiri API. \textit{API key} dapat didapatkan di \url{dev.kiri.travel}. \textit{API key} yang digunakan pada tugas akhir ini adalah 97A7A1157A05E***. %97A7A1157A05ED6F
+Untuk setiap permintaan terhadap Kiri API dibutuhkan \textit{API key}. Kegunaan \textit{API key} adalah password untuk mengakses Kiri API. \textit{API key} dapat didapatkan di \url{dev.kiri.travel}. \textit{API key} yang digunakan pada tugas akhir ini adalah 97A7A1157A05E***. Pada penulisan \textit{API key}, 3 digit terakhir hexadesimal disamarkan agar tidak dipakai orang lain.   %97A7A1157A05ED6F
      
 Untuk tugas akhir ini digunakan 2 layanan yang ada pada Kiri API. Layanan yang digunakan adalah pencarian lokasi dan penentuan rute. Pencarian lokasi adalah layanan untuk menemukan tempat atau nama jalan yang terkait dengan masukan pengguna. Penentuan rute adalah layanan untuk menemukan langkah yang harus ditempuh pengguna untuk sampai ke lokasi tujuan dari lokasi asal. 
 
@@ -256,9 +256,9 @@ Layanan lainnya yang dimanfaatkan adalah layanan penentuan rute. Pemanfaatan lay
 	\item \textit{apikey}: 16 digit heksadesimal.
 \end{itemize}
 
-Format layanan yang dikirim melalui URL adalah \url{kiri.travel/handle.php?version=2&mode=findroute&locale=en/id&start=lat,lng&finish=lat,lng&presentation=mobile/desktop&apikey=97A7A1157A05ED6}
+Format layanan yang dikirim melalui URL adalah \url{kiri.travel/handle.php?version=2&mode=findroute&locale=en/id&start=lat,lng&finish=lat,lng&presentation=mobile/desktop&apikey=97A7A1157A05***}
 
-Percobaan pernentuan rute menuju Jalan Merdeka dari Jalan Ciumbuleuit. Layanan dikirimkan ke URL \url{kiri.travel/handle.php}. Format layanan yang dikirim dengan \textit{presentation mobile} adalah \url{http://kiri.travel/handle.php?version=2&mode=findroute&locale=id&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=mobile&apikey=97A7A1157A05ED6F}.
+Percobaan pernentuan rute menuju Jalan Merdeka dari Jalan Ciumbuleuit. Layanan dikirimkan ke URL \url{kiri.travel/handle.php}. Format layanan yang dikirim dengan \textit{presentation mobile} adalah \url{http://kiri.travel/handle.php?version=2&mode=findroute&locale=id&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=mobile&apikey=97A7A1157A05E***}.
 \newline
 Berikut hasil kembalian dari Kiri API:
 \begin{lstlisting} [caption= Kode Kembalian Pencarian Rute dengan \textit{Presentation Mobile}]
@@ -330,7 +330,7 @@ Berikut hasil kembalian dari Kiri API:
 \end{lstlisting}
 
 Format layanan yang dikirim dengan \textit{presentation desktop} adalah \\
-\url{http://kiri.travel/handle.php?version=2&mode=findroute&locale=id&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=desktop&apikey=97A7A1157A05ED6F}.
+\url{http://kiri.travel/handle.php?version=2&mode=findroute&locale=id&start=-6.8747337,107.6048829&finish=-6.9114646,107.6104887&presentation=desktop&apikey=97A7A1157A05E***}.
 
 Berikut hasil kembalian dari Kiri API:
 \begin{lstlisting} [caption= Kode Kembalian Pencarian Rute dengan \textit{Presentation Desktop}]

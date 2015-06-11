@@ -8,7 +8,7 @@
 \contentsline {section}{\numberline {1.2}Rumusan Masalah}{2}{section.1.2}
 \contentsline {section}{\numberline {1.3}Tujuan}{2}{section.1.3}
 \contentsline {section}{\numberline {1.4}Batasan Masalah}{2}{section.1.4}
-\contentsline {section}{\numberline {1.5}Metode Penelitian}{2}{section.1.5}
+\contentsline {section}{\numberline {1.5}Metode Penelitian}{3}{section.1.5}
 \contentsline {section}{\numberline {1.6}Sistematika Penulisan}{3}{section.1.6}
 \contentsline {chapter}{\numberline {2}Dasar Teori}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Windows Phone}{5}{section.2.1}
@@ -22,22 +22,13 @@
 \contentsline {subsection}{\numberline {2.1.8}Siklus Hidup Aplikasi \cite {MSDN}}{11}{subsection.2.1.8}
 \contentsline {subsection}{\numberline {2.1.9}Peta di Windows Phone \cite {MSDN}\cite {Manning}}{12}{subsection.2.1.9}
 \contentsline {subsection}{\numberline {2.1.10}\textit {Pushpin} pada Peta\cite {MSDN}}{15}{subsection.2.1.10}
-\contentsline {subsection}{\numberline {2.1.11}\textit {Polyline} pada Peta\cite {MSDN}}{16}{subsection.2.1.11}
+\contentsline {subsection}{\numberline {2.1.11}\textit {Polyline} pada Peta \cite {MSDN}}{16}{subsection.2.1.11}
 \contentsline {subsection}{\numberline {2.1.12}\textit {Namespace} Control Map}{17}{subsection.2.1.12}
 \contentsline {subsection}{\numberline {2.1.13}Lokasi}{19}{subsection.2.1.13}
-\contentsline {subsubsection}{Mendapatkan Posisi Pengguna}{19}{subsubsection*.5}
-\contentsline {subsubsection}{\textit {Namespace} Geolocator}{20}{subsubsection*.6}
-\contentsline {subsubsection}{Kelas Geocoordinate}{20}{subsubsection*.7}
-\contentsline {subsubsection}{Kelas Geolocator}{20}{subsubsection*.8}
-\contentsline {subsubsection}{Kelas Geoposition}{21}{subsubsection*.9}
-\contentsline {subsubsection}{Kelas ReverseGeocodeQuery}{21}{subsubsection*.10}
-\contentsline {subsection}{\numberline {2.1.14}Memanfaatkan Sumber Data}{22}{subsection.2.1.14}
-\contentsline {subsubsection}{Kelas HttpClient}{22}{subsubsection*.11}
-\contentsline {subsubsection}{Json.NET}{24}{subsubsection*.12}
-\contentsline {subsection}{\numberline {2.1.15}Thread}{25}{subsection.2.1.15}
-\contentsline {subsubsection}{\textit {BackgroundWorker}}{25}{subsubsection*.13}
+\contentsline {subsection}{\numberline {2.1.14}Memanfaatkan Sumber Data \cite {Manning}}{21}{subsection.2.1.14}
+\contentsline {subsection}{\numberline {2.1.15}Thread}{24}{subsection.2.1.15}
 \contentsline {section}{\numberline {2.2}Kiri API}{25}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}\textit {Web Service} Penentuan Rute}{26}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.1}\textit {Web Service} Penentuan Rute}{25}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}\textit {Web Service} Pencarian Lokasi}{27}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}\textit {Web Service} Menemukan Transportasi Terdekat}{28}{subsection.2.2.3}
 \contentsline {chapter}{\numberline {3}Analisis}{31}{chapter.3}
@@ -80,21 +71,21 @@
 \contentsline {subsection}{\numberline {5.1.1}Perangkat Keras untuk Implementasi}{71}{subsection.5.1.1}
 \contentsline {subsection}{\numberline {5.1.2}Perangkat Lunak untuk Implementasi}{72}{subsection.5.1.2}
 \contentsline {subsection}{\numberline {5.1.3}Hasil Implementasi}{72}{subsection.5.1.3}
-\contentsline {section}{\numberline {5.2}Pengujian}{73}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Lingkungan Pengujian}{73}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Pengujian Fungsional}{74}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Pengujian Eksperimental}{77}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.2}Pengujian}{76}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Lingkungan Pengujian}{76}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Pengujian Fungsional}{77}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Pengujian Eksperimental}{78}{subsection.5.2.3}
 \contentsline {subsection}{\numberline {5.2.4}Perbandingan Waktu pencarian Rute}{79}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}Perbandingan Aplikasi Pencari Rute di Android dengan Aplikasi Pencari Rute di Windows Phone}{81}{subsection.5.2.5}
-\contentsline {chapter}{\numberline {6}Kesimpulan dan Saran}{83}{chapter.6}
-\contentsline {section}{\numberline {6.1}Kesimpulan}{83}{section.6.1}
-\contentsline {section}{\numberline {6.2}Saran}{83}{section.6.2}
-\contentsline {chapter}{Daftar Referensi}{85}{chapter*.14}
+\contentsline {subsection}{\numberline {5.2.5}Perbandingan Aplikasi Pencari Rute di Android dengan Aplikasi Pencari Rute di Windows Phone}{80}{subsection.5.2.5}
+\contentsline {chapter}{\numberline {6}Kesimpulan dan Saran}{81}{chapter.6}
+\contentsline {section}{\numberline {6.1}Kesimpulan}{81}{section.6.1}
+\contentsline {section}{\numberline {6.2}Saran}{81}{section.6.2}
+\contentsline {chapter}{Daftar Referensi}{83}{chapter*.5}
 \renewcommand {\cftchappresnum }{\bf \scshape }
-\contentsline {chapter}{\numberline {A}Kode Program Kelas MainPage}{87}{appendix.A}
-\contentsline {chapter}{\numberline {B}Kode Program Kelas Map}{93}{appendix.B}
-\contentsline {chapter}{\numberline {C}Kode Program kelas Route}{95}{appendix.C}
-\contentsline {chapter}{\numberline {D}Kode Program kelas City}{101}{appendix.D}
-\contentsline {chapter}{\numberline {E}Kode Program kelas LocationFinder}{103}{appendix.E}
-\contentsline {chapter}{\numberline {F}Kode Program kelas Protocol}{107}{appendix.F}
-\contentsline {chapter}{\numberline {G}Kode Program objek dari JSON}{111}{appendix.G}
+\contentsline {chapter}{\numberline {A}Kode Program Kelas MainPage}{85}{appendix.A}
+\contentsline {chapter}{\numberline {B}Kode Program Kelas Map}{91}{appendix.B}
+\contentsline {chapter}{\numberline {C}Kode Program kelas Route}{93}{appendix.C}
+\contentsline {chapter}{\numberline {D}Kode Program kelas City}{99}{appendix.D}
+\contentsline {chapter}{\numberline {E}Kode Program kelas LocationFinder}{101}{appendix.E}
+\contentsline {chapter}{\numberline {F}Kode Program kelas Protocol}{105}{appendix.F}
+\contentsline {chapter}{\numberline {G}Kode Program objek dari JSON}{109}{appendix.G}

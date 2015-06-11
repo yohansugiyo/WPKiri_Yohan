@@ -340,7 +340,7 @@ Berikut Properti yang disediakan kelas \textit{Pushpin}:
 \end{itemize}
 
 % SUB Polyline pada Peta
-\subsection{\textit{Polyline} pada Peta\cite{MSDN}}
+\subsection{\textit{Polyline} pada Peta \cite{MSDN}}
 \label{subsubsec:Polyline pada Peta}
 \hspace{0.5cm} Dalam menentukan arah dibutuhkan dua titik yaitu titik awal dan titik tujuan. Tentu saja arah tersebut butuh ditandai dengan garis. \textit{Polyline} merupakan serangkaian garis lurus yang terhubung. \textit{Polyline} dapat menandai peta dengan warna maupun ketebalan tertentu. Contoh keluaran \textit{polyline} dapat dilihat pada Gambar~\ref{fig:TampilanpolylinepadaPeta} dan kode untuk menampilkannya dapat dilihat pada \textit{listing}~\ref{lst:polyline}.
 
@@ -451,8 +451,6 @@ Hal yang perlu diperhatikan dalam menentukan layanan lokasi adalah penangkap GPS
 
 Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelacakan lokasi harus dilakukan terus menerus. Pelacakan lokasi secara terus menerus ini dapat dilakukan di depan maupun di belakang aplikasi Windows Phone 8. Pelacakan aplikasi di depan memungkinkan aplikasi melacak lokasi pengguna sekaligus melakukan perbaruan antarmuka. Jika pelacakan lokasi di belakang aplikasi maka tidak ada perubahan pada antarmuka namun pelacakan dilakuan secara terus menerus. Pelacakan yang terus menerus di belakang aplikasi akan membuat keadaan aplikasi cepat dipulihkan dari keadaan \textit{Dormant}.
 
-% SUBSUB Mendapatkan Posisi Pengguna
-\subsubsection{Mendapatkan Posisi Pengguna}
 \label{subsubsec:Mendapatkan Posisi Pengguna}
 \hspace{0.5cm} Windows Phone 8 telah menyediakan kelas \textit{GeoCoordinate} yang digunakan untuk mengetahui posisi pengguna. \textit{Geolocator class} dari \textit{Windows.Devices.Geolocation} dapat mengembalikan posisi saat ini. Untuk menggunakan \textit{Geolocator}, perlu menghidupkan \textit{ID\_CAP\_LOCATION} di \url{/properties/WMAppManifest.xml}. Dalam mendapatkan posisi perlu diperhatikan status dari GPS karena membutuhkan waktu dari awal pengaktifan hingga mendapatkan lokasi pengguna secara akurat. Untuk lebih jelas mengenai status posisi dapat dilihat pada nilai status dibawah ini.
 
@@ -465,104 +463,73 @@ Karena pengguna dapat berpindah tempat untuk menuju tempat yang lain, maka pelac
 	\item \textit{NotAvailable} : Jika sensor arah mata angin dan lokasi tidak tersedia.
 \end{itemize}
 
-% SUBSUB Namespace Geolocator
-\subsubsection{\textit{Namespace} Geolocator}
 \label{subsubsec:Namespace Geolocator}
-\hspace{0.5cm} \textit{Namespace} Geolocator merupakan nama dari set objek yang dipakai untuk mengatur pengaksesan lokasi. Windows Phone 8 menyediakan \textit{namespace} bawaan untuk mengakses lokasi. \textit{Namespace} yang disediakan adalah \textit{namespace} Geolocator. \textit{Namespace} ini dapat mengakses lokasi geografis dari perangkat dan mendukung pelacakan lokasi dari waktu ke waktu. Agar dapat menggunakan kelas pada \textit{namespace} tersebut perlu ditambahkan \textit{namespace} dan \textit{capabilities}. \textit{Namespace} yang harus ditambahkan pada baris awal XAML adalah \textbf{Windows.Device.Geolocator}. Selanjutnya ada penambahan \textit{capabilities ID\_CAP\_LOCATION}. Penambahan \textit{capabilities} ditambahkan pada \textit{WMAppManifest.xml}. Kelas yang diatur oleh \textit{namespace} Geolocator dapat di lihat pada tabel ~\ref{tab:KelasPadaNamespaceGeolocator}\cite{DevWP8}.
-\begin{table}[h]
-	\centering
-		\begin{tabular}{ |p{4cm}|p{10cm}|}
-				\hline
-				Kelas & Deskripsi \\ \hline
-				Geocoordinate & Berisi informasi untuk mengidentifikasi lokasi geografis. \\ \hline
-				Geolocator & Mendukung dalam pengaksesan lokasi perangkat. \\ \hline
-				Geoposition & Memberikan data lokasi beserta \textit{latitude} dan \textit{longitude} atau data alamat. \\ \hline
-				\hline
-		\end{tabular}
-	\caption{Kelas pada \textit{Namespace Geolocator}}
-	\label{tab:KelasPadaNamespaceGeolocator}
-\end{table}
-
-% SUBSUB Kelas Geocoordinate
-\subsubsection{Kelas Geocoordinate}
-\label{subsubsec:Kelas Geocoordinate}
-\hspace{0.5cm} Kelas Geocoordinate adalah kelas yang menunjukan lokasi sebagai kordinat geografis. Kelas ini hanya menyediakan properti yang hanya bisa dibaca. Kelas ini menyediakan properti yang ditunjukan pada tabel ~\ref{tab:PropertiPadaKelasGeocoordinate}.
-
-\begin{table}[h]
-	\centering
-		\begin{tabular}{ |p{4cm}|p{10cm}|}
-				\hline
-				Properti & Deskripsi \\ \hline
-				\textit{Altitude} & Ketinggian lokasi dalam satuan meter. \\ \hline
-				\textit{Heading} & Arah menghadap perangkat dalam satuan derajat yang relative terhadap mata angin utara. \\ \hline
-				\textit{Latitude} & Garis lintang dalam satuan derajat. \\ \hline
-				\textit{Longitude}  & Garis bujur dalam satuan derajat. \\ \hline
-				\textit{Point} & Lokasi dari \textit{Geocoordinate}. \\ \hline
-				\textit{Speed} & Kecepatan dalam satuan meter per detik. \\ \hline
-				\hline
-		\end{tabular}
-	\caption{Properti pada \textit{Geocoordinate}}
-	\label{tab:PropertiPadaKelasGeocoordinate}
-\end{table} 
-
-% SUBSUB Kelas Geolocator
-\subsubsection{Kelas Geolocator}
-\label{subsubsec:Kelas Geolocator}
-\hspace{0.5cm} Kelas Geolocator merupakan kelas yang mendukung pengaksesan terhadap lokasi. Berikut \textit{method} yang disediakan \textit{Geolocator}:
+\hspace{0.5cm} \textit{Namespace} Geolocator merupakan nama dari set objek yang dipakai untuk mengatur pengaksesan lokasi. Windows Phone 8 menyediakan \textit{namespace} bawaan untuk mengakses lokasi. \textit{Namespace} yang disediakan adalah \textit{namespace} Geolocator. \textit{Namespace} ini dapat mengakses lokasi geografis dari perangkat dan mendukung pelacakan lokasi dari waktu ke waktu. Agar dapat menggunakan kelas pada \textit{namespace} tersebut perlu ditambahkan \textit{namespace} dan \textit{capabilities}. \textit{Namespace} yang harus ditambahkan pada baris awal XAML adalah \textbf{Windows.Device.Geolocator}. Selanjutnya ada penambahan \textit{capabilities ID\_CAP\_LOCATION}. Penambahan \textit{capabilities} ditambahkan pada \textit{WMAppManifest.xml}. Berikut kelas yang diatur oleh \textit{namespace} Geolocator\cite{DevWP8}.
 
 \begin{itemize}
-	\item \textit{public IAsyncOperation<Geoposition>} GetGeopositionAsync() \\
-		Operator await diatas dimaksudkan untuk meminta posisi lokasi terus menerus sampai selesai dan menunda tugas yang lain. \textit{Method} GetGeopositionAsync() merupakan \textit{method} bawaan kelas Geolocator. \textit{Method} GetGeopositionAsync() dapat meminta data lokasi dan menanganinya sampai selesai. Kembalian dari \textit{method} GetGeopositionAsync() adalah objek \textit{Geoposition}.
-\end{itemize}
+	\item Kelas Geocoordinate adalah kelas yang menunjukan lokasi sebagai kordinat geografis. Kelas ini hanya menyediakan properti yang hanya bisa dibaca. Kelas ini menyediakan properti yang ditunjukan pada tabel ~\ref{tab:PropertiPadaKelasGeocoordinate}. \\
+			\begin{table}[h]
+				\centering
+					\begin{tabular}{ |p{4cm}|p{10cm}|}
+							\hline
+							Properti & Deskripsi \\ \hline
+							\textit{Altitude} & Ketinggian lokasi dalam satuan meter. \\ \hline
+							\textit{Heading} & Arah menghadap perangkat dalam satuan derajat yang relative terhadap mata angin utara. \\ \hline
+							\textit{Latitude} & Garis lintang dalam satuan derajat. \\ \hline
+							\textit{Longitude}  & Garis bujur dalam satuan derajat. \\ \hline
+							\textit{Point} & Lokasi dari \textit{Geocoordinate}. \\ \hline
+							\textit{Speed} & Kecepatan dalam satuan meter per detik. \\ \hline
+							\hline
+					\end{tabular}
+				\caption{Properti pada \textit{Geocoordinate}}
+				\label{tab:PropertiPadaKelasGeocoordinate}
+			\end{table} 
+	\item Kelas Geolocator merupakan kelas yang mendukung pengaksesan terhadap lokasi. Berikut \textit{method} yang disediakan \textit{Geolocator}: \\
+			\begin{itemize}
+				\item \textit{public IAsyncOperation<Geoposition>} GetGeopositionAsync() \\
+					Operator await diatas dimaksudkan untuk meminta posisi lokasi terus menerus sampai selesai dan menunda tugas yang lain. \textit{Method} GetGeopositionAsync() merupakan \textit{method} bawaan kelas Geolocator. \textit{Method} GetGeopositionAsync() dapat meminta data lokasi dan menanganinya sampai selesai. Kembalian dari \textit{method} GetGeopositionAsync() adalah objek \textit{Geoposition}.
+			\end{itemize}
 
-Berikut Properti yang disediakan kelas Geolocator:
-\begin{itemize}
-	\item \textit{public PositionStatus} LocationStatus \{ get; \} \\
-		Merupakan properti dari kelas \textit{geolocator} untuk mendapatkan status posisi dengan mengembalikan kelas \textit{PositionStatus}. Status pada kelas \textit{PositionStatus} adalah \textit{Ready}, \textit{Initializing}, \textit{NoData}, \textit{Disable}, \textit{NotInitialized}, dan \textit{NotAvailable}.
-	\item \textit{public PositionAccuracy} DesiredAccuracy \{ get; set; \} \\
-		Properti yang digunakan untuk mengatur dan mendapatkan tingkat akurasi. Untuk tingkat akurasi dapat dipilih tingkat \textit{High} untuk tingkat akurasi tinggi dan dipilih tingkat {Default} untuk menghemat daya. Keluaran dari properti ini adalah tipe data \textit{PositionAccuracy}.
-	\item \textit{public Nullable<uint>} DesiredAccuracyInMeters \{ get; set; \}\\
-		Sama seperti properti \textit{DesiredAccuracy} diatas tetapi dalam satuan meter. Keluaran dari properti ini adalah tipe data \textit{uint}.
-	\item \textit{public uint} ReportInterval \{ get; set; \} \\
-		Merupakan properti untuk mendapatkan selang waktu pembaruan lokasi. Properti ini mengeluarkan tipe data unit.
-\end{itemize}
+			Berikut Properti yang disediakan kelas Geolocator:
+			\begin{itemize}
+				\item \textit{public PositionStatus} LocationStatus \{ get; \} \\
+					Merupakan properti dari kelas \textit{geolocator} untuk mendapatkan status posisi dengan mengembalikan kelas \textit{PositionStatus}. Status pada kelas \textit{PositionStatus} adalah \textit{Ready}, \textit{Initializing}, \textit{NoData}, \textit{Disable}, \textit{NotInitialized}, dan \textit{NotAvailable}.
+				\item \textit{public PositionAccuracy} DesiredAccuracy \{ get; set; \} \\
+					Properti yang digunakan untuk mengatur dan mendapatkan tingkat akurasi. Untuk tingkat akurasi dapat dipilih tingkat \textit{High} untuk tingkat akurasi tinggi dan dipilih tingkat {Default} untuk menghemat daya. Keluaran dari properti ini adalah tipe data \textit{PositionAccuracy}.
+				\item \textit{public Nullable<uint>} DesiredAccuracyInMeters \{ get; set; \}\\
+					Sama seperti properti \textit{DesiredAccuracy} diatas tetapi dalam satuan meter. Keluaran dari properti ini adalah tipe data \textit{uint}.
+				\item \textit{public uint} ReportInterval \{ get; set; \} \\
+					Merupakan properti untuk mendapatkan selang waktu pembaruan lokasi. Properti ini mengeluarkan tipe data unit.
+			\end{itemize}
+	\item Kelas Geoposition merupakan kelas yang memuat lokasi (\textit{latitude} dan \textit{longitude}). Berikut Properti yang disediakan kelas \textit{Geoposition}: \\
+			\begin{itemize}
+				\item \textit{public CivicAddress} CivicAddress \{ get; \} \\
+					Data alamat sipil yang terkait dengan lokasi geografis.
+				\item \textit{public Geocoordinate} Coordinate \{ get; \} \\
+					Data latitude dan longitude yang terkait lokasi geografis.
+			\end{itemize}
+	\item Kelas ReverseGeocodeQuery merupakan kelas yang digunakan untuk membalikkan objek \textit{query geocode}. Kelas \textit{ReverseGeocodeQuery} dapat mendapatkan alamat dari kordinat \textit{latitude} dan \textit{longitude}.
+			Berikut Properti yang disediakan kelas \textit{ReverseGeocodeQuery}:
+			\begin{itemize}
+				\item \textit{GeoCoordinate} \{ get; set;\} \\
+				Untuk menampung kordinat.
+			\end{itemize}
 
-% SUBSUB Kelas Geoposition
-\subsubsection{Kelas Geoposition}
-\label{subsubsec:Kelas Geoposition}
-\hspace{0.5cm} \textit{Geoposition} merupakan kelas yang memuat lokasi (\textit{latitude} dan \textit{longitude}).
-Berikut Properti yang disediakan kelas \textit{Geoposition}:
-\begin{itemize}
-	\item \textit{public CivicAddress} CivicAddress \{ get; \} \\
-		Data alamat sipil yang terkait dengan lokasi geografis.
-	\item \textit{public Geocoordinate} Coordinate \{ get; \} \\
-		Data latitude dan longitude yang terkait lokasi geografis.
-\end{itemize}
+			Berikut \textit{method} yang disediakan \textit{ReverseGeocodeQuery}:
+			\begin{itemize}
+				\item QueryAsync() \\
+					Memulai permintaan.
+			\end{itemize}
 
-% SUBSUB Kelas ReverseGeocodeQuery
-\subsubsection{Kelas ReverseGeocodeQuery}
-\label{subsubsec:Kelas ReverseGeocodeQuery}
-\hspace{0.5cm} \textit{ReverseGeocodeQuery} merupakan kelas yang digunakan untuk membalikkan objek \textit{query geocode}. Kelas \textit{ReverseGeocodeQuery} dapat mendapatkan alamat dari kordinat \textit{latitude} dan \textit{longitude}.
-Berikut Properti yang disediakan kelas \textit{ReverseGeocodeQuery}:
-\begin{itemize}
-	\item \textit{GeoCoordinate} \{ get; set;\} \\
-	Untuk menampung kordinat.
-\end{itemize}
-
-Berikut \textit{method} yang disediakan \textit{ReverseGeocodeQuery}:
-\begin{itemize}
-	\item QueryAsync() \\
-		Memulai permintaan.
-\end{itemize}
-
-Berikut \textit{event} yang disediakan \textit{ReverseGeocodeQuery}:
-\begin{itemize}
-	\item \textit{QueryCompleted} \\
-		Terjadi ketika permintaan selesai dijalankan.
+			Berikut \textit{event} yang disediakan \textit{ReverseGeocodeQuery}:
+			\begin{itemize}
+				\item \textit{QueryCompleted} \\
+					Terjadi ketika permintaan selesai dijalankan.
+			\end{itemize}
 \end{itemize}
 
 % SUB Memanfaatkan Sumber Data
-\subsection{Memanfaatkan Sumber Data}
+\subsection{Memanfaatkan Sumber Data \cite{Manning}}
 \label{subsec:Memanfaatkan Sumber Data}
 \hspace{0.5cm} Hal yang penting dari sebuah aplikasi adalah informasi. Windows Phone 8 memiliki kemampuan dalam menghubungkan aplikasi dengan sumber data lainnya. Memanfaatkan sumber data dilakukan dengan dua cara yaitu yang lokal atau berada di perangkat dan \textit{web service}. \textit{Web service} merupakan metode komunikasi antara dua perangkat melalui jaringan. 
 
@@ -571,9 +538,6 @@ Sebelum data dapat dikirim antar perangkat perlu dilakukan \textit{serialization
 %sumber http://json.org/
 Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memiliki format \textit{data-interchange} yang ringan \cite{rfc7159}. Karena hal tersebut JSON mudah diurai dan dihasilkan oleh mesin. Kurung kurawal mengindikasikan objek, kurung siku berarti \textit{array}, dan properti berupa nama dan nilai pasangan yang dipisahkan oleh titik dua. JSON memiliki ukuran data yang kecil dan baik untuk penggunaan perangkat \textit{mobile}. Untuk contoh format JSON dapat dilihat di bagian Kiri API pada Bab dua ini karena Kiri API menggunakan format JSON. \textit{Serializes} menggunakan \textit{DataContractJsonSerializer} membuat \textit{serializes} mudah untuk menerjemahkan \textit{form string} JSON ke objek yang dapat langsung digunakan. \textit{DataContractJsonSerializer} memakai \textit{WriteObject()} untuk \textit{serializes} and \textit{method} ReadObject() untuk \textit{deserializes}.
 
-% SUBSUB Kelas HttpClient
-\subsubsection{Kelas HttpClient}
-\label{subsubsec:Kelas HttpClient}
 \hspace{0.5cm} Kelas HttpClient merupakan kelas yang dipakai untuk mengirim permintaan HTTP dan menerima kembalian HTTP dari \textit{Uniform Resource Identifier}(URI) yang dapat diidentifikasi. URI merupakan urutan kompak karakter yang mengidentifikasikan sumber daya abstrak dan fisik \cite{rfc3986}. Berikut \textit{method} yang disediakan kelas \textit{HttpClient}.
 \begin{itemize}
 	\item DeleteAsync(\textit{Uri}) \\
@@ -600,9 +564,6 @@ Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memi
 % http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn440594.aspx
 % http://msdn.microsoft.com/en-us/library/windows/apps/xaml/windows.web.http.httpclient.aspx
 
-% SUBSUB Json.NET from http://www.newtonsoft.com/json
-\subsubsection{Json.NET}
-\label{subsubsec:Json.NET}
 \hspace{0.5cm} Json.NET merupakan \textit{library} yang digunakan untuk melakukan \textit{serialize} (proses konversi objek ke \textit{stream of bytes}) dan \textit{deserialize} (proses konversi \textit{stream of bytes} ke bentuk objek) terhadap objek dalam .NET \cite{jsonNet}. \textit{Library} ini memiliki 2 kelas yaitu kelas JsonConvert dan kelas JsonSerializer. Berikut merupakan keterangan dari dua kelas tersebut.
 \begin{itemize}
 	\item Kelas JsonConvert merupakan kelas yang dapat mengkonversi objek ke JSON dalam bentuk String dan sebaliknya. Berikut 2 buah \textit{method} yang disediakan kelas JsonConvert. 
@@ -621,8 +582,6 @@ Banyak \textit{web service} yang mengembalikan data dalam format JSON. JSON memi
 \label{subsec:Thread}
 \hspace{0.5cm} Sebuah aplikasi terdiri dari satu atau lebih proses. Sebuah proses adalah kode program yang sedang dieksekusi. Dalam konteks proses terdapat satu atau lebih thread yang dijalankan. Thread merupakan unit dasar yang sistem operasi alokasikan sebagai waktu yang prosessor kerjakan. Setiap thread dapat menjalankan setiap bagian dari kode program tergantung yang diatur sistem operasi. 
 
-\subsubsection{\textit{BackgroundWorker}}
-\label{subsubsec:BackgroundWorker}
 \hspace{0.5cm} \textit{BackgroundWorker} merupakan kelas dari Windows Phone yang dapat mengeksekusi operasi dalam thread terpisah. Berikut \textit{method} yang disediakan kelas \textit{BackgroundWorker}.
 \begin{itemize}
 	\item \textit{Method} RunWorkerAsync() \\
